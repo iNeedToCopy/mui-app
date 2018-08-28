@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>首页</title>
+    <link href="../../css/mui.min.css" rel="stylesheet"/>
+    <link href="../../css/layer.css" rel="stylesheet"/>
+    <!--自己的样式-->
+    <link rel="stylesheet" type="text/css" href="../common/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="home.css"/>
+</head>
+<body>
+	<!--头部-->
+	<div id="container">
+		<!--<div class="mui-backdrop"></div> 
+		<div class="toast">
+			<span>您有新的消息，请注意查收</span>
+		</div>-->
+		<div id="topbar" class="mui-row topbar" :class="{main_bg:show_topbj}">
+			<span id="position" v-html="district"></span>
+			<form id="search_form" class="mui-pull-left mui-input-group ">
+				<div class="mui-input-row" id="search_form_d">
+					<label class="search"><img src="../../images/ic_home_ss.png"/></label>
+		   			<div id="search_box"
+		   				class="mui-input-clear" @tap="goto_search()" placeholder="">
+		   				<span @tap="goto_search()" >搜一搜附近的美食佳肴</span>
+		   			</div>
+			   	</div>
+			</form>
+			<div id="tools">
+				<img src="../../images/ic_home_sys.png" class="barcode" @tap="scan_qr()"/>
+				<img src="../../images/ic_home_fk.png" class="paymentCode" @tap="payment_code()"/>
+			</div> 
+		</div>
+		<div>
+			<!--主体内容-->
+			<div class="mui-content" style="padding-top: 0px !important;">
+					<!--轮播图片展示-->
+					<div class="mask"></div>
+					<div id="slider_wrapper">
+						<div id="slider" class="mui-slider " v-if="slide.length>0"> 
+				          <div class="mui-slider-group mui-slider-loop">
+				            <div class="mui-slider-item mui-slider-item-duplicate">
+				              <a @tap="slide_tap(slide[slide.length-1])">
+				                <img :src="slide[slide.length-1].logo">
+				              </a>
+				            </div>
+				            <div class="mui-slider-item" v-for="s in slide">
+					          	<a @tap="slide_tap(s)">
+					            	<img :src="s.logo">
+					          	</a>
+					        </div>
+				            <div class="mui-slider-item mui-slider-item-duplicate">
+				              <a @tap="slide_tap(slide[0])">
+				                <img :src="slide[0].logo">
+				              </a>
+				            </div>
+				          </div>
+				          <div class="mui-slider-indicator">
+				            <div class="mui-indicator" :class="{'mui-active':idx==0}" v-for="(a,idx) in slide"></div>
+				          </div>
+				        </div>
+					</div>
+			        
+					<div id="catalog" class="mui-slider">
+				        <div class="mui-slider-group mui-slider-loop">
+				        	<!--//轮播需要多添加前后两个轮播组件，mui才能自动轮播。。。。。-->
+				        	<div class="mui-slider-item">
+						    	<div class="iconBox" v-for="page in classpages[1]">
+						    		<div class="itemIcon" v-for="item in page">
+						    			<a @tap="cat_taped(item)"><img :src="item.logo"/></a><br />
+						    			<span>{{item.text}}</span>
+						    		</div>
+					    		</div>
+				    		</div>
+				        	
+				        	<div class="mui-slider-item">
+						    	<div class="iconBox" v-for="page in classpages[0]">
+						    		<div class="itemIcon" v-for="item in page">
+						    			<a @tap="cat_taped(item)">
+						    				<img :src="item.logo"/><br/>
+						    				<span>{{item.text}}</span>
+						    			</a>
+						    		</div>
+					    		</div> 
+				    		</div>
+				    		
+				    		<div class="mui-slider-item">
+						    	<div class="iconBox" v-for="page in classpages[1]">
+						    		<div class="itemIcon" v-for="item in page">
+						    			<a @tap="cat_taped(item)"><img :src="item.logo"/></a><br />
+						    			<span>{{item.text}}</span>
+						    		</div>
+					    		</div>
+				    		</div>
+				    		
+				    		<div class="mui-slider-item">
+						    	<div class="iconBox" v-for="page in classpages[0]">
+						    		<div class="itemIcon" v-for="item in page">
+						    			<a @tap="cat_taped(item)">
+						    				<img :src="item.logo"/><br/>
+						    				<span>{{item.text}}</span>
+						    			</a>
+						    		</div>
+					    		</div> 
+				    		</div> 
+				    		
+						</div>
+						<div class="mui-slider-indicator">
+							<span class="mui-indicator mui-active"></span>
+							<span class="mui-indicator "></span>
+						</div>
+					</div>
+					<!--附近优惠-->
+					<div class="ad preferential" style="margin-top: 10px;">
+						<div class="adBox">
+							<div class="top">
+								<a class="nearbyReductionMore" @tap="goto_reduce_more()">更多<span class="mui-icon mui-icon-arrowright"></span></a>
+							</div>
+							<div class="content" style="padding:0 10px 0 10px;margin-top: -5px;">
+								<div class="shops">
+									<div class="shop" v-for="item in nearshop" @tap="goto_shop_details(item.id)">
+										<div class="bgi"  v-bind:style="{'background': 'url('+item.logo+') no-repeat','background-size':'100% 100%'}"></div>
+										<!--<span class="myTips">麻辣成都</span>-->
+										<div class="info">
+											<p class="name">{{item.name}}</p>
+											<!--<p class="intro">火锅冒菜</p>-->
+											<span class="desc">{{item.desc}}</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--聚划算-->
+					<div class="ad margin10 poly">
+						<div class="adBox">
+							<div class="top">
+								<a class="JMore" @tap="goto_jmore()">更多<span class="mui-icon mui-icon-arrowright"></span></a>
+							</div>
+							<div class="content">
+								<div class="items">
+									<div class="item" v-for="item in goods" @tap="goto_goods_details(item.id)">
+										<img :src="item.logo"/>
+										<p>{{item.name}}</p> 
+										<p>
+											<span style="font-size: 10px; color: #e60012;">￥</span><span class="price">{{item.price}}</span>
+											<span class="discount">{{item.price}}</span>
+										</p>
+									</div>
+								</div>
+							</div> 
+						</div>
+					</div>
+					<!--banner-->
+					<div class="mui-row" v-for="item in advert">
+						<div class="adPicture mui-col-xs-12 mui-col-sm-12">
+							<a @tap="open_url(item)"><img :src="item.logo" /></a>
+						</div>
+					</div>
+					<!--五星商家-->
+					<div id="fallStar" class="fallStar">
+						<div class="starBox">
+							<div class="top">
+								<img src="../../images/bg_home_wxsj.png" />
+							</div>
+							<div class="content" v-for="shop in fullshop" @tap="goto_shop_details(shop.id)">
+								<div class="" >
+									
+									<img class="mui-pull-left" :src="shop.logo" />
+									<div class="starText mui-pull-right">
+										<p class="hideText10">{{shop.name}}</p><br />
+										<span class="middle">{{shop.classname}}&nbsp;&nbsp;</span>
+										<span class="middle" v-if="shop.per_price>0">人均{{shop.per_price}}</span><br />
+										<span class="sale" v-if="shop.discount_price_desc.length>0">{{shop.discount_price_desc}}</span>&nbsp;
+										<span class="voucher" v-if="shop.max_daijinquan_desc.length>0">{{shop.max_daijinquan_desc}}</span>
+									</div>
+									<img src="../../images/bg_home_myd.png" class="satisfy" />
+									<span class="score">{{shop.all_score}}</span>
+									<span class="distance">{{shop.distance}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="../../js/mui.min.js"></script>
+	
+	<script src="../../js/layer_toast.js"></script>
+	
+	<script src="../../js/vue.min.js"></script>
+
+	<script src="../../js/app.js"></script>
+	
+   	<script src="home.js"></script>
+</body>
+</html>

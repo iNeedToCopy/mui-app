@@ -1,0 +1,46 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+.item{
+	list-style: none;
+	background: #fff;
+	padding: 15px;
+	display: flex;
+	border-bottom: 1px solid #e5e5e5;
+}
+.item img{
+	width: 28%;
+	height: 90px;
+}
+.item .text{
+	margin-left: 10px;
+}
+.item .text .goodsName{
+	font-size: 16px;
+	font-weight: bold;
+}
+.item .text p{
+	margin-bottom: 0;
+	margin-top: 20px;
+}
+.item .text .true{
+	color: #fb1c2a;
+}
+.item .text .fake{
+	color: #999;
+	text-decoration: line-through;
+}

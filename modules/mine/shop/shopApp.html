@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>商家申请</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/shopApp.css"/>
+
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">商家申请</h1>
+			</div>
+		</header>
+		<div class="mui-content" id="container">
+			<!--底-->
+			<nav class="mui-bar mui-bar-tab color" @tap="submit()">
+			      <h1 class="mui-title">提交</h1>
+			</nav> 
+			<!---->
+			<div >
+					<!--基础信息-->
+				<div class="msg">
+					基础信息
+				</div>
+				<!--店铺信息-->
+				<div class="shopMsg1">
+					<form class="mui-input-group">
+					    <div class="mui-input-row">
+					        <label>店铺名称</label>
+					    	<input type="text" maxlength="15" class="mui-input-clear" v-model="shopname" placeholder="审核后不可修改">
+					    </div>
+	<!--				    <div class="mui-input-row">
+					        <label>分店名称</label>
+					    	<input type="text" class="mui-input-clear" placeholder="审核后不可修改">
+					    </div>-->
+					</form>
+					<ul class="mui-table-view shopLocation">
+				        <li class="mui-table-view-cell Location">
+				            <a class="mui-navigate-right" @tap="goto_shopLoadtion()">
+				            	门店地址<span>{{addr}}</span>
+				            </a>
+				        </li>
+				        <li class="mui-table-view-cell">
+				            <a class="mui-navigate-right" @tap="goto_classify()">
+				            	经营分类<span>{{class_text}}</span>
+				            </a>
+				        </li>
+			        </ul>
+				</div>
+				<div class="shopMsg2 marginTop10">
+					<form class="mui-input-group">
+					    <div class="mui-input-row">
+					        <label>门店电话</label>
+					    	<input type="tel"  maxlength="15" class="mui-input-clear" v-model="phone">
+					    </div>
+					</form>
+					<ul class="mui-table-view Photo">
+				        <li class="mui-table-view-cell doorPhoto">
+				            <a class="mui-navigate-right" @tap="goto_doorPhoto()">
+				            	门头照<span>{{logourl.length == 0?'未上传':'已上传'}}</span>
+				            </a>
+				        </li>
+				        <li class="mui-table-view-cell innerPhoto">
+				            <a class="mui-navigate-right" @tap="goto_innerPhoto()">
+				            	内景照<span>{{innerpicurl.length == 0?'未上传':'已上传'}}</span>
+				            </a>
+				        </li>
+			        </ul>
+				</div>
+				<div class="">
+					<ul class="mui-table-view marginTop10 other">
+				        <li class="mui-table-view-cell licence">
+				            <a class="mui-navigate-right" @tap="goto_licence()">
+				            	营业执照<span>{{licence.length == 0?'未上传':'已上传'}}</span>
+				            </a>
+				        </li>
+				        <li class="mui-table-view-cell itOther">
+				            <a class="mui-navigate-right" @tap="goto_other()">
+				            	其他服务信息
+				            </a>
+				        </li>
+			        </ul>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/shopApp.js" type="text/javascript" charset="utf-8"></script>
+	   	
+	</body>
+</html>

@@ -1,0 +1,56 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+.title{
+	height: 44px;
+	line-height: 44px;
+	padding-left: 15px;
+	font-size: 12px;
+	color: #333;
+}
+.item{
+	padding: 15px;
+	background: #fff;
+	font-size: 15px;
+	height: 75px;
+	margin-bottom: 10px;
+}
+.item p{
+	font-size: 12px;
+	margin-bottom: 0;
+	margin-top: 5px;
+	color: #666;
+}
+.item .distance{
+	position: relative;
+	top: -48px;
+	left: 88%;
+	color: #999;
+}
+.mui-scroll{
+	top: 44px;
+}
+/*加载文字*/
+.mui-pull-caption{
+	position: fixed;
+	bottom: -30px;
+	left: 36%;
+}
+
+#__loadmore_wrapper__{
+	background-color: #F5F5F9;
+}

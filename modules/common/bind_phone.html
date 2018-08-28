@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>绑定手机号</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/bind_phone.css"/>
+	</head>
+	<body>
+		<div class="mui-content" id="container">
+			<div class="mui-text-center">
+				<img src="../../images/logo_round.png" style="width: 80px;"/>
+			</div>
+			<form class="mui-input-group">
+			    <div class="mui-input-row">
+			    	<input type="tel" id="phone" v-model="phone" class="mui-input-clear" 
+			    		maxlength="11" placeholder="请输入手机号码"
+			    		onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"
+			    		>
+			    </div>
+			    <div class="mui-input-row marginTop20">
+			    	<input type="tel" id="smscode" v-model="smscode" class="codeInput" 
+			    		maxlength="6" placeholder="验证码">
+			    	<div class="idCode"><span @tap="getIdCode()">获取验证码</span></div>
+			    </div>
+			</form>
+			<div class="buttonBox">
+				<button type="button" @tap="do_bind()">绑定</button>
+			</div>
+			<div style="text-align: center;padding-top:20px;">
+				<span style="font-size: 12px;color:#666">
+					温馨提示: 为了您的交易安全，请立即绑定手机号
+				</span>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js"></script>
+		<script src="../../js/aes.js"></script>
+		<script src="../../js/pad-zeropadding-min.js"></script>
+	   	<script type="text/javascript" charset="utf-8">
+	   		mui.init();
+	   		var backButtonPress = 0;
+	   		var old_back = null;
+			mui.ready(function(){
+				old_back = mui.back;
+				mui.back = function(event) {
+					backButtonPress++;
+					if (backButtonPress > 1) { 
+						plus.runtime.quit();
+					} else {
+						plus.nativeUI.toast('再按一次退出');
+					}
+					setTimeout(function() {
+						backButtonPress = 0;
+					}, 1000);
+					return false;
+				};
+			});
+
+			//短信加密
+			//第一步
+			var phonetoken = "";
+			var container = new Vue({
+				el:"#container",
+				data: {
+					phone:'',
+					smscode:'',
+					can_send:true,
+				},
+				methods: {
+					encrypted:function(){
+						var date = new Date();
+						var time = date.getTime()/1000;
+						var type = 'bindphone';
+						var str = this.phone +','+type+','+time;
+						var key = '66y750yw2m4qg3jv';
+						var iv = '66y750yw2m4qg3jv';
+						key = CryptoJS.enc.Utf8.parse(key);
+						iv = CryptoJS.enc.Utf8.parse(iv);
+						var encrypted = CryptoJS.AES.encrypt(str,key,{
+							iv: iv,
+							mode: CryptoJS.mode.CBC,
+							padding: CryptoJS.pad.ZeroPadding	
+						});
+						return  encrypted.toString();
+					},
+					getIdCode:function(){
+						var _self = this;
+						if(this.phone.length != 11){
+							mui.toast("请输入正确的手机号码");
+							return;
+						}
+						if(_self.can_send == false)
+							return;
+						var num = 60;
+						_self.can_send = false;
+						var time = setInterval(function(){
+							mui(".idCode")[0].innerText="等待"+num+"秒";
+							mui(".idCode")[0].setAttribute("disabled","disabled");
+							num--;
+							if(num<-1){
+								clearInterval(time);
+								mui(".idCode")[0].innerText="获取验证码";
+								mui(".idCode")[0].removeAttribute("disabled");
+								_self.can_send = true;
+							}
+						},1000);
+						//发送短信
+						var w = plus.nativeUI.showWaiting("正在发送...");
+						mui.ajax('http://app.zhonglaiwang.com/send/sms', {
+							headers:{
+								token: app.get_item("token")
+							},
+							data:{
+								enctypestr: encodeURIComponent(this.encrypted()),
+								
+								uid: app.get_item("uid")
+							},
+							datatype: 'json',
+							type: 'get',
+							async: false,
+							success: function(data) {
+								w.close();
+								mui.toast(data.desc);
+							},
+							error: function(error) {
+								w.close();
+								console.log(error);
+							}
+						});
+					},
+					do_bind:function(){
+						if(this.phone.length != 11 || this.smscode.length == 0){
+							mui.toast("请输入正确的手机号码和验证码");
+							return;
+						}
+						
+						mui.ajax('http://app.zhonglaiwang.com/bind/phone',{
+							headers: {
+								token: app.get_item("token")
+							},
+							data: {
+								uid: app.get_item("uid"),
+								phone: this.phone,
+								smscode: this.smscode
+							},
+							datatype: 'json',
+							type: 'post',
+							success: function(data) {
+								mui.toast(data.desc);
+								if(data.code == 200){
+									app.save_item("need_bind_phone","false");
+									old_back();
+									app.update_opener();
+									
+								}
+							},
+							error: function(error) {
+								console.log(error);
+							}
+						});
+					}
+				}
+			});
+			
+	   	</script>
+	</body>
+</html>
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>选择店铺</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/shopSelect.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">选择店铺</h1>
+			</div>
+		</header>
+		
+		<div id="container" class="mui-content">
+			<form class="mui-input-group">
+			    <div class="mui-input-row">
+			    	<div class="searchIcon">
+			    		<img src="../../../images/ic_home_ss.png"/>
+			    	</div>
+			   		<input type="text" class="mui-input-clear" placeholder="搜索店铺">
+			    </div>
+			</form>
+			<ul id="show" class="marginTop10">
+				<li v-for="show in items" @tap="goto_shopStop()">
+					<img :src="shop.logo"/>
+					<div class="text">
+						<span>{{show.shopName}}</span>
+						<p>{{show.location}}</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/shopSelect.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商家管理</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+		<link rel="stylesheet" href="css/cachier.css"/>
+	</head>
+	<body>
+		<div id = "container">
+			<header id="head" class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">收银员</h1>
+				</div>
+				<div class="iconBox">
+					<div class="icon" @tap="scanqr()">
+						<img src="../../../images/scan.png"/><br />
+						<span>扫一扫</span>
+					</div>
+					<div class="icon" @tap="receive_qr()">
+						<img src="../../../images/receipt_code.png"/><br />
+						<span>收款码</span>
+					</div>
+					<div class="icon" @tap="check_ticket()">
+						<img src="../../../images/voucher.png" class="validateCode"/><br />
+						<span>验券</span>
+					</div>
+					<!--<div class="icon">
+						<img src="../../../images/order.png" class="order"/><br />
+						<span>订单</span>
+					</div>-->
+				</div>
+			</header>
+			<div class="mui-content" >
+				<vue-loadmore ref="loadmore" @append="append" object="/shop/admin/order/list">
+					<div class="order" v-for="order in orders">
+						<img :src="order.logo" class="mui-pull-left"/>
+						<div class="mui-pull-left" style="padding-left:15px;">
+							<div class="username">
+								<span>{{order.username}}</span>
+							</div>
+							<div class="cls">类型:{{order.ordertype}}</div>
+							<div class="cls">订单号:{{order.orderid}}</div>
+							<div class="cls">交易时间:{{order.time}}</div>
+						</div>
+						<div class="mui-pull-right right">
+							<span class="money">金额:</span>
+							<span class="amount">{{order.money}}</span>
+						</div>
+					</div>
+				</vue-loadmore>
+				<!--<a href="#" class="more">更多功能</div>-->
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/cashier.js"></script>
+	</body>
+</html>

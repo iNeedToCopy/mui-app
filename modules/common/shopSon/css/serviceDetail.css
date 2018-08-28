@@ -1,0 +1,163 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.mui-bar{
+	/*rgba(255,255,255)*/
+}
+body{
+	background-color: #f5f5f9;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+/*底部*/
+.mui-bar-tab{
+	background-color: #FA7921;
+}
+.mui-bar a{
+	color: #000;
+}
+nav .mui-title{
+	color: #fff;
+	font-size: 17px;
+	line-height: 50px;
+}
+/*slider*/
+/*#slider img{
+	width: 100%;
+	height: 94px;
+	filter: blur(2px); 
+}*/
+/**/
+.personalMsg{
+	position: relative;
+	text-align: center;
+	padding-top: 35px;
+	background: #ffffff;
+}
+.personalMsg .photo{
+	width: 64px;
+	height: 64px;
+	border-radius: 32px;
+	position: absolute;
+	top: -30px;
+	left: 42%;
+	z-index: 2;
+	background-color: #ffffff;
+}
+.personalMsg .photo img{
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+	position: relative;
+	top: 2px;
+}
+.personalMsg span{
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.personalMsg p{
+	margin-bottom: 0;
+}
+.personalMsg p img{
+	width: 16px;
+	height: 16px;
+}
+.personalMsg .star{
+	margin-top: 10px;
+}
+/*个人简介*/
+.introduce{
+	background-color: #fff;
+	padding: 0 15px;
+}
+.introduce .title{
+	height: 30px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.introduce .title p{
+	font-size: 16px;
+	width: 85px;
+	height: 20px;
+	text-align: center;
+	background-color: #fff;
+	position: relative;
+	top: 18px;
+	left: 39%;
+}
+.introduce p{
+	margin-bottom: 0;
+}
+.introduce .text{
+	margin-top: 20px;
+	color: #666;
+	font-size: 12px;
+}
+/*评价*/
+.evaluate{
+	background: #fff;
+	padding-top: 10px;
+	padding-left: 15px;
+}
+.evaluate .title{
+	height: 38px;
+	line-height: 38px;
+	font-size: 15px;
+	color: #666;
+}
+/*评价图片*/
+.evaluate .evaluatePic{
+	background-color: #fff;
+}
+.evaluate .evaluatePic .item:before{
+	position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    height: 1px;
+    content: '';
+    background-color: #E5E5E5;
+}
+.evaluate .evaluatePic .item{
+	position: relative;
+	padding: 15px;
+	height: 227px;
+}
+.evaluate .evaluatePic .item .mui-col-sm-2 img,.evaluate .evaluatePic .item .mui-col-xs-2 img{
+	width: 46px;
+	height: 46px;
+	border-radius: 23px;
+} 
+.evaluate .evaluatePic .item .mui-col-sm-10 img,.evaluate .evaluatePic .item .mui-col-xs-10 img{
+	width: 16px;
+	height: 15px;
+}
+.evaluate .evaluatePic .item .mui-col-sm-10 .pic,.evaluate .evaluatePic .item .mui-col-xs-10 .pic{
+	width: 150px;
+	height: 125px;
+}
+.evaluate .evaluatePic .item .mui-col-sm-10 span,.evaluate .evaluatePic .item .mui-col-xs-10 span{
+	display: inline-block;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 3px;
+}
+.evaluate .evaluatePic .item .mui-col-sm-10 .date,.evaluate .evaluatePic .item .mui-col-xs-10.date{
+	position: relative;
+	top: -22px;
+	left: 0;
+}
+
+.evaluate .evaluatePic .item .mui-col-sm-10 p,.evaluate .evaluatePic .item .mui-col-xs-10 p{
+	margin-bottom: 4px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #333;
+}

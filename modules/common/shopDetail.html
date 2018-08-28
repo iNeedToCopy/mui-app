@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>商家详情</title>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<!--自己的样式-->
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/shopDetail.css" />
+	</head>
+
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav">
+				<div class="mui-row">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+					<h1 class="mui-title">{{baseinfo.name}}</h1>
+				</div>
+			</header>
+			<!--底-->
+			<nav class="mui-bar mui-bar-tab color">
+				<h1 class="mui-title" @tap="userpay(baseinfo.receivecode)">优惠买单</h1>
+			</nav>
+			<!--内容-->
+			<div class="mui-content">
+				<div class="mui-scroll-">
+					<!--商品-->
+					<div class="goods">
+						<div class="mui-row">
+							<div class="mui-col-sm-5 mui-col-xs-5">
+								<span class="openUrl">{{baseinfo.imgopenurl}}</span>
+								<img :src="baseinfo.logo" class="logoImg" />
+								<div class="desc">共{{baseinfo.imgcount}}张</div>
+							</div>
+							<p class="mui-ellipsis"></p>
+							<div class="mui-col-sm-4 mui-col-xs-4 center">
+								<span class="shopName">{{baseinfo.name}}</span><br />
+								<span class="middle">{{baseinfo.classname}}&emsp;</span><span class="middle" v-show="baseinfo.perprice">人均{{baseinfo.perprice}}</span><br />
+								<span class="sale" v-show="baseinfo.discount">会员{{baseinfo.discount}}折</span>
+							</div>
+							<div class="mui-col-sm-3 mui-col-xs-3 father">
+								<img src="../../images/bg_home_myd.png" class="satisfy" />
+								<span class="score">{{baseinfo.allscore}}</span>
+								<div style="padding-top:45px;">
+									<span v-if="!baseinfo.ifcollect" class="collect main_color" @tap="collect_shop()"><span class="mui-icon-extra mui-icon-extra-heart-filled"></span>收藏</span>
+									<span v-else class="collect" style="color:darkgray" @tap="collect_shop()">已收藏</span>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="location margin10">
+						<div class="mui-row">
+							<div class="mui-col-sm-9 mui-col-xs-9">
+								<img src="../../images/ic_map.png" />
+
+								<a href="javascript:void(0)" @tap="goto_map(baseinfo.lng,baseinfo.lat,baseinfo.name,baseinfo.addr)">
+									<p class="mui-ellipsis">{{baseinfo.addr}}</p>
+								</a>
+							</div>
+							<div class="mui-col-sm-3 mui-col-xs-3">
+								<a href="javascript:void(0)" @tap="call_phone(baseinfo.phone)">
+									<span class="tel">
+										<img src="../../images/ic_phone.png"/><br />
+										<span style="color: black;">{{baseinfo.phone}}</span>
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!--热卖单品-->
+					<div id="" class="hotSale">
+						<ul class="mui-table-view marginTop10">
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" @tap="goto_singleHot()" style="font-size: 14px;color: #333333;">
+									<span class="leftBorder">热卖单品</span>&nbsp;<span style="font-size: 14px;color: #333333;">({{hot.amount}})</span>
+								</a>
+							</li>
+							<li v-show="hot.amount>0">
+								<div class="pic">
+									<a @tap="goto_goodsdetail(hot.id)" v-for="hot in hot.data">
+										<img :src="hot.logo" style="margin-left:5px;margin-right:5px;" />
+									</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!--代金券-->
+					<div id="voucher" class="voucher" v-show="1">
+						<ul class="mui-table-view marginTop10">
+							<div class="top">
+								<span class="leftBorder">代金券</span>
+								<div class="voucherPic marginTop10" v-for="c in cash.data">
+									<img src="../../images/bg_yhj.png" />
+									<div class="relative">
+										<div class="left">
+											<img :src="c.logo" />
+										</div>
+										<div class="center">
+											<p>{{c.name}}</p>
+											<p class="bottom"><span class="score">{{c.sendmoney}}</span>元代金券&emsp;<span class="full">满{{c.money}}元可用</span></p>
+										</div>
+										<div class="right" style="text-align: center;">
+											<p @tap="get_cash(c.id)">领一张</p>
+											<span>已领{{c.yet_send}}张</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<li class="mui-table-view-cell">
+								<a class="reduction" @tap="goto_voucher()">查看全部({{cash.amount}})</a>
+							</li>
+						</ul>
+				</div>
+				<!--送-->
+				<!--<ul class="free mui-table-view marginTop10">
+					<li class="mui-table-view-cell">
+						<img src="../../images/ic_song.png" /> 买单满100信值即
+						<span>送5</span>信值红包
+					</li>
+				</ul>-->
+				<!--本店在售-->
+				<div class="onSale marginTop10">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right" @tap="goto_onSale()"style="font-size: 14px;color: #333333;border-bottom: 1px solid #E5E5E5;">
+								<span class="leftBorder">本店在售</span>
+							</a>
+						</li>
+					</ul>
+					
+					<ul class="recommend" v-if="choice.data.length>0 || low.data.length>0">
+						<li><span :class="{current:qiang}" @tap="set_qiang(true)">精选推荐</span></li>
+						<li><span :class="{current:!qiang}" @tap="set_qiang(false)">聚划算</span></li>
+					</ul>
+					<!--第一页-->
+					<div id="onSale" class="items" v-show="qiang">
+						<div class="item mui-row" v-for="item in choice.data">
+							<div class="mui-col-sm-3 mui-col-xs-3">
+								<img :src="item.logo" />
+							</div>
+							<div class="mui-col-sm-6 mui-col-xs-6 center">
+								<p class="hideText10">{{item.name}}</p>
+								<span class="red marginTop10"><span class="big">{{item.discount_price}}</span>&nbsp;元</span>
+							</div>
+							<div class="mui-col-sm-3 mui-col-xs-3 right">
+								<p class="sell" @tap="goto_goodsdetail(item.id)">买</p>
+								<span>已售<span>{{item.yet_sale_count}}</span>份</span>
+							</div>
+						</div>
+					</div>
+					<!--第二页-->
+					<div id="quickBuy" class="items" v-show="!qiang">
+						<div class="item mui-row" v-for="item in low.data">
+							<div class="mui-col-sm-3 mui-col-xs-3">
+								<img :src="item.logo" />
+							</div>
+							<div class="mui-col-sm-6 mui-col-xs-6 center">
+								<p class="hideText10">{{item.name}}</p>
+								<span class="red marginTop10"><span class="big">{{item.discount_price}}</span>&nbsp;元</span>
+							</div>
+							<div class="mui-col-sm-3 mui-col-xs-3 right">
+								<p class="sell" @tap="goto_goodsdetail(item.id)">买</p>
+								<span>已售<span>{{item.yet_sale_count}}</span>份</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--服务人员-->
+				<div id="service" class="service" v-show="service.amount>0">
+					<ul class="mui-table-view marginTop10">
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right" @tap="goto_shopService()" style="font-size: 14px;color: #333333;border-bottom: 1px solid #E5E5E5;">
+								<span class="leftBorder">服务人员</span><span style="font-size: 14px;color: #333333;">({{service.amount}})</span>
+							</a>
+						</li>
+					</ul>
+					<div class="items">
+						<div class="item" v-for="service in service.data">
+							<div class="picBox" @tap="show_servicedetail(service.id)">
+								<img :src="service.logo" style="border-radius: 50%;"/><br />
+							</div>
+							<p class="hideText4">{{service.nickname}}</p>
+							<span>{{service.position}}</span>
+						</div>
+					</div>
+				</div>
+				<!--用户评价-->
+				<div id="evaluate" class="evaluate" v-show="comment.total>0">
+					<ul class="mui-table-view marginTop10">
+						<li class="mui-table-view-cell" style="font-size: 14px;color: #333333;border-bottom: 1px solid #E5E5E5;">
+							<!--<a class="mui-navigate-right">-->
+							<span class="leftBorder">用户评价</span><span style="font-size: 14px;color: #333333;">({{comment.total}})</span>
+							<!--</a>-->
+						</li>
+					</ul>
+					<div class="evaluateText">
+						<div style="text-align: center;color: gray;margin:10px 10px 0px 10px">
+							<vue-five-star :star="comment.allscore" :readonly="true"></vue-five-star><br />
+							<span style="font-size: 12px;">非常棒!</span><br />
+							<div style="display: flex;flex-flow: wrap;">
+								<!--<span class='appraise'>非常棒</span>
+								<span class='appraise'>很好吃</span>
+								<span class='appraise'>很好吃123</span>
+								<span class='appraise'>很好</span>
+								<span class='appraise'>很好吃123</span>
+								<span class='appraise'>很好吃</span>
+								<span class='appraise'>很好</span>
+								<span class='appraise'>很好吃</span>
+								<span class='appraise'>很好吃2</span>
+								<span class='appraise'>很好吃</span>
+								<span class='appraise'>很吃</span>
+								<span class='appraise'>很好吃</span>
+								<span class='appraise'>很好吃2</span>-->
+							</div>
+						</div>
+					</div>
+					<!--图片-->
+					<div class="evaluatePic">
+						<div class="item" v-for="c in comment.data">
+							<div class="mui-row">
+								<div class="mui-col-sm-2 mui-col-xs-2">
+									<img :src="c.logo" />
+								</div>
+								<div class="mui-col-sm-10 mui-col-xs-10">
+									<span class="username">{{c.username}}</span><br />
+									<vue-five-star :star="c.score" :readonly="true"></vue-five-star>
+									<span class="date floatRigft">{{c.create_time}}</span>
+									<div class="clear"></div>
+									<p>{{c.text}}</p>
+									<!--<a><img src="../../images/img-14.png" class="pic"/></a>
+										<img src="../../images/img-14.png" class="pic"/>
+										<img src="../../images/img-14.png" class="pic"/>-->
+									<img v-for="i in c.imglist" :src="i.smallimg" class="pic" />
+
+								</div>
+							</div>
+						</div>
+						<div class="seeAll" v-show="comment.total>0">
+							<a id="allcomment" @tap="goto_allComment()">查看全部评价</a>
+						</div>
+					</div>
+				</div>
+				<!--服务信息-->
+				<div class="serviceMsg">
+					<ul class="mui-table-view marginTop10">
+						<li class="mui-table-view-cell">
+							<a>
+								<span style="font-size: 14px;color: #333333;">服务信息</span>
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a>
+								<span style="font-size: 14px;color: #666666;">营业时间：{{baseinfo.worktime}}</span>
+							</a>
+						</li>
+						<li class="mui-table-view-cell" v-show="baseinfo.tag.length>0">
+							<a>
+								<span style="font-size: 14px;color: #666666;">服务标签：</span>
+								<span style="font-size: 14px;color: #666666;" v-for="t in baseinfo.tag">{{t}}&nbsp;</span>
+							</a>
+						</li>
+						<li class="mui-table-view-cell" v-show="baseinfo.tag.length=0">
+							<a>
+								<span style="font-size: 14px;color: #666666;">无更多服务信息</span>
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right" @tap="goto_otherShop()">
+								<span style="font-size: 14px;color: #333333;">查看其它门店</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--所在商圈-->
+				<div class="position" v-if="commerce.id !=0 && !Array.isArray(commerce)">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<a>
+								<span style="font-size: 14px;color: #333333;">所在商圈</span>
+							</a>
+						</li>
+						<li class="mui-table-view-cell tradeZoneDetail">
+							<a class="mui-navigate-right" @tap="goto_tradeZoneDetail(commerce.id)">
+								<img :src="commerce.logo" />
+								<span style="position: relative;bottom: 25px;left: 10px;">{{commerce.name}}</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--猜你喜欢-->
+				<div id="like" class="like">
+					<ul class="mui-table-view marginTop10">
+						<li class="mui-table-view-cell" v-show="relateshop.length>0">
+							<a style="font-size: 14px;color: #333333;">
+								<span class="leftBorder">猜你喜欢</span>
+							</a>
+						</li>
+						<li class="mui-table-view-cell" v-for="like in relateshop">
+							<a class="mui-navigate-right" @tap="goto_detail(like.id)">
+								<div class="left">
+									<img :src="like.logo" />
+								</div>
+								<div class="right">
+									<p>{{like.name}}<span>({{like.areaname}})</span></p>
+									<!--<span class="satisfy">满意度{{content.satisfy}}&emsp;&emsp;<span class="per">人均{{like.perprice}}</span></span><br />
+				                		<span class="distance">{{content.classify}}&emsp;{{like.distance}}</span><br />
+				                		<span class="free"><img src="../../images/ic_sj.png"/>&nbsp;{{content.free}}</span><br />
+				                		<span class="voucher"><img src="../../images/ic_juan.png"/>&nbsp;{{like.hongbao}}</span>-->
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--<ul class="free mui-table-view marginTop10">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							免费入驻，让收入翻倍
+						</a>
+					</li>
+				</ul>--> 
+				<!--占位-->
+				<div class="seat"></div>
+			</div>
+		</div>
+		</div>
+
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/components/FiveStar.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="../../js/app.js"></script>
+
+		<script src="js/shopDetail.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

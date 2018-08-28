@@ -1,0 +1,95 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body,.mui-content{
+	background: #fff;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+#container{
+	padding-top: 66px;
+}
+/*代金券*/
+#container .voucher img{
+	width: 100%;
+	height: 90px;
+}
+.voucher .voucherPic {
+	height: 95px;
+} 
+.voucher .top{
+	padding: 15px 5%;
+}
+/*relative*/
+.voucher .relative{
+	position: relative;
+	top: -95px;
+	display: flex;
+	padding: 10px;
+}
+.voucher .relative .left img{
+	width: 70px !important;
+	height: 70px !important;
+}
+.voucher .relative .center p{
+	padding-left: 10px;
+	font-size: 15px;
+	color: #000;
+}
+.voucher .relative .center .bottom{
+	font-size: 12px;
+	color: #f53636;
+	position: relative;
+	top: 10px;
+}
+.voucher .relative .center .score{
+	font-size: 13px;
+}
+.voucher .relative .center .full{
+	color: #666;
+}
+.voucher .relative .right{
+	position: absolute;
+	top: 24px;
+	right: 2%;
+}
+.voucher .relative .right p{
+	padding: 2px 12px;
+	background: #fa7921;
+	font-size: 12px;
+	color: #fff;
+	margin-bottom: 3px;
+	border-radius: 4px;
+}
+.voucher .relative .right span{
+	font-size: 12px;
+	color: #666;
+	position: relative;
+	left: 6%;
+}
+.mui-table-view:after{
+	content: none;
+}
+/*领券中心text*/
+.iWantMore{
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	font-size: 15px;
+	text-align: center;
+}
+.iWantMore a{
+	color: #f43834;
+}

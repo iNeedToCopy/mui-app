@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>确认页面</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/bridge.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">确认页面</h1>
+			</div>
+		</header>
+		<div class="mui-content">
+			<div class="show">
+				<span>{{show.text1}}</span><br />
+				<span>{{show.text2}}</span>
+			</div>
+			<div class="btnBox">
+				<a href="#popover"><button type="button" class="confirm">确认</button></a>
+			 	<a class="mui-action-back">
+			    	<button type="button" class="cancel">取消</button>
+			    </a>
+			</div>
+		</div>
+		<div id="popover" class="box mui-popover mui-popover-action mui-popover-bottom">
+			<div class="page1 floatLeft">
+				<div class="title">
+					<img src="../../../images/close.png"/>
+					<p>确认付款</p>
+				</div>
+				<div class="score">	￥{{}}</div>
+				<p class="way">付款方式<span>信值</span></p>
+				<div class="pop_boxBtn">
+					<button type="button">付款</button>
+				</div>
+			</div>
+			<div class="page2 floatRigft">
+				<div class="title"><img src="../../../images/arrow_03.png"/>
+					请输入支付密码
+				</div>
+				<div class="number_input">
+					<form class="mui-input-group">
+						<input type="password" class="input_item mui-input-password" disabled="disabled"></input>
+						<input type="password" class="input_item mui-input-password" disabled="disabled"></input>
+						<input type="password" class="input_item mui-input-password" disabled="disabled"></input>
+						<input type="password" class="input_item mui-input-password" disabled="disabled"></input>
+						<input type="password" class="input_item mui-input-password" disabled="disabled"></input>
+						<input type="password" class="input_item mui-input-password" disabled="disabled"></input>
+					</form>
+				</div>
+				<table id="keyboard" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td class="keyboard_number">1</td>
+						<td class="keyboard_number">2</td>
+						<td class="keyboard_number">3</td>
+					</tr>
+					<tr>
+						<td class="keyboard_number">4</td>
+						<td class="keyboard_number">5</td>
+						<td class="keyboard_number">6</td>
+					</tr>
+					<tr>
+						<td class="keyboard_number">7</td>
+						<td class="keyboard_number">8</td>
+						<td class="keyboard_number">9</td>
+					</tr>
+					<tr>
+                        <td class="blank"></td>
+                        <td class="keyboard_number">0</td>
+                        <td class="keyboard_action" data-action="cancel">cancel</td>
+                    </tr>
+				</table>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+	   	<script src="js/bridge.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

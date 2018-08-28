@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>会员管理</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/members.css"/>
+	    <style type="text/css">
+	    	.show img{
+	    		width:30px;
+	    		position: relative;
+	    		top:-2px;
+	    	}
+	    	#container .mui-row{
+	    		padding:10px;
+	    	}
+	    	.username{
+	    		font-size: 12px;
+	    	}
+	    </style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">我的区域</h1>
+			</div>
+		</header>
+		<div id="container" class="mui-content" style="padding-top: 80px !important;padding-left:20px;">
+			
+			<vue-loadmore ref="pullup" id="__loadmore_member__" @append="append_members" object="/my/admin/region"> 
+				<div class="show">
+					<div class="mui-row" v-for="member in members" style="border-bottom: 1px solid #e5e5e5;">
+						<span class="username mui-col-xs-8 mui-col-sm-8 mui-ellipsis">
+							{{member.name}}
+						</span>
+						<span class="mui-col-xs-1 mui-col-sm-1"></span>
+						<span class="mui-col-xs-3 mui-col-sm-3 mui-text-center">
+							<img v-if="member.phone.length == 11" src="../../../images/tel.png" class="floatLeft" @tap="call_phone(member.phone)"/>
+						</span>
+					</div>
+				</div>
+			</vue-loadmore>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/components/Loadmore.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script type="text/javascript">
+	   		mui.init();
+			var container = new Vue({
+				el:"#container",
+				data:{
+					members:[]
+				},
+				methods:{
+					call_phone:function(phone){
+						plus.device.dial(phone);
+					},
+					load_members:function(){
+						this.members = [];
+						this.$refs.pullup.newrequest();
+					},
+					append_members:function(data){
+						this.members = this.members.concat(data.data);
+					}
+				}
+			});
+			mui.ready(function(){
+				window.addEventListener('loadinfo',function(){
+					container.load_members();
+				});
+				mui.back=function(event){
+					container.members = [];
+			      	plus.webview.hide(plus.webview.currentWebview(),'slide-out-right');;
+				};
+			})
+
+	   	</script>
+	</body>
+</html>

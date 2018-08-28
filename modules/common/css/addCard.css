@@ -1,0 +1,145 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+header .help{
+	position: relative;
+	right: -85%;
+}
+body,.mui-content{
+	background: #f5f5f9;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+.mui-input-group:before{
+	content: none;
+}
+.mui-input-group:after{
+	content: none;
+}
+.mui-table-view:before{
+	content: none;
+}
+.box{
+	position: relative;
+}
+.box:after{
+	position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 12px;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #e8e8ec;
+}
+input[type=text]{
+	height: 50px;
+	font-size: 15px;
+}
+ul li{
+	height: 50px;
+	line-height: 30px;
+	color: #666;
+	font-size: 15px;
+	position: relative;
+}
+.mui-table-view:after{
+	left: 12px;
+	background-color: #e8e8ec;
+}
+/*idcode*/
+.idCode>.mui-input-group{
+	width: 60%;
+}
+.idCode{
+	display: flex;
+	background-color: #ffffff;
+}
+/*输入框*/
+.mui-input-group input{
+	width: 80%;
+	height: 50px;
+}
+.mui-input-group:before{
+	content: none;
+}
+.mui-input-group:after{
+	content: none;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #666;
+    font-size: 15px;
+}
+.selectBank .mui-table-view-cell>a:not(.mui-btn){
+	padding: 0;
+}
+/*验证码*/
+/*.idCode .mui-input-group{
+	width: 66%;
+}*/
+.getIdCode{
+	/*width: 34%;*/
+	padding-left:30px;
+	float: left;
+	position: relative;
+}
+.sms{
+	background: #fff;
+	width: 100%;
+	height: 50px;
+	font-size: 15px;
+	color: #209ae3;
+	text-align: center;
+	border: 0;
+	border-left: 1px solid #e5e5e5;
+	padding-left: 10px;
+}
+
+button:disabled{
+	opacity: .9;
+}
+/*.getIdCode span{
+	display: inline-block;
+	width: 1px;
+	height: 25px;
+	background: #E5E5E5;
+	position: absolute;
+	top: 12px;
+	left: 0;
+}*/
+p{
+	padding: 15px;
+}
+.btnBox{
+	padding: 20px 5% 10px;
+}
+.btnBox button{
+	width: 100%;
+	height: 40px;
+	color: #fff;
+	border-color: #fff;
+	font-size: 15px;
+	background: #FA7921;
+}
+/*弹出框*/
+.mui-popover .mui-popover-arrow:after{
+	content: none;
+}
+.mui-scroll-wrapper{
+	height: 300px;
+	max-height: 300px;
+}
+

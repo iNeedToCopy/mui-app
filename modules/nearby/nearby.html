@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>附近</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../common/css/common.css"/>
+		<link rel="stylesheet" href="nearby.css"/>
+		<style type="text/css">
+			.mui-table-view:after{
+				border: 0px;
+			}
+		</style>
+	</head> 
+	<body>
+		<!--头部-->
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" id="header" :style="{background:baseinfo.defaultbgcolor+' !important'}">
+				<form class="mui-input-group">
+					<div class="mui-input-row">
+						<label class="search"><img src="../../images/ic_home_ss.png" /></label>
+						<div id="search_box"
+		   					class="mui-input-clear" @tap="goto_search()" placeholder="">
+		   					<span @tap="goto_search()">搜一搜附近的美食佳肴</span>
+		   				</div>
+				   	</div>	
+				</form>
+			</header>
+			<div class="tabBox mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted" :style="{background:baseinfo.defaultbgcolor}">
+			    <div class="mui-scroll">
+			        <a :class="{'mui-control-item':true,'near_tabl_item':true,'mui-active':itm.active}" 
+						:style="{ color:itm.active ? baseinfo.selectcolor : baseinfo.defaultcolor,backgroundColor:itm.active ? baseinfo.selectbgcolor : baseinfo.defaultbgcolor }"
+						@tap="load_shoplist(itm)"
+						v-show="get_itm_name(itm)"
+						v-for="itm in tab_items">
+						<span>{{get_itm_name(itm)}}</span>
+					</a>
+			    </div>
+			</div>
+				
+				<vue-loadmore  ref = "pullup"  @append="append" :object="nearbyurl" style="margin-top: 62px;">
+					<ul class="mui-table-view" >
+						<li class="mui-table-view-cell oomph" v-for="item in items" @tap="goto_detail(item.id)">
+							<div class="content" >
+								
+								<div class="mui-row imgs" style="border-radius: 8px 8px 0 0">
+									<div class="mui-col-sm-8 mui-col-xs-8">
+										<img :src="item.imglist[0]" style="border-radius: 8px 0 0 0"/>
+									</div>
+									<div class="mui-col-sm-4 mui-col-xs-4"> 
+										<img :src="item.imglist[1]" style="border-radius: 0 8px 0 0"/>
+										<img :src="item.imglist[2]" />
+									</div>
+									<div class="imgTips">掌柜推荐</div>
+								</div>
+								
+								<div class="contentText mui-row">
+									<img src="../../images/bg_home_myd.png" class="satisfy"/> 
+									<span class="score">{{item.all_score}}</span>
+									<p>{{item.name}}</p>
+									<div class="textBox">
+										<div class="left">
+											<span class="sale" v-show="item.discount_price_desc.length>0">{{item.discount_price_desc}}</span>&nbsp;
+											<span class="voucher" v-show="item.cash_desc.length>0">{{item.cash_desc}}</span>
+										</div>
+										<ul class="right">
+											<li v-show="item.classname">{{item.classname}}</li>
+											<li v-show="item.per_price">人均{{item.per_price}}</li>
+											<li v-show="item.distance">{{item.distance}}</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</vue-loadmore>
+		</div>
+		
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+
+		<script src="../../js/components/Loadmore.min.js"></script>
+		<script src="../../js/app.js"></script>
+
+		<script src="nearby.js"></script>
+	</body>
+
+</html>

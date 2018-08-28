@@ -1,0 +1,515 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background: #f5f5f9;
+}
+/*禁止横向滚动*/
+html,body{overflow:hidden;overflow-y:auto;}
+#header img{
+	position: relative;
+	top: 12px;
+	width: 9px;
+	height: 15px;
+	border-bottom: 1px solid #E4E4E4;
+}
+.mui-bar{
+	padding: 0 15px;
+}
+
+/*底部*/
+
+nav .mui-title{
+	color: #fff;
+	font-size: 17px;
+	line-height: 50px;
+}
+/*内容*/
+.mui-content .goods{
+	padding: 15px;
+	height: 130px;
+	background: #fff;
+	border-bottom: 1px solid #E4E4E4;
+}
+.mui-content .goods .mui-col-sm-5 img,.goods .mui-col-xs-5 img{
+	width: 140px;
+	height: 100px;
+}
+.goods .center{
+	padding-left: 10px;
+}
+.goods .mui-col-sm-5 .location,.goods .mui-col-xs-5 .shopName{
+	font-size: 16px;
+}	
+.goods .mui-col-sm-5 .middle,.goods .mui-col-xs-5 .middle{
+	font-size: 12px;
+	color: #666;
+}
+.goods .mui-col-sm-5 .sale,.goods .mui-col-xs-5 .sale{
+	display: inline-block;
+	margin-top: 10px;
+	width: 62px;
+	height: 20px;
+	background: #C6BCEC;
+	text-align: center;
+	font-size: 11px;
+	border-radius: 4px;
+	color: #7062a1;
+}
+.goods .satisfy{
+	position: relative;
+	top: 0;
+	right: 8px;
+	width: 65px;
+	height: 27px;
+}
+.goods .score{
+	z-index: 1;
+	position: relative;
+	right: -31px;
+	top: -27px;
+	font-weight: bold;
+	color: #fff;
+	font-size: 20px;
+}
+.goods .collect{
+	font-size: 14px;
+	color: #f53636;
+}
+/*定位地址*/
+.mui-content .location{
+	height: 50px;
+	background: #fff;
+}
+.location img{
+	width: 13px;
+	height: 13px;
+}
+.location .mui-col-sm-10,.location .mui-col-xs-10{
+	display: flex;
+	padding-left: 20px;
+	line-height: 50px;
+	text-indent: 10px;
+}
+.location .mui-col-sm-10 p,.location .mui-col-xs-10 p{
+	font-size: 15px;
+	color: #000;
+}
+.location .mui-col-sm-10 img,.location .mui-col-xs-10 img{
+	position: relative;
+	top: 16px;
+	width: 12px;
+	height: 16px;
+}
+.location .mui-col-sm-2,.location .mui-col-xs-2{
+	text-align: center;
+}
+.location .mui-col-sm-2 span,.location .mui-col-xs-2 span{
+	font-size: 11px;
+}
+.location .tel{
+	display: inline-block;
+	width: 62px;
+	position: relative;
+	top: 4px;
+	border-left: 1px solid #E4E4E4;
+}
+/*热卖单品*/
+.mui-content .hotSale{
+	height: 100px;
+	background: #fff;
+}
+.mui-table-view:before{
+	content: none;
+}
+.mui-table-view:after{
+	content: none;
+}
+.hotSale .mui-table-view{
+	font-size: 15px;
+}
+
+/*代金券*/
+.mui-content .voucher img{
+	width: 100%;
+	height: 90px;
+}
+.voucher .voucherPic {
+	height: 95px;
+} 
+.voucher .top{
+	padding: 15px 15px 5px 15px;
+	border-bottom: 1px solid #E4E4E4;
+}
+.voucher .mui-table-view-cell{
+	text-align: center;
+	font-size: 14px;
+	color: #666;
+}
+/*relative*/
+.voucher .relative{
+	position: relative;
+	top: -95px;
+	display: flex;
+	padding: 10px;
+}
+.voucher .relative .left img{
+	width: 70px;
+	height: 70px;
+}
+.voucher .relative .center p{
+	padding-left: 10px;
+	font-size: 15px;
+	color: #000;
+}
+.voucher .relative .center .bottom{
+	font-size: 12px;
+	color: #f53636;
+	position: relative;
+	top: 10px;
+}
+.voucher .relative .center .score{
+	font-size: 18px;
+}
+.voucher .relative .center .full{
+	color: #666;
+}
+.voucher .relative .right{
+	position: absolute;
+	top: 24px;
+	right: 3%;
+}
+.voucher .relative .right p{
+	padding: 2px 12px;
+	background: #FA7921;
+	font-size: 12px;
+	color: #fff;
+	margin-bottom: 3px;
+	border-radius: 4px;
+}
+.voucher .relative .right span{
+	font-size: 12px;
+	color: #666;
+}
+/*送*/
+.free {
+	font-size: 14px;
+}
+.free img{
+	width: 15px;
+	height: 16px;
+	position: relative;
+	top: 2px;
+}
+/*本店在售*/
+.onSale .mui-table-view-cell{
+	font-size: 15px;
+}
+.onSale .recommend span{
+	display: inline-block;
+	height: 38px;
+}
+.current{
+	color: #f53636;
+	border-bottom: 1px solid #f53636;
+}
+.hide{
+	display: none;
+}
+.onSale .recommend{
+	position: relative;
+	height: 50px;
+	line-height: 50px;
+	background: #fff;
+	display: flex;
+	padding: 0 20%;
+}
+.onSale .recommend:after{
+	position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 12px;
+    height: 1px;
+    content: '';
+    background-color: #E5E5E5;
+}
+.onSale .recommend li{
+	text-align: center;
+	width: 50%;
+	font-size: 14px;
+	list-style: none;
+}
+/*下边框*/
+.onSale .mui-table-view:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 12px;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #E5E5E5;
+}
+/*精选图片*/
+.onSale .item{
+	padding: 10px 15px;
+	background: #fff;
+}
+.onSale .item .center,.onSale .item .right{
+	padding-top: 4px;
+}
+.onSale .item img{
+	width: 100%;
+	height: 77px;
+}
+.onSale .item p{
+	font-size: 14px;
+	font-weight: bold;
+	color: #000;
+}
+.onSale .item span{
+	font-size: 12px;
+}
+.onSale .item .red{
+	display: inline-block;
+	color: #f53636;
+}
+.onSale .item .red .big{
+	font-size: 20px;
+}
+.onSale .item .center{
+	padding-left: 10px;
+}
+/*右边*/
+.onSale .item  .right{
+	text-align: center;
+	padding-right: 10px;
+}
+.onSale .item  .right p{
+	margin-bottom: 5px;
+	color: #fff;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	background: #FA7921;
+	border-radius: 4px;
+}
+.onSale .item  .right span{
+	color: #666;
+}
+
+/*服务人员*/
+.service .items{
+	padding: 10px 5%;
+	display: flex;
+	background: #fff;
+}
+.service .items img{
+	position: relative;
+	left: 7%;
+	width: 58px;
+	height: 58px;
+}
+.service .items .picBox{
+	width: 58px;
+	height: 58px;
+	border-radius: 28px;
+}
+.service .items .item{
+	text-align: center;
+	width: 20%;
+}
+.service .items .item p{
+	margin-bottom: 5px;
+	margin-top: 5px;
+	color: #000;
+	font-size: 15px;
+}
+.service .items .item span{
+	color: #666;
+	font-size: 12px;
+}
+/*下边框*/
+.service .mui-table-view:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 12px;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #E5E5E5;
+}
+
+/*用户评价*/
+
+.evaluate .mui-table-view:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 12px;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #E5E5E5;
+}
+.evaluate{
+	background: #fff;
+}
+.evaluate .evaluateText .star{
+	height: 75px;
+	line-height: 60px;
+	text-align: center;
+}
+.evaluate .evaluateText .star span{
+	position: relative;
+	top: -38px;
+	font-size: 12px;
+	color: #666;
+}
+.evaluate .evaluateText .star img{
+	width: 16px;
+	height: 15px;
+}
+.evaluate .evaluateText .text{
+	display: flex;
+	padding-left: 15px;
+}
+.evaluate .evaluateText .text span{
+	display: inline-block;
+	padding: 2px 7px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 14px;
+	color: #666;
+	margin-right: 5px;
+	margin-bottom: 7px;
+}
+/*评价图片*/
+.evaluate .evaluatePic{
+	margin-top: 13px;
+	background: #fff;
+}
+.evaluate .evaluatePic .item:before{
+	position: absolute;
+    right: 0;
+    top: 0;
+    left: 12px;
+    height: 1px;
+    content: '';
+    background-color: #E5E5E5;
+}
+.evaluate .evaluatePic .item{
+	position: relative;
+	padding: 15px;
+	height: 227px;
+}
+.evaluate .evaluatePic .item .mui-col-sm-2 img,.evaluate .evaluatePic .item .mui-col-xs-2 img{
+	width: 46px;
+	height: 46px;
+	border-radius: 23px;
+} 
+.evaluate .evaluatePic .item .mui-col-sm-10 img,.evaluate .evaluatePic .item .mui-col-xs-10 img{
+	width: 16px;
+	height: 15px;
+}
+.evaluate .evaluatePic .item .mui-col-sm-10 .pic,.evaluate .evaluatePic .item .mui-col-xs-10 .pic{
+	width: 150px;
+	height: 125px;
+}
+.evaluate .evaluatePic .item .mui-col-sm-10 span,.evaluate .evaluatePic .item .mui-col-xs-10 span{
+	display: inline-block;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 3px;
+}
+.evaluate .evaluatePic .item .mui-col-sm-10 .date,.evaluate .evaluatePic .item .mui-col-xs-10.date{
+	position: relative;
+	top: -22px;
+}
+
+.evaluate .evaluatePic .item .mui-col-sm-10 p,.evaluate .evaluatePic .item .mui-col-xs-10 p{
+	margin-bottom: 4px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #333;
+}
+.evaluate .evaluatePic .seeAll{
+	text-align: center;
+	padding: 20px 0;
+}
+.evaluate .evaluatePic .seeAll a{
+	display: inline-block;
+	border: 1px solid #FA7921;
+	color: #FA7921;
+	font-size: 18px;
+	width: 170px;
+	height: 40px;
+	line-height: 40px;
+}
+/*服务信息*/
+.serviceMsg{
+	background: #fff;
+	font-size: 15px;
+}
+.mui-table-view-cell:after{
+	background: #E5E5E5;
+}
+/*所在商圈*/
+.position img{
+	width: 70px;
+	height: 60px;
+}
+.position span{
+	position: relative;
+	top: -28px;
+}
+/*猜你喜欢*/
+.like .mui-table-view-cell a{
+	padding: 15px;
+	display: flex;
+}
+.like .mui-table-view-cell .left{
+	width: 25%;
+}
+.like .mui-table-view-cell .left img{
+	width: 70px;
+	height: 60px;
+}
+.like .mui-table-view-cell .right{
+	width: 75%;
+}
+.like .mui-table-view-cell .right p{
+	font-size: 14px;
+	color: #000;
+}
+.like .mui-table-view-cell .right span{
+	font-size: 12px;
+	color: #666;
+}
+.like .mui-table-view-cell .right .satisfy{
+	color: #FA7921;
+	font-weight: bold;
+}
+.like .mui-table-view-cell .right .per{
+	color: #666;
+	font-weight: 100;
+}
+.like .mui-table-view-cell .right img{
+	width: 13px;
+	height: 13px;
+	position: relative;
+	top: 2px;
+}
+/*免费入驻*/
+.free{
+	font-size: 14px;
+}
+/*占位*/
+.seat{
+	height: 60px;
+}

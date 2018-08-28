@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>优惠</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+		<link rel="stylesheet" href="css/preferential.css"/>
+	</head>
+	<body>
+		<div id = "container">
+			<header id="head" class="mui-bar mui-bar-nav" >
+				<div class="mui-row" style="padding-right:0px;">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">优惠</h1>
+				    <a class="mui-icon mui-icon-help mui-pull-right" style="color: #ffffff;" @tap="show_tip()"></a>
+				</div>
+			</header>
+			<div class="mui-content">
+				<div class="topBar">
+					<div>
+						<span class="floatRigft" :class="{bd3:qtype=='cash'}" @tap='load_list(0)'>优惠券</span>
+					</div>
+					<div>
+						<span :class="{bd3:qtype!='cash'}" @tap='load_list(1)'>红包</span>
+					</div>
+				</div>
+				<div style="padding-top: 44px;">
+					<vue-loadmore ref="loadmore" @append="append" :object="'/seller/cash/hongbao/list?qtype='+qtype">
+				       <ul class="mui-table-view" style="background-color: #f5f5f9;"> 
+					        <li class="mui-table-view-cell mui-collapse" v-for="item in items">
+					            <a class="mui-navigate-right" href="#" @tap="load_detail(item)">
+					            	<img class="floatLeft" :src="item.logo" style="width: 60px;height: 60px;"/>
+					            	<div class="content">
+					            		<p><span>{{item.moneydesc}}</span></p>
+					            		<p>{{item.datedesc}}</p>
+					            	</div>
+					            </a>
+					            <div class="mui-collapse-content" v-if="'max' in item.details">
+					                <div><span>最大派发数:{{item.details.max}}</span></div>
+					                <div><span>已派发数:{{item.details.yet}}</span></div>
+					                <div><span>适用店铺：</span></div>
+				                	<div class="shops" v-for="shop in item.details.shoplist">{{shop}}</div>
+					            </div>
+					        </li>
+					    </ul>
+					    <div style="height: 40px;">
+					    	
+					    </div>
+				    </vue-loadmore>	
+				</div>
+		        
+			</div>
+			
+			<div class="add" @tap='gotoAdd'>
+				添加{{qtype=='cash'?'优惠券':'红包'}}
+			</div>
+			<div id="tip" class="box mui-popover mui-popover-action mui-popover-bottom">
+				<p>代金券</p>
+				<div class="intro">
+					 商家发放给会员的福利，会员领取后用于到店消费付款时使用。
+				</div>	
+				<div class="intro" style="">
+					商家自行设置代金券面值、数量以及使用条件。
+				</div>	
+				<p>红包</p>
+				<div class="intro">
+					  红包指会员到店消费结账达到活动金额后商家赠送消费者的福利，红包用于下次到店消费抵扣信值。
+				</div>	
+				<div class="intro" style="">
+					一个红包含多少信值由商家自行设置，使用红包只需再次到店消费，除此之外没有任何条件。
+				</div>				
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/preferential.js"></script>
+	</body>
+</html>

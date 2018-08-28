@@ -1,0 +1,38 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+html,body{
+	width:100%;
+}
+.mui-content{
+	background: #f5f5f9;
+}
+.mui-bar{
+	background: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+ul li{
+	padding: 10px 15px;
+	background: #fff;
+	height: 80px;
+}
+ul li .right{
+	position: relative;
+	top: -45px;
+	left: 90%;
+}
+
+ul li span{
+	display: inline-block;
+	margin-bottom: 5px;
+}

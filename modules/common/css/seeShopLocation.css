@@ -1,0 +1,63 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body,.mui-content{
+	background: #fff;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+.mui-content .container{
+	height: 380px;
+	background: #ccc;
+}
+.box{
+	padding: 20px 15px;
+}
+.box .text{
+	margin-bottom: 20px;
+	font-size: 14px;
+	color: #999;
+}
+.box .text span{
+	font-size: 17px;
+	font-weight: bold;
+	color: #333;
+}
+.box p{
+	margin-top:10px;
+	font-size: 15px;
+	color: #666;
+}
+
+button{
+	width: 100%;
+	height: 44px;
+	background: #fa7921;
+	color: #fff;
+	text-align: center;
+	border: 0;
+}
+#tip{
+	width: 100px;
+	height: 150px;
+	left: 50%;
+	bottom: 50px;
+	margin-top: -50px;
+	margin-left: -75px;
+	z-index: 99999999;
+}
+.mui-backdrop{
+	z-index: 99999998;
+}

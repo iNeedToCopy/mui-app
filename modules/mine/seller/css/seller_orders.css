@@ -1,0 +1,223 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background: #fff;
+}
+header{
+	text-align: center;
+}
+header .mui-title{
+	color: #fff;
+	font-size: 15px;
+}
+.mui-bar{
+	background: #fa7921;
+	padding-left: 0;
+	padding-right: 0;
+}
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.mui-action-back{
+	margin-left: 0px !important;	
+}
+
+.mui-table-view-cell:after{
+	display: none;
+}
+.iconBox{
+	display: flex;
+	position: relative;
+	top:-1px;
+	width: 100%;
+	height: 100px;
+	background: #fa7921;
+}
+.iconBox .icon{
+	width: 25%;
+	text-align: center;
+	padding-top: 22px;
+	font-size: 15px;
+	color: #fff;
+}
+.iconBox .icon img{
+	width: 35px;
+}
+.iconBox .icon span{
+	position: relative;
+	top: 4px;
+}
+
+
+
+#container .list{
+	display: flex;
+	background: #fff;
+	border-bottom: 1px solid #f5f5f5;
+}
+#container .list li{
+	width: 50%;
+	height: 44px;
+	line-height: 44px;
+	list-style: none;
+	text-align: center;
+	font-size: 15px;
+}
+#container .list li span{
+	display: inline-block;
+	height: 44px;
+}
+/*show*/
+#container {
+	background: #fff;
+}
+#container  .item p{
+	height: 44px;
+	padding: 10px 15px;
+	font-size: 15px;
+	color: #333;
+	position: relative;
+	margin-bottom: 0;
+}
+#container  .item p:after{
+	position: absolute;
+	left: 12px;
+	right: 0;
+	bottom: 0;
+	height: 1px;
+	content: '';
+	background-color: #f5f5f5;
+}
+#container  .item p .status{
+	position: relative;
+	left: 64%;
+	color: #fa7921;
+}
+#container  .item .pic{
+	padding: 20px 15px;
+	display: flex;
+	position: relative;
+}
+#container  .item .pic:after{
+	position: absolute;
+	left: 12px;
+	right: 0;
+	bottom: 0;
+	height: 1px;
+	content: '';
+	background-color: #f5f5f5;
+}
+#container  .item .pic img{
+	display: inline-block;
+	width: 28%;
+	height: 70px;
+}
+#container  .item .pic .text{
+	width: 72%;
+	height: 70px;
+	margin-left: 10px;
+}
+#container  .item .pic .text .top{
+	display: inline-block;
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+#container  .item .pic .text .middle{
+	display: inline-block;
+	font-size: 12px;
+	color: #666;
+	margin-bottom: 10px;
+}
+#container  .item .pic .text .bottom{
+	font-size: 12px;
+	color: #666;
+}
+
+
+.title {
+  display: flex;
+  width: 100%;
+  height: 34px;
+
+  margin-top:10px;
+
+  border: 1px solid #fa7921;
+  border-radius: 2px;
+}
+
+.title div {
+  width: 25%;
+  text-align: center;
+  font-size: 15px;
+  color: #fa7921;
+  height: 34px;
+  border-bottom: 1px solid #fa7921 !important;
+}
+
+.title div span {
+  position: relative;
+  top: 5px;
+}
+
+.current {
+  background-color: #fa7921;
+  color:#ffffff !important;
+}
+
+.default{
+  background-color: ##ffffff;
+  color:#fa7921 !important;
+ 
+}
+
+#payOrder ul li {
+  padding: 10px 15px;
+  background: #fff;
+  height: 70px;
+  display: flex;
+  border-bottom: 1px #e5e5e5;
+  position: relative;
+}
+
+#payOrder ul li:after {
+  position: absolute;
+  left: 12px;
+  right: 0;
+  bottom: 0;
+  content: '';
+  height: 1px;
+  background-color: #f1f1f1;
+}
+
+#payOrder ul li img {
+  width: 20%;
+  height: 50px;
+}
+
+#payOrder ul li .text {
+  width: 80%;
+  margin-left: 10px;
+}
+
+#payOrder ul li .text .right {
+  position: relative;
+  top: -40px;
+  left: 88%;
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#payOrder ul li .text span {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+#payOrder ul li .text p {
+  margin-bottom: 0;
+}

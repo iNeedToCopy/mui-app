@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>商品详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="css/common.css"/>
+		<link rel="stylesheet" href="css/goodsDetail.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<nav class="mui-bar mui-bar-tab color" v-show="ifbuy==true">
+		      <button id="btnBuy" @tap="buy(baseinfo.id)">立即购买</button>
+			</nav> 
+			<nav class="mui-bar mui-bar-tab color" v-show="ifbuy==false">
+		      <button id="btnBuy" disabled="disabled">暂不支持购买</button>
+			</nav> 
+			<div>
+				<!--轮播图片-->
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group">
+						<!-- 第一张 -->
+						<div class="mui-slider-item" v-for="pic in sliders">
+							<a href="#">
+								<img :src="pic.url" />
+							</a>
+						</div>
+					</div>
+					<div id="indicator" class="mui-slider-indicator">
+						<div class="mui-indicator" v-for="pic in sliders"></div>
+					</div>
+				</div>
+				<div id="goodsText" class="goodsText">
+					<p class="goodsName">{{baseinfo.name}}</p>
+					<p class="score">￥<span class="true">{{baseinfo.discountprice}}</span>
+						<span class="fake">￥{{baseinfo.sourceprice}}</span></p>
+					<span class="sellen">已售{{baseinfo.shopcount}}份</span>
+				</div>
+				<!--广告-->
+				<ul class="mui-table-view ad margin10" v-if="ifanytimeback || ifexpireback || ifgohome==true">
+			        <li class="mui-table-view-cell">
+			            <a class="mui-navigate-right" href="#popover">
+			                <span v-show="ifanytimeback==true"><img src="../../images/selected.png"/>&nbsp;随时退</span>
+			                <span v-show="ifexpireback==true"><img src="../../images/selected.png"/>&nbsp;过期退</span>	
+			                <span v-show="ifgohome==true"><img src="../../images/selected.png"/>&nbsp;支持上门</span>	
+			            </a>
+			        </li>
+		        </ul>
+		        <!--适用门店-->
+		        <ul id="door" class="mui-table-view door marginTop10">
+		        	<div>
+				        <li class="mui-table-view-cell first apply" @tap="goto_applyShop(baseinfo.id)">
+				            <a class="mui-navigate-right">
+	                    		适用门店({{shop.phone}})
+				            </a>
+				        </li>
+				        <li class="mui-table-view-cell second" @tap="goto_shopDetail(shop.id)">
+				            <a class="mui-navigate-right">
+				                <p class="top">{{shop.name}}</p>
+				                <p class="bottom">{{shop.distance}}&emsp;离我最近</p>
+				            </a>
+				        </li>
+			        </div>
+		        </ul>
+		        <div class="location margin10">
+					<div class="mui-row">
+						<div class="mui-col-sm-9 mui-col-xs-9" @tap="goto_map(lng,lat,shop.name,shop.addr)">
+							<img src="../../images/ic_map.png"/>
+							<p class="mui-ellipsis">{{shop.addr}}</p>
+						</div>
+						<div class="mui-col-sm-3 mui-col-xs-3">
+							<span class="tel" @tap="call_phone(shop.phone)">
+								<img src="../../images/ic_phone.png"/><br />
+								<span>{{shop.phone}}</span>
+							</span>
+						</div>	
+					</div>
+				</div>
+		        <!--购买须知-->
+		        <ul id="buy" class="mui-table-view buy margin10" v-for="(items, index) in items">
+	        		<li class="mui-table-view-cell">
+		        		<a>
+		                	{{items.name}}
+			            </a>
+		            </li>
+		            <li class="mui-table-view-cell items" v-for="items in items.child">
+		        		<a>
+		                	<p>{{items.name}}</p>
+		                	<span class="top"><span class="cell">•</span>&nbsp;&nbsp;{{items.value}}</span>
+			            </a>
+		            </li>
+		          	
+		        </ul>
+		        <div  class="btnBox" @tap="goto_picTextDetail()" style="padding-top:10px">
+		          	<button type="button">查看图文详情</button>
+		        </div>
+		          	
+		        <!--用户评价-->
+		        <div id="evaluate" class="comment">
+		        	<ul class="mui-table-view marginTop10">
+		        		<li class="mui-table-view-cell">
+		                	用户评价<span>({{comment.total}})</span>
+			            </li>
+			        </ul>
+			        <!--图片-->
+			        <div class="commentPic">
+				        	<div class="item" v-for="comment in comment.data">
+				        		<span class="openUrl">{{comment.commenturl}}</span>
+				        		<div class="mui-row">
+								<div class="mui-col-sm-2 mui-col-xs-2">
+									<img :src="comment.logo"/>
+								</div>
+								<div class="mui-col-sm-10 mui-col-xs-10">
+									<span class="username">{{comment.username}}</span><br />
+									<img src="../../images/ic_star_l.png" class="star1" v-show="comment.score==1"/>
+									<img src="../../images/ic_star_2.png" class="star2" v-show="comment.score==2"/>
+									<img src="../../images/ic_star_3.png" class="star3" v-show="comment.score==3"/>
+									<img src="../../images/ic_star_4.png" class="star4" v-show="comment.score==4"/>
+									<img src="../../images/ic_star_5.png" class="star5" v-show="comment.score==5"/>
+									<span class="date floatRigft">{{comment.create_time}}</span>
+									<div class="clear"></div>
+									<p>{{comment.text}}</p>
+									<div class="pic">
+										<a v-for="(pic,index) in comment.smallimg"><img :src="pic.url" :data_id="index"/></a>
+									</div>
+								</div>	 
+							</div>
+				        	</div>
+				        	<div  v-show="comment.total>0" class="seeAll" >
+				        		<button type="button" @tap="goto_allComment()">查看全部评价</button>
+				        	</div>
+			        </div>
+		        </div>
+			</div>
+			<div id="popover" class="box mui-popover mui-popover-action mui-popover-bottom">
+				<div class="title">
+					<img src="../../images/payClose.png"/>
+					<p>权益保障</p>
+				</div>
+				<div class="textBox">
+					<div class="item" v-show="ifanytimeback==true">
+						<img src="../../images/selected.png"/>
+						<div class="text">
+							<span>随时退</span>
+							<p>购买后未使用，可随时申请退款</p>
+						</div>
+					</div>
+					<div class="item" v-show="ifexpireback==true">
+						<img src="../../images/selected.png"/>
+						<div class="text">
+							<span>过期退</span>
+							<p>单份宝贝，购买后未使用且已过有效期，将自动退款，多份宝贝，到期后，剩余未使用的份数将自动退款</p>
+						</div>
+					</div>
+					<div class="item" v-show="ifgohome==true">
+						<img src="../../images/selected.png"/>
+						<div class="text">
+							<span>支持上门</span>
+							<p>该商品支持上门服务</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="seat"></div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js"></script>
+		<script src="../../js/ajax.js"></script>
+		<script src="js/goodsDetail.js"></script>
+	</body>
+</html>

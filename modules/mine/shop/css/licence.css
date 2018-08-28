@@ -1,0 +1,35 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+header .finish{
+
+	position: relative;
+	top: 12px;
+	right: -82%;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+/*提示*/
+.tip{
+	height: 70px;
+	background: #F8934C;
+	color: #fff;
+	font-size: 13px;
+	padding: 12px 15px;
+}
+/*拍照*/
+.update{
+	padding: 18px 0;
+	text-align: center;
+}
+.update img{
+	width: 340px;
+	height: 214px;
+}

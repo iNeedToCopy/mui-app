@@ -1,0 +1,145 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #fff;
+}
+
+header {
+  text-align: center;
+}
+
+header .mui-title {
+  color: #fff;
+  font-size: 15px;
+}
+
+.mui-bar {
+  background: #fa7921;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.mui-bar-nav {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.mui-action-back {
+  margin-left: 0px !important;
+}
+
+.mui-table-view-cell:after {
+  display: none;
+}
+
+.iconBox {
+  display: flex;
+  position: relative;
+  top: -1px;
+  width: 100%;
+  height: 100px;
+  background: #fa7921;
+}
+
+.iconBox .icon {
+  width: 25%;
+  text-align: center;
+  padding-top: 22px;
+  font-size: 15px;
+  color: #fff;
+}
+
+.iconBox .icon img {
+  width: 35px;
+}
+
+.iconBox .icon span {
+  position: relative;
+  top: 4px;
+}
+
+#container .list {
+  display: flex;
+  background: #fff;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+#container .list li {
+  width: 50%;
+  height: 44px;
+  line-height: 44px;
+  list-style: none;
+  text-align: center;
+  font-size: 15px;
+}
+
+#container .list li span {
+  display: inline-block;
+  height: 44px;
+}
+
+/*show*/
+#container {
+  background: #fff;
+}
+
+#container .item p {
+  height: 44px;
+  padding: 10px 15px;
+  font-size: 15px;
+  color: #333;
+  position: relative;
+  margin-bottom: 0;
+}
+
+#container .item p:after {
+  position: absolute;
+  left: 12px;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  content: '';
+  background-color: #f5f5f5;
+}
+
+#container .item p .status {
+  position: relative;
+  left: 64%;
+  color: #fa7921;
+}
+
+#container .item .pic {
+  padding: 20px 15px;
+  display: flex;
+  position: relative;
+}
+
+#container .item .pic:after {
+  position: absolute;
+  left: 12px;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  content: '';
+  background-color: #f5f5f5;
+}
+
+#container .item .pic img {
+  display: inline-block;
+  width: 28%;
+  height: 70px;
+}
+
+#container .item .pic .text {
+  width: 72%;
+  height: 70px;
+  margin-left: 10px;
+}
+
+li {
+  padding: 0px !important;
+}

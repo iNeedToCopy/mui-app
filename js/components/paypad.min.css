@@ -1,0 +1,229 @@
+#__paypad_popover__ {
+	height: 60%;
+	background: #fff;
+	z-index: 99999999999999999;
+}
+
+#__paypad_popover__ .page1 {
+	width: 50%
+}
+
+#__paypad_popover__ .page1 .title {
+	position: relative;
+	padding: 15px;
+	height: 50px;
+	border-bottom: 1px solid #e5e5e5
+}
+
+#__paypad_popover__ .page1 .title img {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 15px;
+	left: 15px
+}
+
+#__paypad_popover__ .page1 .title p {
+	font-size: 16px;
+	color: #000;
+	margin-bottom: 0;
+	text-align: center
+}
+
+#__paypad_popover__ .page1 .score {
+	height: 50px;
+	line-height: 50px;
+	font-size: 24px;
+	font-weight: 700;
+	text-align: center;
+	position: relative;
+	margin-bottom: 10px
+}
+
+#__paypad_popover__ .page1 .score:after {
+	position: absolute;
+	left: 12px;
+	right: 0;
+	bottom: 0;
+	height: 1px;
+	content: '';
+	background-color: #e5e5e5
+}
+
+#__paypad_popover__ .page1 .way {
+	padding: 4px 15px;
+	margin-bottom: 0;
+	color: #666;
+	font-size: 14px;
+	text-align:right;
+	width:100%
+}
+
+#__paypad_popover__ .page1 .way span {
+	position: relative;
+	left: 75%;
+	font-size: 15px;
+	color: #000
+}
+
+#__paypad_popover__ .page1 .pop_boxBtn {
+	position: absolute;
+	bottom: 20px;
+	width: 50%;
+	padding: 0 5%
+}
+
+#__paypad_popover__ .page1 button {
+	width: 100%;
+	height: 44px;
+	background: #fa7921;
+	color: #fff;
+	border: 0
+}
+
+#__paypad_popover__ .page2 {
+	width: 50%
+}
+
+#__paypad_popover__ .page2 .title {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border-bottom: 1px solid #e5e5e5
+}
+
+#__paypad_popover__ .page2 .title img {
+	width: 20px;
+	height: 20px;
+	position: relative;
+	top: 4px;
+	left: -28%
+}
+
+#__paypad_popover__ .page2 .number_input form {
+	border: 1px solid #9a9a9a;
+	border-radius: 4px;
+	display: flex;
+	width: auto;
+	height: 50px
+}
+
+#__paypad_popover__ .page2 .number_input form input {
+	list-style: none;
+	width: 16.6%;
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+	border-right: 1px solid #dadada;
+	position: relative;
+	top: 1px
+}
+
+#__paypad_popover__ .page2 .number_input form input:last-of-type,
+#keyboard tr td:last-of-type {
+	border-right: 0
+}
+
+input[type=password] {
+	border: 0;
+	margin-bottom: 0;
+	font-size: 30px
+}
+
+#keyboard {
+	position: absolute;
+	bottom: 0;
+	width: 50%
+}
+
+#keyboard tr {
+	display: flex;
+	border-top: 1px solid #e3e7ee
+}
+
+#keyboard tr td {
+	width: 33.3%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 22px;
+	color: #444;
+	border-right: 1px solid #e3e7ee
+}
+
+.keyboard_action {
+	background: #e3e7ee;
+	font-size: 20px
+}
+
+.mui-popup-button.mui-popup-button-bold {
+	font-weight: 100
+}
+
+.mui-popup {
+	background: #000
+}
+
+.margin10 {
+	margin-bottom: 8px
+}
+
+.margin12 {
+	margin-bottom: 12px
+}
+
+.margin15 {
+	margin-bottom: 15px
+}
+
+.marginTop20 {
+	margin-top: 20px
+}
+
+.marginTop10 {
+	margin-top: 10px
+}
+
+.marginTop6 {
+	margin-top: 6px
+}
+
+.margin30 {
+	margin-top: 30px
+}
+
+.marginLeft {
+	margin-left: 10px
+}
+
+.padding15 {
+	padding: 15px
+}
+
+.font12 {
+	font-size: 12px
+}
+
+.font14 {
+	font-size: 14px
+}
+
+.color {
+	background: #FA7921
+}
+
+.font16 {
+	font-size: 16px
+}
+
+.floatLeft {
+	float: left
+}
+
+.floatRigft {
+	float: right
+}
+
+.clear {
+	clear: both
+}

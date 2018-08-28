@@ -1,0 +1,55 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+header .help{
+	position: relative;
+	right: -85%;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+/*box*/
+.box{
+	display: flex;
+	background-color: #ffffff;
+}
+/*输入框*/
+.mui-input-group input{
+	width: 70%;
+	height: 50px;
+}
+.mui-input-group:before{
+	content: none;
+}
+.mui-input-group:after{
+	content: none;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #999;
+    font-size: 15px;
+}
+
+p{
+	padding: 15px;
+}
+.boxBtn{
+	padding: 20px 5% 10px;
+}
+button{
+	width: 100%;
+	height: 40px;
+	color: #fff;
+	border-color: #fff;
+	font-size: 15px;
+	background: #FA7921;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>特产定位</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/specialtyLocation.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-icon mui-icon-back mui-pull-left" @tap='goBack'></a>
+				    <h1 class="mui-title">特产定位</h1>
+				</div>
+			</header>
+			<!--区域选择-->
+			<div class="hot mui-clearfix">
+				<!--<span class="hotSP">热门: </span>
+				<div class="citys floatLeft">
+					<button type="button" class="mui-btn">默认</button>
+					<button type="button" class="mui-btn">江油县</button>
+					<button type="button" class="mui-btn">香格里拉</button>
+					<button type="button" class="mui-btn">香格里拉</button>
+					<button type="button" class="mui-btn">香格里拉</button>
+				</div>-->
+			</div>
+			<div class="opt mui-clearfix">
+				<span class="optSP floatLeft">选择: </span>
+				<div class="floatLeft" style="width: 80%;">
+					<div class="floatLeft" style="position: relative;">
+						<span class="triangle-bottomright"></span>
+						<select v-model="provinceSelected">
+							<option v-for="item in province" :value="item">{{item.text}}</option>
+						</select>
+					</div>
+					<span class="floatLeft" style="margin-top: 10px;color: #aaa;">&nbsp;—&nbsp;</span>
+					<div class="floatLeft" style="position: relative;">
+						<span class="triangle-bottomright"></span>
+						<select v-model="cityCode">
+							<option v-for="city in citys" :value="city.cid">{{city.text}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<!--列表展示-->
+			<vue-loadmore ref="load" @append="append" :object="'/integral/local/list?cityid='+ cityCode">
+				<ul class="locations">
+					<li class="mui-clearfix" v-for="item in locations" @tap='gotoDetail(item.id,item.name)'>
+						<img class="floatLeft" :src="item.logo"/>
+						<div class="introduce">
+							<p><strong>{{item.name}}</strong></p>
+							<p class="product-buyer-name">{{item.shortdesc}}</p>
+						</div>
+					</li>
+				</ul>
+			</vue-loadmore>
+			
+		</div>
+	</body>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/specialtyLocation.js" type="text/javascript" charset="utf-8"></script>
+</html>

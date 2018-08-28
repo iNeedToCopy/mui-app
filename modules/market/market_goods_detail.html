@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>物流详情</title>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../common/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/logistics_detail.css" />
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.mui-bar {
+				background-color: #fff;
+			}
+			
+			.mui-bar a {
+				color: #000;
+			}
+			
+			body,
+			.mui-content {
+				background: #fff;
+			}
+			/*消除阴影*/
+			
+			.mui-bar-nav {
+				box-shadow: none;
+				-webkit-box-shadow: none;
+				border-bottom: 1px solid #E5E5E5;
+			}
+			
+			.container {
+				font-size: 15px;
+				color: #333;
+				padding: 15px;
+			}
+			
+			.picBox {
+				margin-top: 20px;
+			}
+			
+			img {
+				width: 100%;
+				margin-bottom: 10px;
+			}
+			
+			.mui-scroll span {
+				display: inline-block;
+				margin: 0 15px;
+				height: 35px;
+			}
+			
+			.my-control {
+				padding: 7px 9px;
+				background-color: #fff;
+				color: #333;
+				border-radius: 20px;
+			}
+			
+			.my-active {
+				background-color: #FA7921;
+				color: #fff;
+				padding: 7px 9px;
+				border-radius: 20px;
+			}
+			
+			.mui-segmented-control.mui-scroll-wrapper .mui-scroll{
+				height: 52px;
+			}
+			
+			.mui-segmented-control.mui-scroll-wrapper{
+				height: 52px;
+				box-shadow: 0 2px 2px rgba(180,180,180,0.4);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav">
+				<div class="mui-row">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+					<span class="mui-title">{{gname}}</span>
+				</div>
+			</header>
+			<!--内容-->
+			<div class="mui-content">
+				<div>
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted" style="position: fixed;top: 66px;">
+						<div class="mui-scroll" style="width: 100%;padding-top: 10px;background-color: #fff;">
+							<span :class="{'my-control':true,'my-active':show_type == 0}" @tap="set_viewtype(0)">
+								图文详情
+					        </span>
+							<span :class="{'my-control':true,'my-active':show_type == 1}" @tap="set_viewtype(1)">
+					       		视频展示
+					       </span>
+						</div>
+					</div>
+					<div v-show="show_type == 0" v-html="box.text" style="font-size: 13px;color: #999999;margin-bottom: 80px;margin-top: 60px;">
+						<div v-html="box.text"></div>
+					</div>
+					<div v-show="show_type == 1" style="margin-top: 52px;text-align: center;">
+						<!--<video width="100%" height="">
+							<source src="myvideo.mp4" type="video/mp4"></source>
+							当前设备不支持 video直接播放
+						</video>-->
+						<span style="display:inline-block;color: #999;margin-top: 20px;">暂没有视频详情</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init();
+			var container = new Vue({
+				el: "#container",
+				data: {
+					show_type: 0, //0文字说明,1图片说明
+					box: {},
+					gname:"",
+				},
+				methods: {
+					load_info: function(goodsid) {
+						app.http_get('/mall/goods/detail?id=' + goodsid,
+							function(ret) {
+								if(ret.code == 200) {
+									container.box = ret.data;
+								}
+							},
+							function(x, t, e) {
+								console.log(e)
+							}
+						)
+					},
+					set_viewtype: function(_type) {
+						this.show_type = _type;
+					}
+				}
+			});
+
+			mui.ready(function() {
+				window.addEventListener('loadinfo', function(e) {
+					container.gname = e.detail.gname;
+					container.load_info(e.detail.goodsid);
+				})
+			});
+		</script>
+	</body>
+
+</html>

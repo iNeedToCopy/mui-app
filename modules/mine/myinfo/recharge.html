@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>信值充值</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/recharge.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">信值充值</h1>
+			</div>
+		</header>
+		<div id="container">
+			<div v-show="isloading" id='lottie' style="margin: 50% auto; width: 80px;"></div>
+			<div v-show="!isloading" class="mui-content">
+				<!--充值金额-->
+				<div id="selected" class="selected">
+					<div class="text">充值金额选择</div>
+					<div class="selectedBox marginTop10">
+						<span :class="{item:true,current:item.active==true}" v-for="(item,idx) in recharge_items" @tap="sel(item,idx)">
+							<span>{{item.name}}</span>
+							<p>{{item.viewprice}}</p>
+						</span>
+					</div>
+				</div>
+				<!--选择支付方式-->
+				<div class="payWay">
+					<div class="text">选择支付方式</div>
+					<ul>
+						<li v-show="pay_wx" @tap="set_recharge_type(0)">
+							<img src="../../../images/weixin.png"/>&nbsp;<span class="way">微信</span>
+							<span class="pic">
+								<img v-if="recharge_type==0" src="../../../images/btn_xuanz.png"/>
+								<img v-else src="../../../images/btn_weixuan.png"/>
+							</span>
+						</li>
+						<li @tap="set_recharge_type(1)">
+							<img src="../../../images/balance.png"/>&nbsp;<span class="way">余额</span>
+							<span class="pic">
+								<img v-if="recharge_type==0" src="../../../images/btn_weixuan.png"/>
+								<img v-else src="../../../images/btn_xuanz.png"/>
+							</span>
+						</li>
+					</ul>
+				</div>
+				<div class="boxBtn">
+					<button type="button" @tap="pre_recharge()">确认充值</button>
+				</div>
+				<vuepaypad ref ='paypad' @do_action="do_action"></vuepaypad>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		
+		<script src="../../../js/lottie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/components/paypad.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		
+	   	<script src="js/recharge.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
+

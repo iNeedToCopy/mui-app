@@ -1,0 +1,84 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+header .help{
+	position: relative;
+	right: -85%;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+/*输入框*/
+.box .text{
+	width: 30%;
+	background: #fff;
+	font-size: 15px;
+	padding-top: 14px;
+	padding-left: 15px;
+}
+.mui-input-group input{
+	width: 100%;
+	height: 50px;
+}
+.mui-input-group:before{
+	content: none;
+}
+.mui-input-group:after{
+	content: none;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #999;
+    font-size: 15px;
+}
+/*验证码*/
+.idCode{
+	background: #fff;
+	width: 32%;
+	font-size: 15px;
+	color: #209ae3;
+	text-align: center;
+	line-height: 50px;
+}
+form span{
+	display: inline-block;
+	width: 1px;
+	height: 25px;
+	background: #E5E5E5;
+	position: absolute;
+	top: 12px;
+	right: 0;
+}
+
+/*code*/
+.code{
+	display: flex;
+	background: #fff;
+}
+.code .text{
+	width: 23%;
+	font-size: 15px;
+	padding-top: 14px;
+	padding-left: 15px;
+}
+.boxBtn{
+	padding: 20px 5% 10px;
+}
+.boxBtn button{
+	width: 100%;
+	height: 40px;
+	color: #fff;
+	border-color: #fa7921;
+	font-size: 15px;
+	background: #FA7921;
+}
+

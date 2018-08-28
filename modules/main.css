@@ -1,0 +1,24 @@
+img{
+	width: 25px;
+}
+.mui-bar-tab .mui-tab-item.mui-active{
+	color: #fa7921;
+	
+}
+#main_navbar{
+	/*border-top: 1px solid #eeeeee !important;*/
+}
+
+span.mui-tab-label{
+	font-size: 14px;
+	color: #505050;
+}
+.Nactive{
+	position: relative;
+	top: 6px;
+	left: 2%;
+}
+.active{
+	position: relative;
+	top: 6px;
+}

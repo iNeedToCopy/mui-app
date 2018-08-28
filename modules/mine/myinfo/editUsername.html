@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>修改用户名</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/editUsername.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">修改用户名</h1>
+			    <span class="confirm mui-action-back mui-pull-left">确定</span>
+			</div>
+		</header>
+		<div id="content" class="mui-content">
+			<form class="mui-input-group">
+		    	<input type="text" maxlength="6" class="mui-input-clear username" placeholder="请输入用户名">
+			</form>
+			<p>以中文或者英文字母开头，限4-16个字符，每用户限修改1次。</p>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/editUsername.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

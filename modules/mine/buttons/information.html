@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>通知消息</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/information.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">通知消息</h1>
+			</div>
+		</header>
+		<div id="container" class="mui-content">
+			<vue-loadmore ref = "pullup" @append="append" object="/my/message">
+			    <ul class="mui-table-view">
+		            <li class="mui-table-view-cell" v-for="item in items">
+		            	<div class="circle">
+		            		<div :style="{backgroundColor: item.radius.bgcolor}">
+	            				<span :style="{color: item.radius.color}">{{item.radius.text}}</span>
+		            		</div>
+	            		</div>
+	                	<div class="text">
+	                		<span class="type">{{item.title}}</span>
+	                		<p>{{item.content}}</p>
+	                	</div>
+                		<span class="date">{{item.date}}</span>
+		            </li>
+		        </ul>
+	        </vue-loadmore>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/components/Loadmore.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/information.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

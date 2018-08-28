@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>去过的店</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/wentShop.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">去过的店</h1>
+			</div> 
+		</header>
+		<!--class="wentShop"-->
+		<div class="mui-content" id="container">
+		   	<vue-loadmore  class="wentShop" ref = "pullup" @append="append" object="/my/buy/shop/list">
+	        	<ul class="mui-table-view">
+		            <li class="mui-table-view-cell" v-for="item in items" @tap="goto_shopdetails(item.id)">
+		            	<p class="date"><span>{{item.date}}</span> &nbsp;消费{{item.money}}</p>
+		        		<a class="mui-navigate-right">
+		                	<div class="left">
+		                		<img :src="item.logo"/>
+		                	</div>
+		                	<div class="right">
+		                		<p>{{item.name}}</p>
+		                		<span class="satisfy">满意度{{item.all_score}}&emsp;&emsp;</span><br />
+		                		<span class="distance">{{item.class_name}}&emsp;{{item.area_name}}&emsp;{{item.distance}}</span>
+		                	</div>
+			            </a>
+			            
+		            </li>
+		        </ul>
+		    </vue-loadmore>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/components/Loadmore.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/wentShop.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

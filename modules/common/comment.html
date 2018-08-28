@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>发表评价</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/comment.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav">
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">发表评价</h1>
+				    <span class="publish floatRigft" @tap="save()">发布</span>
+				</div>
+			</header>
+			
+			<div  class="mui-content">
+				<div>
+					<div v-if="'goods' in order && !!order.goods.name" class="goodsComment">
+						<div class="title">
+							<img :src="order.goods.logo"/>
+							<span>{{order.goods.name}}</span>
+							<div class="goodsIcons">
+						        <vue-five-star ref="goods_star"></vue-five-star>
+						    </div>
+						</div>
+						<div class="goodsContent">
+						    <div class="mui-input-row">
+					    		<textarea placeholder="说说你的购买心得？" v-model="goods_comment"></textarea>
+						    </div>
+							<div class="commentImg">
+								<img v-for="(img,idx) in goods_imgs" :src="img.thumb" class="goodsImg" />
+								<img v-show="goods_imgs.length <3" @tap="take_img(1)" src="../../images/commentUrl.png" class="goodsImg" />
+							</div>
+						</div>
+					</div>
+					<div v-if="'shop' in order && !!order.shop.name" class="shopComment marginTop10">
+						<div class="title">
+							<img :src="order.shop.logo"/>
+							<span>{{order.shop.name}}</span>
+							<div class="shopIcons">
+						        <vue-five-star ref="shop_star"></vue-five-star>
+						    </div>
+						</div>
+						<div class="shopContent">
+						    <div class="mui-input-row">
+					    		<textarea placeholder="说说你的购买心得？" v-model="shop_comment"></textarea>
+						    </div>
+							<div class="commentImg">
+								<img v-for="(img,idx) in shop_imgs" :src="img.thumb" class="goodsImg" />
+								<img v-show="shop_imgs.length <3" @tap="take_img(2)" src="../../images/commentUrl.png" class="goodsImg" />
+							</div>
+						</div>
+					</div>
+					<div v-if="'service' in order && order.service.length>0" class="shopComment marginTop10">
+						<div class="title">
+							<img :src="service_logo" @tap="select_service(order.shop.id)"/>
+							<span>{{service_nickname}}</span>
+							<span v-if="service_id==0" style="font-size: 11px;">点击头像选择服务人员</span>
+							<div class="shopIcons">
+						        <vue-five-star ref="service_star"></vue-five-star>
+						    </div>
+						</div>
+						<div class="shopContent">
+						    <div class="mui-input-row">
+					    		<textarea placeholder="说说服务人员怎么样？" v-model="service_comment"></textarea>
+						    </div>
+							<div class="commentImg">
+								<img v-for="(img,idx) in service_imgs" :src="img.thumb" class="goodsImg" />
+								<img v-show="service_imgs.length <3" @tap="take_img(3)" src="../../images/commentUrl.png" class="goodsImg" />
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/components/FiveStar.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/comment.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

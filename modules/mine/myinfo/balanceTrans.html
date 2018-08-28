@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>余额转账</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/balanceTrans.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">余额转账</h1>
+			</div>
+		</header>
+		<div class="mui-content" id="container">
+			<form id="transform" class="mui-input-group marginTop10">
+				<div>
+			    	<input type="tel" v-model="phone" maxlength="11" class="mui-input-clear margin10" placeholder="请输入对方手机号/id">
+			    	<input type="tel" v-model="money" maxlength="6" class="mui-input-clear" placeholder="请输入金额">
+		    	</div>
+			</form>
+			<div class="btnBox">
+				<button type="button" @tap="pre_transfer()">转账</button>
+			</div>
+			<vuepaypad ref ='paypad' @do_action="do_action"></vuepaypad>
+		</div>
+		
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+		<script src="../../../js/components/paypad.min.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/balanceTrans.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

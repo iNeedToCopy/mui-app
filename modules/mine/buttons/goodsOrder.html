@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>商品订单</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/goodsOrder.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row"> 
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #333 !important;"></a>
+			    <div class="title">
+			    	<div class="left current1">
+			    		<span class="current2">商品订单</span>
+			    	</div>
+			    	<div class="right">
+			    		<span>支付订单</span>
+			    	</div>
+			    </div>
+			</div>
+		</header>
+		<div class="mui-content" id="container">
+			<div id="goodsOrder">
+				<ul class="list">
+					<li><span class="current3">进行中</span></li>
+					<li><span>全部</span></li>
+				</ul>
+				<vue-loadmore id="loadmore_online_order" ref = "online_order" @append="append_online" :object="'/my/online/order/list?qtype='+qtype">
+					<div class="item" v-for="item in online_orders" @tap="gotoDetail(item.orderid)">
+						<p>{{item.shopname}}&nbsp;&nbsp;&nbsp;<span class="floatRigft" :style="'color:'+item.statusdesccolor">{{item.statusdesc}}</span></p>
+						<div class="pic">
+							<img :src="item.header"/>
+							<div class="text">
+								<span class="top">{{item.goodsname}}</span><br />
+								<span class="middle">{{item.servicetype}}<span><br />
+								<span class="bottom">实付款:&nbsp;{{item.money}}<span>
+							</div>
+						</div>
+					</div>
+				</vue-load-more>
+			</div>
+			
+			<div id="payOrder" class="hide">
+				<vue-loadmore id="loadmore_online_order" ref = "offline_order" @append="append_offline" object="/user/offline/order">
+					<ul>
+						<li v-for="item in offline_orders">
+							<img :src="item.logo"/>
+							<div class="text">
+								<p><span>{{item.name}}</span><span class="floatRigft right">-{{item.money}}</span></p>
+								<p> 
+									<span>{{item.create_time}}</span>
+									<span @tap='goto_appraise(item.id,item.ifablecomment)' :class="[item.ifablecomment ? 'appraise' : 'already']">{{item.ifablecomment?'去评价':'已评价'}}</span>
+								</p>
+							</div>
+						</li>
+					</ul>
+				</vue-load-more>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/app.js"></script>
+		<script src="../../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/goodsOrder.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

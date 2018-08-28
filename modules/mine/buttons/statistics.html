@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的合伙人</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/partner.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">{{title}}</h1>
+				</div>
+			</header>
+			<div class="mui-content">
+				<div class="mui-content-padded" style="padding-left:10px;padding-right:10px">
+					<div class="chart" id="barChart" style="height: 200px;"></div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/echarts-all.js"></script>
+	   	<script type="text/javascript">
+	   		var container = new Vue({
+	   			el:'#container',
+	   			data:{
+	   				title:'-',
+	   				_chart:null
+	   			},
+	   			methods:{
+					chart_init:function(_name,_X,_data){
+						var chartOption = {
+							legend: {
+								data: ['']
+							},
+							grid: {
+								x: 50,
+								x2: 10,
+								y: 30,
+								y2: 25
+							},
+							calculable: false,
+							xAxis: [{
+								type: 'category',
+								data: _X
+							}],
+							yAxis: [{
+								type: 'value',
+								splitArea: {
+									show: true
+								}
+							}],
+							series: [{
+								name: '业绩量',
+								type: "bar",
+								data: _data
+							}]
+						};
+						this._chart = echarts.init(document.getElementById(_name));
+						this._chart.setOption(chartOption);
+					}
+				}
+	   		});
+	   		mui.ready(function(){
+
+	   			window.addEventListener("loadinfo",function(e){
+	   				var title = e.detail.title;
+	   				var obj = e.detail.obj;
+	   				container.title = title;
+	   				
+	   				app.http_get(obj,function(ret){
+	   					if(ret.code == 200){
+	   						var _x = [];
+	   						var _data = [];
+	   						for(var i in ret.data){
+	   							_x.push(ret.data[i].month);
+	   							_data.push(ret.data[i].money);
+	   						}
+	   						container.chart_init("barChart",_x,_data);
+	   					}
+	   				},function(x,t,e){});
+	   			});
+	   		});
+	   	</script>
+	</body>
+</html>

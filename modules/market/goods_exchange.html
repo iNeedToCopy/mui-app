@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>退换申请</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" type="text/css" href="../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/goods_exchange.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <span class="mui-title">{{type}}申请</span>
+				</div>
+			</header>
+			<!--内容-->
+			<div v-show="!isloading" class="mui-content">
+				<div class="order_info">
+					<div class="order_time">
+						<span>{{orderinfo.ordertime}}</span>
+						<span class="mui-pull-right">{{orderinfo.orderdesc}}</span>
+					</div>
+					<div class="order_goods" v-for="e in orderinfo.glist">
+						<img :src="e.logo"/>
+						<div class="order_subtotal">
+							<span class="order_name">{{e.gname}}</span>
+							<span class="order_feature">{{e.spec}}</span><br />
+							<span class="order_count">x{{e.buycount}}<span>小计：￥{{e.allprice.intpart}}.{{e.allprice.floatpart}}</span></span>
+						</div>
+					</div>
+					<div class="order_total">
+						<div @tap="toggle(orderinfo)">
+							<div class="preferential mui-clearfix">优惠满减
+								<span class="mui-pull-right">合计优惠：
+									<span class="order_discount">-{{orderinfo.allbenefit}}</span>
+									<span class="mui-icon" 
+										:class="{'mui-icon-arrowup':orderinfo.benefitlistifenable,'mui-icon-arrowdown':!orderinfo.benefitlistifenable}" 
+										style="font-size: 16px;color: #999;"></span>
+									</span>
+								</span>
+							</div>
+						</div>
+						<transition name="move">  
+							<div v-show="orderinfo.benefitlistifenable" class="bottom_items" v-for="e in orderinfo.benefitlist">
+								<div class="item">
+									<img :src="e.glogo"/>
+									<span>{{e.gname}}</span>
+									<div class="bottom_preferential">
+										满<span>{{e.man}}</span>减<span>{{e.jian}}</span>
+									</div>
+								</div>
+							</div>
+						</transition>
+						<div class="mui-clearfix" style="padding: 8px 15px;">
+							<div class="mui-pull-right">
+								<span>共{{orderinfo.allbuycount}}件商品</span>&nbsp;&nbsp;
+								<span>合计:<span class="order_discount">￥{{orderinfo.allmoney}}</span></span>
+								<span style="font-size: 12px;">(含运费:￥{{orderinfo.allfee}})</span>
+							</div>
+						</div>
+					</div>
+					<div class="order_pay">
+						<span>订单号：{{orderinfo.orderid}}</span>
+					</div> 
+				</div>
+				<div class="exchange" v-if="type == '退换'">
+					<span>退换类型</span>
+					<div class="reason">
+						<div class="reson_list">
+							<div class="mui-input-row mui-radio">
+								<label></label>
+								<input name="type" type="radio" value="1" v-model="exchange_type">
+							</div>
+							<span>退款退货</span>
+						</div>
+						<div class="reson_list">
+							<div class="mui-input-row mui-radio">
+								<label></label>
+								<input name="type" type="radio" value="2"  v-model="exchange_type">
+							</div>
+							<span>换货</span>
+						</div>
+					</div>
+				</div>
+				<div class="exchange">
+					<span>{{type}}原因</span>
+					<div class="reason">
+						<div v-if="type == '退款'" class="reson_list" v-for="e in malldrawback_reason">
+							<div class="mui-input-row mui-radio">
+								<label></label>
+								<input name="reason" type="radio" :value="e.value" v-model="reason_type">
+							</div>
+							<span>{{e.name}}</span>
+						</div>
+						<div v-if="type == '退换'" class="reson_list" v-for="e in malldrawbackchange_reason">
+							<div class="mui-input-row mui-radio">
+								<label></label>
+								<input name="reason" type="radio" :value="e.value" v-model="reason_type">
+							</div>
+							<span>{{e.name}}</span>
+						</div>
+					</div>
+					<textarea name="" cols="3" placeholder="请说明原因..."  v-model="reason_detail"></textarea>
+				</div>
+				<div class="voucher">
+					<span>上传凭证</span><br />
+		    		<img v-for="k in imglist" :src="k"/>
+		    		<img v-show="imglist.length < 3" src="../../images/market/upload_img.png" @tap="take_img(imglist)"/>
+				</div>
+				<div class="submit" @tap="submit()">提交</div>
+			</div>
+			
+			<div v-show="isloading" id='lottie' style="margin: 50% auto; width: 80px;"></div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/lottie.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/goods_exchange.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

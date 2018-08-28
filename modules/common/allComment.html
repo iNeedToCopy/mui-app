@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>用户评价</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/allComment.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">用户评价</h1>
+			</div>
+		</header>
+		<div id="container">
+			<vue-loadmore ref = "pullup" @append="append" :object="init_url">
+				<div class="item" v-for="(comment,index) in comments">
+					<span class="openUrl">{{comment.commenturl}}</span>
+	        			<div class="mui-row">
+						<div class="mui-col-sm-2 mui-col-xs-2">
+							<img :src="comment.logo"/>
+						</div>
+						<div class="mui-col-sm-10 mui-col-xs-10">
+							<span class="username">{{comment.username}}</span><br />
+							<vue-five-star :star="comment.score" :readonly="false"></vue-five-star>
+							<span class="date floatRigft">{{comment.create_time}}</span>
+							<div class="clear"></div>
+							<p>{{comment.text}}</p>
+							<div class="pic" v-if="comment.smallimg.length>0">
+								<a v-for="(pic,j) in comment.smallimg">
+									<img :src="pic" :data_id="j" @tap="previewImage(index,j)"/>
+								</a>
+							</div>
+						</div>	
+					</div>
+		        </div>
+			</vue-loadmore>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+
+		<script src="../../js/components/FiveStar.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/allComment.js"></script>
+	</body>
+</html>

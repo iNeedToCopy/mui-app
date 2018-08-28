@@ -1,0 +1,132 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background: #f5f5f9;
+}
+header .help{
+	position: relative;
+	right: -85%;
+}
+header h1{
+	/*color: #000 !important;*/
+}
+
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	/*color: #000;*/
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+/*用户信息*/
+.userMsg img{
+	width: 40px;
+	height: 40px;
+	border-radius:20px;
+	position: relative;
+	left: 72%;
+}
+.userMsg .text{
+	position: relative;
+	top: -10px;
+}
+
+
+/*绑定*/
+.bind .text{
+	padding: 10px 15px;
+	font-size: 14px;
+	color: #666;
+}
+.mui-pull-right{
+	margin-right:20px;
+}
+.mui-table-view:before{
+	content: none;
+}
+.mui-table-view:after{
+	content: none;
+}
+.mui-table-view-cell:after{
+	background-color: #E5E5E5;
+}
+ul li{
+	font-size: 15px;
+}
+
+ul li .tel{
+	position: relative;
+	right: -53%;
+}
+ul li .alreay{
+	position: relative;
+	right: -71%;
+}
+/*安全设置*/
+.safe .text{
+	padding: 10px 15px;
+	font-size: 14px;
+	color: #666;
+}
+ul li{
+	font-size: 14px;
+}
+
+ul li .edit{
+	position: relative;
+	right: -66%;
+	color: #999;
+}
+ul li .pass{
+	position: relative;
+	right: -54%;
+	color: #999;
+}
+
+/*相关认证*/
+.confirm .text{
+	padding: 10px 15px;
+	font-size: 14px;
+	color: #666;
+}
+ul li .name{
+	position: relative;
+	right: -63%;
+	color: #999;
+}
+ul li .bank{
+	position: relative;
+	right: -59%;
+	color: #999;
+}
+/*支付弹出框*/
+#popover{
+	height: 132px;
+	background: #fff;
+}
+#popover .box p{
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	color: #000;
+	margin-bottom: 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+#popover .box .cancel{
+	color: #999;
+}
+.seat{
+	height: 20px;
+}
+
+.mui-pull-right{
+	color:#666;
+	font-size: 13px;
+}

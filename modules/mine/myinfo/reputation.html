@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>信值</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <!--<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>-->
+	    <link rel="stylesheet" type="text/css" href="css/reputation.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">信值</h1>
+				    <span class="help mui-icon mui-icon-help" @tap="goto_about()"></span>
+				</div>
+				<div class="show">
+					<div>
+						<p class="once">昨日收益</p>
+						<p class="score1">{{yesterday}}</p>
+						<p class="score2" @tap="goto_reputationDetail()">总信值：{{my}}&nbsp;<img src="../../../images/mine_next.png"/></p>
+					</div>
+					<div class="total">
+						<div class="mui-pull-left mui-text-center">
+							<span>累计收益</span><br />
+							<span class="score">{{all}}</span>
+							<span class="line"></span>
+						</div>
+						<div class="mui-pull-right mui-text-center">
+							<span>增值率（%）</span><br />
+							<span class="score">{{rate}}</span>
+						</div>
+						<div class="clear"></div>
+						
+					</div>
+				</div>
+			</header>
+			<div class="mui-content">
+				
+				<div class="add" @tap="goto_recharge()">充值</div>
+				<!--便民服务-->
+				<div class="service">
+					<div class="text">便民服务</div>
+					<div class="icon">
+						<div @tap="goto_other()" class="iconBox">
+							<img src="../../../images/xinzhi/1.png"/><br />
+							<span>手机充值</span>
+						</div>
+						<div @tap="goto_other()" class="iconBox">
+							<img src="../../../images/xinzhi/2.png"/><br />
+							<span>水电费</span>
+						</div>
+						<div @tap="goto_other()" class="iconBox">
+							<img src="../../../images/xinzhi/3.png"/><br />
+							<span>燃气费</span>
+						</div>
+						<div @tap="goto_other()" class="iconBox">
+							<img src="../../../images/xinzhi/4.png"/><br />
+							<span>彩票</span>
+						</div>
+					</div>
+				</div>
+				<div style="height: 10px;"></div>
+				<ul class="mui-table-view marginTop10" v-if = "usertype==2 || usertype==3 || usertype==4 || usertype==6 ">
+				    <li class="mui-table-view-cell" @tap="goto_rechargeService()">
+				        <a class="mui-navigate-right reputationService">
+				        	信值充值服务
+				        </a>
+				    </li>
+				</ul>
+				<div class="bottom marginTop10" >
+					<img src="../../../images/xinzhi/ad.png" style="width: 100%;"/>
+				</div>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/reputation.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

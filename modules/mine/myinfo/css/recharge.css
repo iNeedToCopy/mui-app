@@ -1,0 +1,118 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+header .help{
+	position: relative;
+	right: -85%;
+}
+body{
+	background: #fff;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+/*充值金额*/
+.selected{
+	padding: 5px 15px;
+	background: #fff;
+}
+.selected .text{
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+}
+/*.selected .selectedBox{
+	display: flex;
+}*/
+
+.selected .selectedBox p{
+	font-size: 14px;
+	color: #FA7921;
+	margin-bottom: 0;
+	margin-top: 2px;
+}
+.selected .selectedBox .item{
+	display: inline-block;
+	font-size: 15px;
+	color: #333;
+	width: 40%;
+	text-align: center;
+	height: 60px;
+	border: 1px solid #FA7921;
+	border-radius: 4px;
+	margin: 0 5% 10px;
+	padding-top:6px;
+}
+.selected .selectedBox .current{
+	background: linear-gradient(90deg,#f97921,#eb3806);
+	color: #fff;
+}
+.selected .selectedBox .current p{
+	color: #fff;
+}
+/*选择支付方式*/
+.payWay{
+	background: #fff;
+	padding-top: 5px;
+	padding-left: 15px;
+}
+.payWay .text{
+	height: 44px;
+	line-height: 44px;
+	font-size: 15px;
+	color: #333;
+	border-bottom: 1px solid #e5e5e5;
+}
+.payWay ul li{
+	list-style: none;
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.payWay ul li img{
+	width: 35px;
+	height: 35px;
+	position: relative;
+	top: 7px;
+}
+.payWay ul li .way{
+	position: relative;
+	top: -4px;
+	left: 1%;
+}
+.payWay ul li .pic img{
+	width: 18px;
+	height: 18px;	
+	position: relative;
+	top: 2px;
+	left: 6%;
+}
+.payWay ul li span{
+	position: relative;
+	top: -2px;
+	right: -64%;
+}
+/*button*/
+.boxBtn{
+	padding: 30px 5% 10px;
+	background: #fff;
+}
+.boxBtn button{
+	width: 100%;
+	height: 40px;
+	color: #fff;
+	border-color: #fff;
+	font-size: 15px;
+	background: #FA7921;
+}

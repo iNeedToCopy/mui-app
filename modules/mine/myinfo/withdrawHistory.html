@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>提现记录</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/withdrawHistory.css"/>
+	    <style type="text/css">
+	    	html,body{
+	    		width:100%;
+	    	}
+	    </style>
+	</head>
+	<body >
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">提现记录</h1>
+			</div>
+		</header>
+		
+		<div class="mui-content" id="container">
+				<div class="allWithdraw">总提现：<span>{{allmoney}}元</span></div>
+				<div class="history marginTop10">
+					<ul class="box">
+						<li class="date">日期</li>
+						<li class="cash">提现金额</li>
+						<li class="status">状态</li>
+					</ul>
+					<div style="height: 100%;">
+						<vue-loadmore ref = "pullup" @append="append" object="/withdraw/history">
+							<ul id="show" class="show">
+								<li v-for="item in items">
+									<span class="left">{{item.date}}</span>
+									<span class="center">{{item.money}}</span>
+									<span class="right">{{item.statusdesc}}
+										<p>{{item.banknumber}}</p>
+									</span>
+								</li>
+							</ul>
+						</vue-loadmore>
+					</div>
+				</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		
+	   	<script src="js/withdrawHistory.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

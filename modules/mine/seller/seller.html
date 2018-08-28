@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商家管理</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+		<link rel="stylesheet" href="css/seller.css"/>
+	</head>
+	<body>
+		<div id = "container">
+			<header id="head" class="mui-bar mui-bar-nav" style="border: none;">
+				<div class="mui-row">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+					<a class="mui-icon mui-icon-help mui-pull-right" @tap="show_tip()"></a>
+				    <h1 class="mui-title">商家管理</h1>
+				</div>
+			</header>
+			<div class="mui-row iconbar">
+				<div class="icon mui-col-sm-4 mui-col-xs-4" @tap="cashier_list()">
+					<img src="../../../images/seller/sellerManage.png" class="order"/><br />
+					<span>收银员管理</span>
+				</div>
+				<div class="icon mui-col-sm-4 mui-col-xs-4" @tap="scanqr()">
+					<img src="../../../images/seller/sellerSweep.png"/><br />
+					<span>扫一扫</span>
+				</div>
+				<div class="icon mui-col-sm-4 mui-col-xs-4" @tap="receive_qr()">
+					<img src="../../../images/seller/sellerReceipt.png" class="order"/><br />
+					收款码
+				</div>
+				<div class="icon mui-col-sm-4 mui-col-xs-4" @tap="seller_orders()">
+					<img src="../../../images/seller/sellerOrder.png" class="order"/><br />
+					<span>订单</span>
+				</div>
+				<div class="icon mui-col-sm-4 mui-col-xs-4" @tap="seller_discount()">
+					<img src="../../../images/seller/selleDiscount.png" class="order"/><br />
+					折扣
+				</div>
+				<div class="icon mui-col-sm-4 mui-col-xs-4" @tap='preferential()'>
+					<img src="../../../images/seller/favourable.png" class="order"/><br />
+					优惠
+				</div>
+			</div>
+			<div class="lists">
+				<div class="title">店铺管理</div> 
+				<vue-loadmore ref = "pullup" @append="append" object="/seller/shop/list">
+					<ul>
+						<li class="mui-clearfix" v-for="shop in shops" @tap="goto_detail(shop)">
+							<img class="floatLeft" :src="shop.logo" alt=""/>
+							<div class="listInfo">
+								<p><strong>{{shop.name}}</strong></p>
+								<p>{{shop.addr}}</p>
+							</div>
+						</li>
+					</ul>
+				</vue-loadmore>
+			</div>
+			<div id="tip" class="box mui-popover mui-popover-action mui-popover-bottom">
+				<p>线上管理</p>
+				<div class="intro">
+					1、打开网址：sj.zhonglaiwang.com。
+				</div>	
+				<div class="intro">
+					2、使用绑定微信扫码登陆。
+				</div>	
+				<div class="intro">
+					3、在“店铺管理”您可以维护您的店铺、商品及服务人员信息啦。
+				</div>				
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/seller.js"></script>
+	</body>
+</html>

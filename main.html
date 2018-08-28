@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/layer.css"/>
+		<link rel="stylesheet" type="text/css" href="modules/main.css"/>
+	</head>
+	<body>
+		<div id="main_navbar">
+			<!--加载中动画-->
+			<div v-if="isloading" id="lottie" style="position: fixed;top: 0;left: 0;right: 0;bottom: 0;z-index: 9999999999999999999999;"></div>
+			<div v-show="mask_show" class="mui-backdrop"></div>
+			<nav v-if="!isloading" class="mui-bar mui-bar-tab">
+			    <a :href="nav.url" :class="{'mui-tab-item':true,'mui-active':nav.active}" 
+			    	@tap="item_click(nav.id)" v-for="nav in nav_items">		        
+			        <img v-show="!nav.active" :src="nav.icon" class="Nactive">
+			        <img v-show="nav.active" :src="nav.hicon" class="active"><br />
+			        <span class="mui-tab-label">{{nav.text}}</span>
+			    </a>
+			</nav>
+		</div>
+	</body>
+	
+	<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/layer_toast.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lottie.js"></script>
+	<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+	<script src="modules/main.js" type="text/javascript" charset="utf-8"></script>
+</html>

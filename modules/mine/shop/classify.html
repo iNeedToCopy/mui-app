@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>经营分类</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/classify.css"/>
+	    
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">经营分类</h1>
+				</div>
+			</header>
+			<!--内容-->
+
+			<div id="list" class="mui-content">
+				<div class="mui-row">
+					<div class="scrollable mui-col-sm-4 mui-col-xs-4">  
+					    <ul class="d">  
+					        <li :class="{current:first.checked}" v-if="first.ifcommerce == false" v-for="(first,idx) in classify" @tap="select_first_level(idx,first.text,first.cid)">{{first.text}}</li>
+					    </ul>  
+					</div>
+					<div v-if="classify.length>0 && first_level.index>=0" class="scrollable mui-col-sm-4 mui-col-xs-4">   
+					    <ul class="d">  
+					        <li :class="{current:second.checked}" v-for="(second,idx) in classify[first_level.index].children" @tap="select_second_level(idx,second.text,second.cid)">{{second.text}}</li>
+					    </ul>  
+					</div> 
+					<div v-if="classify.length>0 && (first_level.index>=0 && second_level.index>=0)&&  ('children' in classify[first_level.index]) && classify[first_level.index].children.length>0 && ('children' in classify[first_level.index].children[second_level.index])"  class="scrollable mui-col-sm-4 mui-col-xs-4">  
+					    <ul class="d">  
+					        <li :class="{current:third.checked}" v-for="(third,idx) in classify[first_level.index].children[second_level.index].children" @tap="select_third_level(idx,third.text,third.cid)">{{third.text}}</li>
+					    </ul>  
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/classify.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
+

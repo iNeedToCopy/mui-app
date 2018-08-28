@@ -1,0 +1,239 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background: #f5f5f9;
+	position: relative;
+}
+/*头部*/
+#header{
+	width: 100%;
+	height: 192px !important;
+	padding: 20px 15px !important;
+	position: relative;
+	background-image: url('../../images/bg_mine.png');
+	background-repeat:no-repeat;
+	background-size: cover;
+}
+#header .set{
+	color: #fff;
+	font-size: 17px;
+	margin-top:22px;
+}
+#header .mui-row>[class*=mui-col-]{
+	float: right;
+}
+
+#header .personal{
+	width: 65%;
+	margin-top: 20px;
+	display: flex;
+}
+#header .personal .champion{
+	width: 47px;
+	height: 20px;
+}
+#header .personal .imgBox{
+	width: 58px;
+	height: 58px;
+	border-radius: 29px;
+	background: #fff;
+}
+#header .personal .default{
+	width: 54px;
+	height: 54px;
+	border-radius: 27px;
+	position: relative;
+	top: 2px;
+	left: 2px;
+}
+#header .personal .box{
+	margin-left: 20px;
+	margin-top: 5px;
+}
+#header .personal .box img{
+	display: inline-block;
+	width: 25px;
+	height: 20px;
+	margin-top: 5px;
+}
+#header .personalName {
+	color: #fff;
+	font-size: 16px;
+}
+#header .personal .box .personalArrow img{
+	width: 7px;
+	height: 12px;
+}
+/*底部栏*/
+.mui-bar-tab{
+	text-align: center;
+	background: #fff;
+	border-top: 1px solid #E5E5E5;
+	opacity: 0.95;
+}
+.mui-bar-tab a{
+	font-size: 11px;
+	color: #505050;
+}
+.mui-bar-tab img{
+	width: 15px;
+	height: 15px;
+}
+
+/*悬浮栏*/
+.suspendBox{
+	z-index: 10;
+	width: 100%;
+	padding: 0 4%;
+	height: 60px;
+	position: absolute;
+	top: 160px;
+}
+.suspendBox .suspend{
+	width: 100%;
+	height: 60px;
+	border-radius: 6px;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 20px 0px rgba(255, 89, 2, 0.3);
+	text-align: center;
+}
+.suspendBox .mui-col-sm-3,.suspendBox .mui-col-xs-3{
+	margin-top: 10px;
+}
+.suspendBox .mui-col-sm-3 p,.suspendBox .mui-col-xs-3 p{
+	margin-bottom: 0;
+	color: #666;
+	font-size: 14px;
+}
+.suspendBox .suspend .score{
+	font-size: 15px;
+	font-weight: bold;
+	color: #333;
+}
+
+/*内容*/
+.mui-bar-tab~.mui-content{
+	padding-bottom: 0;
+	padding-top: 38px;
+}
+.mui-content .myMsg{
+	height: 80px;
+	background: #fff;
+	padding: 0 4%;
+}
+.myMsg .mui-col-xs-4,.myMsg .mui-col-sm-4{
+	height: 70px;
+}
+.myMsg .mui-col-xs-4 .box,.myMsg .mui-col-sm-4 .box{
+	text-align: center;
+	padding: 0px 0;
+}
+.myMsg .mui-col-xs-4 img,.myMsg .mui-col-sm-4 img{
+	width: 25px;
+	height: 25px;
+	position: relative;
+	top: 0px;
+}
+.myMsg .mui-col-xs-4 p,.myMsg .mui-col-sm-4 p{
+	margin-top: 0px;
+	margin-bottom: 0;
+	font-size: 13px;
+	color: #666;
+}
+
+/*iconBox*/
+/*压边线*/
+.mui-table-view li{
+	position: relative;
+	top: 1px;
+}
+.mui-table-view li p{
+	font-size: 13px;
+	color: #666;
+}
+.mui-table-view li .dot{
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 4px;
+	border: 1px solid #d12c25;
+	background: #ff4646;
+	position: absolute;
+	right: 6%;
+	top: 5px;
+}
+.mui-table-view-cell img{
+	width: 25px;
+	height: 25px;
+}
+.mui-grid-view.mui-grid-9{
+	background: #fff;
+}
+/*text*/
+.mui-table-view:before{
+	content: none;
+}
+.mui-table-view:after{
+	content: none;
+}
+
+.mui-table-view-cell>a:not(.mui-btn){
+	font-size: 15px;
+	color: #333;
+}
+/*网格线*/
+.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+	border: 0;
+}
+.seat{
+	height: 30px;
+}
+/*add*/
+.add .mui-navigate-right{
+	height: 50px;
+	line-height: 30px;
+}
+.add .mui-table-view-cell{
+	height: 50px;
+}
+.mui-table-view-cell:after{
+	background-color: #e5e5e5;
+}
+
+/*popover*/
+.mui-popover.mui-popover-action{
+	background: #fff;
+	height: 130px;
+}
+.mui-popover .share{
+	display: flex;
+	height: 130px;
+	background: #f3f3f3;
+}
+.mui-popover .share img{
+	width: 60px;
+	height: 60px;
+}
+.mui-popover .share .item{
+	list-style: none;
+	width: 25%;
+	text-align: center;
+	padding: 25px 0;
+}
+.mui-popover .share .item span{
+	display: inline-block;
+	margin-top: 0px;
+	font-size: 12px;
+}
+.mui-popover .cancel{
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+}
+.mui-popover .cancel span{
+	font-size: 18px;
+	color: #666;
+}

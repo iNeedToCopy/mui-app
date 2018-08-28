@@ -1,0 +1,27 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+header{
+	background-color: #000 !important;
+}
+header .fbt{
+	position: relative;
+	top: 15px;
+	right: -83%;
+	color: #fff;
+}
+body{
+	background: #0f0f0f;
+}
+.mui-bar{
+	background-color: #000;
+}
+.mui-bar a{
+	color: #fff;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}

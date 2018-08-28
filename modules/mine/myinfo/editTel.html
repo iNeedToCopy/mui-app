@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>修改手机号码</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/editTel.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">修改手机号码</h1>
+			</div>
+		</header>
+		<div id="container" class="mui-content">
+			<div class="code marginTop10">
+				<div class="text">
+					验证码
+				</div>
+				<form class="mui-input-group">
+	   				<input type="tel" maxlength="6" class="mui-input-clear smscode" placeholder="请输入验证码">
+	   				<span></span>
+				</form>
+				<div class="idCode">
+					<vue-sms-code-sender @send_code="send_code()">
+							</vue-sms-code-sender>
+				</div>
+			</div>
+			<div class="boxBtn">
+				<button type="button" @tap="goto_newTel()">下一步</button>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+		<script src="../../../js/aes.js"></script>
+		<script src="../../../js/pad-zeropadding-min.js"></script>
+		<script src="../../../js/components/SmsCodeSender.js" type="text/javascript" charset="utf-8"></script>
+		
+	   	<script src="js/editTel.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

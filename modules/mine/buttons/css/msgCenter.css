@@ -1,0 +1,72 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body,.mui-content{
+	background: #fff;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+#container ul li{
+	position: relative;
+}
+#container ul li.incomeMsg::before{
+	content: '';
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	/*border: 1px solid #d12c25;*/
+	background: #ff4646;
+	position: absolute;
+	top: 8px;
+	left: 65px;
+	z-index: 10;
+}
+.mui-table-view:before{
+	content: none;
+}
+.mui-table-view:after{
+	content: none;
+}
+.mui-table-view-cell:last-child:after, .mui-table-view-cell:last-child:before{
+	height: 1px;
+}
+.mui-table-view-cell>a:not(.mui-btn){
+	display: flex;
+}
+.mui-table-view-cell:after{
+	background-color: #e5e5e5;
+}
+.mui-table-view-cell .text{
+	width: 100%;
+	margin-left: 10px;
+}
+img{
+	width: 56px;
+	height: 56px;	
+	border-radius: 2px;
+}
+.mui-table-view-cell .text span{
+	font-size: 15px;
+}
+.mui-table-view-cell .text .date{
+	float: right;
+	font-size: 14px;
+	color: #dcdcdc;
+}
+.mui-table-view-cell .text p{
+	margin-bottom: 0;
+	position: relative;
+	top: 12px;
+	font-size: 15px;
+}

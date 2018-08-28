@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>更多订单</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" type="text/css" href="../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/submit_order.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <span class="mui-title">订单详情</span>
+				</div>
+			</header>
+			<!--内容-->
+			<div v-show="!isloading" class="mui-content">
+				<div class="delivery_info" @tap="[!!address.name ? goto_selectlocation() : goto_addLocation()]">
+					<div v-show="!!address.name" style="flex:1;margin-right: 20px;">
+						<div class="user_info">
+							<span>收货人：{{address.name}}</span>
+							<span>电话：{{address.phone}}</span>
+						</div>
+						<div class="address_info">
+							收货地址：{{address.detail}}
+						</div>
+					</div>
+					<span v-show="!!address.name" class="mui-pull-right mui-icon mui-icon-arrowright"></span>
+					<div v-show="!address.name" class="no_address">添加收货地址</div>
+				</div>
+				<div class="order_info" v-for="item in goodslist">
+					<div class="order_goods" v-for="e in item">
+						<img :src="e.logo"/>
+						<div class="order_subtotal">
+							<span class="order_name">{{e.gname}}</span>
+							<span class="order_feature">{{e.spec}}<br />x{{e.buycount}}</span>
+							<span class="order_count">￥<w style="font-size: 18px;">{{e.price.intpart}}</w>.{{e.price.floatpart}}<span>运费：{{e.fee}}</span></span>
+						</div>
+					</div>
+					<div class="order_total">
+						<div class="preferential mui-clearfix">
+							<p style="margin: 0;padding: 0;">买家留言</p>
+							<input class="preferential_input" type="text" placeholder="选填：填写你想告诉卖家的" v-model="item.comment"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--提交订单-->
+			<div v-show="!isloading" class="bootom">
+				<div class="order_total box-shadow" @tap="showDetail=!showDetail">
+					<div class="preferential mui-clearfix">优惠满减
+						<span class="mui-pull-right">合计优惠：
+							<span class="order_discount">{{allbenefit ? '-'+allbenefit : '无'}}</span>
+							<span class="mui-icon" 
+								:class="{'mui-icon-arrowup':showDetail,'mui-icon-arrowdown':!showDetail}" 
+								style="font-size: 16px;color: #999;"></span>
+							</span>
+						</span>
+					</div>
+				</div>
+				<transition name="move">  
+					<div v-show="showDetail" class="bottom_items">
+						<div class="item" v-for="e in benefitlist">
+							<img :src="e.glogo"/>
+							<span>{{e.gname}}</span>
+							<div class="bottom_preferential">
+								满<span>{{e.man}}</span>减<span>{{e.jian}}</span>
+							</div>
+						</div>
+					</div>
+				</transition>
+				<div class="submit">
+					<div class="allcount">
+						<span>共{{goodscount}}件商品</span>
+						合计：<span class="monney">￥<span>{{paymoney.slice(0,paymoney.indexOf('.'))}}</span>{{paymoney.slice(paymoney.indexOf('.'))}}</span>
+					</div>
+					<div class="submit_order" @tap="submit_order()">提交订单</div>
+				</div>
+			</div>
+			
+			<div v-show="isloading" id='lottie' style="margin: 50% auto; width: 80px;"></div>
+			<vuepaypad ref='paypad' @do_action="do_action"></vuepaypad>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/lottie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/components/paypad.min.js" type="text/javascript"></script>
+	   	<script src="js/submit_order.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
+

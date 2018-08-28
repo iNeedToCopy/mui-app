@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>区域红包</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/redCash.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">区域红包</h1>
+			</div>
+		</header>
+		<div id="container" class="mui-content">
+			<div class="explain">
+				<span><img src="../../../images/tip.png"/>&nbsp;&nbsp;您目前拥有信值：{{text.curletter}}<br />
+					红包金额最少为{{text.min}}信值，每次最多发{{text.max}}
+				</span>
+			</div>
+			<form class="mui-input-group">
+			    <div class="mui-input-row">
+			        <label>红包金额</label>
+			   	    <input type="tel" class="mui-input-clear" v-model="allMoney" placeholder="0">
+		   	      	<span>信值</span>
+			    </div>
+			    <div class="mui-input-row second">
+			    	<label>红包个数</label>
+			        <input type="tel" class="mui-input-clear" v-model="allNumber" placeholder="填写个数">
+			        <span>个</span>
+			    </div>
+			</form>
+			<div class="btnBox">
+				<button type="button" @tap="sendCash()">发红包</button>
+				<p>未领取的红包，将不会退回</p>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/redCash.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

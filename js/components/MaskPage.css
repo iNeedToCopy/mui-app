@@ -1,0 +1,17 @@
+.title{
+	text-align: center;
+	padding:10px;
+	margin: 0px;
+	border-bottom: 1px solid #e5e5e9;
+	background-color: #FA7921 !important;
+}
+.body{
+	background-color: #ffffff !important;
+
+}
+.footer{
+	height: 30px;
+}
+.wrapper{
+	background-color: #ffffff !important;
+}

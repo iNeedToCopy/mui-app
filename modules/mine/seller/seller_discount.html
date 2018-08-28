@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商家管理</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+		<style type="text/css">
+			.btnBox{
+				padding: 10px;
+				margin-top: 50px;
+			}
+			.btnBox>button{
+				width: 100%;
+				padding: 10px;
+				font-size: 18px;;
+				font-weight: bold;
+				background-color: #FA7921;
+				color: #FFFFFF;
+			}
+			#tip{
+				width: 100%;
+				height: 35%;
+				background-color: #fff;
+			}
+			#tip p{
+				color: #333;
+				padding-left: 10px;
+				font-weight: bold;
+				line-height: 45px;
+				border-bottom: 1px solid #E5E5E5;
+			}
+			.intro{
+				padding: 0px 10px 5px 10px;
+				text-indent: 2em;
+				color: #737373;
+				font-size: 14px;
+			}
+			.mui-input-row{
+				padding-right: 15px;
+			}
+			.mui-input-group .mui-input-row:after{
+				left:0px
+			}
+			.mui-input-row label{
+				font-size: 16px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id = "container">
+			<header id="head" class="mui-bar mui-bar-nav" >
+				<div class="mui-row" style="padding-right:0px;">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">折扣</h1>
+				    <a class="mui-icon mui-icon-help mui-pull-right" style="color: #ffffff;" @tap="show_tip()"></a>
+				</div>
+			</header>
+		
+			<div class="mui-content" style="">
+				<form class="mui-input-group">
+				    <div class="mui-input-row">
+				        <label>会员折扣</label>
+				        <input type="tel" maxlength="3" v-model="discount" style="text-align: right;font-size: 16px;" placeholder="范围是1到10之间">
+				    </div>
+				    <div class="mui-input-row">
+				        <label>最大优惠</label>
+				        <input type="tel" maxlength="6"  v-model="money" style="text-align: right;font-size: 16px;" placeholder="请设置合理的优惠价">
+				    </div>
+				</form>
+				
+				<div class="btnBox">
+					<button @tap="save()">确定</button>
+				</div>
+			</div>
+			<div id="tip" class="box mui-popover mui-popover-action mui-popover-bottom">
+				<p>折扣说明</p>
+				<div class="intro">
+					会员折扣范围是1到10之间，可接受小数点后一位数，如9.8折。
+				</div>	
+				<div class="intro">
+					会员享受的折扣优惠上限为您所设置的最大优惠，例如，当你设置最大优惠为100元时，即使会员以8折优惠消费了1000元，最多也只能优惠100元。
+				</div>				
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var container = new Vue({
+				el:"#container",
+				data:{
+					discount:'10',
+					money:''
+				},
+				methods:{
+					loadinfo:function(){
+						var _self = this;
+						app.http_get('/seller/get/discount',function(ret){
+							if(ret.code == 200){
+								_self.discount = ret.data.discount;
+								_self.money = ret.data.money;
+							}
+						},function(){});
+					},
+					show_tip:function(){
+						mui("#tip").popover("show");
+					},
+					save:function(){
+						app.http_post('/seller/set/discount',{
+							discount:this.discount,
+							money:this.money
+						},function(ret){
+							mui.toast(ret.desc);
+							if(ret.code == 200)
+								mui.back();
+						},function(x,t,e){});
+					}
+				}
+			});
+			mui.ready(function(){
+				window.addEventListener('loadinfo',function(e){
+					container.loadinfo();
+				});
+			});
+		</script>
+	</body>
+</html>

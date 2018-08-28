@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>评价订单</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" type="text/css" href="../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/order_comments.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <span class="mui-title">评价订单</span>
+				</div>
+			</header>
+			<div v-show="isloading" id='lottie' style="margin: 50% auto; width: 80px;"></div>
+			<div v-show="!isloading" class="mui-content">  
+				<div class="time">
+					<span>{{orderinfo.receivetime}}</span>
+					<span>订单号:{{orderinfo.id}}</span>
+				</div>
+				<div class="order" v-for="e in orderinfo.goodsinfo">
+					<div class="goods">
+						<img :src="e.logo"/>
+						<div class="goods_info">
+							<span>{{e.gname}}</span>
+							<div class="goods_size">
+								<span>{{e.spec}}</span>
+								<div>x{{e.buycount}}
+									<span class="subcount">小计:￥<span style="font-size: 16px;">{{e.allprice.intpart}}</span>.{{e.allprice.floatpart}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="stars">
+						<p>
+							<span>商品相符</span><vue-five-star ref="goodsscore"></vue-five-star>
+						</p>
+						
+						<p>
+							<span>发货物流</span><vue-five-star ref="sendscore"></vue-five-star>
+						</p>
+					</div>
+					<div class="leave_comments">
+			    		<textarea placeholder="说说你的购买心得？" v-model="e.text"></textarea>
+			    		<img v-for="k in e.imglist" :src="k"/>
+			    		<img v-show="e.imglist.length < 3" src="../../images/commentUrl.png" @tap="take_img(e)"/>
+					</div>
+				</div>
+				<div class="allcount">
+					<div class="order_total">
+						<div>
+							<div class="preferential mui-clearfix">优惠满减
+								<span class="mui-pull-right">合计优惠：
+									<span class="order_discount">-{{orderinfo.allbenefit}}</span>
+								</span>
+							</div>
+						</div>
+						<div class="mui-clearfix" style="padding: 5px 15px;">
+							<div class="mui-pull-right">
+								<span>共{{orderinfo.goodscount}}件商品</span>&nbsp;&nbsp;
+								<span>合计:<span class="order_discount">￥{{orderinfo.money}}</span></span>
+								<span style="font-size: 12px;">(含运费:￥{{orderinfo.fee}})</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div v-show="!isloading" class="submit" @tap="submit()">提交</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/lottie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/components/FiveStar.js"></script>
+	   	<script src="js/order_comments.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

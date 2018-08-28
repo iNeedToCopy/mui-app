@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+		<style type="text/css">
+			html,body{
+				width: 100%;
+				/*height: 100%;*/
+				background-color: #FA7921;
+			}
+			/*消除阴影*/
+			.mui-bar-nav{
+				box-shadow: none;
+				-webkit-box-shadow: none;	
+			}
+			.shopInfo{
+				width: 80%;
+				color: #fff;
+				text-align: center;
+				margin: 110px auto;
+				margin-bottom: 20px;
+				padding: 20px;
+				font-weight: bold;
+			}
+			.info{
+				width: 80%;
+				margin:0 auto;
+				background-color: #fff;
+			}
+			.info img{
+				margin: 30px 0 30px 0;
+				width: 80%;
+			}
+			.code{
+				padding: 20px;
+				border-bottom: 1px solid #ddd;
+				color: #999;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">券码</h1> 
+				</div>
+			</header>
+			<div class="shopInfo">
+	 			{{info.shop}}:{{info.goods}}
+	 		</div>
+		 	<div class="info mui-text-center">
+		 		<div class="code">
+		 			券码 ： {{info.juancode}}
+		 		</div>
+		 		<img :src="quanma"/>
+		 	</div>
+	 	</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init();
+			var container = new Vue({
+				el:"#container",
+				data:{
+					orderid:'',
+					quanma:'',
+					info:{}
+				},
+				methods:{
+					load_info:function(){
+						var _self = this;
+						app.http_get('/generate/order/juan/code?orderid='+this.orderid,
+							function(ret){
+								if(ret.code == 200){
+									_self.quanma = 'data:image/png;base64,' + ret.data;
+								}
+								else
+									mui.toast(ret.desc);
+							},function(x,t,e){
+								console.log(e);
+							}
+						)
+					}
+				}
+			});
+			
+			mui.ready(function(){
+				window.addEventListener('loadinfo',function(event){
+					container.info = event.detail;
+					container.orderid = event.detail.orderid;
+					container.load_info();
+				});
+				
+				mui.back = function(){
+					app.fire_opener('refresh',{});
+					plus.webview.hide(plus.webview.currentWebview(),"slide-out-right");
+				};
+			});
+		</script>
+	</body>
+
+</html>

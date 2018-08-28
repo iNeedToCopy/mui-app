@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>提交订单</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link href="../../../css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../../../css/mui.poppicker.css" rel="stylesheet" />
+	    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/submitOrder.css"/>
+	    <style type="text/css">
+	    		#popover_servicetype {
+				position: fixed;
+				top: 16px;
+				right: 6px;
+			}
+			#popover_servicetype .mui-popover-arrow {
+				left: auto;
+				right: 6px;
+			}
+			.mui-popover {
+				height: 90px;
+				width:90px;
+			}
+	    </style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">提交订单</h1>
+			</div>
+		</header>
+		
+		<div class="mui-content" id="container">
+			<vuepaypad ref ='paypad' @do_action="ensure_pay" @hide_pad="hide_pad"></vuepaypad>
+			<div id="goods" class="goodsBox">
+				<div class="goods">
+					<img :src="goodsinfo.logo"/>
+					<div class="text">
+						<span>{{goodsinfo.gname}}</span>
+						<p class="middle">
+							<span style="font-size: 13px;" v-show="goodsinfo.ifanytimeback"><img src="../../../images/selected.png"/>&nbsp;随时退&emsp;</span>
+							<span style="font-size: 13px;" v-show="goodsinfo.ifexpireback"><img src="../../../images/selected.png"/>&nbsp;到期退&emsp;</span>
+							<span style="font-size: 13px;" v-show="goodsinfo.ifgohome"><img src="../../../images/selected.png"/>&nbsp;支持上门&emsp;</span>
+						</p>
+						<p class="bottom">
+							<span class="true">￥{{goodsinfo.discountprice}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<span class="fake">￥{{goodsinfo.sourceprice}}</span>
+						</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="price marginTop10" >
+				<ul class="mui-table-view">
+					<li class="first">
+						<span class="left">数量</span>
+						<div class="number">
+							<span class="text">每笔限购{{goodsinfo.singlemax}}份</span>
+							&nbsp;
+							<div class="mui-numbox"  style="margin-top:5px;" data-numbox-step='1' data-numbox-min='1' :data-numbox-max='goodsinfo.singlemax'>
+							    <button @tap="update_amount()"class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+							    <input class="mui-input-numbox" type="number"   readonly="readonly" style="position: relative;top:-8px"/>
+							    <button @tap="update_amount()"class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+							</div>
+							
+							<!--<span class="reduce" @tap="dec_amount()"><img src="../../../images/reduceB.png"/></span>-->
+							<!--<form class="mui-input-group">-->
+								<!--&nbsp;&nbsp;{{amount}}&nbsp;&nbsp;-->
+   								<!--<input type="text" class="mui-input-clear"  v-model="amount">-->
+							<!--</form>-->
+							<!--<span class="add" @tap="inc_amount()"><img src="../../../images/addB.png"/></span>-->
+						</div>
+					</li>
+					<li class="">小计
+						<span class="mui-pull-right">￥{{(goodsinfo.discountprice*amount).toFixed(2)}}</span>
+					</li>
+					<li class="middle">
+						活动立减 
+						<span class="mui-pull-right">￥{{goodsinfo.activityminus}}</span>
+					</li>
+					<li class="last">合计
+						<span class="mui-pull-right">￥{{(goodsinfo.discountprice*amount - goodsinfo.activityminus).toFixed(2)}}</span>
+					</li>
+				</ul>
+			</div>
+			<div id="popover_servicetype" class="mui-popover">
+				<!--<div class="mui-popover-arrow"></div>-->
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+
+
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell" v-for="item in servicetypes[supported_servicetype]" 
+								@tap="set_service_type(item.id)">{{item.text}}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		
+			<div class="fee">
+				<ul class="mui-table-view marginTop10">
+				    <li class="mui-table-view-cell">
+				        <!--<a>-->
+				        	服务类型
+				        	<span :class="{selected_service:item.id == servicetype,unselected_service:item.id != servicetype}" 
+				        		v-for="item in servicetypes[supported_servicetype]" @tap="set_service_type(item.id)">
+				        		{{item.text}}
+				        	</span>
+				        <!--</a>-->
+				        
+				    </li>
+				    <li class="mui-table-view-cell">
+				        <a>
+				        	{{goodsinfo.addmoneydesc}}
+				        </a>
+				    </li>
+				    <li class="mui-table-view-cell" v-if="(servicetype==2) && ('id' in goodsinfo.address)">
+				        <a class="mui-navigate-right" @tap="goto_selectlocation()">
+				        	<div><h5>收货人：{{goodsinfo.address.name}}</h5></div>
+				        	<p>{{goodsinfo.address.phone}}</p>
+				        	<div>
+				        		<h6 class="">{{goodsinfo.address.detail}}</h6>
+				        	</div>
+				        </a>
+				    </li>
+				</ul>	
+				<div class="location" v-if="(servicetype==2) && !('id' in goodsinfo.address)">
+					<span @tap="goto_addLocation()">添加收货地址</span>
+				</div>
+				
+			</div>
+			<div class="btnBox">
+				<button type="button" @tap="pre_pay()">提交订单</button>
+			</div>
+		</div>
+
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+		<script src="../../../js/components/paypad.min.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/submitOrder.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

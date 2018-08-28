@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>区域管理</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/zoneManager.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">区域管理</h1>
+			</div>
+		</header>
+		<div id="container" class="mui-content">
+			<div>
+			 	<div class="zoneBox">
+			 		<div class="zoneName">
+			 			<span>{{name}}</span><br />
+			 			<img v-for="g in grade" src="../../../images/ic_star_l.png"/>
+			 		</div>
+			 	</div>
+			 	<div class="turnover">
+			 		<div class="top">
+			 			<div class="left">
+			 				<span>{{statistics[0].value}}</span>
+			 				<p>区域总营业额</p>
+			 			</div>
+			 			<div class="right">
+			 				<span>{{statistics[1].value}}</span>
+			 				<p>区域总充值额</p>
+			 			</div>
+			 		</div>
+			 		<div class="bottom">
+			 			<div class="left">
+			 				<span>{{statistics[2].value}}</span>
+			 				<p>本月总营业额</p>
+			 			</div>
+			 			<div class="right">
+			 				<span>{{statistics[3].value}}</span>
+			 				<p>本月总充值额</p>
+			 			</div>
+			 		</div>
+			 	</div>
+		 	</div>
+		 	<ul class="mui-table-view mui-grid-view mui-grid-9 marginTop10">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4" @tap="goto_red()">
+					<img src="../../../images/redcash.png"/><br />
+					<span>红包</span>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4" @tap="goto_shopSelect()">
+					<img src="../../../images/stopwork.png"/><br />
+					<span>停业</span>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4" @tap="goto_mytradezone()">
+					<img src="../../../images/tradezone.png"/><br />
+					<span>商圈</span>
+				</li>
+			</ul>
+			<div class="btnBox">
+				<button type="button" @tap="goto_more()">更多功能</button>
+			</div>
+			<div class="seat"></div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/zoneManager.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,75 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body,.mui-content{
+	background: #fff;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+/*评价图片*/
+#container{
+	background: #fff;
+	padding-top:60px;
+}
+#container .item{
+	position: relative;
+	padding: 15px 15px 10px;
+}
+#container .item:after{
+	position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 12px;
+    height: 1px;
+    content: '';
+    background-color: #E5E5E5;
+}
+#container .item .mui-col-sm-2 img,#container .item .mui-col-xs-2 img{
+	width: 46px;
+	height: 46px;
+	border-radius: 23px;
+} 
+
+#container .item .mui-col-sm-10 .pic{
+	display: flex;
+	width: 100%;
+	height: 90px;
+}
+#container .item .mui-col-sm-10 .pic{
+	margin-right: 5px;
+}
+#container .item .mui-col-sm-10 .pic img{
+	width: 90px;
+	height: 90px;
+	margin-right: 10px;
+}
+#container .item .mui-col-sm-10 span{
+	display: inline-block;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 3px;
+}
+#container .item .mui-col-sm-10 .date{
+	position: relative;
+	top: -22px;
+}
+#container .item .mui-col-sm-10 p{
+	margin-bottom: 4px;
+	color: #000;
+	font-size: 14px;
+}
+/*隐藏域*/
+.openUrl{
+	display: none;
+}

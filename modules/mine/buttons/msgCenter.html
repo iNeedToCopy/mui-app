@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>消息中心</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/msgCenter.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">消息中心</h1>
+			</div>
+		</header>
+		<div id="container" class="mui-content">
+		   <ul class="mui-table-view" style="margin-top: 0;">
+	            <li class="mui-table-view-cell" :class="{'incomeMsg':items.system.ifhas}" @tap="goto_systemMsg()">
+	        		<a> 
+	                	<img src="../../../images/msg1.png"/>
+	                	<div class="text">
+	                		<div><span>系统消息</span><span class="date">{{items.system.datetime}}</span></div>
+	                		<p>{{items.system.desc ? items.system.desc : ' '}}</p>
+	                	</div>
+		            </a>
+	            </li>
+	            <li class="mui-table-view-cell" :class="{incomeMsg:items.invite.ifhas}" @tap="goto_inviteMsg()">
+	        		<a>
+	                	<img src="../../../images/massage.png"/>
+	                	<div class="text">
+	                		<div><span>邀请消息</span><span class="date">{{items.invite.datetime}}</span></div>
+	                		<p>{{items.invite.desc}}</p>
+	                	</div>
+		            </a>
+	            </li>
+	            <li class="mui-table-view-cell" :class="{incomeMsg:items.notify.ifhas}" @tap="goto_information()">
+	        		<a>
+	                	<img src="../../../images/msg2.png"/>
+	                	<div class="text">
+	                		<div><span>通知消息</span><span class="date">{{items.notify.datetime}}</span></div>
+	                		<p>{{items.notify.desc}}</p>
+	                	</div>
+		            </a>
+	            </li>
+	        </ul>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/msgCenter.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

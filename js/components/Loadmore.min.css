@@ -1,0 +1,19 @@
+
+.wrapper {
+	/*position: relative;*/ 
+	z-index: 888;
+	width: 100%;
+	min-height: 101%;
+	overflow: scroll;
+	/*left: 0;
+	bottom: 0;*/
+	background-color: #fff
+}
+
+.loading {
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	color: #8C8C8C;
+	width: 100%
+}

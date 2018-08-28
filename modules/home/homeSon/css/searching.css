@@ -1,0 +1,69 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+/*输入框位置*/
+header{
+	position: relative;
+}
+header .mui-input-row{
+	clear: none;
+}
+header .mui-search{
+	top: 2px;
+	left: 8%;
+}
+header .searchBtn{
+	position: absolute;
+	z-index: 2;
+	top: 34px;
+	right: 4%;
+}
+.mui-bar a{
+	color: #000;
+}
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #D3D2D7;
+}
+.mui-search .mui-placeholder{
+	text-align: left;
+}
+.mui-search .mui-placeholder span{
+	font-size: 14px;
+	text-indent: 4%;
+}
+/*内容*/
+.mui-content li{
+	color: #666;
+	font-size: 14px;
+	
+	border-bottom: 1px solid #E5E5E5;
+}
+.mui-content li a img{
+	width: 40px;
+	height: 40px;
+	position: relative;
+	top: 3px;
+}
+.mui-content li a .text{
+	width: 80%;
+	margin-left: 10px;
+}
+.mui-content li a .text .shopName{
+	font-size: 16px;
+	color: #333;
+}
+.mui-content li a .text p{
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.mui-table-view-cell:after{
+	content: none;
+}
+.mui-table-view:after{
+	content: none;
+}

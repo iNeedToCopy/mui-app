@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>其他服务信息</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../../css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.picker.min.css" />
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/other.css"/>
+	</head>
+	<body>
+		
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">其他服务信息</h1>
+				    <span class="finish" @tap="save()">完成</span>
+				</div>
+			</header>
+			<div class="mui-content">
+				<!--提示-->
+				<div class="tip">
+					温馨提示：完善更多信息，有利于客户全面了解门店。
+				</div>
+				<!--营业时间-->
+				<div class="date">
+					<ul>
+						<li class="top">
+							营业时间
+						</li>
+						<li class="bottom">
+							<div class="day">
+								<span>营业日</span>
+								<form class="mui-input-group" >
+									<div>
+										<div class="mui-input-row mui-select">
+									        <select v-model="startday" name="" style="width: 120px;">
+									        	<option value="0">周一</option>
+									        	<option value="1">周二</option>
+									        	<option value="2">周三</option>
+									        	<option value="3">周四</option>
+									        	<option value="4">周五</option>
+									        	<option value="5">周六</option>
+									        	<option value="6">周日</option>
+									        </select>
+									    <!--</div>-->
+									    <span>&nbsp;至&nbsp;</span>
+									    <!--<div class="mui-input-row mui-select">-->
+									        <select v-model="endday" name="" style="width: 120px;">
+									        	<option value="0">周一</option>
+									        	<option value="1">周二</option>
+									        	<option value="2">周三</option>
+									        	<option value="3">周四</option>
+									        	<option value="4">周五</option>
+									        	<option value="5">周六</option>
+									        	<option value="6">周日</option>
+									        </select>
+									    </div>
+									</div>
+								    
+								</form>    
+							<div>
+							<div class="time">
+								<span>营业时间</span>
+								<span class="tdo">
+									<button id="starttime" data-options='{"type":"time"}' class="btn mui-btn mui-btn-block">{{starttime}}</button>&nbsp;&nbsp;至&nbsp;
+									<button id="endtime" data-options='{"type":"time"}' class="btn mui-btn mui-btn-block">{{endtime}}</button>
+								</span>
+							<div>
+							<div style="margin-top:10px;">
+								<span>人均消费</span>
+								<input type="tel" maxlength="6" style="width: 120px;height: 24px;margin-left: 10px;" v-model="perprice"/>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!--特色服务-->
+				<div id="feature" class="feature marginTop10">
+					<ul>
+						<li class="top">
+							特色服务
+						</li>
+						<li class="bottom">
+							<p>特色标签</p>
+							<span :class="{current:service.checked}" @tap="check(index)" v-for="(service,index) in servicelist">{{service.name}}</span>
+						</li>
+					</ul>	
+				</div>
+				<div class="mui-input-row marginTop10">
+					<textarea id="textarea" rows="5" v-model="otherservice" placeholder="输入更多服务信息"></textarea>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/mui.picker.min.js"></script>
+	   	<script src="js/other.js" type="text/javascript" charset="utf-8"></script>
+	   	<script>
+	   		(function($) {
+				var btns = $('.btn');
+				btns.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						console.log(btn)
+						var _self = this;
+						if(_self.picker) {
+							_self.picker.show(function (rs) {
+								if(btn.id == "starttime")
+									container.starttime = rs.text;
+								else
+									container.endtime = rs.text;
+					
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						} else {
+							var optionsJson = this.getAttribute('data-options') || '{}';
+							var options = JSON.parse(optionsJson);
+							var id = this.getAttribute('id');
+							_self.picker = new $.DtPicker(options);
+							_self.picker.show(function(rs) {
+								if(btn.id == "starttime")
+									container.starttime = rs.text;
+								else
+									container.endtime = rs.text;
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						}
+						
+					}, false);
+				});
+			})(mui);
+	   	</script>
+	</body>
+</html>

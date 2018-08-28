@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>立即支付成功</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/successPay.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+				<span class="complete">完成</span>
+			</div>
+		</header>
+		<div id="content" class="mui-content">
+			<div class="show">
+				<img src="../../../images/success.png"/><br />
+				<span>支付成功</span>
+			</div>
+			<div class="text" v-for="show in text">
+				<p>优惠明细&nbsp;{{}}<span>-{{show.score1}}</span></p>
+				<p class="true">实际支付<span>{{show.score2}}</span></p>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+	   	<script src="js/successPay.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

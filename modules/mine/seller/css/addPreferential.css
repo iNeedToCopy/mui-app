@@ -1,0 +1,113 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html,body,#container{
+	width: 100%;
+	height: 100%;
+	background-color: #efeff4;
+	color:#333333
+}
+.mui-input-group .mui-input-row:after{
+	left:0px
+}
+.mui-input-group .mui-input-row{
+	height: 45px;
+}
+.mui-input-row{
+	/*border-top: 1px solid #E5E5E5;*/
+	font-size: 16px;
+}
+.mui-input-group .mui-input-row label{
+	padding-right: 0;
+	width: 45%;
+}
+.mui-input-row label span{
+	font-size: 12px;
+}
+.mui-input-group .mui-input-row label~input, .mui-input-row label~select, .mui-input-row label~textarea{
+	width: 55%;
+	font-size: 16px;
+}
+.mui-content{
+	margin-bottom: 50px;
+}
+.add{
+	position: fixed;
+	z-index: 10;
+	bottom:0;
+	width: 100%;
+	font-weight: bold;
+	color: #fff;
+	background-color: #fa7921;
+	line-height: 50px;
+	text-align: center;
+}
+.logo{
+	line-height: 80px;
+	padding: 11px 15px;
+	background-color: #fff;
+	width: 100%;
+	color: #999;
+	text-align: right;
+}
+.logo img{
+	float: left;
+	width: 80px;
+	height: 80px;
+}
+.mui-table-view .mui-table-view-cell.mui-active{
+	margin-top: 0;
+	background-color: #fff;
+}
+.mui-table-view-cell::after{
+	display: none;
+}
+.mui-table-view li {
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+.mui-navigate-right p{
+	float: left;
+	width: 50%;
+}
+.mui-navigate-right p:nth-child(1){
+	font-size: 16px;
+	color: #333;
+}
+.mui-navigate-right p:nth-child(1) span{
+	font-size: 12px;
+}
+.mui-navigate-right p:nth-child(2){
+	text-align: right;
+	padding-right: 25px;
+}
+.mui-collapse-content{
+	padding: 0 !important;
+}
+.mui-collapse-content .mui-input-row{
+	border-top: none;
+	border-bottom: 1px solid #F5F5F5;
+	color: #737373;
+	line-height: 35px;
+	font-size: 14px;
+}
+.mui-checkbox input[type=checkbox]:before, .mui-radio input[type=radio]:before{
+	font-size: 20px;
+}
+.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before{
+	color: #FA7921;
+}
+.mui-checkbox input[type=checkbox]{
+	top: 8px;
+	right: -40%;
+}
+.mui-input-group .mui-input-row:after{
+	left:0px
+}
+/*.mui-collapse-content div{
+	border-bottom: 1px solid #F5F5F5;
+	color: #737373;
+	line-height: 35px;
+	font-size: 14px;
+}*/

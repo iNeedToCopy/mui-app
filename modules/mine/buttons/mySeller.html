@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的商家</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/mySeller.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">{{baseinfo.shopname}}</h1>
+				</div>
+			</header>
+			<div class="mui-content">
+				<div class="detail">
+					<div>
+						<!--<span class="title">{{info.title}}</span>-->
+						<h5 style="font-weight: bold;">{{baseinfo.username}}</h5>
+						<p>信用度：{{baseinfo.credit}}</p>
+						<p>手机：{{baseinfo.phone}}</p>
+						<p>地址：{{baseinfo.addr}}</p>
+						<p>本月营业额：{{sell}}&emsp;&emsp;本月充值业绩：{{sell}}</p>
+					</div>
+				</div>
+				<div class="chart" id="barChart" style="height: 250px;"></div>
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/echarts-all.js"></script>
+	   	<script src="js/mySeller.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>代金券</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/seeAllVoucher.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">代金券</h1>
+			</div>
+		</header>
+		
+		<div id="container">
+			<vue-loadmore ref="loadmore" @append="append" :object="'/shop/cash/list?shopid='+shopid">
+				<ul class="mui-table-view voucher">
+					<div class="top">
+			            <div class="voucherPic marginTop5" v-for="item in items">
+		        	      <img src="../../images/bg_yhj.png"/>
+		        	      <div class="relative">
+		        	      	<div class="left">
+		        	      		<img :src="item.logo"/>
+		        	      	</div>
+		        	      	<div class="center">
+		        	      		<p>{{item.name}}</p>
+		        	      		<p class="bottom"><span class="score">{{item.money}}</spaGdetailn>代金券&emsp;<span class="full">满{{item.sendmoney}}可用</span></p>
+		        	      	</div>
+		        	      	<div class="right">
+		        	      		<p class="been" @tap="get_cash(item.id)">领一张</p>
+		        	      		<span>已领{{item.yet_send}}张</span>
+		        	      	</div>
+		        	      </div>
+		        		</div>
+	        		</div>
+		       </ul>
+		    </vue-loadmore>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/app.js"></script>
+		
+	   	<script src="js/seeAllVoucher.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

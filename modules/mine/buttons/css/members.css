@@ -1,0 +1,237 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body.mui-content{
+	background: #f5f5f9;
+} 
+.mui-bar{
+	background: #fff;
+	overflow: auto;
+}  
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+.hide_username{
+	display: inline-block;
+	max-width: 6em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/*tab*/
+.tab{
+	display: flex;
+	background: #fff;
+	height: 44px;
+	line-height: 44px;
+}
+.tab li{
+	width: 33.3%; 
+	list-style: none;
+	font-size: 15px;
+	text-align: center;
+}
+.current{   
+	color: #fa7921;
+	border-bottom: 3px solid #fa7921;
+}
+.hide{
+	display: none;
+}
+/*输入框*/
+.mui-input-group{
+	background: #f5f5f9;
+	padding: 10px 15px;
+}
+.mui-input-group:before{
+	content: none;
+}
+.mui-input-group:after{
+	content: none;
+}
+.mui-input-group .mui-input-row:after{
+	content: none;
+}
+
+.mui-search input[type=search]{
+	background: #fff;
+	line-height: 40px;
+	height: 40px;
+	font-size: 15px;
+}
+/*放大镜位置*/
+.mui-search:before{
+	top: 60%;
+}
+.mui-search .mui-placeholder{
+	font-size: 14px;
+}
+/*myVip*/
+.show{
+	margin-bottom: 60px;
+}
+#myVip .show span{
+	padding: 0 10px;
+	background: #fff;
+	position: relative;
+	height: 50px;
+	line-height: 50px;
+	margin-bottom: 0;
+	font-size: 13px;
+	color: #666;
+}
+.show .mui-row{
+	border-bottom: 1px solid #eeeeee ;
+}
+body,.mui-content{
+	background-color: #ffffff;
+}
+#myVip .show  img{
+	width: 27px;
+	height: 27px;
+	position: relative;
+	top: 10px;
+}
+#myVip .show  .username{
+	vertical-align: middle;
+}
+#myVip .show  .username span{
+	vertical-align: middle;
+}
+#myVip .show  .active{
+	color: #fa7921;
+	padding-left:2px;
+}
+/*mySeller*/
+.achievement{
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	padding: 10px 15px;
+	background: #fff;
+	height: 92px;
+}
+.achievement p{
+	margin-bottom: 5px;
+	font-size: 15px;
+	color: #333;
+}
+.achievement .bottom{
+	margin-bottom: 0;
+}
+.achievement p span{
+	color: #fa7921;
+}
+.achievement .mui-icon-help{
+	position: relative;
+	top: -73px;
+	left: 92%;
+}
+.mui-table-view:before{
+	content: none;
+}
+.mui-table-view:after{
+	content: none;
+}
+.mui-table-view-cell a{
+	text-align: center;
+	font-size: 14px;
+}
+.mui-table-view-cell .mui-navigate-right{
+	text-align: left;
+}
+.mui-table-view-cell>a:not(.mui-btn){
+	color: #666;
+}
+/*show*/
+.list{
+	margin-bottom: 60px;
+}
+.list li a{ 
+	display: flex;
+	padding: 10px 15px;
+	background: #fff;
+	font-size: 15px;
+}
+.list li a .bottom{
+	color: #333;
+	font-size: 11px;
+}
+.list li a .left{
+	display: inline-block;
+	width: 50%;
+	/*background-color: blue;*/
+}
+.list li a .center{
+	display: inline-block;
+	/*background-color: deepskyblue;*/
+	width: 30%;
+}
+.list li a .right{
+	display: inline-block;
+	/*background-color: green;*/
+	width: 50%;
+}
+.mui-content-padded{
+	margin: 0;
+}
+/*底部*/
+.myselfBox{
+	width: 100%;
+	padding: 0 5%;
+	position: fixed;
+	bottom: 0;
+	opacity: 0.7;
+	z-index: 5555;
+}
+.myself{
+	width: 100%;
+	height: 70px;
+	line-height: 70px;
+	background: #fff;
+	text-align: center;
+	font-size: 15px;
+	box-shadow: 0 0 1px #fa7921;
+	padding:0px 5px;
+}
+
+.myselfBox .btn{
+	color: #209ae0;
+}
+#barChart.chart{
+	margin: 10px 0;
+}
+
+.tip_title{
+	font-size:13px;
+}
+.tip_content{
+	font-size:11px;
+	color:#666
+}
+#tip_shops,#tip_partner{
+	z-index: 6666;
+}
+
+#tip_shops>div,#tip_partner>div{
+	padding-bottom: 50px;
+	background-color: #ffffff;
+	padding:20px
+}
+.lower_level{
+	padding-left:10px;
+	display: flex;
+	justify-content: space-between;
+	font-size: 12px;
+	background: #fff9f5;
+	color: #999;
+}
+#container .lower_level span{
+	background: #fff9f5;
+}

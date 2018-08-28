@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>其他门店</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/otherShop.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">其他门店</h1>
+			</div>
+		</header>
+		<div id="container" class="mui-content" style="overflow-y: scroll;">
+			<vue-loadmore ref = "pullup" @append="append" :object="'/shop/other?shopid='+shopid">
+				<div style="background-color: #f5f5f9;">
+					<div class="title mui-text-center">还有{{total}}家门店</div>
+					<div class="item margin10" v-for="shop in items" @tap="goto_shop_details(shop.id)">
+						<div class="left">
+							<span>{{shop.name}}</span>
+							<p class="mui-ellipsis">{{shop.addr}}</p>
+						</div>
+						<div class="right"> 
+							<p>{{shop.distance}}</p>
+							<!--<a @tap="goto_map(shop.lng,shop.lat,shop.name,shop.addr)">查看地图d</a>-->
+						</div>
+						
+					</div>
+				</div>
+		   </vue-loadmore>
+		</div>
+		
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		
+		<script src="../../js/app.js"></script>
+		<script src="../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/otherShop.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,217 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background: #f5f5f9;
+}
+.mui-bar a{
+	color: #000;
+}
+/*轮播*/
+.mui-slider-item img{
+	height: 150px;
+}
+.head{
+	position: relative;
+}
+.head .little{
+	width: 87px;
+	height: 87px;
+	position: absolute;
+	top: 105px;
+	left: 5%;
+	z-index: 2;
+	border: 2px solid #fff;
+}
+/*text*/
+.tradeText{
+	background: #fff;
+}
+.tradeText img{
+	width: 12px;
+	height: 16px;
+}
+.tradeText P{
+	font-size: 17px;
+	color: #000;
+	padding-top: 16px;
+	padding-left: 35%;
+	margin-bottom: 30px;
+}
+.tradeText .bottom{
+	padding-left: 5%;
+	padding-bottom: 15px;
+	font-size: 15px;
+}
+.tradeText .bottom span{
+	position: relative;
+	top: -3px;
+}
+/*优惠*/
+.ad{
+	background: #fff;
+}
+.ad .top{
+	position: relative;
+	height: 25px;
+	margin-bottom: 10px;
+}
+.ad .adBox{
+	padding: 10px 10px;
+}
+.ad .top span{
+	display: inline-block;
+	padding: 2px 0 0 5px;
+	border-left: 3px solid #FA7921;
+}
+.ad .top .arrow{
+	position: absolute;
+	top:3px;
+	right: 0;
+	width: 12px;
+	height: 12px;
+}
+.ad .top a{
+	font-size: 13px;
+	color: #666;
+	position: absolute;
+	top: 0px;
+	right: 16px;
+}
+.ad .content .mui-col-xs-4,.ad .content .mui-col-sm-4{
+	padding: 0 5px 10px 5px;
+}
+.ad .content img{
+	width: 100%;
+	height: 80px;
+}
+.ad .content p{
+	font-size: 12px;
+	margin-bottom: 0;
+	color: #333;
+	width: 100%;
+	height: 21px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.ad .content span{
+	font-size: 13px;
+}
+.ad .content .one{
+	color: #fa4a36;
+}
+.ad .content .two{
+	color: #02c49a;
+}
+.ad .content .three{
+	color: #b25fe4;
+}
+/*聚划算*/
+#hs .price{
+	text-align: left;
+	font-size: 17px;
+	color: #e60111;
+}
+/*recommend*/
+.mui-table-view .first:before{
+	content: none;
+}
+.mui-table-view-cell.first span{
+	display: inline-block;
+	padding: 2px 0 0 5px;
+	border-left: 3px solid #FA7921;
+}
+.mui-table-view-cell.first{
+	padding-left: 10px;
+}
+.recommend .mui-table-view-cell a{
+	padding: 15px;
+	display: flex;
+}
+.recommend .mui-table-view-cell .left{
+	width: 25%;
+}
+.recommend .mui-table-view-cell .left img{
+	width: 70px;
+	height: 60px;
+}
+.recommend .mui-table-view-cell .right{
+	width: 75%;
+}
+.recommend .mui-table-view-cell .right p{
+	font-size: 14px;
+	color: #000;
+}
+.recommend .mui-table-view-cell .right span{
+	font-size: 12px;
+	color: #666;
+}
+.recommend .mui-table-view-cell .right .satisfy{
+	color: #FA7921;
+	font-weight: bold;
+}
+.recommend .mui-table-view-cell .right .per{
+	color: #666;
+	font-weight: 100;
+}
+.recommend .mui-table-view-cell .right img{
+	width: 13px;
+	height: 13px;
+	position: relative;
+	top: 2px;
+}
+.mui-table-view:before{
+	content: none;
+}
+.mui-table-view-cell:after{
+	content: none;
+}
+.mui-table-view-cell:before{
+	position: absolute;
+    right: 0;
+    top: 0;
+    left: 15px;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #c8c7cc;
+}
+/*查看全部商家*/
+.recommend .seeAll{
+	font-size: 15px;
+	color: #666;
+	position: relative;
+}
+.recommend .seeAll a{
+	padding: 15px 40%;
+}
+.recommend .seeAll:before{
+	position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #c8c7cc;
+}
+/*提示*/
+.tip{
+	padding: 15px;
+	background: #fff;
+}
+.tip span{
+	display: inline-block;
+	font-size: 15px;
+	color: #333;
+	margin-bottom: 15px;
+}
+.tip p{
+	color: #666;
+}
+
+

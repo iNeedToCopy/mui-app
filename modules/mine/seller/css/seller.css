@@ -1,0 +1,107 @@
+body,html{
+  background: #f5f5f9;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  color: #333333;
+}
+
+#head {
+  box-shadow: none !important;
+}
+
+#head a{
+	color: #fff
+}
+
+li{
+	list-style: none;
+}
+.mui-bar-nav.mui-bar .mui-icon{
+	padding-left: 0px !important;
+}
+.mui-action-back {
+  margin-left: 0px !important;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;	
+}
+.iconbar {
+  padding-top: 80px;
+  padding-bottom: 20px;
+  background-color: #fff;
+  font-size: 14px;
+}
+
+.iconbar .icon {
+  padding: 10px;
+  text-align: center;
+}
+
+.iconbar .icon img {
+  width: 40%;
+}
+
+.lists{
+	margin-top: 10px;
+	background-color: #fff;
+}
+.lists .title{
+	padding: 6px 6px 6px 15px;
+	color: #333;
+	font-weight: bold;
+	font-size: 12px;
+	border-bottom: 1px solid #f5f5f9;
+}
+.lists ul{
+	margin: 0px;
+	padding: 0px 15px 0px 15px;
+}
+.lists ul li{
+	padding: 6px 0px 6px 0px;
+	border-bottom: 1px solid #f5f5f9;
+}
+.lists ul li img{
+	width: 90px;
+	height: 90px;
+	margin-right: 10px;
+}
+.lists ul li strong{
+	font-size: 15px;
+	color: #333333;
+}
+.listInfo p:nth-child(1){
+	margin-bottom: 2px;
+	margin-top: 6px;
+}
+.listInfo .atWork{
+	text-align: right;
+	color: #52cc6a;
+}
+.listInfo .shutWork{
+	text-align: right;
+	color: #FA7921;
+}
+
+#tip{
+	width: 100%;
+	height: 35%;
+	background-color: #fff;
+}
+#tip p{
+	color: #333;
+	padding-left: 10px;
+	font-weight: bold;
+	line-height: 45px;
+	border-bottom: 1px solid #E5E5E5;
+}
+.intro{
+	padding-left: 10px;
+	text-indent: 2em;
+	color: #737373;
+	font-size: 14px;
+	padding-bottom: 10px;
+}

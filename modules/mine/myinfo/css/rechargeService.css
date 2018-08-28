@@ -1,0 +1,126 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+/*统计*/
+.total{
+	background: #fff;
+}
+.total .title{
+	padding-left: 15px;
+	height: 44px;
+	line-height: 44px;
+	font-size: 15px;
+	position: relative;
+}
+.total .title:after{
+	position: absolute;
+	right: 0;
+	left: 12px;
+	bottom: 0;
+	content:'';
+	height: 1px;
+	background-color: #e5e5e5;
+}
+.total .box{
+	display: flex;
+	padding: 30px 20px;
+}
+.total .box div{
+	width: 33.3%;
+	text-align: center;
+}
+.total .box div p{
+	color: #000;
+}
+.total .box div span{
+	color: #fa7921;
+}
+/*userId*/
+input[type=tel]{
+	width: 70%;
+	font-size: 15px;
+	background-color: #eee;
+}
+.mui-input-group:before{
+	content: none;
+}
+.mui-input-group:after{
+	content: none;
+}
+::-webkit-input-placeholder{
+	color: #999;
+	font-size: 15px;
+}
+.userId{
+	padding: 20px 15px;
+	background: #fff;
+}
+.userId label{
+	font-size: 15px;
+	position: relative;
+	left: 10%;
+}
+/*充值金额*/
+.selected{
+	padding: 0 15px 15px;
+	background: #fff;
+}
+.selected .text{
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+}
+.selected .selectedBox .item{
+	display: inline-block;
+	font-size: 15px;
+	color: #333;
+	width: 40%;
+	text-align: center;
+	height: 60px;
+	border: 1px solid #FA7921;
+	border-radius: 4px;
+	margin: 0 5% 10px;
+	padding-top:6px;
+}
+.selected .selectedBox p{
+	font-size: 14px;
+	color: #FA7921;
+	margin-bottom: 0;
+	margin-top: 2px;
+}
+.current{
+	background: linear-gradient(90deg,#f97921,#eb3806);
+}
+.remain{
+	padding-top: 20px;
+	text-align: center;
+	font-size: 15px;
+	background: #fff;
+}
+/*button*/
+.boxBtn{
+	padding: 10px 5% 10px;
+	background: #fff;
+}
+button{
+	width: 100%;
+	height: 40px;
+	color: #fff;
+	border-color: #fff;
+	font-size: 15px;
+	background: #FA7921;
+}
+

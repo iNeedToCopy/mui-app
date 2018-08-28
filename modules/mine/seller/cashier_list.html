@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商家管理</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+		<link rel="stylesheet" href="css/cashier_list.css"/>
+	</head>
+	<body>
+		<div id = "container">
+			<header id="head" class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">收银员管理</h1>
+				    <a class="mui-pull-right" v-show="!edit_mode && items.length>0" @tap="toggle_editmode()"> <img src="../../../images/edit.png" alt="" /></a>
+				    <!--<a v-show="!edit_mode && items.length>0" class="mui-icon mui-icon-compose mui-pull-right" @tap="toggle_editmode()"></a>-->
+				</div>
+			</header>
+		
+			<div class="mui-content">
+				<vue-loadmore  ref="pullup" @append="append" object="/seller/shop/admin/list">
+					<ul class="mui-table-view">
+				        <li class="item mui-table-view-cell" v-for="item in items">
+							<div class="pic">
+								<div class="mui-input-row mui-checkbox mui-left">
+								  	<label>
+									  	<input v-if="edit_mode" name="checkbox1" type="checkbox" v-model="item.checked" >
+										<img :src="item.logo"/>
+										<div class="info" style="padding-right: 10px;"/>
+											<p><span>{{item.username}}</span><span class="floatRigft">{{item.phone}}</span></p>
+											<p><span>{{item.shopname}}</span><span class="floatRigft">{{item.addtime}}</span></p>
+										</div>
+									</label>
+							</div>
+				       </li> 
+				    </ul>
+				</vue-loadmore>
+			</div>
+			<div class="btns" v-show="edit_mode" style="z-index: 3000;">
+				<span @tap='cancel'>取消</span>
+				<span class="add" @tap='del'>删除</span>
+			</div>
+			<nav class="mui-bar mui-bar-tab" v-show="!edit_mode" style="background-color: #fa7921; z-index: 3000;" >
+				<div class="mui-text-center" style="padding-top:15px;" @tap="new_cashier()" >
+					<span style="color:#ffffff;font-size: 18px;font-weight:bold;" >添加收银员</span>
+				</div>
+			</nav>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/cashier_list.js"></script>
+	</body>
+</html>

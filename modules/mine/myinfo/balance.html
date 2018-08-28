@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>余额</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <!--<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>-->
+	    <link rel="stylesheet" type="text/css" href="css/balance.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header>
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">余额</h1>
+				</div>
+				<div id="show" class="show">
+					<div>
+						<p>{{remain}}<span> 元</span></p>
+						<div class="box">
+							<div class="balanceTrans" @tap="goto_transfer()">转账<span></span></div>
+							<div class="withdraw" @tap="goto_withdraw()">提现</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			
+			<div class="mui-content" >
+				
+				<div class="transform" @tap="goto_transform()">余额转信值</div>
+		        <div class="detail">
+					<div class="title">余额明细</div>
+					<ul class="select">
+						<li>类型</li>
+						<li>描述</li>
+						<li class="mui-text-center">余额</li>
+					</ul>
+					<vue-loadmore ref = "pullup" @append="append" object="/wallet/home">
+						<ul id="text" class="text">
+							<li v-for="item in details">
+								<div class="date">
+									<span>{{item.title}}</span>
+									<p>{{item.date}}</p>
+								</div>
+								<div class="type">
+									{{item.content}}
+								</div>
+								<div class="amount">
+									<span v-if="item.money<0" class="green">{{item.money}}</span>
+									<span v-else class="red" >{{item.money}}</span>
+									<p>{{item.before}}</p>
+								</div>
+							</li>
+						</ul>
+					</vue-loadmore>
+		    	</div>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+
+		<script src="../../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/balance.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

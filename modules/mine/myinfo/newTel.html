@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>修改手机号码</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/newTel.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">修改手机号码</h1>
+			</div>
+		</header>
+		<div id="container" class="mui-content">
+			<div class="box">
+				<div class="text">
+					新手机号
+				</div>
+				<form class="mui-input-group">
+	   				<input type="tel" class="mui-input-clear phone" placeholder="输入新手机号">
+				</form>
+			</div>
+			<div class="code">
+				<div class="text">
+					验证码&nbsp;&nbsp;&nbsp;
+				</div>
+				<form class="mui-input-group">
+	   				<input type="tel" class="mui-input-clear smscode" placeholder="请输入验证码">
+	   				<span></span>
+				</form>
+				<div class="idCode" @tap="getIdCode()">
+					{{title}}
+				</div>
+			</div>
+			<div class="boxBtn">
+				<button type="button" @tap="goto_usersafe()">提交</button>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+		<script src="../../../js/aes.js"></script>
+		<script src="../../../js/pad-zeropadding-min.js"></script>
+	   	<script src="js/newTel.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

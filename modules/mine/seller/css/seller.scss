@@ -1,0 +1,25 @@
+body{
+    background: #fff;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+head{
+    box-shadow: none !important;
+}
+
+.mui-action-back{
+    margin-left: 0px !important;    
+}
+.iconbar{
+    margin-top:66px;
+    background-color: #FA7921;
+    .icon{
+        padding: 10px;
+        text-align: center;
+        img{
+            width: 40%;
+        }
+    }
+}

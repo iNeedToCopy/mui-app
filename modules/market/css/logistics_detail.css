@@ -1,0 +1,137 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body,html{
+	overflow-x: hidden;
+}
+li{
+	list-style: none;
+}
+.mui-bar{
+	background-color: #fff !important;
+}
+.mui-row .mui-title,.mui-row .mui-action-back{
+	color: #333 !important;
+}
+#container .more_order{
+	font-size: 13px;
+	color:#737373;
+	padding-top:17px;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #e5e5e5;
+}
+.logistics_detail{
+	padding: 10px 15px;
+	background-color: #fff;
+	display: flex;
+}
+.items{
+	width: 80px;
+	height: 80px;
+	margin-right: 10px;
+}
+.logistics_info{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 2px;
+}
+.logistics_info p{
+	font-size: 14px;
+	color: #333;
+	margin-bottom: 0;
+}
+.logistics_info p span{
+	color: #108EE9;
+}
+.car{
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+}
+
+.courier{
+	padding: 10px 15px;
+	background-color: #fff;
+	margin-top: 10px;
+	display: flex;
+	height: 70px;
+}
+.courier img{
+	width: 50px;
+	height: 50px;
+	margin-right: 15px;
+}
+.courier_info{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 5px 0;
+	font-size: 14px;
+	color: #333;
+}
+.courier_info span{
+	display: inline-block;
+}
+.logistics_progress{
+	padding: 0 15px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	background-color: #fff;
+}
+.address{
+	font-size: 14px;
+	color: #333;
+	line-height: 44px;
+	border-bottom: 1px dashed #e5e5e5;
+}
+.progress{
+	padding: 15px 0;
+	font-size: 14px;
+	display: flex;
+	justify-content: space-between;
+	color: #737373;
+}
+.progress_active.progress{
+	color: #FA7921;
+} 
+.progress_active .progress_status{
+	color: #FA7921;
+}
+.progress_active .progress_status span{
+	color: #108EE9;
+}
+.progress_active .circle span{
+	background-color: #FA7921;
+}
+.time{
+	flex: 1;
+	text-align: right;
+}
+.time span{
+	font-size: 10px;
+	vertical-align: top;
+}
+.circle {
+	flex: 1;
+	text-align: center;
+}
+.circle span{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #999;
+}
+.progress_info{
+	flex: 5;
+}
+.progress_status{
+	color: #999;
+}

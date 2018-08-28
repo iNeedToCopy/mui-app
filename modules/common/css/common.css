@@ -1,0 +1,99 @@
+@charset "UTF-8";
+html, body {
+  width: 100%;
+}
+
+/*位置*/
+.margin10 {
+  margin-bottom: 8px;
+}
+
+.margin12 {
+  margin-bottom: 12px;
+}
+
+.margin15 {
+  margin-bottom: 15px;
+}
+
+.marginTop20 {
+  margin-top: 20px;
+}
+
+.marginTop10 {
+  margin-top: 10px;
+}
+
+.marginTop6 {
+  margin-top: 6px;
+}
+
+.margin30 {
+  margin-top: 30px;
+}
+
+.marginLeft {
+  margin-left: 10px;
+}
+
+.padding15 {
+  padding: 15px;
+}
+
+/*字体*/
+.font12 {
+  font-size: 12px;
+}
+
+.font14 {
+  font-size: 14px;
+}
+
+.color {
+  background: #FA7921;
+}
+
+.font16 {
+  font-size: 16px;
+}
+
+/*浮动*/
+.floatLeft {
+  float: left;
+}
+
+.floatRigft {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+header {
+  padding-top: 22px !important;
+  height: 66px !important;
+  /*background-color: #FA7921 !important;*/
+  background-color: #FA7921 !important;
+  color: #fff !important;
+}
+
+.main_bg {
+  background-color: #FA7921 !important;
+}
+
+.main_color {
+  color: #FA7921;
+}
+
+.mui-title, .mui-action-back {
+  color: #fff !important;
+}
+
+.mui-content {
+  padding-top: 66px !important;
+}
+
+ul:after {
+  height: 0px !important;
+}

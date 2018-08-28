@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>红豆仓库</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <!--<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>-->
+	    <link rel="stylesheet" type="text/css" href="css/redBeans.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header>
+				<div class="mui-row">
+					<span class="openUrl" style="display: none;">{{redBeans.abouturl}}</span>
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">红豆仓库</h1>
+				    <a class="help mui-icon mui-icon-help"></a>
+				</div>
+				
+				<div>
+					<div class="detail" style="height: 56px;"><img @tap="goto_beansDetail()" src="../../../images/hongdou/btn.png"/></div>
+					<div style="font-size: 36px;color:#ffffff;font-weight: bold;text-align: center;">
+						{{redBeans.stock}}
+					</div>
+					<div style="margin-top:20px;text-align: center;color:#ffffff"><span>最新价:￥{{redBeans.today}}</span></div>
+					<div style="height: 35px;">
+						
+					</div>
+				</div>
+			</header>
+			<div id="text" class="text">
+				<div class="mui-row">
+					<div class="mui-col-sm-6 mui-col-xs-6" style="border-bottom: 1px solid #f6f6f6;">
+						<img src="../../../images/hongdou/1.png"/>
+						
+						<span class="caption">我的红豆</span>
+						<span class="num">{{redBeans.count}}</span>
+					</div>
+					<div class="mui-col-sm-6 mui-col-xs-6" style="border-left: 1px solid #f6f6f6;">
+						<img src="../../../images/hongdou/2.png"/>
+						
+						<span class="caption">可卖红豆</span>
+						<span class="num">{{redBeans.sellcount}}</span>
+					</div>
+				</div>
+				<div class="mui-row" style="background-color: #fff;">
+					<div class="mui-col-sm-6 mui-col-xs-6" style="border-right: 1px solid #f6f6f6;">
+						<img src="../../../images/hongdou/3.png"/>
+						
+						<span class="caption">我的活跃</span>
+						<span class="num">{{redBeans.active}}</span>
+					</div>
+					<div class="mui-col-sm-6 mui-col-xs-6" style="border-top: 1px solid #f6f6f6;">
+						<img src="../../../images/hongdou/4.png"/>
+						
+						<span class="caption">持有天数</span>
+						<span class="num">{{redBeans.days}}</span>
+					</div>
+				</div>
+			</div>
+
+			<nav class="mui-bar mui-bar-tab">
+				<div class="mui-pull-left" @tap="goto_shareBeans()">
+					<span>分红</span>
+					<span class="line"></span>
+				</div>
+				<div class="mui-pull-right" @tap="goto_tradeBeans()">
+					<span>交易</span>
+				</div>
+				<div class="clear"></div>
+			</nav>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/redBeans.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

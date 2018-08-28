@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>账户与安全</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/userSafe.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">账户与安全</h1>
+			</div>
+		</header>
+		
+		<div class="mui-content" id="container">
+			<!--用户信息-->
+			<div id="userMsg" class="userMsg">
+				<ul class="mui-table-view" >
+				    <li class="mui-table-view-cell" @tap="edit_avatar()">
+				        <a class="header">
+				        	<span class="text">头像</span>
+				        	<img :src="header" />
+				        </a>
+				    </li>
+				    
+				    <li v-if="ifmodiusername" class="mui-table-view-cell" @tap="goto_editUsername()">
+				        <a class="mui-navigate-right">
+				        	用户名<span class="mui-pull-right">{{username}}</span>
+				        </a>
+				    </li>
+				    <li v-else class="mui-table-view-cell" >
+				    	<a>
+				        	用户名
+				        	<span class="mui-pull-right">{{username}}</span>
+				        </<a>
+				    </li>
+				    
+				    <li class="mui-table-view-cell">
+				        <a>
+				        	ID
+				        	<span class="mui-pull-right">{{uid}}</span>
+				        </a>
+				    </li>
+				    <li class="mui-table-view-cell userLocation" @tap="goto_userLocation">
+				        <a class="mui-navigate-right">
+				        	我的地址
+				        </a>
+				    </li>
+				</ul>
+			</div>
+			<!--bind-->
+			<div id="bind" class="bind">
+				<div class="text">账号绑定</div>
+				<ul class="mui-table-view">
+				    <li class="mui-table-view-cell newTel" @tap="goto_editTel()">
+				        <a class="mui-navigate-right editTel">
+				        	手机号
+				        	<span class="mui-pull-right">{{phone}}</span>
+				        </a>
+				    </li>
+				    <li v-if="ifbindwx" class="mui-table-view-cell">
+				        <a >
+				        	微信
+				        	<span class="mui-pull-right">已绑定</span>
+				        </a>
+				    </li>
+				    <li v-else class="mui-table-view-cell">
+				        <a class="mui-navigate-right">
+				        	微信
+				        	<span class="mui-pull-right" @tap="bind_weixin()">未绑定</span>
+				        </a>
+				    </li>
+				</ul>
+			</div>
+			<div id="safe" class="safe">
+				<div class="text">安全设置</div>
+				<ul class="mui-table-view">
+				    <li class="mui-table-view-cell payPassword" @tap="goto_payPassword()">
+				        <a class="mui-navigate-right">
+				        	支付密码
+				        	<span class="mui-pull-right">修改</span>
+				        </a>
+				    </li>
+				    <li v-if="iffreepass"class="mui-table-view-cell noPay">
+				        <a class="">
+				        	小额免密支付
+				        	<span class="mui-pull-right">已开通</span>
+				        </a>
+				    </li>
+				    <li v-else class="mui-table-view-cell noPay" @tap="goto_noPay()">
+				        <a class="mui-navigate-right">
+				        	小额免密支付
+				        	<span class="mui-pull-right">未开通</span>
+				        </a>
+				    </li>
+				</ul>
+			</div>
+			<div id="confirm" class="confirm">
+				<div class="text">相关认证</div>
+				<ul class="mui-table-view">
+					
+				    <li v-if="verifystatus == 3" class="mui-table-view-cell realAuth" @tap="goto_realAuth()">
+				        <a class="mui-navigate-right">
+				        	实名认证
+				        	<span v-if="verifystatus == 3" class="mui-pull-right">未申请</span>
+				        </a>
+				    </li>
+				    <li v-else class="mui-table-view-cell realAuth">
+				        <a >
+				        	实名认证
+				        	<span v-if="verifystatus == 1" class="mui-pull-right">已认证</span>
+				        	<span v-if="verifystatus == 2" class="mui-pull-right">正在审核</span>
+				        </a>
+				    </li>
+				    <li v-if="verifystatus == 1" class="mui-table-view-cell addBank" @tap="goto_addBank()">
+				        <a class="mui-navigate-right">
+				        	银行卡
+				        	<span class="mui-pull-right">{{bankcount}}张</span>
+				        </a>
+				    </li>
+				    <li v-else class="mui-table-view-cell addBank" @tap="notAuth()">
+				        <a>
+				        	银行卡
+				        	<span class="mui-pull-right">{{bankcount}}张</span>
+				        </a>
+				    </li>
+				</ul>
+			</div>
+			<div class="seat"></div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/userSafe.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的合伙人</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/partner.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">{{baseinfo.username}}</h1>
+				</div>
+			</header>
+			<div class="mui-content">
+				<div class="detail">
+					<div >
+						<!--<span class="title">{{baseinfo.title}}</span>-->
+						<p>{{baseinfo.username}}&emsp;&emsp;{{baseinfo.grade}}</p>
+						<p>信用度：{{baseinfo.credit}}</p>
+						<p>手机：{{baseinfo.phone}}</p>
+						<p>本月充值业绩：{{baseinfo.curmonth}}</p>
+					</div>
+				</div>
+				<div class="mui-content-padded">
+					<div class="chart" id="barChart" style="height: 200px;"></div>
+				</div>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/echarts-all.js"></script>
+	   	<script src="js/partner.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

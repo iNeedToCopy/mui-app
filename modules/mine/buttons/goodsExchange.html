@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>兑换商品</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/goodsExchange.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">兑换商品</h1>
+			</div>
+		</header>
+		<div class="mui-content" id="container">
+			<div class="goods">
+				<img :src="logo"/>
+				<div id="show" class="text">
+					<div >
+						<p class="top">{{baseinfo.name}}<!--&emsp;&emsp;{{baseinfo.single_buy_count}}--></p>
+						<!--<p><span>{{baseinfo.integral*count}}积分</span>+{{baseinfo.letter*count}}信值</p>-->
+						<p><span>{{no_silver ? baseinfo.integral*count+'积分' : baseinfo.silver*count+'银豆'}}</span>{{no_silver ? '+' + baseinfo.letter*count + '信值' : ''}}</p>
+						
+						<span>兑换条件：{{no_silver ? '>信用' + baseinfo.credit : '银会员以上'}}</span><br />
+						<span>数量：{{count}}</span>
+					</div>
+				</div>
+			</div>
+			<div id="location" v-if = "'id' in address &&  address.id != 0 "class="location marginTop10">
+				<ul class="mui-table-view" >
+				    <li class="mui-table-view-cell">
+				        <a class="mui-navigate-right" @tap="goto_selectlocation()">
+				        	<span>收货人：{{address.name}}</span>
+				        	<p class="position">{{address.detail}}</p>
+				        	<span class="tel">{{address.phone}}</span>
+				        </a>
+				    </li>
+				</ul>    
+			</div>
+			<div v-else class="addLocation marginTop10">
+				<button type="button" class="location" @tap="goto_addLocation()">添加收货地址</button>
+			</div>
+			<div class="boxBtn">
+				<button type="button" @tap="pre_exchange()">确认</button>
+			</div>
+			<vuepaypad ref ='paypad' @do_action="exchange"></vuepaypad>
+			
+		</div>
+
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/components/paypad.min.js" type="text/javascript" charset="utf-8"></script>
+		
+	   	<script src="js/goodsExchange.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>更多订单</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" type="text/css" href="../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/submit_order.css"/>
+	    <style type="text/css">
+	    	.mui-bar-nav{
+	    		border: none;
+	    	}
+	    	.prompt{
+	    		background-color: #fff;
+	    		padding: 25px 0;
+	    		text-align: center;
+	    	}
+	    	.prompt>span{
+	    		font-size: 20px;
+	    		color: #333;
+	    	}
+	    	.img{
+	    		width: 70px;
+	    		margin: 0 auto;
+	    		margin-bottom: 20px;
+	    		text-align: center;
+	    		background-color: #59d37e;
+	    		border-radius: 4px;
+	    	}
+	    	.mui-icon-checkmarkempty{
+	    		font-size: 60px;
+	    		font-weight: bold;
+	    		color: #fff;
+	    		line-height: 0.7;
+	    	}
+	    	.check_order{
+	    		margin-top: 10px;
+	    		background-color: #fff;
+	    		padding: 15px 20px;
+	    		font-size: 14px;
+	    		color: #333;
+	    	}
+	    	.check_order span{
+	    		color: #BFBFBF;
+	    	}
+	    </style>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <span class="mui-icon mui-pull-right" style="color: #FA7921;font-size: 16px;" @tap="ok()">完成</span>
+				</div>
+			</header>
+			<!--内容-->
+			<div class="mui-content">
+				<div class="prompt">
+					<div class="img">
+						<span class="mui-icon mui-icon-checkmarkempty"></span>
+					</div>
+					<span>支付成功</span>
+				</div>
+				<div class="check_order" @tap="check_order()">
+					查看订单
+					<span class="mui-icon mui-icon mui-icon-forward mui-pull-right"></span>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			mui.init();
+			var container = new Vue({
+				el:"#container",
+				data:{
+					orderid:'',
+				},
+				methods:{
+					ok:function(id){
+						var opener = plus.webview.getWebviewById('submit_order');
+						plus.webview.close(opener);
+						var opener_ = plus.webview.getWebviewById('shopping_car');
+						plus.webview.close(opener_);
+						var market_orders = plus.webview.getWebviewById('market_orders');
+						mui.fire(market_orders,'loadinfo',{action_type: 'nopay'})
+						plus.webview.hide(plus.webview.currentWebview(),'slide-out-right',300);
+					},
+					check_order:function(id){
+						app.show_webview_fire('market_orders','loadinfo',{action_type: 'nosend'})
+					}
+				}
+			});
+			mui.ready(function(){
+				mui.back = function(){
+					container.ok();
+				}
+			})
+		</script>
+	</body>
+</html>
+

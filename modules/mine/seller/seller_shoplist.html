@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商家管理</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+		<link rel="stylesheet" href="css/seller_shoplist.css"/>
+	</head>
+	<body>
+		<div id = "container">
+			<header id="head" class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+					
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">店铺列表</h1>
+				</div>
+			</header>
+		
+			<div class="mui-content" style="background-color: #FFFFFF;">
+				<vue-loadmore ref = "pullup" @append="append" object="/seller/shop/list">
+					<ul class="mui-table-view">
+				        <li class="item mui-table-view-cell" v-for="shop in shops">
+				            <a class="mui-navigate-right" @tap="gotoDetail(shop.id)">
+								<div id class="pic">
+									<img :src="shop.logo"/>
+									<div class="text">
+										<h5>{{shop.name}}</h5>
+										<h6 class="bottom">{{shop.addr}}<h6>
+									</div>
+								</div>
+				            </a>
+				        </li> 
+
+				    </ul>
+				</vue-loadmore>
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/seller_shoplist.js"></script>
+	</body>
+</html>

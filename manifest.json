@@ -1,0 +1,1911 @@
+{
+	"@platforms": [
+		"android",
+		"iPhone"
+	],
+	"id": "com.zhonglaiwang.hi",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"name": "海掌柜",/*应用名称，程序桌面图标名称*/
+	"version": {
+		"name": "2.0.2",/*应用版本名称*/
+		"code": "83"
+	},
+	"description": "",/*应用描述信息*/
+	"icons": {
+		"72": "icon.png"
+	},
+	"launch_path": "boot.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"developer": {
+		"name": "",/*开发者名称*/
+		"email": "",/*开发者邮箱地址*/
+		"url": "http://www.zhonglaiwang.com"
+	},
+	"permissions": {
+		"Accelerometer": {
+			"description": "访问加速度感应器"
+		},
+		"Audio": {
+			"description": "访问麦克风"
+		},
+		"Cache": {
+			"description": "管理应用缓存"
+		},
+		"Camera": {
+			"description": "访问摄像头"
+		},
+		"Console": {
+			"description": "跟踪调试输出日志"
+		},
+		"Contacts": {
+			"description": "访问系统联系人信息"
+		},
+		"Device": {
+			"description": "访问设备信息"
+		},
+		"Downloader": {
+			"description": "文件下载管理"
+		},
+		"Events": {
+			"description": "应用扩展事件"
+		},
+		"File": {
+			"description": "访问本地文件系统"
+		},
+		"Gallery": {
+			"description": "访问系统相册"
+		},
+		"Geolocation": {
+			"description": "访问位置信息"
+		},
+		"Invocation": {
+			"description": "使用Native.js能力"
+		},
+		"Messaging": {
+			"description": "访问通讯能力"
+		},
+		"Orientation": {
+			"description": "访问方向感应器"
+		},
+		"Proximity": {
+			"description": "访问距离感应器"
+		},
+		"Storage": {
+			"description": "管理应用本地数据"
+		},
+
+		"Uploader": {
+			"description": "管理文件上传任务"
+		},
+		"Runtime": {
+			"description": "访问运行期环境"
+		},
+		"XMLHttpRequest": {
+			"description": "跨域网络访问"
+		},
+		"Zip": {
+			"description": "文件压缩与解压缩"
+		},
+		"Barcode": {},
+		"Maps": {},
+
+		"Webview": {
+			"description": "窗口管理"
+		},
+		"NativeUI": {
+			"description": "原生UI控件"
+		},
+		"Navigator": {
+			"description": "浏览器信息"
+		},
+		"NativeObj": {
+			"description": "原生对象"
+		},
+		"Share": {
+			"weixin": {
+				"appid": "wx055eaf841c2090f6",/*微信开放平台申请应用的AppID值*/
+				"appsecret": "1c500d62f1ef4f2ace185f73e3815095",/*微信开放平台申请应用的AppSecret值*/
+				"description": "微信分享"
+			}
+		},
+		"OAuth": {},
+		"Payment": {
+			"description": "管理支付插件"
+		},"Statistic":{}
+	},
+	"plus": {
+		"allowsInlineMediaPlayback": true,
+		/*沉浸式*/
+		"launchwebview": {
+			"statusbar": {
+				"immersed": true
+			}
+		},
+
+		"splashscreen": {
+			"autoclose": false,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
+			"waiting": false
+		},
+		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
+		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
+		"distribute": {
+			"plugins": {"statics":{"umeng":{"appkey_ios":"5b286a7bf29d980c59000067","channelid_ios":"appstore","appkey_android":"5b2869aef29d984049000023","channelid_android":"weixin"}},
+				"payment": {
+					"weixin": {
+						"description": "微信支付",
+						"appid": "wx05ad31f1c2043845"
+					}
+				},
+				"oauth": {
+					"weixin": {
+						"appid": "wx05ad31f1c2043845",
+						"appsecret": "153319ce231a6f3fd994997801557e70"
+					}
+				},
+				"share": {
+					"weixin": {
+						"appid": "wx05ad31f1c2043845",
+						"appsecret": "153319ce231a6f3fd994997801557e70",
+						"description": "微信分享"
+					}
+				},
+				"push": {},
+				"maps": {
+					"amap": {
+						"appkey_ios": "3c8f596a19a2b769ee998afb011cf6bd",
+						"appkey_android": "47182cdfd8241a1311fe7f56c52c0fb0",
+						"description": ""
+					}
+				}
+			},
+			"apple": {
+				"appid": "com.zhonglaiwang.hi",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
+				"mobileprovision": "",/*iOS应用打包配置文件*/
+				"password": "",/*iOS应用打包个人证书导入密码*/
+				"p12": "",/*iOS应用打包个人证书，打包配置文件关联的个人证书*/
+				"devices": "iphone",/*iOS应用支持的设备类型，可取值iphone/ipad/universal*/
+				"UIReserveStatusbarOffset": true,
+				"frameworks": [],
+				"plistcmds":[
+				
+					"Set :NSPhotoLibraryAddUsageDescription 海掌柜需要使用手机的相册权限,否则保存图片到相册",
+				    "Set :NSCameraUsageDescription 海掌柜需要使用手机的相机权限,否则无法扫描二维码和上传头像",
+				    "Set :NSPhotoLibraryUsageDescription 海掌柜需要使用手机的相册权限,否则无法上传头像",
+				    "Set :NSLocationAlwaysUsageDescription 海掌柜需要使用手机定位权限,否则无法向您推荐附近的优质商家.",
+				    "Set :NSLocationAlwaysAndWhenInUseUsageDescription 海掌柜需要使用手机定位权限,否则无法向您推荐附近的优质商家.",
+				    "Set :NSLocationWhenInUseUsageDescription 海掌柜需要使用手机定位权限,否则无法向您推荐附近的优质商家."
+				],
+				"urlschemewhitelist":[
+					"baidumap",
+					"iosamap"
+				]
+			},
+			"google": {
+				"hardwareAccelerated":true,//硬件加速
+				"packagename": "",/*Android应用包名，如io.dcloud.HelloH5*/
+				"keystore": "",/*Android应用打包使用的密钥库文件*/
+				"password": "",/*Android应用打包使用密钥库中证书的密码*/
+				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
+				"ImmersedStatusbar": true,
+				"permissions": ["<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\"/>","<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.SEND_SMS\"/>","<uses-permission android:name=\"android.permission.INTERNET\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.RECEIVE_USER_PRESENT\"/>","<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>","<uses-permission android:name=\"android.permission.WRITE_SMS\"/>","<uses-permission android:name=\"android.permission.READ_SMS\"/>"]
+			},
+			"orientation": [
+				"portrait-primary"
+			],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
+			"icons": {
+				"ios": {
+					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
+					/*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
+					"iphone": {
+						"normal": "",/*iPhone普通屏幕程序图标，分辨率：57x57*/
+						"retina": "",/*iPhone高分屏程序图标，分辨率：114x114*/
+						/*iPhone iOS7高分屏程序图标，分辨率：120x120*/
+						"spotlight-normal": "", /*iPhone Spotlight搜索程序图标，分辨率：29x29*/
+						"spotlight-retina": "", /*iPhone高分屏Spotlight搜索程序图标，分辨率：58x58*/
+						/*iPhone iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "", /*iPhone设置页面程序图标，分辨率：29x29*/
+						"app@3x": "unpackage/res/icons/180x180.png",
+						"app@2x": "unpackage/res/icons/120x120.png",
+						"settings@2x": "unpackage/res/icons/58x58.png",
+						"settings@3x": "unpackage/res/icons/87x87.png",
+						"spotlight@2x": "unpackage/res/icons/80x80.png",
+						"spotlight@3x": "unpackage/res/icons/120x120.png",
+						"notification@2x": "unpackage/res/icons/40x40.png",
+						"notification@3x": "unpackage/res/icons/60x60.png"
+					},
+					"ipad": {
+						"normal": "", /*iPad普通屏幕程序图标，分辨率：72x72*/
+						"retina": "", /*iPad高分屏程序图标，分辨率：144x144*/
+						/*iPad iOS7程序图标，分辨率：76x76*/
+						/*iPad iOS7高分屏程序图标，分辨率：152x152*/
+						"spotlight-normal": "", /*iPad Spotlight搜索程序图标，分辨率：50x50*/
+						"spotlight-retina": "", /*iPad高分屏Spotlight搜索程序图标，分辨率：100x100*/
+						/*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/
+						/*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						/*iPad设置页面程序图标，分辨率：29x29*/
+						"app": "unpackage/res/icons/76x76.png",
+						"app@2x": "unpackage/res/icons/152x152.png",
+						"settings": "unpackage/res/icons/29x29.png",
+						"spotlight": "unpackage/res/icons/40x40.png",
+						"proapp@2x": "unpackage/res/icons/167x167.png",
+						"settings@2x": "unpackage/res/icons/58x58.png",
+						"spotlight@2x": "unpackage/res/icons/80x80.png",
+						"notification": "unpackage/res/icons/20x20.png",
+						"notification@2x": "unpackage/res/icons/40x40.png"
+					},
+					"appstore": "unpackage/res/icons/1024x1024.png"
+				},
+				"android": {
+					"mdpi": "unpackage/res/icons/48x48.png", /*普通屏程序图标，分辨率：48x48*/
+					"ldpi": "unpackage/res/icons/48x48.png", /*大屏程序图标，分辨率：48x48*/
+					"hdpi": "unpackage/res/icons/72x72.png", /*高分屏程序图标，分辨率：72x72*/
+					"xhdpi": "unpackage/res/icons/96x96.png",/*720P高分屏程序图标，分辨率：96x96*/
+					"xxhdpi": "unpackage/res/icons/144x144.png",
+					"xxxhdpi": "unpackage/res/icons/192x192.png"
+				}
+			},
+			"splashscreen": {
+				"ios": {
+					"iphone": {
+						"default": "",
+						"iphonex": "E:/work/frontend/splash/ios/启动页/启动页1125x2436.png",
+						"retina40": "E:/work/frontend/splash/ios/启动页/启动页640x1136.png",
+						"retina47": "E:/work/frontend/splash/ios/启动页/启动页750x1334.png",
+						"retina55": "E:/work/frontend/splash/ios/启动页/启动页1242x2208.png",
+						"retina35": "E:/work/frontend/splash/ios/启动页/启动页640x960.png"
+					},
+					"ipad": {}
+				},
+				"android": {
+					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
+					"ldpi": "",
+					"hdpi": "E:/work/frontend/splash/android/480x762.png",
+					"xhdpi": "E:/work/frontend/splash/android/720x1242.png",
+					"xxhdpi": "E:/work/frontend/splash/android/1080x1882.png"
+				}
+			},
+			"plusgins": {
+				"maps": {
+					"description": "地图插件",
+					"amap": {
+						"apply_ios": "10321f0f62a55b37820b8aeff55fb251",
+						"apply_android": "30a853bc1b59ffd15c15bbf840deb58e",
+						"description": "高德地图"
+					}
+				}
+			}
+		},
+		"ads": {
+			"rp": false,
+			"splash": false,
+			"push": false,
+			"spot": false
+		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [],
+				"refer": [
+					"test.html",
+					"pages/nearby.html",
+					"pages/tab.html",
+					"pages/mine.html"
+				],
+				"priority": 0
+			},
+			"pages/nearby.html": {
+				"resources": [],
+				"refer": [
+					"index.html",
+					"pages/mine.html"
+				],
+				"priority": 0
+			},
+			"main.html": {
+				"resources": [
+					"modules/home/index.html",
+					"modules/nearby/index.html",
+					"modules/mine/index.html",
+					"modules/home/home.html",
+					"modules/main.js",
+					"modules/main.css",
+					"modules/nearby/nearby.html",
+					"js/app.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/vue.min.js",
+					"modules/mine/mine.html",
+					"images/tab/ic_me_fill.png",
+					"images/tab/ic_fj_fill.png",
+					"images/tab/ic_me.png",
+					"images/tab/ic_home_fill.png",
+					"images/tab/ic_fj.png",
+					"images/tab/ic_home.png"
+				],
+				"refer": [
+					"index.html",
+					"modules/common/url_view.html",
+					"modules/common/scanqr.html",
+					"modules/market/market.html"
+				],
+				"priority": 0
+			},
+			"modules/home/index.html": {
+				"resources": [
+					"modules/common/js/common.js"
+				],
+				"refer": [
+					"modules/home/search.html",
+					"modules/common/goodsDetail.html",
+					"map.html",
+					"modules/common/tradeZone.html",
+					"modules/common/barcode.html",
+					"modules/common/paymentCode.html",
+					"modules/common/pay.html",
+					"modules/common/shopDetail.html",
+					"modules/common/password.html",
+					"modules/common/seeShopLocation.html",
+					"modules/home/homeSon/nearbyReductionMore.html",
+					"modules/common/test1.html",
+					"modules/home/homeSon/tradeZone.html",
+					"modules/home/homeSon/JMore.html",
+					"modules/home/homeSon/search.html",
+					"modules/mine/shop/test.html",
+					"modules/mine/shop/test1.html",
+					"modules/common/userLocation.html",
+					"back.html",
+					"backM.html",
+					"modules/home/test/test.html",
+					"modules/common/test.html",
+					"modules/common/comment.html",
+					"modules/mine/test.html",
+					"modules/home/homeSon/tradeZoneDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/index.html": {
+				"resources": [],
+				"refer": [
+					"modules/common/url_view.html",
+					"modules/mine/shop/shopApp.html",
+					"modules/mine/mineSon/redBeans.html",
+					"modules/mine/iconSon/evaluate.html",
+					"modules/mine/mineSon/balance.html",
+					"modules/mine/mineSon/reputation.html",
+					"modules/mine/mineSon/userSafe.html",
+					"modules/mine/iconSon/msgCenter.html",
+					"modules/mine/zoneManager/zoneManager.html",
+					"modules/mine/iconSon/scoreMall.html",
+					"modules/common/barcode.html",
+					"modules/mine/mineSon/set.html",
+					"modules/mine/iconSon/wentShop.html",
+					"modules/mine/iconSon/goodsOrder.html",
+					"modules/mine/iconSon/collection.html",
+					"modules/mine/iconSon/reduction.html",
+					"modules/mine/iconSon/vipManager.html",
+					"modules/common/paymentCode.html",
+					"modules/mine/iconSon/zlReputation.html"
+				],
+				"priority": 0
+			},
+			"modules/common/url_view.html": {
+				"resources": [
+					"modules/common/blank.html",
+					"js/url_view.js",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/mine/shop/shopApp.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/shop/shopLocation.html",
+					"modules/mine/shop/doorPhoto.html",
+					"modules/mine/shop/other.html",
+					"modules/mine/shop/innerPhoto.html",
+					"modules/mine/shop/licence.html",
+					"modules/mine/shop/classify.html"
+				],
+				"priority": 0
+			},
+			"modules/common/barcode.html": {
+				"resources": [
+					"modules/common/css/barcode.css",
+					"modules/common/js/barcode.js"
+				],
+				"refer": [
+					"modules/common/userPay.html"
+				],
+				"priority": 0
+			},
+			"modules/common/paymentCode.html": {
+				"resources": [
+					"images/refresh.png",
+					"modules/common/css/paymentCode.css",
+					"modules/common/js/paymentCode.js",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"modules/common/shopScan.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/mineSon/balance.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/mineSon/balanceTrans.html",
+					"modules/mine/mineSon/withdraw.html",
+					"modules/mine/mineSon/addBanlance.html",
+					"modules/mine/mineSon/banlanceToReputation.html"
+				],
+				"priority": 0
+			},
+			"modules/common/otherShop.html": {
+				"resources": [
+					"modules/common/js/otherShop.js",
+					"modules/common/css/otherShop.css",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"modules/common/seeShopLocation.html"
+				],
+				"priority": 0
+			},
+			"modules/common/shopDetail.html": {
+				"resources": [
+					"modules/common/js/common.js",
+					"images/bg_yhj.png",
+					"images/ic_song.png",
+					"modules/common/css/shopDetail.css",
+					"modules/common/js/shopDetail.js",
+					"images/ic_phone.png",
+					"images/bg_banner.png",
+					"images/ic_star_bl.png",
+					"images/ic_map.png",
+					"images/bg_home_myd.png",
+					"js/app.js",
+					"images/ic_star_l.png",
+					"js/vue.min.js",
+					"modules/common/css/common.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"images/placeholder.png"
+				],
+				"refer": [
+					"modules/common/otherShop.html",
+					"modules/common/shopSon/shopService.html",
+					"modules/mine/iconSon/reduction.html",
+					"modules/common/seeShopLocation.html",
+					"modules/common/singleHot.html",
+					"modules/common/onSale.html",
+					"modules/common/seeAllVoucher.html",
+					"modules/common/goodsDetail.html",
+					"modules/home/homeSon/tradeZoneDetail.html",
+					"modules/common/allComment.html",
+					"modules/common/buy/userPay.html",
+					"modules/common/shopSon/serviceDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/msgCenter.html": {
+				"resources": [
+					"images/msg2.png",
+					"modules/mine/iconSon/js/msgCenter.js",
+					"modules/mine/iconSon/css/msgCenter.css",
+					"images/msg1.png",
+					"fonts/mui.ttf",
+					"js/app.js",
+					"js/mui.min.js",
+					"images/massage.png",
+					"css/mui.min.css",
+					"js/vue.min.js",
+					"modules/common/css/common.css"
+				],
+				"refer": [
+					"modules/mine/iconSon/inviteMsg.html",
+					"modules/mine/iconSon/information.html",
+					"modules/mine/iconSon/systemMsg.html",
+					null
+				],
+				"priority": 0
+			},
+			"modules/mine/zoneManager/zoneManager.html": {
+				"resources": [
+					"images/stopwork.png",
+					"images/tradezone.png",
+					"images/review.png",
+					"images/redcash.png",
+					"modules/mine/zoneManager/css/zoneManager.css",
+					"modules/mine/zoneManager/js/zoneManager.js",
+					"fonts/mui.ttf",
+					"js/app.js",
+					"images/ic_star_l.png",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/vue.min.js",
+					"modules/common/css/common.css"
+				],
+				"refer": [
+					"modules/mine/zoneManager/shopStop.html",
+					"modules/mine/zoneManager/redCash.html",
+					"modules/mine/zoneManager/myTradeZone.html",
+					"modules/mine/zoneManager/shopSelect.html"
+				],
+				"priority": 0
+			},
+			"modules/home/homeSon/tradeZone.html": {
+				"resources": [
+					"modules/home/homeSon/css/tradeZone.css",
+					"modules/home/homeSon/js/tradeZone.js",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"modules/home/homeSon/tradeZoneDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/mineSon/reputation.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/mineSon/rechargeService.html",
+					"modules/mine/mineSon/recharge.html",
+					"modules/mine/mineSon/reputationDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/scoreMall.html": {
+				"resources": [
+					"modules/mine/iconSon/js/scoreMall.js",
+					"modules/mine/iconSon/css/scoreMall.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/vue.min.js",
+					"modules/common/css/common.css"
+				],
+				"refer": [
+					"modules/mine/iconSon/goodsExchangeAdd.html",
+					"modules/mine/iconSon/exchangeHistory.html",
+					"modules/mine/iconSon/exchangeDetail.html",
+					"modules/mine/iconSon/scoreDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/inviteMsg.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/iconSon/invitation.html"
+				],
+				"priority": 0
+			},
+			"modules/common/submitOrder.html": {
+				"resources": [
+					"images/addB.png",
+					"modules/common/js/submitOrder.js",
+					"images/selected.png",
+					"images/reduceB.png",
+					"modules/common/css/submitOrder.css",
+					"js/components/paypad.css"
+				],
+				"refer": [
+					"modules/common/addLocation.html",
+					"modules/common/selectedLocation.html"
+				],
+				"priority": 0
+			},
+			"modules/common/goodsDetail.html": {
+				"resources": [
+					"modules/common/allComment.html",
+					"modules/common/js/goodsDetail.js",
+					"modules/common/css/goodsDetail.css",
+					"images/payClose.png",
+					"js/ajax.js",
+					"images/selected.png",
+					"images/ic_star_2.png",
+					"images/ic_star_4.png",
+					"images/ic_star_5.png",
+					"images/ic_star_3.png",
+					"images/ic_phone.png"
+				],
+				"refer": [
+					"modules/common/submitOrder.html",
+					"modules/common/picTextDetail.html",
+					"modules/common/seeShopLocation.html",
+					"modules/common/applyShop.html",
+					"modules/common/buy/submitOrder.html",
+					"modules/common/shopDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/goodsOrder.html": {
+				"resources": [
+					"modules/mine/iconSon/css/goodsOrder.css",
+					"js/app.js",
+					"modules/mine/iconSon/js/goodsOrder.js",
+					"js/vue-resource.js",
+					"js/components/Loadmore.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/vue.min.js",
+					"modules/common/css/common.css"
+				],
+				"refer": [
+					"modules/mine/iconSon/orderDetailShop.html",
+					"modules/mine/iconSon/orderDetailWait.html",
+					"modules/mine/iconSon/orderDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/zoneManager/myTradeZone.html": {
+				"resources": [
+					"modules/mine/zoneManager/js/myTradeZone.js",
+					"modules/mine/zoneManager/css/myTradeZone.css"
+				],
+				"refer": [
+					"modules/mine/zoneManager/tradeShop.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/mineSon/set.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/mineSon/about.html",
+					"modules/mine/mineSon/payCode.html",
+					"modules/mine/mineSon/editTel.html",
+					"modules/mine/mineSon/noPay.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/wentShop.html": {
+				"resources": [
+					"modules/mine/iconSon/js/wentShop.js",
+					"modules/mine/iconSon/css/wentShop.css",
+					"js/vue-mui.js",
+					"js/vue-resource.js",
+					"js/app.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/vue.min.js",
+					"modules/common/css/common.css"
+				],
+				"refer": [
+					"modules/common/shopDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/mineSon/redBeans.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/mineSon/tradeBeans.html",
+					"modules/mine/mineSon/shareBeans.html",
+					"modules/mine/mineSon/beansDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/collection.html": {
+				"resources": [
+					"modules/mine/iconSon/css/collection.css",
+					"modules/mine/iconSon/js/collection.js",
+					"js/vue-resource.js",
+					"js/app.js",
+					"js/components/Loadmore.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/vue.min.js",
+					"modules/common/css/common.css"
+				],
+				"refer": [
+					"modules/common/shopDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/mineSon/userSafe.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/mineSon/editUsername.html",
+					"modules/common/userLocation.html",
+					"modules/mine/mineSon/addBank.html",
+					"modules/common/addBank.html",
+					"modules/mine/mineSon/realAuth.html",
+					"modules/mine/mineSon/payCode.html",
+					"modules/mine/mineSon/editTel.html",
+					"modules/mine/mineSon/payPassword.html",
+					"modules/common/bankList.html",
+					"modules/mine/mineSon/noPay.html"
+				],
+				"priority": 0
+			},
+			"modules/common/userLocation.html": {
+				"resources": [
+					"modules/common/js/userLocation.js",
+					"images/btn_sc.png",
+					"images/btn_bj.png",
+					"modules/common/css/userLocation.css",
+					"images/btn_xuanz.png"
+				],
+				"refer": [
+					"modules/common/editLocation.html",
+					"modules/common/addLocation.html"
+				],
+				"priority": 0
+			},
+			"backM.html": {
+				"resources": [],
+				"refer": [
+					"back.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/mineSon/addBank.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/mineSon/addCard.html"
+				],
+				"priority": 0
+			},
+			"modules/common/addBank.html": {
+				"resources": [
+					"modules/common/js/addBank.js",
+					"js/ajax.js",
+					"modules/common/css/addBank.css"
+				],
+				"refer": [
+					"modules/common/addCard.html"
+				],
+				"priority": 0
+			},
+			"modules/nearby/index.html": {
+				"resources": [],
+				"refer": [
+					"modules/nearby/index.html"
+				],
+				"priority": 0
+			},
+			"modules/common/applyShop.html": {
+				"resources": [],
+				"refer": [
+					"modules/common/shopDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/mineSon/editTel.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/mineSon/newTel.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/mineSon/newTel.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/mineSon/userSafe.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/mineSon/payPassword.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/mineSon/userSafe.html"
+				],
+				"priority": 0
+			},
+			"modules/common/shopSon/shopService.html": {
+				"resources": [
+					"modules/common/shopSon/js/shopService.js",
+					"modules/common/shopSon/css/shopService.css",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"modules/common/shopSon/serviceDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/home/homeSon/tradeZoneDetail.html": {
+				"resources": [
+					"images/ic_map.png",
+					"modules/home/homeSon/css/tradeZoneDetail.css",
+					"modules/home/homeSon/js/tradeZoneDetail.js",
+					"images/ic_sj.png",
+					"images/ic_juan.png",
+					"images/ic_home_more.png"
+				],
+				"refer": [
+					"modules/common/goodsDetail.html",
+					"modules/common/selected.html",
+					"modules/home/homeSon/jmore.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/zoneManager/shopStop.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/zoneManager/shopSelect.html"
+				],
+				"priority": 0
+			},
+			"boot.html": {
+				"resources": [
+					"js/app.js",
+					"js/mui.min.js",
+					"js/boot.js",
+					"images/start/2_720x1242.png",
+					"images/start/1_720x1242.png",
+					"css/mui.min.css",
+					"images/start/3_720x1242.png"
+				],
+				"refer": [
+					"main.html",
+					"modules/mine/mineSon/set.html",
+					"modules/mine/iconSon/inviteMsg.html",
+					"modules/mine/mineSon/userLocation.html",
+					"modules/mine/mineSon/newTel.html",
+					"modules/mine/iconSon/footReputation.html",
+					"modules/mine/shop/test.html",
+					"modules/mine/iconSon/vipManager.html",
+					"modules/mine/iconSon/sendInvitation.html",
+					"modules/mine/iconSon/exchangeDetail.html",
+					"modules/mine/shop/shopApp.html",
+					"modules/mine/iconSon/goodsExchange.html",
+					"modules/mine/iconSon/msgCenter.html",
+					"modules/home/homeSon/nearbyReductionMore.html",
+					"modules/mine/zoneManager/addShop.html",
+					"modules/home/homeSon/search.html",
+					"modules/mine/zoneManager/shopStop.html",
+					"modules/mine/iconSon/orderDetailDoor.html",
+					"modules/mine/zoneManager/zoneManager.html",
+					"modules/mine/mineSon/editTel.html",
+					"modules/mine/mineSon/balanceTrans.html",
+					"modules/mine/zoneManager/redCash.html",
+					"modules/mine/iconSon/scoreMall.html",
+					"modules/mine/iconSon/scoreDetail.html",
+					"modules/mine/zoneManager/tradeShop.html",
+					"modules/mine/shop/classify.html",
+					"modules/home/homeSon/searching.html",
+					"modules/mine/zoneManager/shopSelect.html",
+					"modules/mine/iconSon/orderDetailWait.html",
+					"modules/mine/mineSon/banlanceToReputation.html",
+					"modules/mine/mineSon/reputation.html",
+					"modules/home/index.html",
+					"modules/mine/iconSon/evaluate.html",
+					"modules/mine/iconSon/goodsOrder.html",
+					"modules/mine/mineSon/balance.html",
+					"modules/mine/mineSon/reputationDetail.html",
+					"modules/mine/mineSon/addLocation.html",
+					"modules/mine/index.html",
+					"modules/mine/iconSon/zlReputation.html",
+					"modules/mine/iconSon/mySeller.html",
+					"modules/mine/mineSon/recharge.html",
+					"modules/mine/iconSon/goodsExchangeAdd.html",
+					"modules/mine/mineSon/tradeBeans.html",
+					"modules/mine/mineSon/payPassword.html",
+					"modules/mine/mineSon/beansDetail.html",
+					"modules/mine/mineSon/withdrawHistory.html",
+					"modules/mine/shop/other.html",
+					"modules/home/homeSon/tradeZoneDetail.html",
+					"modules/mine/mineSon/editUsername.html",
+					"modules/mine/zoneManager/myTradeZone.html",
+					"modules/mine/shop/licence.html",
+					"modules/mine/iconSon/collection.html",
+					"modules/mine/mineSon/redBeans.html",
+					"modules/mine/mineSon/noPay.html",
+					"modules/mine/mineSon/withdraw.html",
+					"modules/mine/mineSon/realAuth.html",
+					"modules/mine/mineSon/about.html",
+					"modules/home/homeSon/tradeZone.html",
+					"modules/mine/mineSon/bridge.html",
+					"modules/mine/iconSon/wentShop.html",
+					"modules/mine/shop/shopLocation.html",
+					"modules/mine/shop/innerPhoto.html",
+					"modules/mine/mineSon/userSafe.html",
+					"modules/mine/mineSon/shareBeans.html",
+					"modules/mine/iconSon/partner.html",
+					"modules/home/homeSon/JMore.html",
+					"modules/mine/iconSon/orderDetailShop.html",
+					"modules/mine/mineSon/rechargeService.html",
+					"modules/mine/shop/test1.html",
+					"modules/mine/iconSon/invitation.html",
+					"modules/mine/iconSon/orderDetailPre.html",
+					"modules/mine/iconSon/exchangeHistory.html",
+					"modules/home/homeSon/segmented.html",
+					"modules/home/homeSon/test.html",
+					"modules/mine/iconSon/reduction.html",
+					"modules/mine/shop/doorPhoto.html",
+					"modules/common/shopSon/serviceDetail.html",
+					"modules/common/shopSon/shopService.html",
+					"modules/common/picTextDetail.html",
+					"modules/common/submitOrderL.html",
+					"modules/common/submitOrder.html",
+					"modules/common/seeAllVoucher.html",
+					"modules/common/successCollect.html",
+					"modules/common/seeShopLocation.html",
+					"modules/common/singleHot.html",
+					"modules/common/userLocation.html",
+					"modules/common/userPay.html",
+					"modules/common/successPay.html",
+					"modules/common/shopScan.html",
+					"modules/common/onSale.html",
+					"modules/common/otherShop.html",
+					"modules/common/url_view.html",
+					"modules/common/shopStop.html",
+					"modules/common/shopDetail.html",
+					"modules/common/shopOutline.html",
+					"modules/common/paymentCode.html",
+					"modules/common/selected.html",
+					"modules/common/picker.html",
+					"modules/common/addBank.html",
+					"modules/shopManager/success.html",
+					"modules/common/editLocation.html",
+					"modules/shopManager/failed.html",
+					"modules/common/blank.html",
+					"modules/shopManager/validateCode.html",
+					"modules/common/noData.html",
+					"modules/common/applyShop.html",
+					"modules/common/addCard.html",
+					"modules/common/barcode.html",
+					"modules/shopManager/shopManager.html",
+					"modules/nearby/index.html",
+					"modules/common/comment.html",
+					"modules/common/addLocation.html",
+					"modules/common/allComment.html",
+					"modules/common/goodsDetail.html",
+					"modules/shopManager/shopManager_cashier.html",
+					"modules/home/home.html",
+					"modules/mine/mine.html",
+					"modules/nearby/nearby.html",
+					"modules/common/login.html",
+					"modules/home/homeSon/near.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/mineSon/tradeBeans.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/mineSon/tradeBeans.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/zoneManager/tradeShop.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/zoneManager/addShop.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/zlReputation.html": {
+				"resources": [
+					"images/banner2.png",
+					"modules/mine/iconSon/css/zlReputation.css",
+					"modules/mine/iconSon/js/zlReputation.js",
+					"js/app.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/vue.min.js",
+					"modules/common/css/common.css",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"modules/mine/iconSon/footReputation.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/orderDetailPre.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/iconSon/orderDetailDoor.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/goodsExchange.html": {
+				"resources": [
+					"modules/mine/iconSon/css/goodsExchange.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/home/homeSon/nearbyReductionMore.html": {
+				"resources": [
+					"images/fjyh.png",
+					"images/Noactive.png",
+					"modules/common/js/selectedCommon.js",
+					"images/active.png",
+					"modules/home/homeSon/css/nearbyReductionMore.css",
+					"modules/home/homeSon/js/nearbyReductionMore.js",
+					"images/ic_jian.png",
+					"images/ic_juan.png",
+					"images/ic_sj.png",
+					"images/noData.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/home/homeSon/search.html": {
+				"resources": [
+					"images/delete.png",
+					"modules/home/homeSon/css/search.css",
+					"modules/home/homeSon/js/search.js",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"modules/home/homeSon/searching.html",
+					"modules/common/shopDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/footReputation.html": {
+				"resources": [
+					"modules/mine/iconSon/js/footReputation.js",
+					"modules/mine/iconSon/css/footReputation.css",
+					"js/app.js",
+					"js/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/mine/iconSon/exchangeHistory.html": {
+				"resources": [
+					"modules/mine/iconSon/css/exchangeHistory.css",
+					"modules/mine/iconSon/js/exchangeHistory.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/mine/iconSon/exchangeDetail.html": {
+				"resources": [
+					"images/add.png",
+					"images/reduce.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/common/addCard.html": {
+				"resources": [
+					"js/pad-zeropadding-min.js",
+					"js/aes.js",
+					"modules/common/js/addCard.js",
+					"modules/common/css/addCard.css",
+					"js/ajax.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/common/seeShopLocation.html": {
+				"resources": [
+					"modules/common/js/seeShopLocation.js",
+					"modules/common/css/seeShopLocation.css"
+				],
+				"refer": [
+					"modules/common/navigation.html"
+				],
+				"priority": 0
+			},
+			"modules/shopManager/validateCode.html": {
+				"resources": [
+					"modules/shopManager/css/validateCode.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/vue.min.js",
+					"modules/shopManager/js/validateCode.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/common/addLocation.html": {
+				"resources": [
+					"js/mui.picker.min.js",
+					"modules/common/css/addLocation.css",
+					"js/mui.min.js",
+					"js/mui.poppicker.js",
+					"js/area.js",
+					"css/mui.min.css",
+					"js/vue.min.js",
+					"images/btn_weixuan.png",
+					"css/mui.poppicker.css",
+					"css/mui.picker.min.css",
+					"modules/common/css/common.css",
+					"modules/common/js/addLocation.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/common/allComment.html": {
+				"resources": [
+					"images/ic_star_2.png",
+					"modules/common/css/allComment.css",
+					"images/ic_star_4.png",
+					"images/ic_star_l.png",
+					"modules/common/js/allComment.js",
+					"images/ic_star_5.png",
+					"images/ic_star_3.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/common/submitOrderL.html": {
+				"resources": [
+					"modules/common/js/submitOrderL.js",
+					"modules/common/css/submitOrderL.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/common/picTextDetail.html": {
+				"resources": [
+					"modules/common/js/picTextDetail.js",
+					"modules/common/css/picTextDetail.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/common/seeAllVoucher.html": {
+				"resources": [
+					"modules/common/js/seeAllVoucher.js",
+					"modules/common/css/seeAllVoucher.css",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/common/successCollect.html": {
+				"resources": [
+					"modules/common/css/successCollect.css",
+					"modules/common/js/successCollect.js",
+					"images/successCollect.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/common/singleHot.html": {
+				"resources": [
+					"modules/common/js/singleHot.js",
+					"modules/common/css/singleHot.css"
+				],
+				"refer": [
+					"modules/common/goodsDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/common/userPay.html": {
+				"resources": [
+					"modules/common/js/userPay.js",
+					"modules/common/css/userPay.css",
+					"images/location.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/common/shopSon/serviceDetail.html": {
+				"resources": [
+					"modules/common/shopSon/js/serviceDetail.js",
+					"images/ic_star_bl.png",
+					"images/ic_star_l.png",
+					"modules/common/shopSon/css/serviceDetail.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/common/successPay.html": {
+				"resources": [
+					"modules/common/css/successPay.css",
+					"modules/common/js/successPay.js",
+					"images/success.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/common/shopScan.html": {
+				"resources": [
+					"modules/common/js/shopScan.js",
+					"modules/common/css/shopScan.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/common/shopOutline.html": {
+				"resources": [
+					"images/shopStop.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/common/selected.html": {
+				"resources": [
+					"modules/common/js/selected.js",
+					"modules/common/css/selected.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/mine/mine.html": {
+				"resources": [
+					"modules/mine/mine.js",
+					"images/mine_ic_me_qg.png",
+					"images/mine_ic_me_sc.png",
+					"images/defaultHeader.png",
+					"images/mine_ic_xy.png",
+					"images/mine_ic_me_xx.png",
+					"images/mine_ic_me_dd.png",
+					"images/zoneManager.png",
+					"images/mine_ic_me_yh.png",
+					"images/mine_ic_me_hygl.png",
+					"images/mine_ic_xfjf.png",
+					"images/mine_ic_me_pj.png",
+					"images/mine_ic_me_fx.png",
+					"images/shareCicle.png",
+					"modules/mine/mine.css",
+					"images/shareFriend.png",
+					"images/bg_mine.png"
+				],
+				"refer": [
+					"modules/mine/mineSon/set.html",
+					"modules/mine/mineSon/balance.html",
+					"modules/common/barcode.html",
+					"modules/mine/mineSon/userSafe.html",
+					"modules/common/paymentCode.html",
+					"modules/mine/mineSon/reputation.html",
+					"modules/mine/shop/shopApp.html",
+					"modules/mine/iconSon/wentShop.html",
+					"modules/mine/iconSon/vipManager.html",
+					"modules/mine/iconSon/evaluate.html",
+					"modules/mine/iconSon/collection.html",
+					"modules/mine/iconSon/goodsOrder.html",
+					"modules/mine/iconSon/msgCenter.html",
+					"modules/mine/mineSon/redBeans.html",
+					"modules/mine/zoneManager/zoneManager.html",
+					"modules/mine/iconSon/zlReputation.html",
+					"modules/mine/iconSon/scoreMall.html",
+					"modules/mine/iconSon/reduction.html",
+					"modules/shopManager/shopManager.html",
+					null,
+					"modules/mine/buttons/members.html",
+					"modules/mine/seller/seller.html",
+					"modules/mine/buttons/msgCenter.html",
+					"modules/mine/setting/set.html",
+					"modules/mine/buttons/scoreMall.html",
+					"modules/mine/buttons/zlReputation.html",
+					"modules/mine/buttons/goodsOrder.html",
+					"modules/mine/buttons/wentShop.html",
+					"modules/mine/buttons/evaluate.html",
+					"modules/mine/buttons/collection.html",
+					"modules/mine/buttons/reduction.html",
+					"modules/mine/myinfo/userSafe.html",
+					"modules/mine/mall/specialtyMall.html",
+					"modules/mine/myinfo/redBeans.html",
+					"modules/mine/myinfo/balance.html",
+					"modules/mine/shop/shopAgreement.html",
+					"modules/common/bind_phone.html",
+					"modules/mine/myinfo/myshare.html",
+					"modules/mine/myinfo/reputation.html",
+					"modules/mine/cashier/cashier.html",
+					"modules/mine/buttons/myzone.html",
+					"modules/mine/myinfo/silverBeans.html"
+				],
+				"priority": 0
+			},
+			"modules/home/home.html": {
+				"resources": [
+					"js/mui.min.js",
+					"images/ic_home_ms.png",
+					"images/bg_home_myd.png",
+					"images/ic_home_cs.png",
+					"images/bg_home_fjyh.png",
+					"images/bg_home_wxsj.png",
+					"images/ic_home_yl.png",
+					"images/bg_home_jhs.png",
+					"images/ic_home_more.png",
+					"images/ic_home_fs.png",
+					"images/indexRefresh.png",
+					"images/ic_home_fk.png",
+					"images/banner.png",
+					"images/ic_home_sys.png",
+					"modules/home/home.js",
+					"modules/home/home.css",
+					"images/ic_home_ss.png",
+					"images/banner2.png",
+					"js/app.js",
+					"js/vue.min.js",
+					"modules/common/css/common.css",
+					"css/mui.min.css",
+					"images/inner.jpg"
+				],
+				"refer": [
+					"modules/common/shopDetail.html",
+					"modules/home/homeSon/tradeZoneDetail.html",
+					"modules/common/goodsDetail.html",
+					"modules/home/homeSon/tradeZone.html",
+					"modules/common/comment.html",
+					"modules/common/barcode.html",
+					"modules/home/homeSon/nearbyReductionMore.html",
+					"modules/home/homeSon/search.html",
+					"modules/common/paymentCode.html",
+					"modules/home/homeSon/JMore.html",
+					"modules/common/test.html",
+					null,
+					"modules/home/homeSon/segmented.html",
+					"modules/home/homeSon/near.html",
+					"modules/home/homeSon/jmore.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/zoneManager/shopSelect.html": {
+				"resources": [
+					"modules/mine/zoneManager/js/shopSelect.js",
+					"images/ic_home_ss.png",
+					"modules/mine/zoneManager/css/shopSelect.css",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"modules/mine/zoneManager/shopStop.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/vipManager.html": {
+				"resources": [
+					"modules/mine/iconSon/css/vipManager.css",
+					"modules/mine/iconSon/js/vipManager.js",
+					"modules/mine/iconSon/js/echarts-all.js",
+					"images/tel.png",
+					"js/vue-resource.js",
+					"js/app.js",
+					"js/components/Loadmore.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/vue.min.js",
+					"modules/common/css/common.css"
+				],
+				"refer": [
+					"modules/mine/iconSon/partner.html",
+					"modules/mine/iconSon/sendInvitation.html",
+					"modules/mine/iconSon/mySeller.html",
+					"modules/mine/iconSon/vipManager.html"
+				],
+				"priority": 0
+			},
+			"modules/common/onSale.html": {
+				"resources": [
+					"modules/common/js/onSale.js",
+					"modules/common/css/onSale.css"
+				],
+				"refer": [
+					"modules/common/goodsDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/zoneManager/redCash.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"images/tip.png",
+					"modules/mine/zoneManager/css/redCash.css",
+					"modules/mine/zoneManager/js/redCash.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/mine/iconSon/orderDetailWait.html": {
+				"resources": [
+					"modules/mine/iconSon/js/orderDetailWait.js",
+					"modules/mine/iconSon/css/orderDetailWait.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/mine/iconSon/orderDetailShop.html": {
+				"resources": [
+					"images/arrow_bottom.png",
+					"modules/mine/iconSon/js/orderDetailShop.js",
+					"fonts/mui.ttf",
+					"modules/mine/iconSon/css/orderDetailShop.css"
+				],
+				"refer": [
+					"modules/common/comment.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/evaluate.html": {
+				"resources": [
+					"images/ic_star_2.png",
+					"images/ic_star_4.png",
+					"modules/mine/iconSon/css/evaluate.css",
+					"images/ic_star_l.png",
+					"images/ic_star_5.png",
+					"modules/mine/iconSon/js/evaluate.js",
+					"images/ic_star_3.png",
+					"js/vue-resource.js",
+					"js/components/Loadmore.min.js",
+					"js/app.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/vue.min.js",
+					"modules/common/css/common.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/nearby/nearby.html": {
+				"resources": [
+					"images/bg_home_myd.png",
+					"modules/nearby/nearby.js",
+					"modules/nearby/nearby.css",
+					"js/vue-resource.js",
+					"js/components/Loadmore.min.js"
+				],
+				"refer": [
+					"modules/common/shopDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/reduction.html": {
+				"resources": [
+					"images/bg_yhj.png",
+					"js/mui.min.js",
+					"modules/mine/iconSon/js/reduction.js",
+					"css/mui.min.css",
+					"js/vue.min.js",
+					"modules/common/css/common.css",
+					"modules/mine/iconSon/css/reduction.css",
+					"js/app.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/mine/mineSon/withdraw.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/mineSon/withdrawHistory.html",
+					"modules/common/selectBank.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/zoneManager/addShop.html": {
+				"resources": [
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modules/common/login.html": {
+				"resources": [
+					"modules/common/css/login.css",
+					"images/weixin_header.png",
+					"modules/common/js/login.js",
+					"images/login_selected.png",
+					"images/login_bottom.png",
+					"images/logo_place.png",
+					"css/mui.min.css",
+					"images/logo_circle.png"
+				],
+				"refer": [
+					"modules/common/bind_phone.html"
+				],
+				"priority": 0
+			},
+			"modules/common/bankList.html": {
+				"resources": [],
+				"refer": [
+					"modules/common/addCard.html"
+				],
+				"priority": 0
+			},
+			"modules/shopManager/shopManager.html": {
+				"resources": [
+					"images/order.png",
+					"images/voucher.png",
+					"modules/shopManager/css/shopManager.css",
+					"images/scan.png",
+					"modules/shopManager/js/shopManager.js",
+					"images/receipt_code.png",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/vue.min.js"
+				],
+				"refer": [
+					"modules/mine/iconSon/goodsOrder.html",
+					"modules/shopManager/validateCode.html",
+					"modules/common/scanqr.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/sendInvitation.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/mineSon/bridge.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/invitation.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/shop/shopAgreement.html"
+				],
+				"priority": 0
+			},
+			"modules/home/homeSon/JMore.html": {
+				"resources": [
+					"modules/home/homeSon/css/JMore.css",
+					"js/components/Filter.js",
+					"modules/home/homeSon/js/nearsearch.js",
+					"images/jhs.png"
+				],
+				"refer": [
+					"modules/common/goodsDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/iconSon/orderDetail.html": {
+				"resources": [],
+				"refer": [
+					"modules/common/goodsDetail.html",
+					"modules/common/comment.html"
+				],
+				"priority": 0
+			},
+			"modules/common/scanqr.html": {
+				"resources": [],
+				"refer": [
+					"modules/common/buy/userPay.html",
+					"modules/common/buy/shopScan.html"
+				],
+				"priority": 0
+			},
+			"modules/common/buy/submitOrder.html": {
+				"resources": [],
+				"refer": [
+					"modules/common/selectedLocation.html",
+					"modules/common/addLocation.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/seller/seller.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/seller/seller_orders.html",
+					"modules/mine/buttons/orderDetail.html",
+					"modules/mine/seller/cashier_list.html",
+					"modules/mine/seller/seller_discount.html",
+					"modules/mine/seller/seller_code.html",
+					"modules/mine/seller/preferential.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/buttons/msgCenter.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/buttons/inviteMsg.html",
+					"modules/mine/buttons/systemMsg.html",
+					"modules/mine/buttons/information.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/buttons/orderDetail.html": {
+				"resources": [],
+				"refer": [
+					"modules/common/goodsDetail.html",
+					"modules/mine/buttons/quanma.html",
+					"modules/common/comment.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/buttons/scoreMall.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/buttons/exchangeDetail.html",
+					"modules/mine/buttons/scoreDetail.html",
+					"modules/mine/mall/specialtyLocation.html",
+					"modules/mine/buttons/exchangeHistory.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/mall/specialtyMall.html": {
+				"resources": [
+					"images/pic_特产商城主图.png",
+					"images/pic_中江白芍.png"
+				],
+				"refer": [
+					"modules/mine/mall/specialtyLocation.html",
+					"modules/mine/buttons/exchangeDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/mall/specialtyLocation.html": {
+				"resources": [
+					"images/pic_江油市.png",
+					"images/pic_北川县.png"
+				],
+				"refer": [
+					"modules/mine/mall/specialtyMall.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/setting/set.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/setting/about.html",
+					"modules/mine/setting/feedback.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/buttons/zlReputation.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/buttons/footReputation.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/myinfo/userSafe.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/myinfo/editUsername.html",
+					"modules/common/userLocation.html",
+					"modules/mine/myinfo/editTel.html",
+					"modules/mine/myinfo/payPassword.html",
+					"modules/mine/myinfo/noPay.html",
+					"modules/mine/myinfo/realAuth.html",
+					"modules/common/bankList.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/buttons/exchangeDetail.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/buttons/goodsExchange.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/seller/seller_orders.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/buttons/orderDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/shop/shopAgreement.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/shop/shopApp.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/buttons/members.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/buttons/statistics.html",
+					"modules/mine/buttons/sendInvitation.html",
+					"modules/mine/buttons/mySeller.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/seller/cashier_list.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/seller/new_cashier.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/buttons/goodsOrder.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/buttons/orderDetail.html",
+					"modules/common/comment.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/myinfo/balance.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/myinfo/banlanceToReputation.html",
+					"modules/mine/myinfo/withdraw.html",
+					"modules/mine/myinfo/balanceTrans.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/myinfo/reputation.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/myinfo/reputationDetail.html",
+					"modules/mine/myinfo/rechargeService.html",
+					"modules/mine/myinfo/recharge.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/myinfo/withdraw.html": {
+				"resources": [],
+				"refer": [
+					"modules/common/selectBank.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/seller/preferential.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/seller/addPreferential.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/cashier/cashier.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/cashier/validateCode.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/cashier/validateCode.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/cashier/cashier_failed.html",
+					"modules/mine/cashier/cashier_success.html"
+				],
+				"priority": 0
+			},
+			"modules/common/comment.html": {
+				"resources": [],
+				"refer": [
+					"modules/common/selectService.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/myinfo/redBeans.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/myinfo/beansDetail.html",
+					"modules/mine/myinfo/shareBeans.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/buttons/collection.html": {
+				"resources": [],
+				"refer": [
+					"modules/common/shopDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/home/homeSon/near.html": {
+				"resources": [],
+				"refer": [
+					"modules/common/shopDetail.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/myinfo/editTel.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/myinfo/newTel.html"
+				],
+				"priority": 0
+			},
+			"modules/market/market.html": {
+				"resources": [
+					"/images/market/market_banner1.jpeg"
+				],
+				"refer": [
+					"modules/market/market_orders/market_orders.html",
+					"modules/market/market_orders.html",
+					"modules/market/market_goods.html",
+					"modules/market/shopping_car.html"
+				],
+				"priority": 0
+			},
+			"modules/market/market_orders.html": {
+				"resources": [],
+				"refer": [
+					"modules/market/market_goods.html",
+					"modules/market/more_orders.html",
+					"modules/market/market_order_detail.html",
+					"modules/market/deal_success.html",
+					"modules/market/goods_exchange.html",
+					"modules/market/order_comments.html",
+					"modules/market/pay_success.html",
+					"modules/market/shopping_car.html",
+					"modules/market/logistics_detail.html"
+				],
+				"priority": 0
+			},
+			"modules/market/shopping_car.html": {
+				"resources": [],
+				"refer": [
+					"modules/market/submit_order.html",
+					"modules/market/market_goods.html"
+				],
+				"priority": 0
+			},
+			"modules/market/deal_success.html": {
+				"resources": [],
+				"refer": [
+					"modules/market/order_comments.html"
+				],
+				"priority": 0
+			},
+			"modules/market/market_order_detail.html": {
+				"resources": [],
+				"refer": [
+					"modules/market/logistics_detail.html",
+					"modules/market/shopping_car.html",
+					"modules/market/order_comments.html"
+				],
+				"priority": 0
+			},
+			"modules/market/market_goods.html": {
+				"resources": [],
+				"refer": [
+					"modules/market/market_goods_detail.html",
+					"modules/common/allComment.html",
+					"modules/market/submit_order.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/buttons/goodsExchange.html": {
+				"resources": [],
+				"refer": [
+					"modules/common/selectedLocation.html"
+				],
+				"priority": 0
+			},
+			"modules/market/submit_order.html": {
+				"resources": [],
+				"refer": [
+					"modules/common/selectedLocation.html",
+					"modules/common/addLocation.html",
+					"modules/market/pay_success.html",
+					"modules/market/market_orders.html"
+				],
+				"priority": 0
+			},
+			"modules/market/more_orders.html": {
+				"resources": [],
+				"refer": [
+					"modules/market/market_order_detail.html"
+				],
+				"priority": 0
+			},
+			"modules/market/pay_success.html": {
+				"resources": [],
+				"refer": [
+					"modules/market/market_orders.html"
+				],
+				"priority": 0
+			},
+			"modules/mine/myinfo/silverBeans.html": {
+				"resources": [],
+				"refer": [
+					"modules/mine/buttons/exchangeDetail.html",
+					"modules/mine/myinfo/recharge.html",
+					"modules/mine/buttons/exchangeHistory.html",
+					"modules/mine/myinfo/beansDetail.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"images/img-4.png",
+				"images/img-14.png",
+				"images/img-9.png",
+				"images/ic_home_location.png",
+				"images/nearby-5.png",
+				"images/img-11.png",
+				"images/nearby-3.png",
+				"css/index.css",
+				"images/nearby-6.png",
+				"css/common.css",
+				"css/nearby.css",
+				"images/ic_home_jd.png",
+				"images/nearby-4.png",
+				"js/mui.js",
+				"images/nearby-2.png",
+				"js/nearby.js",
+				"images/img-12.png",
+				"js/jquery.min.js",
+				"images/ic_home_sh.png",
+				"images/img-6.png",
+				"css/mui.css",
+				"images/ic_home_sq.png",
+				"images/img-8.png",
+				"images/ic_home_yy.png",
+				"images/ic_home_mr.png",
+				"images/img-7.png",
+				"images/img-5.png",
+				"images/nearby-1.png",
+				"js/index.js",
+				"images/img-13.png"
+			]
+		}
+	}
+}

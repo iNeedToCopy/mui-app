@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>管理收货地址</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/userLocation.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">管理收货地址</h1>
+				    <img class="add mui-pull-right" @tap="goto_addLocation()" src="../../images/plus_white_03.png"/>
+
+				</div>
+			</header>
+			<!--管理收货地址-->
+			<div class="mui-content">
+				<ul class="userLocation margin10" v-for="location in item">
+					<li class="top">
+						<p>{{location.name}}</p>
+						<span>{{location.phone}}</span>
+						<p class="main">{{location.address}}</p>
+					</li>
+					<li class="bottom">
+						<div class="left floatLeft">
+							<span v-if="location.ifdefault===true" class="default">
+								<img src="../../images/btn_xuanz.png"/>&nbsp;&nbsp;默认地址
+							</span>
+							<span v-else class="notDefault">
+								<img src="../../images/btn_weixuan.png" onclick="doImg(this)" :id="location.id"/>&nbsp;&nbsp;设置默认地址
+							</span>
+						</div>
+						<div class="right floatRigft">
+							<span class="edit" @tap="goto_editLocation(location.id)">
+								<img src="../../images/btn_bj.png" />&nbsp;编辑
+							</span>&nbsp;
+							<span class="delete" @tap="goto_deleteLocation(location.id)">
+								<img src="../../images/btn_sc.png" />&nbsp;删除
+							</span>
+						</div>
+						<div class="clear"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js"></script>
+	   	<script src="js/userLocation.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

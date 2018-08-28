@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>会员管理</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/members.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">会员管理</h1>
+			</div>
+		</header>
+		<div id="container" class="mui-content">
+			<div id="main">
+				<ul class="tab">
+					<li v-if="usertype>0" :class="{current:tab_idx == 0}" @tap="tab_taped(0)">我的会员({{container.memberCount}})</li>
+					<li v-if="usertype==2 || usertype==3 || usertype==6" :class="{current:tab_idx == 1}" @tap="tab_taped(1)">我的商家({{container.sellerCount}})</li>
+					<li v-if="usertype==3 || usertype==6 || usertype==4":class="{current:tab_idx == 2}" @tap="tab_taped(2)">我的合伙人({{container.partnerCount}})</li>
+				</ul>
+			</div>
+ 
+			<!--我的会员--> 
+			<div v-show="tab_idx == 0 && usertype>0 " id="myVip">
+				<!--<form class="mui-input-group" id="member_search">
+					<div class="mui-input-row mui-search">
+			   			<input type="search" class="mui-input-clear" v-model="word" placeholder="输入会员名搜索">
+				   	</div>	
+				</form>-->
+				
+				<div class="myselfBox"> 
+					<div class="myself mui-row">
+						<div class="mui-col-sm-4 mui-col-xs-4">{{members.my.username}}</div>
+						<div class="mui-col-sm-3 mui-col-xs-3">{{members.my.gradedesc}}</div>
+						<div class="mui-col-sm-5 mui-col-xs-5">信用:{{my_credit}}</div>
+					</div>
+				</div>
+				<vue-loadmore ref="pullup_member" id="__loadmore_member__" @append="append_members" object="/my/member/more"> 
+					<div class="show" style="margin-bottom: 60px;">
+						<div class="mui-row" v-for="(member,i) in members.members" @tap="show_lower(member,i)">
+							<span class="username mui-col-xs-4 mui-col-sm-4">
+								<span class="hide_username">{{member.username}}</span>(<span style="padding: 0px;color: green;">{{member.mysharecount}}</span>)
+							</span>
+							<span class="mui-col-xs-4 mui-col-sm-4">
+								信用度{{member.credit}}
+							</span>
+							<span class="mui-col-xs-4 mui-col-sm-4">
+								活跃<span class="active">{{member.activedesc}}</span>
+								<img v-if="member.phone.length == 11" src="../../../images/tel.png" class="floatRigft call" @tap="call_phone(member.phone)"/>
+							</span>
+							<div class="lower_level" v-show="member.show" v-for="e in lower_members"> 
+								<span><span class="hide_username" style="float: left;">{{e.username}}</span><span style="padding: 0px;color: green;float: left;">({{e.mysharecount}})</span></span>
+								<span>信用度{{e.credit}}</span>
+								<span>活跃{{e.activedesc}}</span>
+								<span><img v-if="e.phone.length == 11" src="../../../images/tel.png" class="floatRigft call" @tap="call_phone(e.phone)"/></span>
+							</div>
+						</div>
+					</div>
+				</vue-loadmore>
+			</div>
+			<!--我的商家-->
+	    	<div v-show="tab_idx == 1" class="mui-content-padded">
+				<div class="chart hide" id="barChart" style="height: 200px;"></div>
+				<div id="mySeller">
+					<div class="achievement">
+						<p>本月业务业绩&emsp;&emsp;&emsp;&emsp;<span>{{sellers.thismonth}}</span></p>
+						<p>上月业务业绩&emsp;&emsp;&emsp;&emsp;<span>{{sellers.lastmonth}}</span></p>
+						<p class="bottom">累计业务业绩&emsp;&emsp;&emsp;&emsp;<span>{{sellers.all}}</span></p>
+						<a href="#tip_shops"><span class="mui-icon mui-icon-help" ></span></a>
+					</div>
+					<ul class="mui-table-view">
+					    <li class="mui-table-view-cell">
+				        	<a class="more" @tap="show_more('业务业绩','/my/seller/static')">查看更多</a>
+					    </li>
+					</ul>  
+					<div style="height: 10px;background-color: lightgray;"></div>
+					<vue-loadmore ref="pullup_sellers" id="__loadmore_seller__"  @append="append_sellers" object="/my/seller/more"> 
+						<ul class="mui-table-view marginTop10 list">
+						    <li class="mui-table-view-cell" @tap="goto_myseller(seller.userid)" v-for="seller in sellers.seller_list">
+						        <a class="mui-navigate-right">
+						        	<div class="left">
+						        		<span>{{seller.shopname}}</span><br />
+						        		<span class="bottom">{{seller.username}}</span>
+						        	</div>
+						        	<div class="right">
+						        		<span>营业额</span><br />
+						        		<span class="bottom">{{seller.sellmoney}}</span>
+						        	</div>
+						        	<!--<div class="right">
+						        		<span>充值业绩</span><br />
+						        		<span class="bottom">{{seller.rechargemoney}}</span>
+						        	</div>-->
+						        </a>
+						    </li>
+						</ul>
+					</vue-loadmore>
+					<div class="myselfBox">
+						<div class="myself mui-row">
+							<div class="mui-col-sm-3 mui-col-xs-3">
+								{{sellers.my.username}}
+							</div>
+							<div class="mui-col-sm-6 mui-col-xs-6">
+								{{sellers.my.grade}}
+							</div>
+							<div class="mui-col-sm-3 mui-col-xs-3">
+								<span  class="btn" @tap="seller_sendInvite()">邀请商家</span>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--我的合伙人-->
+			<div v-show="tab_idx == 2">
+				<div class="achievement">
+					<p>本月领导业绩&emsp;&emsp;&emsp;&emsp;<span>{{partners.thismonth}}</span></p>
+					<p>上月领导业绩&emsp;&emsp;&emsp;&emsp;<span>{{partners.lastmonth}}</span></p>
+					<p class="bottom">累计领导业绩&emsp;&emsp;&emsp;&emsp;<span>{{partners.all}}</span></p>
+					<a href="#tip_partner"><span class="mui-icon mui-icon-help" ></span></a>
+				</div>
+				<ul class="mui-table-view">
+				    <li class="mui-table-view-cell">
+				        <a class="more" @tap="show_more('领导业绩','/my/partner/static')">查看更多</a>
+			        	
+				    </li>
+				</ul>
+				<div style="height: 10px;background-color: lightgray;"></div> 
+				
+				<vue-loadmore ref="pullup_partners" id="__loadmore_partner__" @append="append_partners" object="/my/partner/more"> 
+					
+					<ul class="mui-table-view marginTop10 list">
+					    <li class="mui-table-view-cell" @tap="goto_partner(partner.userid)" v-for="partner in partners.partner_list">
+					        <a class="mui-navigate-right">
+					        	<div class="left">
+					        		<span>{{partner.viewtitle}}</span><br />
+					        		<span class="bottom">{{partner.username}}</span>
+					        	</div>
+					        	<!--<div class="center">
+					        		<span>业务业绩</span><br />
+					        		<span class="bottom">0</span>
+					        	</div>-->
+					        	<div class="right">
+					        		<span>充值业绩</span><br />
+					        		<span class="bottom">{{partner.rechargemoney}}</span>
+					        	</div>
+					        </a>
+					    </li>
+					</ul> 
+				</vue-loadmore>
+				<div class="myselfBox">
+					<div class="myself mui-row">
+						<div class="mui-col-sm-3 mui-col-xs-3">
+							{{partners.my.username}}
+						</div>
+						<div class="mui-col-sm-6 mui-col-xs-6">
+							{{partners.my.grade}}
+						</div>
+						<div class="mui-col-sm-3 mui-col-xs-3">
+							<span class="btn" @tap="partner_sendInvite()">邀请合伙人</span>
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div id="tip_shops" class="box mui-popover mui-popover-action mui-popover-bottom">
+   			<div>
+   				<span class="tip_title">营业额:</span><span class="tip_content">&nbsp;&nbsp;商家通过海掌柜线上、线下销售总和。</span>
+   				<br />
+   				<span class="tip_title">业务业绩:</span><span class="tip_content">&nbsp;&nbsp;我所分享的商家,各商家营业额总和(业务业绩与合伙人、服务中心晋升有关系)。</span>
+   			</div>
+		</div>
+		<div id="tip_partner" class="box mui-popover mui-popover-action mui-popover-bottom">
+   			<div>
+   				<span class="tip_title">充值业绩:</span><span class="tip_content">&nbsp;&nbsp;指代理充值信值数量。服务中心、合伙人、商家都可以为每个会员代理充值。</span>
+   				<br />
+   				<span class="tip_title">领导业绩:</span><span class="tip_content">&nbsp;&nbsp;我所分享商家、合伙人、自己充值业绩总和。(领导业绩与合伙人、服务中心晋升有关系)。</span>
+   			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		
+		<script src="../../../js/components/Loadmore.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/members.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

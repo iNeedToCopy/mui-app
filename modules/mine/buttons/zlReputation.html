@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>中恋信用</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/zlReputation.css"/>
+	</head>
+	<body >
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">中恋信用</h1>
+				    <span class="footReputation" @tap="goto_footReputation()">信用足迹</span>
+				</div>
+			</header>
+			<div class="mui-content">
+				<div class="show">
+					<div class="top">
+						<p>{{credit}}</p>
+						<div class="bottom mui-text-center" >
+							<div>
+								<span class="score3">信用基数&nbsp;{{base}}</span><br />
+								<!--<span class="text">信用基数</span>-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ad marginTop10">
+					<img src="../../../images/ad.png"/>
+				</div>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+		
+	   	<script src="js/zlReputation.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

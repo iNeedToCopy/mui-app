@@ -1,0 +1,144 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+/*输入框位置*/
+header{
+	position: relative;
+}
+header .mui-input-row{
+	clear: none;
+}
+header .mui-search{
+	top: 2px;
+	left: 8%;
+}
+
+input[type='search']{
+	
+	border-radius: 0px;
+	border-bottom: 1px solid rgba(255,255,255,1);
+}
+header .searchBtn{
+	position: absolute;
+	z-index: 2;
+	top: 34px;
+	right: 4%;
+}
+.mui-bar{
+	background: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #e5e5e5;
+}
+.mui-search .mui-placeholder{
+	text-align: left;
+}
+.mui-search .mui-placeholder span{
+	font-size: 14px;
+	text-indent: 4%;
+}
+/*热门*/
+.hot{
+	padding: 15px;
+	background: #fff;
+}
+.hot .hotHistory{
+	padding: 0 5%;
+	width: 100%;
+}
+.hot P{
+	font-size: 16px;
+	color: #000;
+}
+.hot .hotHistory span{
+	display: inline-block;
+	text-align: center;
+	padding: 2px 5%;
+	border: 1px solid #E5E5E5;
+	border-radius: 4px;
+	font-size: 13px;
+	margin-right: 5px;
+	margin-bottom: 7px;
+	background: #E5E5E5;
+}
+
+/*历史搜索*/
+.history{
+	background: #fff;
+	margin-top: 8px;
+}
+.history img{
+	width: 13px;
+	height: 16px;
+}
+.history span{
+	position: relative;
+	left: 72%;
+}
+.history .main{
+	padding: 15px;
+}
+.history li{
+	position: relative;
+	list-style: none;
+	height: 44px;
+}
+.history .item{
+	color: #666;
+	font-size: 14px;
+}
+.history li:after{
+	position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 12px;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #E5E5E5;
+}
+
+.mui-content{
+	/*padding:0px !important;
+	margin:0px !important;*/
+}
+/*内容*/
+.mui-content li{
+	color: #666;
+	font-size: 14px;
+	
+	border-bottom: 1px solid #E5E5E5;
+}
+.mui-content li a img{
+	width: 40px;
+	height: 40px;
+	position: relative;
+	top: 3px;
+}
+.mui-content li a .text{
+	width: 80%;
+	margin-left: 10px;
+}
+.mui-content li a .text .shopName{
+	font-size: 16px;
+	color: #333;
+}
+.mui-content li a .text p{
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.mui-table-view-cell:after{
+	content: none;
+}
+.mui-table-view:after{
+	content: none;
+}

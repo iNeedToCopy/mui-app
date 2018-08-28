@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>用户直接买单</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/shopScan.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav">
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">{{username}}</h1>
+				</div>
+			</header>
+			<div class="mui-content">
+				<div id="location" class="location">
+					<div>
+						{{phone}}
+					</div>
+				</div>
+				<div class="money">
+					<ul>
+						<li class="first">
+							<form class="mui-input-group">
+								<div class="mui-input-row">
+									<span>订单金额(元)</span>
+		    						<input type="text" v-model="allmoney" maxlength="5" class="mui-input-clear" placeholder="请询问会员后输入">
+	    						</div>
+							</form>
+						</li>
+						<li class="second">
+							<form class="mui-input-group">
+								<div class="mui-input-row">
+									<span>不参与优惠金额(元)</span>
+		    						<input type="text" v-model="exceptmoney" maxlength="5" class="mui-input-clear" placeholder="请询问会员后输入">
+	    						</div>
+							</form>
+						</li>
+						<li class="third marginTop10">
+							<form class="mui-input-group">
+								<div class="mui-input-row">
+									<span>备注</span>
+		    						<input type="text" class="mui-input-clear" placeholder="添加备注">
+	    						</div>
+							</form>
+						</li>
+					</ul>
+				</div>
+				<!--<div id="discount" class="discount">
+					<div class="shopDiscount" v-for="discount in text1">
+						<span class="title">商家优惠</span><br />
+						<p>{{discount.score1}}元代金券&nbsp;(满{{discount.score2}}可用)<span>-{{discount.score3}}</span></p>
+					</div>
+					<div class="shopDiscount" v-for="repeat in text2">
+						<span class="title">叠加优惠</span><br />
+						<p>{{repeat.score1}}元代金券&nbsp;(满{{repeat.score2}}可用)<span>-{{repeat.score3}}</span></p>
+					</div>
+				</div>-->
+				<!--<div class="pay">
+					<p class="top">实际支付（元）<span>{{}}</span></p>
+					<p class="bottom">买单送红包<span>买单10即送50</span></p>
+				</div>-->
+				<div class="boxBtn">
+					<button type="button" @tap="pre_pay()">和会员确认，立即结账</button>
+				</div>
+				<vuepaypad ref ='paypad' @do_action="do_action"></vuepaypad>
+				
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+	   	<script src="../../../js/components/paypad.min.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/shopScan.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

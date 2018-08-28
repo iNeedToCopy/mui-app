@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>登录</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/login.css"/>
+	</head>
+	<body id="body">
+		<!--<div style="height: 22px;" class="main_bg"></div>-->
+		<div class="" id="container">
+			<div class="mui-text-center">
+				<img src="../../images/logo_place.png" style="width: 100px;"/>
+			</div>
+			<div class="avatar mui-text-center">
+				<img :src="header" style="width: 80px;height:80px"/>
+			</div>
+			<form class="mui-input-group">
+			    <div class="mui-input-row">
+			    	<input type="tel" id="phone" v-model="phone" class="mui-input-clear" 
+			    		maxlength="11" placeholder="请输入手机号码"
+			    		onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"
+			    		>
+			    </div>
+			    <div class="mui-input-row marginTop20 code_row">
+			    	<input type="tel" id="smscode" v-model="smscode" class="codeInput" 
+			    		maxlength="6" placeholder="验证码">
+			    	<div class="getIdCode" @tap="send_code()"><span>获取验证码</span></div>
+			    </div>
+			</form>
+			<div class="buttonBox">
+				<button type="button" @tap="do_sms_login()">登录</button>
+			</div>
+			<div class="radioBox">
+				<p>
+					<img :src="agree_img" @tap="change_status()"/>
+					同意<a @tap="protocol()">《海掌柜用户协议》</a>
+				</p>
+
+			</div> 
+			<div class="weixin">
+				<img src="../../images/weixin_header.png" @tap="weixin_auth()"/>
+				<p>微信快捷登录</p>
+			</div>
+			<div id="bottom_img" class="bottom_img"></div>
+		</div>
+		
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/aes.js"></script>
+		<script src="../../js/pad-zeropadding-min.js"></script>
+		<script src="../../js/app.js"></script>
+	   	<script src="js/login.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
+

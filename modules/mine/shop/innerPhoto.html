@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>内景照</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/innerPhoto.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">内景照</h1>
+				    <span class="finish" @tap="save()">完成</span>
+				</div>
+			</header>
+			<div class="mui-content">
+				<!--提示-->
+				<div class="tip main_bg">
+					温馨提示：需要露出门店的全景。
+				</div>
+				<!--拍照-->
+				<div id="innerPhoto" class="innerPhoto">
+					<div class="mui-row">
+						<div class="mui-col-sm-4 mui-col-xs-4" v-for="(photo,idx) in photos">
+							<img class="photo" :src="photo.thumb"/>
+							<img class="remove" src="../../../images/remove.png" @tap="remove(idx)"/>
+						</div>
+						<div class="mui-col-sm-4 mui-col-xs-4" v-show="photos.length<10">
+							<img class="photo" :src="default_url" @tap="upload()"/>
+						</div>
+					</div>
+					<br />
+					<p>需上传2-10张图片,已上传{{photos.length}}张</p>
+				</div>
+				<div class="example">
+					内景照示例图
+				</div>
+				<!--图-->
+				<div class="pic">
+					<img src="../../../images/inner.jpg"/>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/innerPhoto.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>设置</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/set.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">设置</h1>
+			</div>
+		</header>
+		<div id="container" class="mui-content">
+			<div class="top">
+				<div><img src="../../../images/logo_round.png"/></div>
+				<p>海掌柜 {{version}}</p>
+			</div>
+			<div id="safe" class="safe">
+				<ul class="mui-table-view marginTop10">
+					<li class="mui-table-view-cell about" @tap="goto_about()">
+				        <a class="mui-navigate-right">
+				        	关于海掌柜
+				        </a>
+				    </li>
+				    <li class="mui-table-view-cell about" @tap="check_update()">
+				        <a class="mui-navigate-right">
+				        	检查版本升级
+				        </a>
+				    </li>
+				    <li class="mui-table-view-cell about" @tap="feedback()">
+				        <a class="mui-navigate-right">
+				        	意见反馈
+				        </a>
+				    </li>
+				</ul>
+			</div>
+			<div class="mui-text-center" style="padding:20px;margin-top:50px;">
+				<button type="button" v-show="iflogin" @tap="logout" class="marginTop10">退出登录</button>
+				
+			</div>
+
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/set.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

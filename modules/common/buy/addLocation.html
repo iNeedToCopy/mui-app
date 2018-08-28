@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>添加收货地址</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+		<link href="../../../css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../../../css/mui.poppicker.css" rel="stylesheet" />
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/addLocation.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">添加收货地址</h1>
+			    <span @tap="save()">保存</span>
+			</div>
+		</header>
+		<div id="container" class="mui-content">
+			<form class="mui-input-group">
+				<div class="text">收货人:
+			    	<input type="text" class="mui-input-clear username" maxlength="6" placeholder="请填写收货人姓名" />
+			    </div>
+			    <div class="text">手机号码:
+			    	<input type="tel" class="mui-input-clear phone"  maxlength="11" placeholder="填写收货人号码" />
+			    </div>
+			    <ul class="mui-table-view">
+				    <li class="mui-table-view-cell">
+				        <a id="showCityPicker3" class="mui-navigate-right">地区:
+				        	<input type="text" placeholder="请选择" class="mui-input-clear areaname"/>
+				        </a>
+				    </li>
+				</ul>  
+				<div class="text">详细地址:
+			    	<input type="text" class="mui-input-clear address" />
+			    </div>
+			</form>
+			<div class="confirm marginTop10">
+				<span class="floatLeft">设为默认地址</span>
+				<span class="imgBox"><img src="../../../images/btn_weixuan.png" onclick="doImg(this)"/></span>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+		<script src="../../../js/mui.picker.min.js"></script>
+		<script src="../../../js/mui.poppicker.js"></script>
+		<script src="../../../js/area.js"></script>
+	   	<script src="js/addLocation.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

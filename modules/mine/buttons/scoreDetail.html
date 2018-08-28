@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>积分明细</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/scoreDetail.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">积分明细</h1>
+			</div>
+		</header>
+		<div class="mui-content" id="container">
+			<vue-loadmore ref="pullup" @append="append" object="/integral/detail">
+				<ul id="container" class="show">
+					<li v-for="item in items">
+						<span style="font-size:16px;">{{item.title}}</span>
+						<p>{{item.date}}</p>
+						<span v-if="item.change>0" class="right" style="color:red">{{item.change}}</span>
+						<span v-else class="right" style="color:green">{{item.change}}</span>
+					</li>
+				</ul>
+			</vue-loadmore>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		
+	   	<script src="js/scoreDetail.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>购物车</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" type="text/css" href="../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/shopping_car.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav">
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <span class="mui-title">购物车</span>
+				    <span v-show="car_list.length>0" class="mui-icon mui-pull-right delete" @tap="del_goods()">移除</span> 
+				</div>
+			</header>
+			<div v-show="!isloading" class="mui-content">
+				<!--无商品-->
+				<div v-if="car_list.length<=0" class="no_goods">
+					<div class="shopping_car_none">
+						<div class="no_item">
+							<img src="../../images/market/shopping_car_none.png"/><br />
+							<span>你的购物车是空的哦</span>
+						</div>
+						<div class="goods_bottom">随便逛逛</div>
+					</div>
+					<ul class="mui-clearfix load_lis">
+						<li @tap="goto_detail(e.id)" v-for="e in random_goods">
+							<div class="img">
+								<img v-show="e.ifpopularity" class="img_tips" src="../../images/market/hot_goods.png"/>
+								<img :src="e.logo"/>
+							</div>
+							<div class="goods_intro">
+								{{e.gname}}
+							</div>
+							<div class="goods_info">
+								<span class="price">
+									￥<span style="font-size: 18px;">{{e.price.intpart}}</span>.{{e.price.floatpart}}
+								</span>
+								<span class="sales">
+									已售{{e.salecount}}份
+								</span>
+								<span class="hots" v-show="e.popularitycount.length>0">
+									<img v-for="i in e.popularitycount" src="../../images/market/hots.png"/>
+								</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!--无商品-->
+				<!--有商品时购物车内容-->
+				<div v-else class="have_goods">
+					<div class="car_item" v-for="(e,i) in car_list"> 
+						<div @tap="select_goods(i)" style="flex-shrink: 0;align-self: center;">
+							<img class="selected_img" :src="[e.ischecked ? '../../images/market/check_radio.png' : '../../images/market/select_none.png']"/>	
+						</div>
+						<img class="item_img" :src="e.logo" style="flex-shrink: 0;"/>
+						<div class="item_info" style="flex: 1;"> 
+							<span class="item_name">{{e.gname}}</span>
+							<span class="item_count">{{e.spec}}</span>
+							<div class="btns">
+								<span class="item_price">￥
+									<span>{{e.allprice.intpart}}</span>
+									.{{e.allprice.floatpart}}
+								</span>
+								<div :id="e.id" class="mui-numbox" data-numbox-step='1' data-numbox-min='1'>
+								    <button @tap="update_amount(i,e,'subtract')"class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+								    <input class="mui-input-numbox" type="number" readonly="readonly" v-model="e.buycount"/>
+								    <button @tap="update_amount(i,e,'plus')"class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!--结算-->
+				<div v-show="car_list.length>0" class="accounts">
+					<div class="select_all"> 
+						<div class="is_seleted" @tap="select_goods(-1)">
+							<img :src="[selected_all ? '../../images/market/check_radio.png' : '../../images/market/select_none.png']"/>
+							<span>全选</span>
+						</div>
+						<div class="all_acount">
+							<span>（含运费：￥{{selected_fee}}）</span>
+							<span class="select_all_acount">合计：<span>￥<span>{{selected_price}}</span></span></span>
+						</div>
+					</div>
+					<div class="settle" @tap="settle()">
+						<span>结算</span>(共{{selected_count}}件)
+					</div>
+				</div>
+				<!--弹出规格选择-->
+			</div>
+			<!--有商品时购物车内容-->
+			
+			<div v-show="isloading" id='lottie' style="margin: 50% auto; width: 80px;"></div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/lottie.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/shopping_car.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

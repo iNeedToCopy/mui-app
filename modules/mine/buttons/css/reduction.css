@@ -1,0 +1,156 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background: #f6f6f9;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+.mui-table-view{
+	background-color: #f6f6f9;
+}
+.mui-table-view:before{
+	content: none;
+}
+.mui-table-view:after{
+	content: none;
+}
+
+
+/*tab样式*/
+.mui-bar-nav~.mui-content .mui-slider.mui-fullscreen{
+	top: 64px;
+}
+.mui-segmented-control.mui-scroll-wrapper .mui-scroll{
+	background: #fff;
+	position: relative;
+	top: 2px;
+}
+.mui-segmented-control.mui-scroll-wrapper .mui-control-item{
+	padding: 0 5%;
+	width: 50%;
+}
+.mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item{
+	color: #000;
+	font-size: 15px;
+}
+.mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active span{
+	display: inline-block;
+	height: 38px;
+	border-bottom: 3px solid #fa7921;
+}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+	color: #fa7921;
+}
+/*消除内容页面上边框*/
+#target_id_1.mui-slider-item.mui-control-content.mui-active{
+	border: 0;
+}
+#target_id_2.mui-slider-item.mui-control-content.mui-active{
+	border: 0;
+}
+#target_id_1.mui-slider-item.mui-control-content{
+	border: 0;
+}
+#target_id_2.mui-slider-item.mui-control-content{
+	border: 0;
+}
+
+/*代金券*/
+.mui-content .voucher img{
+	width: 100%;
+	height: 90px;
+}
+.voucher .voucherPic {
+	height: 95px;
+} 
+.voucher .top{
+	padding: 15px 5%;
+}
+/*relative*/
+.voucher .relative{
+	position: relative;
+	top: -95px;
+	display: flex;
+	padding: 10px;
+}
+.voucher .relative .left img{
+	width: 70px;
+	height: 70px;
+}
+.voucher .relative .center p{
+	padding-left: 10px;
+	font-size: 15px;
+	color: #000;
+}
+.voucher .relative .center .bottom{
+	font-size: 12px;
+	color: #f53636;
+	position: relative;
+	top: 10px;
+}
+.voucher .relative .center .score{
+	font-size: 18px;
+}
+.voucher .relative .center .full{
+	color: #666;
+}
+.voucher .relative .right{
+	position: absolute;
+	top: 24px;
+	right: 1%;
+}
+.voucher .relative .right p{
+	padding: 2px 12px;
+	font-size: 12px;
+	color: #fa7921;
+	margin-bottom: 3px;
+	border-radius: 4px;
+}
+.voucher .relative .right span{
+	font-size: 12px;
+	color: #666;
+	position: relative;
+	left: 6%;
+}
+/*领券中心text*/
+.iWantMore{
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	font-size: 15px;
+	text-align: center;
+}
+.iWantMore a{
+	color: #f43834;
+}
+/*优惠券*/
+#target_id_2 .been{
+	color: #fb795d;
+	background: none;
+}
+#target_id_2 .right span{
+	position: relative;
+	left: 10%;
+}
+/*红包*/
+#redBag .relative .right{
+	top: 30px;
+	right: 4%;
+}
+#redBag .right p{
+	background: #f53736;
+	color: #fff;
+	padding: 2px 18px;
+}

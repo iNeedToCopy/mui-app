@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>积分商城</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/scoreMall.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">积分商城</h1>
+				    <span class="floatRigft mui-icon mui-icon-help" @tap="goto_url()"></span>
+				</div>
+			</header>
+			<div class="mui-content">
+				<img @tap="dummy()" src="../../../images/t.png" style="width: 100%;"/>
+				<div id="mineScore" class="mineScore">
+					<div>
+						<img src="../../../images/jf.png" style="width: 13px;height: 13px"/>
+						<span @tap="goto_scoreDetail()">我的积分：<span style="color: #FA7921; font-weight: bold;">{{integral}}</span></span>
+					</div>
+					<span style="color: #ccc;">|</span>
+					<div>
+						<img src="../../../images/dhjl.png" style="width: 13px;height: 13px;"/>
+						<span class="history" @tap="goto_exchangeHistory()">兑换记录</span>
+					</div>
+				</div>
+				<vue-loadmore ref="loadmore" @append="append" object="/integral/home/more">
+					<div class="show marginTop10">
+						<ul class="mui-table-view mui-grid-view mui-grid-9">
+							<li  class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4  " v-for="item in items">
+							    <a  @tap="goto_exchangeDetail(item.id)">
+							        <img :src="item.header"><br />
+							        <p class="top mui-ellipsis">{{item.name}}</p>
+							        <span class="middle"><span class="orange">{{item.integral}}积分</span>+{{item.letter}}信值</span>
+							        <p>信用度>{{item.credit}}</p>
+							    </a>
+							</li>
+						</ul>
+						<div style="height:10px;"></div>
+					</div>
+				</vue-loadmore>
+				
+			</div>	
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/scoreMall.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>商圈</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+		<link rel="stylesheet" href="css/tradeZone.css"/>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">商圈</h1>
+			</div>
+		</header>
+		<div id="container" class="mui-content">
+		    <vue-loadmore ref="pullup" @append="append" object="/commerce/near">
+		        <div class="item"  v-for="item in items" @tap="goto_detail(item.id)">
+					<div class="bgi" :style="{'background':'url('+item.bgimg+')','background-size':'cover'}"></div>
+					<div class="center">{{item.name}}</div>
+					<div class="bottom">
+						<span class="left">{{item.shopcount}}家店铺已入驻</span>
+						<span class="right">{{item.distance}}</span>
+					</div>
+				</div>
+		   </vue-loadmore>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/components/Loadmore.min.js"></script>
+		<script src="../../../js/app.js"></script>
+		<script src="js/tradeZone.js"></script>
+	</body>
+</html>

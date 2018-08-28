@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>订单详情</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.picker.min.css" />
+	    
+	    <link rel="stylesheet" type="text/css" href="css/orderDetail.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">订单详情</h1>
+				    <span v-if="is_seller == false" class="floatRigft mui-icon mui-icon-phone" @tap="dial(order.seller.phone)"><!--<img @tap="dial(order.seller.phone)" src="../../../images/ic_phone_white.png"/>--></span>
+				</div>
+			</header>
+			<div class="mui-content">
+				<div :class="order.desc.theme" v-if="'desc' in order && order.desc.view == true">
+					<span>{{order.desc.text}}</span>
+				</div>
+				<div class="status" v-if="'progress' in order && order.progress.view == true">
+					<div class="line"></div>
+					<div class="wait" :class="{current1:order.progress.pos==0}">
+						<div class="circle" :class="{current2:order.progress.pos==0}"></div><br />
+						{{order.progress.statusdesc[0]}}
+					</div>
+					<div class="pre" :class="{current1:order.progress.pos==1}">
+						<div class="circle" :class="{current2:order.progress.pos==1}"></div><br />
+						{{order.progress.statusdesc[1]}}
+					</div>
+					<div class="door" :class="{current1:order.progress.pos==2}">
+						<div class="circle" :class="{current2:order.progress.pos==2}"></div><br />
+						{{order.progress.statusdesc[2]}}
+					</div>
+				</div>
+				<div v-if="'progress' in order && order.progress.view == true" class="mui-text-center" style="margin-bottom:5px;font-size:12px;background-color: #ffffff;color:#333333"> 
+					<span>{{order.progress.statusdesc[3]}}</span>
+				</div>
+				<div class="location marginTop10" v-if="'address' in order && order.address.view == true">
+					<span>收货人：{{order.address.data.name}}</span>
+					<p>{{order.address.data.detail}}</p>
+					<span class="right" @tap="dial(order.address.data.phone)">{{order.address.data.phone}}</span>
+				</div>
+				<div id="goods" class="goodsBox marginTop10" v-if="'goods' in order">
+					<div class="goods" @tap="goto_goodsdetail(order.goods.gid)">
+						<img :src="order.goods.logo"/>
+						<div class="text">
+							<span style="font-weight: bold;font-size: 16px;">{{order.goods.name}}</span>
+							<p class="middle">
+								<span v-if="order.goods.anyback"><img  src="../../../images/selected.png"/>&nbsp;随时退&emsp;</span>
+								<span v-if="order.goods.expireback"><img  src="../../../images/selected.png"/>&nbsp;过期退</span>
+							</p>
+							<p class="bottom"><span class="true">￥{{order.goods.discountprice}}</span>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fake">￥{{order.goods.sourceprice}}</span></p>
+						</div>
+					</div>
+					<ul>
+						<li class="first">数量<span class="right">{{order.goods.count}}</span>						
+						</li>
+						<li style="color: #333333;" @tap="showDetail = !showDetail">实付款<span class="right">￥{{order.price.value}}
+							<span v-if="'juancode' in order && order.juancode.view == true"
+								class="mui-icon" 
+								:class="{'mui-icon-arrowup':showDetail,'mui-icon-arrowdown':!showDetail}" 
+								style="font-size: 16px;color: #999;"></span>
+							</span>
+						</li>
+					</ul>
+				</div>
+				<!--券码-->
+			
+				<transition name="slide-fade"> 
+					<div v-if="'juancode' in order && order.juancode.view == true && showDetail" style="padding:10px 10px;">
+						<div class="quanma">
+							<div class="quanma_title" style="font-size: 16px;">{{order.goods.name}}</div>
+							<div class="quanma_body">
+								<span>{{order.juancode.desc}}</span>
+								<p>有效期:&nbsp;&nbsp;{{order.juancode.expire}}之前</p>
+							</div>
+							<div class="quanma_foot">
+								<span class="mui-pull-left" style="color: #737373;">券码&nbsp;<span style="color: #333;">{{order.juancode.value}}</span></span> 
+								<img v-if="is_seller== false" @tap="goto_quanma(order.trade.orderid)" class="mui-pull-right" src="../../../images/myshare.png"/>
+							</div>
+						</div>
+					</div>
+				</transition>
+				
+				<!--交易信息-->
+				<div class="tradeMsg marginTop10" v-if="'trade' in order">
+					<p>订单编号：{{order.trade.orderid}}</p>
+					<p>下单时间：{{order.trade.ordertime}}</p>
+				</div>
+				<div class="custombtnBox mui-text-center" v-if="'button' in order && order.button.view == true">
+					<button @tap="btn_taped(btn)" v-for="(btn,idx) in order.button.child" type="button" :class="btn.theme">{{btn.name}}</button>
+				</div>
+				<div style="height: 30px;"></div>
+			</div>
+			<div id="popover" class="mui-popover mui-popover-action">
+				<span id="homedrawback_desc"></span>
+				<div class="btnBox" >
+					<button type="button" @tap="dial(order.seller.phone)" class="contact">联系卖家</button>
+					<button type="button" @tap="drawback.wait()" class="wait">继续等</button>
+				</div>
+			</div>
+			
+			<div id="ensure_drawback" class="mui-popover mui-popover-action">
+				<span>{{order.drawbackdesc}}</span>
+				<div class="btnBox" >
+					<button type="button" @tap="drawback.cancel()" class="contact">取消</button>
+					<button type="button" @tap="drawback.show()" class="wait">确认</button>
+				</div>
+			</div>
+			<div id="seller_drawback" class="mui-popover mui-popover-action">
+				<span style="color: #666666;font-size: 11px;">{{order.sellerbackdesc}}</span><br>
+				<div>
+					<span class="mui-text-left">请设置退款金额:</span> 
+					<input class="mui-text-right" type="tel" v-model="drawback_money"/>
+				</div>
+				<div class="btnBox" >
+					<button type="button" @tap="receive.hide_drawback()" class="contact">取消</button>
+					<button type="button" @tap="receive.do_drawback()" class="wait">确认</button>
+				</div>
+			</div>
+			
+			<vuepaypad ref ='paypad' @do_action="do_action"></vuepaypad>
+			<vue-mask-page id="cancel_order" ref="cancel_order" title="取消原因"> 
+				<ul class="mui-table-view">
+			        <li class="mui-table-view-cell" v-for="(item,idx) in cancel_order.cause_cancel">
+			            <a @tap="cancel_order.set_cause(item.value)">{{item.name}}</a>
+			        </li>
+			    </ul>
+			</vue-mask-page>
+			<vue-mask-page id="drawback" ref="drawback" title="退款原因" style='color:#fff'>
+				<ul class="mui-table-view">
+			        <li class="mui-table-view-cell" v-for="(item,idx) in drawback.cause_drawback">
+			            <a @tap="drawback.set_cause(item.value)">{{item.name}}</a>
+			        </li> 
+			    </ul> 
+			</vue-mask-page>
+			<vue-mask-page ref="receive" title="接单">
+				<div style="margin-top:20px;margin-bottom:20px;text-align: center;">
+					<span>预计送达时间:</span>&nbsp;&nbsp;
+					<span @tap="receive.choose_time()">{{receive.arrivetime}}</span>
+					<div style="margin-top:20px;margin-bottom: 50px;">
+						<button type="button" @tap="receive.cancel()">取消接单</button>
+						<button type="button" @tap="receive.receive()" style="background-color: #F97921;">确定接单</button>
+					</div>
+				</div>
+			</vue-mask-page>
+			<!--选择送货时间-->
+			<div v-show="showPicker">	
+				<div class="time">
+					<p style='font-size:18px;font-weight:bold;color:#333;border-bottom: 1px solid #ccc;'>接单</p>
+					<p>
+						<span>预计送达时间:</span>
+						<span class="floatRigft">{{receive.arrivetime}}</span>
+					</p>
+				</div>
+			    <div class="btns">
+					<button class="floatLeft" type="button" @tap="receive.cancel()">取消接单</button>
+					<button class="floatRigft" type="button" @tap="receive.receive()" style="background-color: #F97921;color:#fff;border-color: #F97921;">确定接单</button>
+				</div>
+			</div>
+			
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/components/paypad.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/components/MaskPage.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/mui.picker.min.js"></script>
+	   	<script src="js/orderDetail.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

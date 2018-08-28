@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商家管理</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+		<style type="text/css">
+			*{
+				color: #333;
+				font-size: 14px;
+			}
+			.btnBox{
+				position: fixed;
+				left: 0px;
+				bottom: 0px;
+				right: 0px;
+				padding: 0px;
+			}
+			.btnBox>button{
+					width: 100%;
+					padding: 10px;
+					font-size: 18px;;
+					font-weight: bold;
+					background-color: #FA7921;
+					color: #FFFFFF;
+					border-radius: 0px;
+					border:0px;
+			}
+			#select_shop {
+				position: fixed;
+				top: 16px;
+				right: 6px;
+			}
+			#select_shop .mui-popover-arrow {
+				left: auto;
+				right: 6px;
+			}
+			.mui-popover {
+				height: 300px;
+				width: 240px;
+			}
+			.mui-input-row a{
+				color: #666666;
+				position: relative;
+				top:10px;
+				right:10px;
+				font-size: 12px;
+			}
+			.mui-input-row label{
+				font-size: 16px;
+			}
+			.mui-input-group .mui-input-row label~input, .mui-input-row label~select, .mui-input-row label~textarea{
+				width: 55%;
+				font-size: 16px;
+				text-align: right;
+			}
+			.mui-input-group .mui-input-row:after{
+				left:0px
+			}
+			.mui-navigate-right p{
+				float: left;
+				width: 50%;
+			}
+			.mui-navigate-right p:nth-child(1){
+				font-size: 16px;
+				color: #333;
+			}
+			.mui-navigate-right p:nth-child(1) span{
+				font-size: 12px;
+			}
+			.mui-navigate-right p:nth-child(2){
+				text-align: right;
+				padding-right: 25px;
+			}
+			.mui-collapse-content{
+				padding: 0 !important;
+			}
+			.mui-table-view .mui-table-view-cell.mui-active{
+				margin-top: 0;
+				background-color: #fff;
+			}
+			.mui-input-row label{
+				width: 40%;
+			}
+			.mui-checkbox input[type=checkbox]:before, .mui-radio input[type=radio]:before{
+				font-size: 17px;
+				line-height: 2;
+			}
+			.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before{
+				color: #FA7921
+			}
+			.mui-table-view-radio .mui-table-view-cell .mui-navigate-right:after{
+				color: #FA7921;
+			}
+			.box{
+				display: flex;
+				background-color: #ffffff;
+			}
+		</style>
+	</head>
+	<body>
+		<div id = "container">
+			<header id="head" class="mui-bar mui-bar-nav" >
+				<div class="mui-row" style="padding-right:0px;">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">添加收银员</h1>
+
+				</div>
+			</header>
+		
+			<div class="mui-content" style="">
+				<form class="mui-input-group">
+				    <div class="mui-input-row">
+				        <label>手机号</label>
+				        <input type="tel" maxlength="11" v-model="phone" placeholder="">
+				    </div>
+				    <div class="mui-input-row">
+				        <label>用户名</label>
+				        <input type="text" maxlength="10" v-model="username" placeholder="">
+				    </div>
+				    <div class="box">
+						<form class="mui-input-group">
+			   				<input type="tel" v-model="smscode" maxlength="6" class="mui-input-clear"  style="margin-top:5px" placeholder="请输入验证码">
+						</form>
+						<!--<div @tap="getIdCode" class="idCode">获取验证码
+							<span></span>
+						</div>-->
+						<vue-sms-code-sender ref="sms" @send_code="send_code()">
+							
+						</vue-sms-code-sender>
+					</div>
+			
+				    <!--<div class="mui-input-row">
+				        <label>管理门店</label>
+				        <a href="#select_shop" class="mui-pull-right">{{shopid==0?"请选择":shopname}}</a>
+				    </div>-->
+				    <ul class="mui-table-view" style="background-color: #fff;height: 45px;"> 
+				         <li class="mui-table-view-cell mui-collapse" @tap='show = !show'>
+				            <a class="mui-navigate-right" href="#">
+				            	<p>适用店铺<span>(必选)</span></p>
+				            	<p><span>请选择</span></p>
+				            </a>
+				        </li>
+			            <ul v-show="show" class="mui-collapse-content mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell" v-for="shop in shops" @tap="set_shop(shop.shopid,shop.shopname)">
+								<a class="mui-navigate-right" style="font-size: 14px;color: #666;">{{shop.shopname}}</a>
+							</li>
+						</ul>
+				    </ul>
+				</form>
+				
+				<div class="btnBox">
+					<button @tap="save()">保存</button>
+				</div>
+			</div>
+			
+			<!--<div id="select_shop" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell" v-for="shop in shops">
+							<a href="#" @tap="set_shop(shop.shopid,shop.shopname)">{{shop.shopname}}</a>
+						</li>
+					</ul>
+				</div>
+			</div>-->
+
+		</div>
+		
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/aes.js"></script>
+		<script src="../../../js/pad-zeropadding-min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/components/SmsCodeSender.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			var container = new Vue({
+				el:"#container",
+				data:{
+					show:false,
+					phone:'',
+					username:'',
+					shopid:0,
+					shopname:'',
+					shops:[],
+					smscode:''
+				},
+				methods:{
+					encrypted:function(){
+						var date = new Date();
+						var time = date.getTime()/1000;
+						var type = 'shopadmin';
+						var str = this.phone +','+type+','+time;
+						var key = '66y750yw2m4qg3jv';
+						var iv = '66y750yw2m4qg3jv';
+						key = CryptoJS.enc.Utf8.parse(key);
+						iv = CryptoJS.enc.Utf8.parse(iv);
+						var encrypted = CryptoJS.AES.encrypt(str,key,{
+							iv: iv,
+							mode: CryptoJS.mode.CBC,
+							padding: CryptoJS.pad.ZeroPadding	
+						});
+						return  encrypted.toString();
+					},
+					send_code:function(){
+						//发送短信
+						if(this.phone.length != 11){
+							mui.toast('请填写手机号码');this.$refs.sms.reset();return;
+						}
+						var _self = this;
+						if(this.username.length == 0){mui.toast('请填写用户名');return;}
+						var w = plus.nativeUI.showWaiting();
+						mui.ajax('http://'+app.get_item("domain")+'/send/sms', {
+							headers:{
+								token: app.get_item("token")
+							},
+							data:{
+								enctypestr: encodeURIComponent(this.encrypted()),
+								uid: app.get_item("uid")
+							},
+							datatype: 'json',
+							type: 'get',
+							async: false,
+							success: function(data) {
+								w.close();
+								mui.toast(data.desc);
+								if(data.code != 200)
+									_self.$refs.sms.reset();
+							},
+							error: function(error) {
+								w.close();
+								console.log(error);
+								_self.$refs.sms.reset();
+							}
+						});
+					},
+					loadshop:function(){
+						var _self = this;_self.shops=[];
+						app.http_get('/seller/all/shop?qtype=admin',function(ret){
+							if(ret.code == 200){
+								
+								_self.shops = ret.data;
+							}
+						},function(x,t,e){});
+					},
+					set_shop:function(_shopid,_shopname){
+						this.shopid = _shopid;
+						this.shopname = _shopname;
+						mui("#select_shop").popover("hide");
+					},
+					save:function(){
+						if(this.phone.length != 11){mui.toast('请填写手机号码');return;}
+						if(this.smscode.length == 0){mui.toast('请填写验证码');return;}
+						if(this.username.length == 0){mui.toast('请填写用户名');return;}
+						if(this.shopid == 0){mui.toast('请选择管理店铺');return;}
+						
+						var w = plus.nativeUI.showWaiting("正在添加...");
+//						console.log(this.phone);
+//						console.log(this.username);
+//						console.log(this.shopid);
+//						return;
+						app.http_post('/seller/shop/admin/add',{
+							phone:this.phone,
+							username:this.username,
+							shopid:this.shopid,
+							smscode:this.smscode
+						},function(ret){
+							w.close();
+							mui.toast(ret.desc);
+							if(ret.code == 200){
+								app.update_opener();mui.back();
+							}
+						},function(x,t,e){
+							w.close();
+						});
+					}
+					
+				}
+			});
+			mui.ready(function(){
+				mui('.mui-scroll-wrapper').scroll();
+				window.addEventListener('loadinfo',function(e){
+					container.loadshop();
+				});
+				mui.back = function(event)
+				{
+				   container.shopid = 0;
+				   container.phone = '';
+				   container.username = '';
+				   container.shopname = '';
+				   container.show = false;
+				   
+				   mui("#select_shop").popover("hide");
+				   plus.webview.hide(plus.webview.currentWebview(),"slide-out-right");
+				};
+			});
+		</script>
+	</body>
+</html>

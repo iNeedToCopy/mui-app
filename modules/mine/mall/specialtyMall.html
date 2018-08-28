@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>特产商城</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/specialtyMall.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-icon mui-icon-back mui-pull-left" @tap='goBack'></a>
+				    <h1 class="mui-title">特产商城</h1>
+				    <a class="mui-icon mui-icon-location mui-pull-right location">{{city}}</a>
+				</div>
+			</header>
+			<!--简介-->
+			<div class="introduction">
+				<div id="slider" class="mui-slider " v-if="'imglist' in goods && goods.imglist.length>0"> 
+		          <div class="mui-slider-group mui-slider-loop">
+		            <div class="mui-slider-item mui-slider-item-duplicate">
+		              <a>
+		                <img :src="goods.imglist[goods.imglist.length-1].url">
+		              </a>
+		            </div>
+		            <div class="mui-slider-item" v-for="s in goods.imglist">
+			          	<a>
+			            	<img :src="s.url">
+			          	</a>
+			        </div>
+		            <div class="mui-slider-item mui-slider-item-duplicate">
+		              <a>
+		                <img :src="goods.imglist[0].url">
+		              </a>
+		            </div>
+		          </div>
+		          <div class="mui-slider-indicator">
+		            <div class="mui-indicator" :class="{'mui-active':idx==0}" v-for="(a,idx) in goods.imglist"></div>
+		          </div>
+		        </div>
+				<div class="inproContent">
+					<p><strong>{{city}}简介</strong></p>
+					<p>{{goods.desc}}</p>
+				</div>
+			</div>
+			
+			<!--展示-->
+			<!--<vue-loadmore ref="loadmore" @append="append" :object="'/integral/local/home?id='+ cityid">-->
+				<div class="goods">	
+					<div class="items" v-for="e in goods.goodslist" @tap='gotoGoods(e.id)'>
+						<img :src='e.header'/>
+						<p><e>{{e.name}}</e></p>
+						<p><span>{{e.integral}}积分</span>+{{e.letter}}信值</p>
+						<p>信用值 > {{e.credit}}</p>
+					</div>
+				</div>
+			<!--</vue-loadmore>-->
+		</div>
+	</body>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+
+
+		<script src="../../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/app.js"></script>
+		<script src="js/specialtyMall.js" type="text/javascript" charset="utf-8"></script>
+</html>

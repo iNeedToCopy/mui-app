@@ -1,0 +1,47 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+header .explain{
+	position: relative;
+	top: 12px;
+	right: -80%;
+	color: #fff;
+}
+body,.mui-content{
+	background: #fa7921;
+}
+.mui-bar{
+	background-color: #fa7921;
+}
+.mui-bar a{
+	color: #fff;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+.main{
+	margin: 90px 8% 0;
+	width: 84%;
+	height: 350px;
+	background: #fff;
+}
+.main img{
+	width: 280px;
+	height: 280px;
+	margin: 5%;
+}
+p{
+	margin-top: 10px;
+	text-align: center;
+	color: #fff;
+}
+p img{
+	width: 16px;
+	height: 16px;
+	position: relative;
+	top: 3px;
+	left: -5px;
+}

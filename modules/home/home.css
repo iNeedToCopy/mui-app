@@ -1,0 +1,553 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background: #f5f5f9;
+}
+/*禁止横向滚动*/
+html,body{width:100%;}
+/*头部*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+.mui-bar{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+#slider_wrapper{
+	min-height: 150px;
+}
+.topbar{
+	padding-top:22px;
+	position: fixed;
+	left:0px;
+	top:0px;
+	width:100%;
+	height: 66px;
+	z-index: 997;
+}
+.topbar #tools img{
+	width:22px;
+	height:22px;
+}
+.topbar #position
+{
+	padding-left: 10px;
+	color:white;
+	font-size: 13px;
+	padding-top:10px;
+	float: left;
+}
+
+.topbar  #tools{
+	padding-right: 10px;
+	float: right;
+	padding-top:8px;
+	margin-bottom: 0px;
+}
+.topbar .barcode{
+	margin-right: 10px;
+}
+.wrap{
+	position: relative;
+	top: 2px;
+	display: flex;
+}
+.refresh{
+	position: relative;
+	top: 4px;
+}
+#position,#tools,#search_form,#search_box{
+	
+	font-size: 14px;
+}
+#search_form
+{
+	opacity: 1;
+}
+#search_box{
+	text-indent: 15%;
+	padding-top:6px;
+	color:#999;
+}
+.position{
+	display: inline-block;
+	width: 66px;
+	margin-left: 8%;
+	text-overflow: ellipsis;
+	overflow: hidden;
+ 	white-space: nowrap;
+}
+/*旋转动画*/
+/*#roll{
+	animation: roll 1s linear infinite;
+    animation-play-state: running;
+}
+@keyframes roll{
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}*/
+
+.mui-input-group {
+	width: 50%;
+	height: 30px;
+	border: 1px solid #fff;
+	border-radius: 18px;
+	position: relative;
+	top: 5px;
+	left: 10px;
+}
+.mui-input-group .mui-input-row{
+	height: 30px;
+	position: relative;
+	top: -1px;
+}
+.mui-input-group .mui-input-row .search{
+	position: absolute;
+	top: -12px;
+	left: -5%;
+}
+.mui-input-group .mui-input-row .search img{
+	width: 31px;
+	height: 31px;	
+}
+
+/*输入框边线*/
+.mui-input-group:before{
+	height: 0;
+}
+.mui-input-group:after{
+	height: 0;
+}
+.mui-input-group .mui-input-row:after{
+	height: 0;
+}
+.mui-input-group input{
+	height: 30px;
+	position: absolute;
+	text-align: center;
+	text-indent: 8px;
+}
+.mui-input-row label~input{
+	width: 100%;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	font-size: 12px;
+	color: #ccc;
+}
+
+/*底部栏*/
+/*.mui-bar-tab{
+	text-align: center;
+	background: #fff;
+	opacity: 0.95;
+}
+.mui-bar-tab a{
+	font-size: 11px;
+	color: #999;
+}
+.mui-bar-tab img{
+	width: 15px;
+	height: 15px;
+}
+/*侧滑
+.mui-content .tab{
+	height: 197px;
+}
+.mui-content .tab img{
+	height: 197px;
+}*/
+/*轮播*/
+.mui-slider-indicator{
+	bottom: 0;
+}
+.mask{
+	background-image: linear-gradient( 0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 64px;
+	z-index: 6;
+}
+
+/*主体内容*/
+.mui-content{
+	width: 100%;
+	overflow-x: hidden;
+}
+.mui-bar-nav~.mui-content{
+	padding-top: 0;
+}
+.banner{
+	background-color: #fff;
+}
+.banner img{
+	width: 100%;
+}
+
+/*tab*/
+/*#Gallery{
+	display: flex;
+	height: 155px;
+}*/
+/*.mui-content .tab{
+	padding: 9px 0 10px 0;
+	position: relative;
+	background: #fff;
+	display: flex;
+}
+.mui-content .tab span{
+	position: relative;
+	top: -2px;
+}
+.mui-content .tab .mui-slider-item .iconBox{
+	display: flex;
+}
+.mui-content .tab .mui-slider-item .itemIcon{
+	display: inline-block;
+	width: 20%;
+	height: 100%;
+	text-align: center;
+	font-size: 12px;
+	color: #666;
+}
+	
+.mui-content .tab .iconBox img{
+	width: 43px;
+	height: 43px;
+}
+/*小圆点*/
+.iconBox{
+	margin-top:10px;
+	height:80px;
+}
+.itemIcon{
+	width: 20%;
+	height:70px;
+	float:left;
+	text-align: center;
+}
+.itemIcon img{
+	width:45px !important;	
+	height:45px;
+}
+.itemIcon span{
+	font-size: 12px;
+	color: #666;
+}
+#catalog,.itemIcon{
+	background-color: #FFFFFF !important;
+}
+
+#catalog .mui-slider-indicator{
+	width: 100%;
+	position: absolute;
+	text-align: center;
+	top: 140px;
+}
+#catalog .mui-indicator{
+	display: inline-block;
+	width: 4px;
+	height: 4px;
+}
+#catalog .mui-slider-indicator .mui-indicator{
+	width: 5px;
+	height: 5px;
+	margin: 1px 2px;
+	background: #fff;
+	border: 1px solid #bfbfbf;
+}
+#catalog .mui-slider-indicator .mui-active.mui-indicator{
+	background: #bfbfbf;
+}
+/*消除阴影*/
+.mui-slider-indicator .mui-indicator{
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.banner{
+	margin-top: 42px;
+}
+.banner img{
+	height: 90px;
+}
+/*附近优惠*/
+.preferential{
+	background: #fff url('../../images/home/n.png') no-repeat;
+	background-size:contain;
+}
+.ad .top{
+	position: relative;
+	height: 50px;
+	text-align: center;
+}
+.ad .adBox{
+	min-height: 100px;
+	/*padding: 0 15px 10px 15px;*/
+}
+.ad .top .arrow{
+	position: absolute;
+	top: 19px;
+	right: 0;
+	width: 12px;
+	height: 12px;
+}
+.ad .top a{
+	font-size: 13px;
+	color: #fff;
+	position: absolute;
+	top: 11px;
+	right: 20px;
+}
+.ad .top a span{
+	font-size: 14px;
+	color: #fff;
+}
+.ad .1px .mui-col-xs-4,.ad .content .mui-col-sm-4{
+	padding: 0 5px 10px 5px;
+}
+img.Gdetail{
+	width: 90px;
+	height: 90px;
+}
+.ad .content p{
+	font-size: 12px;
+	margin-bottom: 0;
+	color: #333;
+	width: 100%;
+	height: 21px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.ad .content span{
+	font-size: 13px;
+}
+.ad .content .one{
+	color: #fa4a36;
+}
+.ad .content .two{
+	color: #02c49a;
+}
+.ad .content .three{
+	color: #b25fe4;
+}
+
+/*banner*/
+.adPicture img{
+	width: 100%;
+	height: 85px;
+}
+/*五星商家*/
+.fallStar .starBox{
+	padding: 0 15px 10px 15px;
+	background: #fff;
+}
+.fallStar .starBox .top{
+	text-align: center;
+	height: 60px;
+	line-height: 60px;
+}
+.fallStar .starBox img{
+	width: 156px;
+	height: 50px;
+}
+.fallStar .content{
+	display: flex;
+	position: relative;
+	height: 77px;
+	margin-bottom: 20px;
+}
+.fallStar .content span{
+	text-align: center;
+	position: relative;
+	top: -20px;
+}
+.fallStar .content img{
+	width: 70px;
+	height: 70px;
+}
+.fallStar .content .starText{
+	height: 77px;
+	padding-left: 10px;
+}
+.fallStar .content .starText p{
+	position: relative;
+	top: -2px;
+	font-size: 14px;
+	/*font-weight: bold;*/
+	color: #000;
+}
+.fallStar .content .starText .middle{
+	font-size: 12px;
+	color: #666;
+}
+.fallStar .content .starText .sale{
+	display: inline-block;
+	width: 62px;
+	height: 20px;
+	background: #fcf1ff;
+	text-align: center;
+	font-size: 11px;
+	border-radius: 4px;
+	color: #7062a1;
+}
+.fallStar .content .starText .voucher{
+	display: inline-block;
+	width: 70px;
+	height: 20px;
+	background: #fff1f1;
+	text-align: center;
+	font-size: 11px;
+	border-radius: 4px;
+	color: red;
+}
+.fallStar .content .satisfy{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 65px;
+	height: 27px;
+}
+.fallStar .content .score{
+	z-index: 1;
+	position: absolute;
+	right: 4px;
+	top: 3px;
+	font-weight: bold;
+	color: #fff;
+	font-size: 16px;
+}
+.fallStar .content .distance{
+	position: absolute;
+	right: 4px;
+	top: 34px;
+	font-size: 13px;
+	color: #666;
+}
+
+img.detail{
+	border-radius: 2px;
+	border: 1px solid #e5e5e5;
+	width: 96% !important;
+}
+.shops{
+	display: flex;
+	flex-wrap:wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+.shop{
+	position: relative;
+	width: 48%;
+	height: 120px;
+	margin-bottom: 10px;
+	border-radius: 6px;
+	box-shadow: 0 2px 6px 2px #ccc;
+	-webkit-filter:brightness(1);
+}
+.bgi{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -10;
+	border-radius: 6px;
+	-webkit-filter:brightness(.8);
+}
+#container .shop .myTips{
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 6px 0 6px 0;
+	background-color: #FA7921;
+	padding: 0 5px 0 5px;
+	height: 16px;
+	font-size: 10px;
+	color: #fff;
+}
+.info{
+	padding: 25px 0 0 10px;
+}
+#container .shop .name{
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+}
+#container .shop .intro{
+	color: #fff;
+	font-size: 10px;
+}
+#container .shop .desc{
+	display: inline-block;
+	border: none;
+	border-radius: 4px;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align: center;
+	background-color: #ffcccc;
+	color: #e52e2e;
+	font-weight: bold;
+	margin-top: 10px;
+}
+.poly{
+	background: #fff url(../../images/home/j.png) no-repeat;
+	background-size:contain;
+	padding-bottom: 15px;
+}
+.items{
+	margin:-5px 10px 0px 10px;
+	padding: 10px 0 0 10px;
+	background-color: #fff;
+	border: none;
+	display: flex;
+	box-shadow: 0 2px 6px 2px #eee;
+}
+.item{
+	width: 30%;
+	margin: 0 10px 0 0;
+}
+.item p{
+	text-align: center;
+}
+.item img{
+	width: 100px;
+	height: 100px;
+}
+.ad .content span.price{
+	font-size: 14px;
+	color: #e60012;
+}
+.ad .content span.discount{
+	font-size: 10px;
+	color: #999;
+	text-decoration:line-through;
+}
+.hideText10{
+	max-width: 10em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.toast{
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-100px;
+	margin-top:-100px;
+	width: 200px;
+	height: 200px;
+	background-color: #fff;
+	z-index: 9999;;
+	border-radius: 6px;
+}
+.layer_btns td{
+	width: 50%;
+}

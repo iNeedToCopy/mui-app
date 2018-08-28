@@ -1,0 +1,133 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+/*输入框位置*/
+header{
+	position: relative;
+}
+header .mui-input-row{
+	clear: none;
+}
+header .mui-search{
+	top: 2px;
+	left: 8%;
+}
+.mui-bar{
+	background: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #D3D2D7;
+}
+.mui-search .mui-placeholder{
+	text-align: left;
+}
+.mui-search .mui-placeholder span{
+	font-size: 14px;
+	text-indent: 4%;
+}
+input[type=search]{
+	border-radius: 0;
+}
+/*分类*/
+.classify{
+	display: flex;
+	background: #fff;
+}
+.classify li{
+	list-style: none;
+	width: 25%;
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	color: #666;
+	font-size: 12px;
+	position: relative;
+}
+.classify li:after{
+	position: absolute;
+	width: 0;
+	height: 0;
+	right: 7%;
+	top: 19px;
+	content: '';
+	border-style: solid;
+	border-width: 4px;
+	border-color: #999 transparent transparent transparent;
+}
+.classify .nearby:after,.classify .select:after{
+	position: absolute;
+	width: 0;
+	height: 0;
+	right: 20%;
+	top: 19px;
+	content: '';
+	border-style: solid;
+	border-width: 4px;
+	border-color: #999 transparent transparent transparent;
+}
+/*show*/
+.show{
+	margin-top: 0px;
+}
+.show .mui-table-view-cell a{
+	padding: 15px;
+	display: flex;
+}
+.show .mui-table-view-cell .left{
+	width: 25%;
+}
+.show .mui-table-view-cell .left img{
+	width: 70px;
+	height: 60px;
+}
+.show .mui-table-view-cell .right{
+	width: 75%;
+}
+.show .mui-table-view-cell .right p{
+	font-size: 14px;
+	color: #000;
+}
+.show .mui-table-view-cell .right span{
+	font-size: 12px;
+	color: #666;
+}
+.show .mui-table-view-cell .right .satisfy{
+	color: #FA7921;
+	font-weight: bold;
+}
+.show .mui-table-view-cell .right .per{
+	color: #666;
+	font-weight: 100;
+}
+.show .mui-table-view-cell .right img{
+	width: 13px;
+	height: 13px;
+	position: relative;
+	top: 2px;
+}
+.mui-table-view:before{
+	content: none;
+}
+.mui-table-view:after{
+	content: none;
+}
+.mui-table-view-cell:before{
+	content: none;
+}
+.mui-table-view-cell:after{
+	position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 12px;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #e5e5e5;
+}

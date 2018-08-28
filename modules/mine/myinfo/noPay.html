@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>小额免密</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/noPay.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">小额免密支付</h1>
+			</div>
+		</header>
+		<div class="mui-content marginTop10" id="container">
+			<div class="box">
+				<form class="mui-input-group">
+	   				<input type="tel" v-model="smscode" maxlength="6" class="mui-input-clear" placeholder="请输入验证码">
+				</form>
+				<!--<div @tap="getIdCode" class="idCode">获取验证码
+					<span></span>
+				</div>-->
+				<vue-sms-code-sender @send_code="send_code()">
+					
+				</vue-sms-code-sender>
+			</div>
+			<p>小于100支付，免输入支付密码</p>
+			<div class="boxBtn">
+				<button @tap="do_open()" type="button">开通</button>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/aes.js"></script>
+		<script src="../../../js/pad-zeropadding-min.js"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/components/SmsCodeSender.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/noPay.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

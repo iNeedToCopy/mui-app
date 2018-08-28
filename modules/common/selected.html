@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>搜索</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" href="css/selected.css"/>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">全部商家</h1>
+			</div>
+		</header>
+		<div class="mui-content">
+			<div id="container" class="show">
+				<vue-loadmore ref="loadmore" @append="append" :object="'/shop/search?commerceid='+commerceid">
+		        	<ul class="mui-table-view marginTop10">
+			            <li class="mui-table-view-cell" v-for="shop in shops">
+			        		<a class="mui-navigate-right" @tap="goto_shopdetail(shop.id)">
+			                	<div class="left">
+			                		<img :src="shop.logo"/>
+			                	</div>
+			                	<div class="right">
+			                		<p>{{shop.name}}<span><br>({{shop.addr}})</span></p>
+			                		<span class="satisfy">满意度{{shop.all_score}}&emsp;&emsp;<span class="per">人均{{shop.per_price}}</span></span><br />
+			                		<span class="distance">{{shop.classname}}&emsp;{{shop.distance}}</span><br />
+			                		<!--<span class="free"><img src="../../images/ic_sj.png"/>&nbsp;{{shop.free}}</span><br />-->
+			                		<!--<span class="voucher"><img src="../../images/ic_juan.png"/>&nbsp;{{shop.voucher}}</span>-->
+			                	</div>
+				            </a>
+			            </li>
+			        </ul>
+		        </vue-loadmore>
+		    </div>    
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/selected.js"></script>
+	</body>
+</html>

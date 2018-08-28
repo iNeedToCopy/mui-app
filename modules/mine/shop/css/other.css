@@ -1,0 +1,190 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+header .finish{
+
+	position: relative;
+	top: 12px;
+	right: -82%;
+}
+li{
+	list-style: none;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+/*提示*/
+.tip{
+	height: 44px;
+	line-height: 44px;
+	background: #F8934C;
+	color: #fff;
+	font-size: 13px;
+	padding-left: 15px;
+}
+/*营业时间*/
+.date{
+	background: #fff;
+	padding-left: 15px;
+}
+.date .top{
+	height: 40px;
+	line-height: 40px;
+	font-size: 13px;
+	color: #333;
+	/*position: relative;*/
+}
+.date .top:after {
+    /*position: absolute;*/
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #E5E5E5;
+}
+/*下拉框*/
+.mui-input-group:before{
+	content: none;
+}
+.mui-input-group:after{
+	content: none;
+}
+.mui-input-group .mui-input-row:after{
+	content: none;
+}
+select{
+	width: 20%;
+	text-align: center;
+	border: 1px solid #ccc !important;
+}
+select span{
+	font-size: 15px;
+}
+.mui-input-row select{
+	height: 25px;
+	padding-left: 10px;
+	font-size: 15px;
+	
+}
+.mui-input-group{
+	/*position: relative;*/
+	top: -24px;
+	left: 12%;
+	width: 88%;
+}
+.mui-select:before{
+	display: none;
+}
+/*.mui-input-group:after{
+    font-family: Muiicons;
+    content: '\e581';
+    color: rgba(34,34,34,1);
+	position: relative;
+	top: -38px;
+	left: 0px;
+	background-color: #fff;
+}*/
+/*日期*/
+.date .bottom .day{
+	padding: 20px 0;	
+}
+.date .bottom span{
+	font-size: 13px;
+	color: #666;
+}
+.date .time{
+	position: relative;
+	top: -20px;
+}
+.mui-btn-block{
+	width: 20%;
+	height: 30px;
+	margin-bottom: 0;
+	padding: 0;
+	display: inline;
+	border-radius: 0;
+}
+button{
+	padding: 0;
+}
+.date .to{
+	position: relative;
+	/*top: 20px;*/
+}
+.date .to span{
+	/*position: relative;*/
+	top: 4px;
+}
+/*特色服务*/
+.feature{
+	background: #fff;
+	padding-left: 15px;
+}
+.feature .top{
+	height: 40px;
+	line-height: 40px;
+	font-size: 13px;
+	color: #333;
+	position: relative;
+}
+.feature .top:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #E5E5E5;
+}
+.feature .bottom{
+	padding: 15px 0;
+}
+.feature .bottom p{
+	font-size: 15px;
+	color: #666;
+}
+.feature .bottom span{
+	display: inline-block;
+	padding: 4px 10px;
+	background: #C9C9C9;
+	color: #fff;
+	margin-right: 10px;
+	font-size: 13px;
+	border-radius: 4px;
+}
+.current{
+	background: #4C85E9 !important;
+}
+
+#starttime,#endtime{
+	width:120px;
+	height: 25px;
+	border-radius: 4px;
+}
+/*多行*/
+textarea{
+	border-color: #fff;
+	font-size: 15px;
+	color: #999;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #999;
+    font-size: 15px;
+}
+.tdo{
+	padding-left: 10px;
+}
+.mui-input-group{
+	padding-left:25px;
+}

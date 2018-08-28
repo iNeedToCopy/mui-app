@@ -1,0 +1,89 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background: #f5f5f9;
+}
+header .add{
+	width: 20px;
+	position: relative;
+	top:13px;
+	right:5px;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+li{
+	list-style: none;
+}
+/*管理*/
+.userLocation{
+	padding-left: 15px;
+	background: #fff;
+}
+.userLocation .top{
+	padding: 10px 0;
+	position: relative;
+}
+.userLocation .top:after{
+	position: absolute;
+    right: 0;
+    bottom: 0;
+    left: -15px;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #f5f5f8;
+}
+.userLocation .top p{
+	font-size: 14px;
+	color: #333;
+}
+.userLocation .top .main{
+	font-size: 12px;
+	color: #000;
+}
+.userLocation .top span{
+	font-size: 14px;
+	position: absolute;
+	top: 9px;
+	left: 72%;
+}
+/*下*/
+.userLocation .bottom{
+	height: 44px;
+	line-height: 44px;
+	padding-right: 15px;
+}
+.userLocation .bottom .left img{
+	width: 18px;
+	height: 18px;
+	position: relative;
+	top: 4px;
+} 
+.userLocation .bottom .left .default{
+	color: #fa7921;
+}
+.userLocation .bottom .right img{
+	width: 19px;
+	height: 21px;
+	position: relative;
+	top: 4px;
+}
+.userLocation .bottom .left{
+	font-size: 13px;
+}
+.userLocation .bottom .right{
+	font-size: 13px;
+}

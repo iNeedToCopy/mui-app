@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的二维码</title>
+		<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	</head>
+	<style type="text/css">
+		p{
+			width: 100%;
+			text-align: center;
+			position: absolute;
+			bottom: 0;
+		}
+		body{
+			background-color: #ff8833;
+			width: 100%;
+			height: 100%;
+		}
+		#back{
+			position: fixed;
+			left: 10px;
+			top:40px;
+			z-index: 100;
+		}
+	</style>
+	<body>
+		<!--<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    
+			    <h1 class="mui-title">我的二维码</h1>
+			</div>
+		</header>-->
+		<div style="margin:0px;background-color: #ffffff;">
+			<a id="back" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<img id="qrcode" style="width: 100%;height: 100%;" />
+	    </div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.ready(function(){
+				
+				window.addEventListener('loadinfo',function(e){
+					var w = plus.nativeUI.showWaiting("");
+					app.http_get("/my/share/code?otype=base64",function(ret){
+						w.close();
+						if(ret.code == 200)
+							document.getElementById("qrcode").src = "data:image/png;base64,"+ret.data;
+						else{
+							mui.toast(ret.desc);
+							mui.back();
+						}
+					},function(x,t,e){
+						w.close();
+					});
+				});
+			});
+			mui.plusReady(function(){
+				
+				mui.back = function(event)
+				{
+				   plus.webview.hide(plus.webview.currentWebview(),"slide-out-right");
+				};
+			});
+		</script>
+	</body>
+</html>

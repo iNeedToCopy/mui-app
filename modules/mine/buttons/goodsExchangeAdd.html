@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>兑换商品</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/goodsExchangeAdd.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">兑换商品</h1>
+			</div>
+		</header>
+		<div class="mui-content">
+			<div class="goods">
+				<img src="../../../images/img-14.png"/>
+				<div id="show" class="text">
+					<div v-for="show in text">
+						<p class="top">{{show.goodsName}}&emsp;&emsp;{{show.number1}}</p>
+						<p><span>{{show.score1}}积分</span>+{{show.score2}}信值</p>
+						<span>兑换条件：信用>{{show.score3}}</span><br />
+						<span>数量：{{show.number2}}</span>
+					</div>
+				</div>
+			</div>
+			<div class="addLocation marginTop10">
+				<button type="button" class="location">添加收货地址</button>
+			</div>
+			<div class="boxBtn">
+				<button type="button">确认</button>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+	   	<script src="js/goodsExchangeAdd.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

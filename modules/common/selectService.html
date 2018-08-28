@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>服务人员</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/selectService.css"/>
+		<style type="text/css">
+			.btnBox{
+				width: 100%;
+			}
+			button{
+				width: 80%;
+				text-align: center;				
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">选择服务人员</h1>
+			</div>
+		</header>
+		<div class="mui-content" id="container">
+			<div  class="bigBox">
+				<vue-loadmore ref="loadmore" @append="append" :object="'/service/people/list?shopid='+shopid">
+					<ul class="mui-table-view">
+					    <li class="mui-table-view-cell mui-media" v-for="item in items" @tap="selected(item)">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" :src="item.logo">
+					            <div class="mui-media-body">
+					                	{{item.nickname}}
+					                <p class="mui-ellipsis">{{item.position}}</p>
+					            </div>
+					        </a>
+					    </li>
+					</ul>
+				</vue-loadmore>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/app.js"></script>
+		<script src="../../js/ajax.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			//展示数据
+			var container = new Vue({
+				el:"#container",
+				data:{
+					shopid:0,
+					items:[]
+				},
+				methods:{
+					reload:function(_shopid){
+						this.shopid = _shopid;
+						this.items = [];
+						var _self = this;
+						setTimeout(function(){
+							_self.$refs.loadmore.newrequest();
+						},100);
+						
+					},
+					append:function(data){ 
+						this.items = this.items.concat(data.data); 
+					},
+					selected:function(item){
+						mui.fire(plus.webview.currentWebview().opener(),"select_service",{logo:item.logo,nickname:item.nickname,id:item.id});
+						mui.back();
+					},
+				}
+			});
+			mui.ready(function(){
+				window.addEventListener('loadinfo',function(event){
+					
+					container.reload(event.detail.shopid);
+				});
+				mui.back = function(event)
+				{
+					container.items = [];
+				    plus.webview.hide(plus.webview.currentWebview(),"slide-out-right");
+				};
+			})
+		</script>
+	</body>
+</html>

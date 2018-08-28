@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的优惠</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/reduction.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">我的优惠</h1>
+			</div>
+		</header>
+		<div class="mui-content" id="container" >
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll tab">
+						<a id='cash_tab' class="mui-control-item mui-active" href="#target_id_1" @tap="load_cash()">
+							<span>优惠券</span>
+						</a>
+						<a class="mui-control-item" href="#target_id_2" @tap="load_hongbao()">
+							<span>红包</span>
+						</a>
+						<!--<a :class="{'mui-control-item':true,'mui-active':itm.active}" :href="itm.target_id" @tap="load_data(itm)" v-for="itm in tab_items">
+							<span>{{itm.text}}</span>
+						</a>-->
+					</div>
+				</div>
+				
+					<div class="mui-slider-group" style="">
+						
+						<div id="target_id_1" class="mui-slider-item mui-control-content">
+							<vue-loadmore ref = "pullup_cash" @append="append_cash" object="/my/cash">
+								<div class="voucher">  
+									<ul class="mui-table-view">
+										<div class="top">
+								            <div class="voucherPic marginTop5" v-for="cash in cash_items">
+							        	      	<img src="../../../images/bg_yhj.png"/>
+							        	      	<div class="relative">
+							        	      		<div class="left">
+							        	      			<img :src="cash.logo"/>
+							        	      		</div>
+							        	      	<div class="center">
+							        	      		<p>{{cash.name}}</p>
+							        	      		<p class="bottom"><span class="score">{{cash.sendmoney}}</span>代金券&emsp;<span class="full">满{{cash.money}}元可用</span></p>
+							        	      	</div>
+							        	      	<div class="right" style="text-align: center;">
+							        	      		<p class="been">买单即享</p>
+							        	      		<span>已领{{cash.sendcount}}张</span>
+							        	      	</div>
+							        	      </div>
+							        		</div>
+						        		</div>
+							        </ul>
+								</div>
+							</vue-loadmore>
+						</div>
+						<div id="target_id_2" class="mui-slider-item mui-control-content">
+							<vue-loadmore ref = "pullup_hongbao" @append="append_hongbao" object="/my/hongbao">
+								<div class="voucher">
+									<ul class="mui-table-view">
+										<div class="top">
+								            <div class="voucherPic marginTop10" v-for="redBag in hongbao_items">
+							        	      <img src="../../../images/bg_yhj.png"/>
+							        	      <div class="relative">
+							        	      	<div class="left">
+							        	      		<img :src="redBag.logo"/>
+							        	      	</div>
+							        	      	<div class="center">
+							        	      		<p>{{redBag.name}}</p>
+							        	      		<p class="bottom"><span class="score">{{redBag.sendmoney}}</span>信值红包<!--&emsp;<span class="full">满{{redBag.money}}元可用--></span></p>
+							        	      	</div>
+							        	      	<div class="right">
+							        	      		<p>买单即享</p>
+							        	      	</div>
+							        	      </div>
+							        		</div>
+						        		</div>
+							        </ul>
+								</div>
+							</vue-loadmore>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/components/Loadmore.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/reduction.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
+ 

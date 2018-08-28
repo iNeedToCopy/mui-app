@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>信值明细</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/reputationDetail.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">信值明细</h1>
+			</div>
+		</header>
+		<div class="mui-content" id="container" style="overflow-y: 'auto';"> 
+			<!--总计-->
+			<ul class="total">
+				<li class="buy">
+					<span class="left">本月消费
+						<p>{{statistics.curmonthconsume}}</p>
+					</span>
+					<span class="center">上月消费
+						<p>{{statistics.beforemonthconsume}}</p>
+					</span>
+					<span class="right">累计消费
+						<p>{{statistics.allconsume}}</p>
+					</span>
+				</li>
+				<li class="recharge">
+					<span class="left">本月充值
+						<p>{{statistics.curmonthrecharge}}</p>
+					</span>
+					<span class="center">上月充值
+						<p>{{statistics.beforemonthrecharge}}</p>
+					</span>
+					<span class="right">累计充值	
+						<p>{{statistics.allrecharge}}</p>
+					</span>
+				</li>
+			</ul>
+			<div class="detail marginTop10">
+				<ul class="box">
+					<li class="date">日期</li>
+					<li class="cash">类型</li>
+					<li class="status">消费金额</li>
+				</ul>
+			</div>
+			<vue-loadmore ref="loadmore" @append="append" object="/letter/history/more">
+				<ul id="show" class="show">
+					<li v-for="item in items">
+						<span class="left floatLeft" style="width: 32%;">{{item.date}}
+							<p>{{item.content}}</p>
+						</span>
+						<span class="right floatRigft" :class="{red:item.change>0,green:item.change<0}">{{item.change}}
+							<p>{{item.now}}</p>
+						</span>
+						<div class="clear"></div>
+					</li>
+				</ul>
+			</vue-loadmore>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/reputationDetail.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

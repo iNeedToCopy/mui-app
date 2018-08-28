@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>图文详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" href="css/picTextDetail.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">图文详情</h1>
+			</div>
+		</header>
+		<div id="container" class="mui-content">
+			<div class="container">
+				<div>
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted" style="margin-bottom: 10px;">
+					    <div class="mui-scroll" style="width: 100%;">
+					        <span :class="{'my-control':true,'my-active':show_type == 0}" @tap="set_viewtype(0)">
+								文字说明
+					        </span>
+					        <span :class="{'my-control':true,'my-active':show_type == 1}" @tap="set_viewtype(1)">
+					       		图片说明
+					        </span>
+					        <span :class="{'my-control':true,'my-active':show_type == 2}" @tap="set_viewtype(2)">
+					       		视频说明
+					        </span>
+					    </div>
+					</div>
+					<div v-show="show_type == 0" v-html="box.text" style="font-size: 13px;color: #999999;margin-bottom: 80px;">
+						{{box.text}}
+					</div>
+					<div v-show="show_type == 1">
+						<div class="picBox" v-for="pic in box.imglist" style="width: 100%;">
+							<img :src="pic.url"/>
+						</div>
+						<!--<img :src="baseinfo.longimg" alt="" style="width: 100%;"/>-->
+					</div>
+					<div v-show="show_type == 2">
+						<span style="color:#BBBBBB">暂无视频说明</span>
+					</div>
+				</div>
+							
+				<!--<div class="text" v-html="box.text">{{box.text}}</div>
+				<div class="picBox" v-for="pic in box.imglist">
+					<img :src="pic.url"/>
+				</div>-->
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js"></script>
+		<script src="js/picTextDetail.js"></script>
+	</body>
+</html>

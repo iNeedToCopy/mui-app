@@ -1,0 +1,114 @@
+*{
+	padding: 0;
+	margin: 0;
+	color: #333333;
+}
+body,.mui-content{
+	background: #fff;
+	
+}
+html,body,#container{
+}
+li{
+	list-style: none;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #fff;
+}
+.triangle-bottomright { 
+	position: absolute;
+	bottom: 16px;
+	right:0;
+	width: 0; 
+	height: 0; 
+	border-bottom: 10px solid #aaa; 
+	border-left: 10px solid transparent; 
+} 
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;	
+}
+
+#list .mui-row{
+	height: 100%;
+}
+/*区域*/
+.hot{
+	margin-top: 50px;
+	padding-bottom: 10px;
+	width: 100%;
+	/*height: 160px;*/
+	border-bottom: 1px solid #E5E5E5;
+}
+.hot .hotSP{
+	float: left;
+	margin-top: 30px;
+	text-align: center;
+	width: 55px;
+	font-size: 14px;
+	color: #333333;
+}
+.hot .citys{
+	margin-top: 18px;
+	width: 80%;
+}
+.hot .citys button{
+	margin-top: 5px;
+	border: none;
+	background-color: #F5F5F5;
+	color: #777;
+}
+.opt{
+	width: 100%;
+	height: 50px;
+	padding-top: 5px;
+	border-bottom: 1px solid #E5E5E5;
+	color: #333333;
+}
+.opt .optSP{
+	line-height: 45px;
+	width:55px;
+	text-align: center;
+	font-size: 14px;
+}
+.opt select{
+	margin-top: 5px;
+	width: 100px;
+	height: 32px;
+	background-color: #F5F5F5;
+	padding: 0px 15px;
+	line-height: 32px;
+}
+.locations{
+	padding: 0 10px 0 15px;
+}
+.locations li{
+	border-bottom: 1px solid #E5E5E5;
+	padding: 10px 0 10px 0;
+}
+.locations img{
+	width: 80px;
+	height: 80px;
+}
+.locations .introduce{
+	padding-left: 90px;
+}
+.locations .introduce p{
+	margin-bottom: 0px;
+}
+.locations .introduce p:nth-child(2){
+	font-size: 12px;
+}
+.product-buyer-name {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+

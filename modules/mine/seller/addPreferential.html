@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>优惠</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.picker.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+		<link rel="stylesheet" href="css/addPreferential.css"/>
+	</head>
+	<body>
+		<div id = "container">
+			<header id="head" class="mui-bar mui-bar-nav" >
+				<div class="mui-row" style="padding-right:0px;">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">添加{{addtype=='cash'?'优惠券':'红包'}}</h1>
+				</div>
+			</header>
+			<div class="mui-content" >
+				<!--<div class="logo">
+					<img :src="logourl"/>
+					上传代金券Logo
+					<span class="mui-icon mui-icon-arrowright"></span>
+				</div>-->
+		        <!--<span>*</span>-->
+				<form class="mui-input-group">
+				    <div class="mui-input-row">
+				        <label>最少消费金额<span>(必填)</span></label>
+				        <input type="tel" v-model="minmoney" style="text-align: right;">
+				    </div>
+				    <div class="mui-input-row">
+				        <label>{{addtype=='cash'?'优惠券':'红包'}}金额<span>(必填)</span></label>
+				        <input type="tel" v-model="money" style="text-align: right;">
+				    </div>
+				    <div class="mui-input-row">
+				        <label>最多领取人数</label>
+				        <input type="tel" v-model="maxamount" style="text-align: right;" placeholder="不填表示不限制人数">
+				    </div>
+				    <div class="mui-input-row">
+				        <label>开始时间<span>(必填)</span></label>
+				        <input type="tel" v-model="starttime" readonly="readonly" @tap="choose_time(0)" style="text-align: right;">
+				    </div>
+				    <div class="mui-input-row">
+				        <label>结束时间<span>(必填)</span></label>
+				        <input type="tel" v-model="endtime" readonly="readonly" @tap="choose_time(1)"style="text-align: right;">
+				    </div>
+			       <ul class="mui-table-view" style="background-color: #fff;border-bottom: 1px solid #e5e5e5;height: 45px;"> 
+				        <li class="mui-table-view-cell mui-collapse">
+				            <a class="mui-navigate-right" href="#">
+				            	<p>适用店铺<span>(必选)</span></p>
+				            	<p><span>请选择</span></p>
+				            </a>
+				            <div class="mui-collapse-content">
+		                		<div class="mui-input-row mui-checkbox" v-for="shop in shops">
+									<label>{{shop.shopname}}</label>
+									<input :value="shop.shopid" type="checkbox" v-model="shop.checked">
+								</div>
+				            </div>
+				        </li>
+				    </ul>
+				</form>
+			</div>
+			
+			<div class="add" @tap="save(0)">
+				 确定
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/vue.min.js"></script>
+	
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="js/addPreferential.js"></script>
+	</body>
+</html>

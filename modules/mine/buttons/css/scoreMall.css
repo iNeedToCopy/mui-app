@@ -1,0 +1,79 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.mui-content{
+	background: #f5f5f9;
+}
+header .detail{
+	position: relative;
+	top: 12px;
+	left: 84%;
+	font-size: 14px;
+}
+.mui-bar{
+	background: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+.mineScore{
+	padding: 0 15px;
+	margin-top: -4px;
+	background: #fff;
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	display: flex;
+}
+.mineScore>div{
+	flex: 6;
+	text-align: center;
+}
+.mineScore span{
+	color: #4d4d4d;
+	font-size: 15px;
+}
+/*show*/
+.show .mui-table-view{
+	background: #fff;
+}
+.show .mui-table-view-cell img{
+	width: 100%;
+	height: 106px;
+}
+.show .mui-table-view-cell span{
+	display: inline-block;
+	color: #333;
+}
+.show .mui-table-view-cell .top{
+	font-size: 15px;
+	margin-bottom: 5px;
+	color:#333;
+	font-weight:bold
+}
+.show .mui-table-view-cell .middle{
+	font-size: 12px;
+}
+.show .mui-table-view-cell .middle .orange{
+	color: #fa7921;
+}
+.show .mui-table-view-cell p{
+	font-size: 12px;
+}
+.mui-table-view.mui-grid-view .mui-table-view-cell{
+	text-align: left;
+}
+.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+	padding: 15px 10px 5px 10px;
+}
+.mui-grid-view.mui-grid-9 .mui-table-view-cell>a:not(.mui-btn){
+	padding: 0;
+}

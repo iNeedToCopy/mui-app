@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="mine.css"/>
+	    <style type="text/css">
+	    	.mui-badge{
+				background-color: #F23836;
+				color: white;
+	    		margin-top: -10px;
+	    		margin-right:-10px;
+	    	}
+	    </style>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" id="header">
+				<div class="mui-row">
+					<div class="set floatRigft" @tap="goto_set()">设置</div>
+				</div>
+				<div class="personal" @tap="goto_usersafe()">
+					<div class="imgBox">
+						<img :src="header" class="default"/>
+					</div>
+					<div class="box">
+						<span class="personalName">{{username}}</span><br />
+						<!--<span class="personalArrow"><img src="../../images/mine_ic_me_next.png"/></span>-->
+						
+						<img v-show="grade" :src="'../../images/level/'+grade+gradeicotype+'.png'" class="champion"/>
+					</div>
+				</div>
+			</header>
+			<!--悬浮栏-->
+			<div class="suspendBox">
+				<div class="suspend mui-row">
+					<div class="mui-col-sm-3 mui-col-xs-3 balance" @tap="goto_balance()">
+						<p>余额</p>
+						<span class="score">{{remain}}</span>
+					</div>
+					<div class="mui-col-sm-3 mui-col-xs-3 reputation" @tap="goto_reputation()">
+						<p>信值</p>
+						<span class="score">{{letter}}</span>
+					</div>
+					<div class="mui-col-sm-3 mui-col-xs-3 redBeans" @tap="goto_redBeans()">
+						<p>红豆</p>
+						<span class="score">{{hongdou}}</span>
+					</div>
+					<div class="mui-col-sm-3 mui-col-xs-3 redBeans" @tap="goto_silverBeans()">
+						<p>银豆</p>
+						<span class="score">{{silver}}</span>
+					</div>
+				</div>
+			</div>
+			<div id="mui-scroll-wrapper" class="mui-scroll-wrapper" style="top:190px;background-color:#fff;">
+			    <div class="mui-scroll">
+			        <!--内容-->
+					<div class="mui-contenft-" style="padding-top:44px !important;">
+						<!--我的信用-->
+						<div class="myMsg">
+							<div class="mui-row">
+								<!--<div class="mui-col-sm-4 mui-col-xs-4">
+									<div class="box scoreMall" @tap="goto_scoreMall()">
+										<img src="../../images/mine_ic_xfjf.png"/>
+										<p>积分商城</p>
+									</div>
+								</div>-->
+								<div class="mui-col-sm-4 mui-col-xs-4">
+									<div class="box reputation" @tap="goto_zlReputation()">
+										<img src="../../images/mine_ic_xy.png"/>
+										<p>中恋信用</p>
+									</div>
+								</div>
+								<div class="mui-col-sm-4 mui-col-xs-4">
+									<div class="box reduction" @tap="goto_reduction()">
+										<img src="../../images/mine_ic_me_yh.png"/>
+										<p>我的优惠</p>
+									</div>
+								</div>
+								<div class="mui-col-sm-4 mui-col-xs-4">
+									<div class="box reduction" @tap="goto_collection()">
+										<img src="../../images/my_shoucang.png"/>
+										<p>我的收藏</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="my_mall" style="display: flex;border-top: 1px solid #e5e5e5;">
+							<div class="jifen_mall" style="flex:1" @tap="goto_scoreMall()">
+								<img src="../../images/my_jifen.png" style="width: 77px;height: 74px;float: left;"/>
+								<div style="float: left;padding-top: 18px;">
+									<span style="display: inline-block;color: #fff;font-weight: bold;font-size: 15px;width: 77px;line-height: 22px;background-color: #FA7921;text-align: center;">积分商城</span><br />
+									<span style="font-size: 9px;color: #737373;">积分兑好礼优惠享不停</span>
+								</div>
+							</div>
+							<div class="techan_mall" style="flex:1;border-left: 1px solid #e5e5e5;" @tap="dummy()">
+								<img src="../../images/my_techan.png" style="width: 77px;height: 74px;float: left;"/>
+								<div style="float: left;padding-top: 18px;">
+									<span style="display: inline-block;color: #fff;font-weight: bold;font-size: 15px;width: 77px;line-height: 22px;background-color: #FA7921;text-align: center;">特产商城</span><br />
+									<span style="font-size: 9px;color: #737373;">精选各地优质特产</span>
+								</div>
+							</div>
+						</div>
+						<!--iconBoox-->
+						<ul class="mui-table-view mui-grid-view mui-grid-9">
+							<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 order" @tap="goto_goodsOrder()">
+							    <a href="#">
+							    	<span v-if="ordermessagecount>0" class="dot"></span>
+							        <img src="../../images/mine_ic_me_dd.png" />
+									<p>我的订单</p>
+							    </a>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 wentShop" @tap="goto_wentShop()">
+							    <a href="#">
+							        <img src="../../images/mine_ic_me_qg.png" />
+									<p>去过的店</p>
+							    </a>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 msgCenter" @tap="goto_msgCenter()">
+							    <a href="#">
+							    	<span v-if="messagecount >0" class="dot"></span>
+							        <img src="../../images/mine_ic_me_xx.png" />
+									<p>消息中心</p>
+							    </a>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+							    <a href="#popover">
+							        <img src="../../images/mine_ic_me_fx.png" />
+									<p>分享赚钱</p>
+							    </a>
+							</li>
+							<!--<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 collection">
+							    <a href="#">
+							        <img src="../../images/mine_ic_me_sc.png" />
+									<p>我的收藏</p>
+							    </a>
+							</li>-->
+							<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 vip" @tap="goto_vipManager()">
+							    <a href="#">
+							       <img src="../../images/mine_ic_me_hygl.png" />
+									<p>会员管理</p>
+							    </a>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 evaluate" @tap="goto_evaluate()">
+							    <a href="#">
+							        <img src="../../images/mine_ic_me_pj.png" />
+									<p>我的评价</p>
+							    </a>
+							</li>
+							<li v-if="usertype == 4" class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 zoneManager" @tap="goto_zoneManager()">
+							    <a href="#">
+							        <img src="../../images/zoneManager.png" />
+									<p>区域管理</p>
+							    </a>
+							</li>
+							<li v-if="viewmyzone" class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 zoneManager" @tap="goto_myzone()">
+							    <a href="#">
+							        <img src="../../images/myzone.png" />
+									<p>我的区域</p>
+							    </a>
+							</li>
+							<li v-if="usertype == 7" class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 zoneManager" @tap="goto_cashier()">
+							    <a href="#">
+							        <img src="../../images/cashier.png" />
+									<p>收银员</p>
+							    </a>
+							</li>
+							<li v-if="usertype == 2 || usertype == 6" class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 zoneManager" @tap="goto_seller()">
+							    <a href="#">
+							        <img src="../../images/seller.png" />
+									<p>商家管理</p>
+							    </a>
+							</li>
+						</ul>
+						<ul class="mui-table-view marginTop10 add" v-if="ifViewApplySeller">
+					        <li class="mui-table-view-cell Oadd" @tap="goto_shopApp()">
+					            <a class="mui-navigate-right">
+					                	本地商家免费入驻，让收入翻倍
+					            </a>
+					        </li>
+					    </ul>
+					</div>
+			    </div>
+			</div>
+			
+			
+			<div id="popover" class="mui-popover mui-popover-bottom mui-popover-action">
+				<ul class="share">
+					<li class="item">
+						<img src="../../images/shareFriend.png" @tap="share_with_weixin(true)"/><br />
+						<span>微信好友</span>
+					</li>
+					<li class="item">
+						<img src="../../images/shareCicle.png" @tap="share_with_weixin(false)"/><br />
+						<span>微信朋友圈</span>
+					</li>
+					<li class="item">
+						<img src="../../images/myshare.png" @tap="myshare()"/><br />
+						<span>我的二维码</span>
+					</li>
+				</ul>
+				<!--<div class="cancel" @tap="share_cancel()">
+					<span>取消</span>
+				</div>-->
+			</div>
+		</div>
+		<div class="seat"></div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js"></script>
+	   	<script src="mine.js"></script>
+	   	
+	</body>
+</html>

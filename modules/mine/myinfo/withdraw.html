@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>余额提现</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/withdraw.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav">
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">余额提现</h1>
+				    <span class="history" @tap="goto_history();">历史记录</span>
+				</div>
+			</header>
+			<div class="mui-content" >
+				<div class="show">
+					<p class="top">{{remain}}</p>
+					<p class="middle">账户余额</p>
+					<p class="bottom">可提余额：{{remain}}</p>
+				</div>
+				<ul class="mui-table-view marginTop10">
+				    <li class="mui-table-view-cell addBank" @tap="goto_selectBank()">
+				        <a class="mui-navigate-right">
+				        	选择银行卡
+				        </a>
+				    </li>
+				</ul>	
+				<form class="mui-input-group">
+					<div class="mui-input-row">
+						<label>卡号</label>
+	   					<input type="text" v-model="card" class="mui-input-clear" disabled="disabled">
+	   				</div>
+	   				<div class="mui-input-row">
+	   					<label>姓名</label>
+	   					<input type="text" v-model="name" class="mui-input-clear" disabled="disabled">
+	   				</div>
+	   				<div class="mui-input-row">
+	   					<label>开户网点</label>
+	   					<input type="text" v-model="bankaddr" class="mui-input-clear" disabled="disabled">
+	   				</div>
+	   				<div class="seat"></div>
+	   				<input type="tel" v-model="money" maxlength="6" class="mui-input-clear" placeholder="输入提现金额">
+				</form>
+				<div class="boxBtn">
+					<button type="button" @tap="do_withdraw()">提现</button>
+				</div>
+				<div class="tips">
+					<p>温馨提示</p>
+					<p>1、提现扣除2%手续费</p>
+					<p>2、1一2个工作日到帐，节假日顺延</p>
+					<p>3、余额可代充值有奖励</p>
+					<!--<p>4、任何相关问题，请联系028-86152771</p>-->
+				</div>
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/withdraw.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

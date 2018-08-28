@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>搜索</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../common/css/common.css"/>
+		<link rel="stylesheet" href="css/search.css"/>
+	</head>
+  
+	<body>
+		<div id="container" class="mui-content">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <div class="mui-input-row mui-search mui-col-xs-8">
+						<input id="word" type="search" class="main_bg" v-model="word" placeholder="">
+					</div>
+					<span class="searchBtn" @tap="search()">搜索</span>
+				</div>
+			</header>
+			
+			<!--搜索出来的内容-->
+			<div  class="" v-show="!show_hot"> 
+				<vue-loadmore ref='loadmore' @finish="endload" @append="append" :object="'/shop/search?sword='+ word">
+					<ul class="mui-table-view">
+						<li class="item mui-table-view-cell" v-for="item in items" @tap="goto_shopDetail(item.id)">
+							<a>
+								<img :src="item.logo" class="floatLeft"/>
+								<div class="text floatLeft">
+									<span class="shopName">{{item.name}}</span>
+									<p>{{item.addr}}</p>
+								</div>
+								<span class="distance floatRigft">{{item.distance}}</span>
+							</a>
+						</li>
+			        </ul>
+				</vue-loadmore>
+			</div>
+			<div v-show="show_hot">
+				<!--热门搜索-->
+				<div class="hot">
+					<p>热门搜索</p>
+					<div class="hotHistory">
+		        			<span v-for="hotword in hot" @tap="loadinfo(hotword.name)">{{hotword.name}}</span>
+		        		</div>
+				</div>
+				<!--历史搜索-->
+				<div class="history">
+					<ul>
+						<div class="main">历史搜索
+							<span><img src="../../../images/delete.png"/></span>
+						</div>
+						<ul class="mui-table-view">
+			        		<li class="item mui-table-view-cell" v-for="item in history" @tap="goto_searching(item.name)">
+			        			<a>{{item.name}}</a>
+			        		</li>
+				        </ul>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+		<script src="../../../js/components/Loadmore.min.js"></script>
+		
+		<script src="js/search.js"></script>
+	</body>
+
+</html>

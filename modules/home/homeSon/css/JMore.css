@@ -1,0 +1,376 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+header{
+	text-align: center;
+	padding-top: 22px !important;
+}
+header img{
+	width: 159px;
+	height: 44px;
+	position: relative;
+	left: -2%;
+}
+.mui-bar{
+	background: #fff;
+	height: 66px !important;
+}
+.mui-bar a{
+	color: #000;
+}
+.mui-bar-nav~.mui-content{
+	padding-top: 66px !important;
+}
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+
+/*分类*/
+.classify{
+	display: flex;
+	background: #fff;
+}
+.classify>li img{
+	width: 13px;
+	position: relative;
+	top: -1px;
+	left: 5%;
+}
+.classify .all,.classify .nearby,.classify .ai,.classify .select{
+	list-style: none;
+	width: 25%;
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	color: #666;
+	font-size: 12px;
+}
+
+/*show*/
+.show{
+	margin-top: 10px;
+	overflow: hidden;
+}
+.show .mui-table-view-cell a{
+	padding: 15px;
+	display: flex;
+}
+.show .mui-table-view-cell .left{
+	width: 25%;
+}
+.show .mui-table-view-cell .left img{
+	width: 70px;
+	height: 60px;
+}
+.show .mui-table-view-cell .right{
+	width: 75%;
+}
+.show .mui-table-view-cell .right p{
+	font-size: 14px;
+	color: #000;
+}
+.show .mui-table-view-cell .right span{
+	font-size: 12px;
+	color: #666;
+}
+.show .mui-table-view-cell .right .satisfy{
+	color: #FA7921;
+	font-weight: bold;
+}
+.show .mui-table-view-cell .right .per{
+	color: #666;
+	font-weight: 100;
+}
+.show .mui-table-view-cell .right img{
+	width: 13px;
+	height: 13px;
+	position: relative;
+	top: 2px;
+}
+.mui-table-view:before{
+	content: none;
+}
+.mui-table-view:after{
+	content: none;
+}
+.mui-table-view-cell:before{
+	content: none;
+}
+.mui-table-view-cell:after{
+	position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 12px;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #e5e5e5;
+}
+.display{
+	display: none;
+}
+.current{
+	background: #fff;
+}
+.color{
+	color: #fa7921 !important;
+}
+.background{
+	background: #fa7921 !important;
+	color: #fff !important;
+}
+.active{
+	background-color: #fff !important;
+	color: #fa7921 !important;
+}
+.mui-active{
+	color:#fa7921 !important;
+}
+.hide{
+	display: none;
+}
+/*全部分类*/
+.classify{
+	z-index: 999;
+	position: relative;
+}
+.classify li{
+	list-style: none;
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	font-size: 15px;
+	color: #000;
+}
+.classify .allSon li{
+	line-height: 22px;
+}
+.classify .allSon{
+	width: 100%;
+	height: 400px;
+	top: 44px;
+	left: 0;
+	border-top: 1px solid #e5e5e5;
+}
+.mui-fullscreen{
+	bottom: auto;
+}
+.mui-col-xs-4,
+.mui-control-content {
+	overflow-y: auto;
+	height: 100%;
+}
+.mui-table-view-cell:after{
+	background-color: #e5e5e5;
+}
+/*左*/
+.mui-segmented-control{
+	background-color: #eee;
+} 
+.mui-segmented-control .mui-control-item {
+	line-height: 44px;
+	width: 100%;
+	position: relative;
+}
+.mui-segmented-control.mui-segmented-control-inverted.mui-segmented-control-vertical .mui-control-item, .mui-segmented-control.mui-segmented-control-inverted.mui-segmented-control-vertical .mui-control-item.mui-active{
+	border-bottom: 0;
+}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+	background-color: #fff;
+	color: #000;
+}
+/*中*/
+#segmentedControlContents1 .mui-control-content{
+	background-color: #eee;
+	/*touch-action: none;*/
+}
+#segmentedControlContents1 .mui-control-item{
+	display: inline-block;
+	width: 133%;
+}
+.segmentedControls .mui-table-view-cell>a:not(.mui-btn),.segmentedControlContents1 .mui-table-view-cell>a:not(.mui-btn){
+	display: inline;
+}
+#segmentedControlContents1 .mui-table-view-cell{
+	height: 44px;
+	position: relative;
+}
+#segmentedControlContents1 .mui-table-view-cell:after{
+	content: none;
+}
+.mui-control-content.mui-active{
+	background-color: #fff;
+}
+.mui-backdrop{
+	top: 88px;
+}
+/*右*/
+#segmentedControlContents2 ul li{
+	position: relative;
+}
+/*附近*/
+.mui-col-xs-6{
+	overflow-y: auto;
+	height: 100%;
+}
+.classify .nearbySon{
+	width: 100%;
+	position: absolute;
+	top: 44px;
+	left: 0;
+	background: #fff;
+	border-top: 1px solid #e5e5e5;
+}
+.classify .nearbySon li{
+	padding: 0 15px;
+	position: relative;
+	text-align: left;
+}
+.classify .nearbySon li:after{
+	position: absolute;
+	left: 12px;
+	right: 0;
+	bottom: 0;
+	height: 1px;
+	content: '';
+	background-color: #e5e5e5;
+}
+/*智能排序*/
+.classify .aiSon{
+	width: 100%;
+	position: absolute;
+	top: 44px;
+	left: 0;
+	background: #fff;
+	border-top: 1px solid #e5e5e5;
+}
+.classify .aiSon li{
+	padding: 0 15px;
+	position: relative;
+	text-align: left;
+}
+.classify .aiSon li:after{
+	position: absolute;
+	left: 12px;
+	right: 0;
+	bottom: 0;
+	height: 1px;
+	content: '';
+	background-color: #e5e5e5;
+}
+.classify .aiSon li:last-of-type:after{
+	content: none;
+}
+/*筛选*/
+.classify .selected{
+	padding: 15px 0 0 10px;
+	background: #fff;
+	position: absolute;
+	top: 44px;
+	left: 0;
+	width: 100%;
+	border-top: 1px solid #e5e5e5;
+}
+.classify .selected .title{
+	font-size: 15px;
+}
+.classify .selected .content{
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+.classify .selected .content .item{
+	display: inline-block;
+	width: 22%;
+	line-height: 33px;
+	text-align: center;
+	background: #f3f3f3;
+	font-size: 14px;
+	color: #666;
+	border-radius: 2px;
+	margin-right: 10px;
+	margin-bottom: 6px;
+}
+.btnBox{
+	position: absolute;
+	bottom: 0;
+	left: -10px;
+	display: flex;
+	width: 102.7%;
+}
+button{
+	width: 50%;
+	height: 50px;
+	text-align: center;
+	font-size: 16px;
+	border: 0;
+	border-top: 1px solid #e5e5e5;
+	border-radius: 0;
+}
+.btnBox .confirm{
+	color: #fff;
+	background: #fa7921;
+	border-color: #fa7921;
+}
+
+/*show*/
+.show{
+	background: #fff;
+	margin-top: 10px;
+}
+.show li{
+	display: flex;
+	padding: 15px;
+	position: relative;
+}
+.show li:after{
+	position: absolute;
+	left: 12px;
+	right: 0;
+	bottom: 0;
+	height: 1px;
+	content: '';
+	background-color: #e5e5e5;
+}
+.show li img{
+	width: 28%;
+	height: 90px;
+}
+.show li .text{
+	width: 50%;
+	margin-left: 10px;
+	font-size: 15px;
+}
+.show li .text .true{
+	display: inline-block;
+	margin-top: 30px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #f53734;
+}
+.show li .text .true .icon{
+	font-size: 14px;
+	font-weight: 100;
+}
+.show li .text .fake{
+	color: #999;
+	font-size: 12px;
+	text-decoration: line-through;
+}
+.show li .goBuy{
+	width: 20%;
+	height: 35px;
+	line-height: 35px;
+	background: #fa7921;
+	color: #fff;
+	text-align: center;
+	position: relative;
+	top: 40px;
+	float: right;
+	font-size: 14px;
+	border-radius: 2px;
+}

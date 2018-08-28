@@ -1,0 +1,242 @@
+*{
+	padding: 0;
+	margin: 0;
+ 
+}
+body,html{
+	background: #f5f5f9;
+}
+.mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item{
+	border-top: none;
+	border-bottom: none;
+}
+/*头部*/
+#header{
+	background: #FA7921;
+	height: 44px;
+	padding: 0 10%;
+	z-index: 2888;
+}
+#header .search img{
+	width: 31px;
+	height: 31px;
+}
+.mui-input-group {
+	width: 100%;
+	height: 30px;
+	border: 1px solid #fff;
+	border-radius: 18px;
+	position: relative;
+	top: 5px;
+}
+#search_box{
+	text-indent: 12%;
+	padding-top:5px;
+	color:#999;
+	font-size: 14px
+}
+
+.mui-input-group .mui-input-row{
+	height: 30px;
+	position: relative;
+}
+.mui-input-group .mui-input-row .search{
+	position: absolute;
+	top: -12px;
+	left: -4%;
+}
+/*输入框边线*/
+.mui-input-group:before{
+	height: 0;
+}
+.mui-input-group:after{
+	height: 0;
+}
+.mui-input-group .mui-input-row:after{
+	height: 0;
+}
+.mui-input-group input{
+	height: 30px;
+	position: absolute;
+	text-align: left;
+	text-indent: 50px;
+	font-size: 15px;
+}
+.mui-input-row label~input{
+	width: 100%;
+}
+.mui-bar .mui-input-row .mui-input-clear~.mui-icon-clear{
+	top: -6px;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	font-size: 13px;
+	color: #999;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	-webkit-box-shadow: none;
+}
+/*tab样式*/
+.tabBox{
+	position: fixed;
+	top: 65px;
+	left: 0;
+	padding: 5px 8px 5px 8px;
+	font-size: 14px;
+	z-index: 889;
+	width: 100%;
+}
+.tabBox a{
+	border-radius: 24px;
+}
+.mui-segmented-control .mui-control-item{
+	line-height: 30px;
+}
+.mui-segmented-control.mui-scroll-wrapper{
+	height: 42px;
+}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+	border: none;
+}
+/*底部栏*/ 
+.mui-bar-tab{
+	text-align: center;
+	background: #fff;
+	border-top: 1px solid #E5E5E5;
+	opacity: 0.95;
+}
+.mui-bar-tab a{
+	font-size: 11px;
+	color: #999;
+}
+.mui-bar-tab img{
+	width: 15px;
+	height: 15px;
+}
+/*展示内容*/
+/*人气*/
+/*上*/
+.mui-bar-nav~.mui-content{
+	padding-top: 10px;
+}
+/*取消列表的伪元素*/
+.mui-table-view:before{
+	content: none;
+}
+.mui-table-view-cell:before{
+	content: none;
+}
+.mui-table-view-cell:after{
+	content: none;
+}
+/*列表内容*/
+.mui-table-view-cell{
+	background: #F0F0F0;
+	padding: 10px 10px 0 10px;
+}
+.mui-table-view-cell .mui-row{
+	background: #fff;
+}
+.mui-table-view-cell .content .mui-col-xs-8 ,.mui-content .content .mui-col-sm-8 {
+	padding-right: 5px;
+}
+.mui-table-view-cell .content .mui-col-xs-8 img,.mui-content .content .mui-col-sm-8 img{
+	width: 100%;
+	height: 160px;
+}
+.mui-table-view-cell .content .mui-col-xs-4 img,.mui-content .content .mui-col-sm-4 img{
+	width: 100%;
+	height: 77px;
+}
+.mui-table-view-cell .content .mui-col-xs-4 img:nth-of-type(2),.mui-content .content .mui-col-sm-4 img:nth-of-type(2){
+	position: relative;
+	/*top: 1px;*/
+}
+/*下*/
+.mui-table-view-cell .content .contentText{
+	position: relative;
+	padding:10px;
+}
+.mui-table-view-cell .content .contentText p{
+	font-size: 18px;
+	margin-bottom: 0;
+	color: #333;
+	font-weight: bold;
+}
+.mui-table-view-cell .content .contentText .satisfy{
+	position: absolute;
+	right: 0;
+	top: 10px;
+	width: 65px;
+	height: 27px;
+}
+.mui-table-view-cell .content .contentText .score{
+	z-index: 1;
+	position: absolute;
+	right: 4px;
+	top: 14px;
+	font-weight: bold;
+	color: #fff;
+	font-size: 16px;
+}
+.mui-table-view-cell .content .textBox{
+	/*display: flex;*/
+	margin-top: 20px;
+}
+.mui-table-view-cell .content .textBox .left{
+	/*width: 50%;*/
+	float: left;
+}
+.mui-table-view-cell .content .textBox .right{
+	/*width: 50%;*/
+	float: right;
+	display: flex;
+	padding-left: 2px;
+}
+.mui-table-view-cell .content .textBox .right li{
+	list-style: none;
+	font-size: 12px;
+	color: #666;
+	padding: 0 10px;
+}
+.mui-table-view-cell .content .textBox .right li:not(:last-child){
+	border-right: 1px solid #CBCBCB;
+}
+.mui-table-view-cell .content .textBox .sale{
+	display: inline-block;
+	width: 62px;
+	height: 20px;
+	background: #fcf1ff;
+	text-align: center;
+	font-size: 11px;
+	border-radius: 4px;
+	color: #7062a1;
+}
+.mui-table-view-cell .content .textBox .voucher{
+	display: inline-block;
+	width: 70px;
+	height: 20px;
+	background: #fff1f1;
+	text-align: center;
+	font-size: 11px;
+	border-radius: 4px;
+	color: red;
+}
+
+.imgs{
+	position: relative;
+	overflow: hidden;
+}
+.imgTips{
+	position: absolute;
+	top:14px;
+	left:-20px;
+	background-color: #FA7921;
+	font-size: 12px;
+	line-height: 18px;
+	height: 18px;
+	color: #fff;
+	padding: 0 18px 0 18px;
+	-webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+}
+

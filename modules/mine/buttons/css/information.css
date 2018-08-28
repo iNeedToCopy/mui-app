@@ -1,0 +1,66 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body,.mui-content{
+	background: #fff;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+.mui-content>.mui-table-view:first-child{
+	margin-top: 0px;
+}
+.mui-table-view .mui-table-view-cell{
+	display: flex;
+	padding: 20px 15px 10px 15px;
+}
+.mui-table-view-cell .circle{
+	width: 20%;
+}
+.mui-table-view-cell .circle div{
+	width: 58px;
+	height: 58px;
+	border-radius: 29px;
+}
+.mui-table-view-cell .circle div span{
+	font-size: 18px;
+	position: relative;
+	top: 18px;
+	left: 20%;
+}
+.mui-table-view-cell .text{
+	width: 55%;
+	margin-left: 10px;
+}
+.mui-table-view-cell .text .type{
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.mui-table-view-cell .text p{
+	font-size: 14px;
+	color: #999;
+}
+.mui-table-view-cell .date{
+	float: right;
+	position: relative;
+	top: -5px;
+	font-size: 12px;
+	color: #b5b5b5;
+}
+.mui-table-view:before{
+	content: none;
+}
+.mui-table-view:after{
+	background-color: #e5e5e5;
+}

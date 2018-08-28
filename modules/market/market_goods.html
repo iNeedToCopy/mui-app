@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>超市订单</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <!--<link rel="stylesheet" type="text/css" href="../common/css/common.css"/>-->
+	    <link rel="stylesheet" type="text/css" href="css/market_goods.css"/>
+	</head>
+	<body>
+		<div id="container"> 
+			<div id="popover-preferential" class="mui-popover mui-popover-action mui-popover-bottom">
+				<div class="title mui-clearfix">
+					<img src="../../images/payClose.png"/>
+					<p>权益保障</p>
+				</div>
+				<div class="textBox">
+					<div class="item">
+						<img src="../../images/selected.png"/>
+						<div class="text">
+							<span>随时退</span>
+							<p>购买后未使用，可随时申请退款</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="../../images/selected.png"/>
+						<div class="text">
+							<span>过期退</span>
+							<p>单份宝贝，购买后未使用且已过有效期，将自动退款，多份宝贝，到期后，剩余未使用的份数将自动退款</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="../../images/selected.png"/>
+						<div class="text">
+							<span>支持上门</span>
+							<p>该商品支持上门服务</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--banner-->
+			<div class="mui-slider">
+			    <div class="mui-slider-group">
+			        <div class="mui-slider-item" v-for="e in slide.small">
+			        	<a href="#"><img :src="e"/></a>
+			        </div>
+			    </div>
+			    <div class="current_img">{{current_img}}<span>/{{slide.small.length}}</span></div>
+			</div>
+			<!--商品信息-->
+			<div class="goods_info">
+				<div class="goods_name">{{base_info.gname}}</div>
+				<div class="goods_price mui-clearfix">
+					<div class="mui-pull-left" style="margin-top: 5px;">
+						<span class="price">￥<span>{{base_info.price.intpart}}</span>.{{base_info.price.floatpart}}</span>
+						<span v-show="!!base_info.benefit" class="preferential">{{base_info.benefit}}</span>
+					</div> 
+					<div class="goods_hots mui-pull-right">
+						<p v-if="!!base_info.popularitycount">人气
+							<img v-for="k in base_info.popularitycount" src="../../images/market/hots.png"/>
+						</p>
+						<p v-if="!!base_info.popularitycount">速度
+							<img v-for="k in base_info.sendspeed" src="../../images/market/speed.png"/>
+						</p>
+					</div>
+				</div>
+				
+				<div class="goods_express">
+					<span style="order:0">运费：{{base_info.fee}}</span>
+					<span style="order:1">已售{{base_info.salecount}}份</span>
+					<span style="order:2">{{base_info.sourceplace}}</span>
+				</div>
+				
+				<div class="goods_size mui-clearfix" @tap="choose_size()">
+					<span>选择规格</span>
+					<span class="choose_size">
+						<span>{{goods_sizes}}</span>
+						<span class="mui-icon mui-icon-arrowright" style="font-size: 20px;"></span>
+					</span>
+				</div>
+				
+				<div class="goods_preferential"> 
+					<a class="mui-clearfix" style="color: #333;">
+						<span v-for="e in base_info.servicelabel">
+							<img src="../../images/selected.png"/>
+							{{e}}
+						</span> 
+					</a>
+				</div> 
+			</div>
+			<!--商品详情-->
+			<div class="goods_detail">
+				<div class="title">商品详情</div>
+				<div class="content">{{base_info.detail}}</div>
+				<div class="image-text" @tap='goto_detail()'>查看图文详情</div>
+			</div>
+			<!--用户评价-->
+			<div class="user_evaluation mui-clearfix">
+				<div class="title">用户评价</div>
+				<div v-if="comments.length>0" class="user_info" v-for="e in comments">
+					<div class="nickname mui-clearfix">
+						<img :src="e.logo"/> 
+						<p>
+							<span>{{e.username}}</span><br />
+							<img :style="{'width':e.score+'em'}" :src="'../../images/ic_star_'+e.score+'.png'"/>
+						</p>
+						<div class="time">{{e.create_time}}</div>
+					</div>
+					<div class="evaluation"> 
+						<div class="content">{{e.text}}</div>
+						<div class="evaluation_imgs" v-if="e.smallimg.length>0">
+							<img v-for="(k,i) in e.smallimg" :src="k" :key="k+i" @tap="previewImage(i,e.bigimg)"/> 
+							<img v-if="e.smallimg.length>3" v-for="n in e.smallimg.length%3" style="opacity: 0;"/> 
+							<img v-if="e.smallimg.length<4" v-for="n in 3-e.smallimg.length" style="opacity: 0;"/>
+						</div>
+					</div>
+				</div>
+				<div class="allevaluation" @tap="goto_allComment()">查看全部评价</div>
+			</div> 
+			<!--为您推荐-->
+			<div class="recommend">
+				<div class="title">为您推荐</div>
+				<ul class="mui-clearfix load_lis">
+					<li v-for="e in recom" @tap="goto_recom(e.id)">
+						<div class="img">
+							<img v-if="e.ifpopularity" class="img_tips" src="../../images/market/hot_goods.png"/>
+							<img :src="e.logo"/>
+						</div>
+						<div class="goods_intro">
+							{{e.gname}}
+						</div>
+						<div class="goods_info">
+							<span class="price">
+								￥<span style="font-size: 18px;">{{e.price.intpart}}</span>.{{e.price.floatpart}}
+							</span>
+							<span class="sales">
+								已售{{e.salecount}}份
+							</span>
+							<span class="hots" v-if="e.popularitycount != 0">
+								<img v-for="e in e.popularitycount" src="../../images/market/hots.png"/> 
+							</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!--底部提示-->
+			<div class="goods_bottom">
+				这里是我的底线了
+			</div>
+			<!--购买-->
+			<div class="goods_operate">
+				<span class="collect" :class="[iscollect ? 'iscollect_color' :'nocollect_color']" @tap="collect()">
+					<span class="mui-icon-extra" :class="[iscollect ? 'mui-icon-extra mui-icon-extra-heart-filled' :'mui-icon-extra-heart']"></span>
+					{{iscollect ? "已收藏" : "收藏"}}
+				</span> 
+				<span class="car" @tap="add_car()">加入购物车</span>
+				<span class="buy" @tap="pay_now()">立即购买</span>
+			</div>
+			<!--弹出规格选择-->
+			<div id="popover" class="mui-popover mui-popover-action mui-popover-bottom" style="background: #fff;">
+				<div style="padding-left: 15px;">
+					<div class="selected">
+						<div class="selected_img">
+							<img :src="slide.small[0]"/>
+						</div>
+						<p>
+							<span class="popover_price">￥<span>{{size_price.price.intpart}}</span>.{{size_price.price.floatpart}}</span><br />
+							<span>已选："{{checked_sizes}}"</span>
+						</p>
+					</div>
+					<div class="size" :class="{padding_top:i===0}" v-for="(e,i) in specs">
+						<div class="title">{{e.name}}</div>
+						<div class="sizes">
+							<span :class="{selected_size:k.checked}" v-for="(k,j) in e.list" @tap="change_size(i,j)">{{k.name}}</span>
+						</div>
+					</div>
+					<div class="count mui-clearfix">
+						 <span>数量</span>
+						 <div class="mui-pull-right">
+						 	<span>库存{{this.stock}}</span>
+							<div class="mui-numbox" data-numbox-step='1' data-numbox-min='1' data-numbox-max='10'>
+							    <button @tap="update_amount()"class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+							    <input class="mui-input-numbox" type="number" readonly="readonly" v-model="buy_count"/>
+							    <button @tap="update_amount()"class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+							</div>
+						 </div>
+					</div>
+				</div>
+				<div class="ok" @tap="ok_size()"> 
+					确定
+				</div>
+			</div>
+		</div>
+		
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/market_goods.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

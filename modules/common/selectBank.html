@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>银行卡</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bankList.css"/>
+		<style type="text/css">
+			.btnBox{
+				width: 100%;
+				padding: 5px 5%;	
+			}
+			button{
+				text-align: center;			
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">银行卡</h1>
+			</div>
+		</header>
+		<div class="mui-content" id="container">
+			<div  class="bigBox">
+				<div class="item" v-for="item in items" :style="{'background': 'url(../../images/banks/'+item.bank_id+'.png) no-repeat','background-size': 'contain'}" @tap="selected(item)">
+					<div class="left">
+					</div>
+					<div class="text">
+						<span>{{item.bankname}}</span>
+						<p>{{item.bankno}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="btnBox" v-if="items.length==0">
+				<button type="button" @tap="add_bank()">添加银行卡</button>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js"></script>
+		<script src="../../js/ajax.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			//展示数据
+			var container = new Vue({
+				el:"#container",
+				data:{
+					items:[]
+				},
+				methods:{
+					load_info:function(){
+						app.http_get('/my/bank',
+							function(ret){
+								if(ret.code == 200)
+								{
+									container.items = ret.data;
+								}
+								console.log(JSON.stringify(ret))
+							},function(x,t,e){
+								console.log(e)
+							}
+						)
+					},
+					selected:function(item){
+						mui.fire(plus.webview.currentWebview().opener(),"bank_selected",item);
+						mui.back();
+					},
+					add_bank:function(){
+						app.show_webview_fire("addCard","loadinfo",{});
+					}
+				}
+			});
+			mui.ready(function(){
+				window.addEventListener('loadinfo',function(event){
+					container.load_info();
+				});
+				mui.back = function(event)
+				{
+					container.items = [];
+				   	app.update_opener();
+				   	plus.webview.hide(plus.webview.currentWebview(),"slide-out-right");
+				};
+			})
+		</script>
+	</body>
+</html>

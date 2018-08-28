@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>超市订单</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" type="text/css" href="../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/market_orders.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <span class="mui-title">超市订单</span>
+				    <span class="mui-pull-right mui-icon more_order" @tap="goto_more()">更多订单</span>
+				</div>
+			</header>
+			<!--内容--> 
+			<div class="mui-content">
+				<div class="order_status">
+					 <span v-for="item in order_status" :class="{status_active:item.active}" @tap="change_status(item.ordertype)">{{item.status}}</span>
+				</div>
+				<div v-show="isloading" id='lottie' style="margin: 50% auto; width: 80px;"></div>
+				<div v-show="!isloading && orderlist.length>0" class="all_orders" :style="{height:height}">
+					<div class="order_info" v-for="e in orderlist">
+						<div class="order_time">
+							<span>{{e.ordertime}}</span>
+							<span class="mui-pull-right">{{e.orderdesc}}</span>
+						</div>
+						<div class="order_goods" v-for="k in e.glist" @tap="goto_detail(e.orderid)">
+							<img :src="k.logo"/>
+							<div class="order_subtotal">
+								<span class="order_name">{{k.gname}}</span>
+								<span class="order_feature">{{k.spec}}</span><br />
+								<span class="order_count">x{{k.buycount}}<span>小计：￥{{k.allprice.intpart}}.{{k.allprice.floatpart}}</span></span>
+							</div>
+						</div>
+						<div class="order_total">
+							<div class="order_total" @tap="toggle(e)">
+								<div class="preferential mui-clearfix">优惠满减
+									<span class="mui-pull-right">合计优惠：
+										<span class="order_discount">{{!!e.allbenefit ? '-'+e.allbenefit : '无'}}</span>
+										<span class="mui-icon" 
+											:class="{'mui-icon-arrowup':e.benefitlistifenable,'mui-icon-arrowdown':!e.benefitlistifenable}" 
+											style="font-size: 16px;color: #999;"></span>
+										</span>
+									</span>
+								</div>
+							</div>
+							<transition name="move">  
+								<div v-show="e.benefitlistifenable" class="bottom_items">
+									<div class="item" v-for="n in e.benefitlist">
+										<img :src="n.glogo"/>
+										<span>{{n.gname}}</span>
+										<div class="bottom_preferential">
+											满<span>{{n.man}}</span>减<span>{{n.jian}}</span>
+										</div>
+									</div>
+								</div>
+							</transition>
+							<div class="mui-clearfix" style="padding: 8px 15px;">
+								<div class="mui-pull-right">
+									<span>共{{e.allbuycount}}件商品</span>&nbsp;&nbsp;
+									<span>合计:<span class="order_discount">￥{{e.allmoney}}</span></span>
+									<span style="font-size: 12px;">(含运费:￥{{e.allfee}})</span>
+								</div>
+							</div>
+						</div>
+						<div class="order_pay">
+							<span>订单号：{{e.orderid}}</span>
+							<div class="order_action">
+								<div class="order_spans">
+									<span v-for="m in e.buttonlist" :class="m" @tap="order_action(m,e.orderid,e)">
+										{{get_btnlist(m,e)}}
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--无订单详情-->
+				<div v-show="!isloading && orderlist.length<=0" class="no_more_order">
+					<img src="../../images/market/no_more_order.png"/>
+					<p>暂没有相关订单</p>
+				</div>
+			</div>
+			<vuepaypad ref='paypad' @do_action="do_action"></vuepaypad>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/lottie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/components/paypad.min.js" type="text/javascript"></script>
+	   	<script src="js/market_orders.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

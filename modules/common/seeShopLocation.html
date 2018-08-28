@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" href="css/seeShopLocation.css"/>
+	</head>
+
+	<body>
+	 	<div id="show">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">商家地图</h1>
+				</div>
+			</header>
+			<div class="mui-content"  style="top:60px;">
+				<div class="container" id="amap"></div>
+				<div class="box">
+						<span>{{shopName}}</span> 
+						<p>{{location}}</p>
+					<button type="button" @tap='openMaps'>地图导航</button>
+				</div>
+			</div>
+		</div>
+	    <script src="http://webapi.amap.com/maps?v=1.4.6&key=a31366089dc25d2353e2d4fd5999df70"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js"></script>
+		<script src="js/seeShopLocation.js"></script>
+	</body>
+
+</html>

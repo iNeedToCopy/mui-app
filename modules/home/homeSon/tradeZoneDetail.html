@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>商圈</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../../../css/mui.min.css">
+		<link rel="stylesheet" href="../../common/css/common.css"/>
+		<link rel="stylesheet" href="css/tradeZoneDetail.css"/>
+	</head>
+	<body>
+		<div id="container" class="">
+		    <div>
+		        <div class="head">
+					<img :src="baseinfo.logo" class="little"/>
+					<!--轮播图片-->
+					<div id="slider" class="mui-slider">
+						<div class="mui-slider-group">
+					
+							<div class="mui-slider-item">
+								<a href="#">
+									<img :src="baseinfo.bgimg">
+								</a>
+							</div>
+						</div>
+					</div>
+					<div id="tradeText" class="tradeText">
+						<div>
+							<p style="font-weight: bold;font-size: 18px;">{{baseinfo.name}}</p>
+							<div class="bottom">
+								<img src="../../../images/ic_map.png"/>&nbsp;
+								<span style="font-size: 14px;color:#333333">{{baseinfo.address}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--优惠-->
+				<div id="reduction" class="ad marginTop10">
+					<div class="adBox">
+						<div class="top">
+							<span style="font-weight: bold;font-size: 14px;color:#333333">商圈优惠</span>
+							<a class="nearbyReductionMore" @tap="goto_nearbyReductionMore()">更多</a>
+							<img src="../../../images/ic_home_more.png" class="arrow"/>
+						</div>
+						<div class="content">
+							<div class="mui-row" >
+						        <div class="mui-col-sm-4 mui-col-xs-4 font14" v-for="g in good" @tap="goto_shopdetail(g.id)">
+						        	<img :src="g.logo" class="detail"/><br />
+						        	<p>{{g.name}}</p>
+						        	<span class="one">{{g.desc}}</span>
+						        </div>
+						
+					    	</div>
+						</div>
+					</div>
+				</div>
+				<!--聚划算-->
+				<div class="ad marginTop10" id="hs">
+					<div class="adBox">
+						<div class="top">
+							<span style="font-weight: bold;font-size: 14px;color:#333333">商圈聚划算</span>
+							<a class="JMore" @tap="goto_Jmore()">更多</a>
+							<img src="../../../images/ic_home_more.png" class="arrow"/>
+						</div>
+						<div class="content">
+							<div class="mui-row">
+						        <div class="mui-col-sm-4 mui-col-xs-4 font14" v-for="l in low" @tap="goto_goodsdetail(l.id)">
+						        	<img :src="l.logo" class="Gdetail"/><br />
+						        	<p>{{l.name}}</p>
+						        	<p class="price"><span>￥</span>{{l.discount_price}}</p>
+						        </div>
+					    	</div>
+						</div>
+					</div>
+				</div>
+			 	<!--推荐商家-->
+		        <div id="recommend" class="recommend">
+		        	<ul class="mui-table-view marginTop10">
+		        		<li class="mui-table-view-cell first">
+		                	<span style="font-weight: bold;font-size: 14px;color:#333333">推荐商家</span>
+			            </li>
+			            <li class="mui-table-view-cell item" v-for="shop in shoplist">
+			        		<a class="mui-navigate-right" @tap="goto_shopdetail(shop.id)">
+			                	<div class="left">
+			                		<img :src="shop.logo"/>
+			                	</div>
+			                	<div class="right">
+			                		<p><span>({{shop.name}})</span></p>
+			                		<span class="satisfy">满意度{{shop.all_score}}&emsp;&emsp;<span class="per">人均{{shop.per_price}}</span></span><br />
+			                		<span class="distance">{{shop.classname}}&emsp;{{shop.distance}}</span><br />
+			                		<span v-if="shop.hongbao_desc != undefined" class="free"><img src="../../../images/ic_sj.png"/>&nbsp;{{shop.hongbao_desc}}</span><br />
+			                		<span v-if="shop.cash_desc != undefined" class="voucher"><img src="../../../images/ic_juan.png"/>&nbsp;{{shop.cash_desc}}</span>
+			                	</div>
+				            </a>
+			            </li>
+			            <li class="mui-table-view-cell seeAll">
+			        		<a @tap="goto_seeAll()">
+			                	查看全部商家
+				            </a>
+			            </li>
+			        </ul>
+		        </div>
+		        <!--温馨提示-->
+		        <div class="tip marginTop10">
+		        	<div>    
+			        	<span style="color: #333;font-size: 16px">温馨提示</span>
+			        	<p style="color: #737373;font-size: 14px">营业时间：{{baseinfo.worktime}}</p>
+			        	<p style="color: #737373;font-size: 14px">联系电话：{{baseinfo.phone}}</p>
+		        	</div>
+		        </div>
+		    </div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+		
+		<script src="js/tradeZoneDetail.js"></script>
+	</body>
+
+</html>

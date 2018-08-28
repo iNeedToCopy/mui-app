@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>聚划算更多</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/JMore.css"/>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <img src="../../../images/jhs.png"/>
+			</div>
+		</header>
+		<div id="container" class="">
+			<vue-filter ref="filter" @category_changed="category_changed" 
+						@distance_changed="distance_changed" 
+						@sort_changed="sort_changed" 
+						@filter_changed="filter_changed">
+				<vue-loadmore ref = "pullup" @append = "append" :object="'/goods/search?classid='+classid+'&distance='+distance+'&sort='+sort+filter">
+		        	<ul class="show">
+						<li v-for="item in items">
+							<img :src="item.logo"/>
+							<div class="text">
+								<span>{{item.name}}</span><br />
+								<span class="true"><span class="icon">￥</span>{{item.discount_price}}</span><br />
+								<span class="fake">{{item.source_price}}</span>
+							</div>
+							<span class="goBuy" @tap="goto_goods_details(item.id)">去抢购</span>
+						</li>
+					</ul>
+					<div style="height: 50px;"></div>
+			   </vue-loadmore>
+			</vue-filter>	
+		</div>	 	
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/components/Loadmore.min.js"></script>
+		<script src="../../../js/components/Filter.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/app.js"></script>
+		
+		<script src="js/nearsearch.js"></script>
+	</body>
+</html>

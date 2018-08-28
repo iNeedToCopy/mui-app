@@ -1,0 +1,45 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #e5e5e5;
+}
+ul{
+	background: #fff;
+}
+ul li{
+	height: 60px;
+	position: relative;
+	padding: 10px 15px;
+}
+ul li:after{
+	position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 12px;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #e5e5e5;
+}
+ul li span{
+	font-size: 15px;
+}
+ul li .right{
+	position: absolute;
+	top: 18px;
+	right: 6%;
+	color: #f63837;
+	font-size: 20px;
+}

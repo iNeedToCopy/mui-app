@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>交易成功</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" type="text/css" href="../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/deal_success.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <span class="mui-title">交易成功</span>
+				</div>
+			</header>
+			<div class="mui-content">
+				<div class="order_status mui-clearfix">
+					<div class="point_out">
+					 	<span>已完成交易</span><br />
+					 	<span>感谢您使用海掌柜购物给本次购物一个好评吧</span>
+					</div>
+					<img src="../../images/market/deal_success.png"/>
+				</div>
+				<div class="order_btn">
+					<div class="look_order">查看订单</div>
+					<div class="appraise_order" @tap="change_page()">立即评价</div>
+				</div>
+				<div class="goods_bottom">您可能还想买</div>
+				<ul class="mui-clearfix load_lis">
+					<li @tap="goto_detail()">
+						<div class="img">
+							<img class="img_tips" src="../../images/market/hot_goods.png"/>
+							<img src="../../images/inner.jpg"/>
+						</div>
+						<div class="goods_intro">
+							中恋 羊乳古皂 手工冷制哈哈哈哈哈
+						</div>
+						<div class="goods_info">
+							<span class="price">
+								￥<span style="font-size: 18px;">88</span>.80
+							</span>
+							<span class="sales">
+								已售8000份
+							</span>
+							<span class="hots">
+								<img src="../../images/market/hots.png"/>
+								<img src="../../images/market/hots.png"/>
+								<img src="../../images/market/hots.png"/>
+							</span>
+						</div>
+					</li>
+					<li>
+						<div class="img">
+							<img class="img_tips" src="../../images/market/hot_goods.png"/>
+							<img src="../../images/inner.jpg"/>
+						</div>
+						<div class="goods_intro">
+							中恋 羊乳古皂 手工冷制哈哈哈哈哈
+						</div>
+						<div class="goods_info">
+							<span class="price">
+								￥<span style="font-size: 18px;">88</span>.80
+							</span>
+							<span class="sales">
+								已售8000份
+							</span>
+							<span class="hots">
+								<img src="../../images/market/hots.png"/>
+								<img src="../../images/market/hots.png"/>
+								<img src="../../images/market/hots.png"/>
+							</span>
+						</div>
+					</li>
+					<li>
+						<div class="img">
+							<img class="img_tips" src="../../images/market/hot_goods.png"/>
+							<img src="../../images/inner.jpg"/>
+						</div>
+						<div class="goods_intro">
+							中恋 羊乳古皂 手工冷制哈哈哈哈哈
+						</div>
+						<div class="goods_info">
+							<span class="price">
+								￥<span style="font-size: 18px;">88</span>.80
+							</span>
+							<span class="sales">
+								已售8000份
+							</span>
+							<span class="hots">
+								<img src="../../images/market/hots.png"/>
+								<img src="../../images/market/hots.png"/>
+								<img src="../../images/market/hots.png"/>
+							</span>
+						</div>
+					</li>
+				</ul>
+				<!--无商品-->
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/deal_success.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

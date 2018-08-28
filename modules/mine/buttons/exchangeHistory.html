@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>兑换记录</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/exchangeHistory.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title" >兑换记录</h1>
+			</div>
+		</header>
+		<div class="mui-content" id="container">
+			<vue-loadmore ref="pullup" @append="append" :object="url">
+				<ul>
+					<li v-for="item in items">
+						<img :src="item.header"/>
+						<div class="text">
+							<p style="color: #333;">订单号：{{item.id}}</p>
+							<p style="color: #333;" class="mui-ellipsis">{{item.name}}</p>
+							<p>兑换信息：<span class="status">{{item.statusdesc}}</span></p>
+							<p v-show='item.integral'>用去了：积分{{item.integral}}+信值{{item.letter}}</p>
+							<p v-show='item.silver'>用去了：{{item.silver}}银豆</p>
+							<p>数量：{{item.count}}</p>
+							<p>兑换时间：{{item.date}}</p>
+						</div>
+					</li>
+				</ul>
+			</vue-loadmore>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		
+	   	<script src="js/exchangeHistory.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

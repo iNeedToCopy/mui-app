@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>店铺停业</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/shopStop.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">店铺停业</h1>
+			    <span class="save">保存</span>
+			</div>
+		</header>
+		<div id="container" class="mui-content">
+			<ul id="show">
+				<li v-for="show in items">
+					<img src="../../../images/img-14.png"/>
+					<div class="text">
+						<span>{{show.shopName}}</span>
+						<p>{{show.location}}</p>
+					</div>
+				</li>
+			</ul>
+			<form class="mui-input-group marginTop10">
+			    <div class="mui-input-row">
+			   		<input type="text" class="mui-input-clear" placeholder="请输入停业原因">
+			    </div>
+			</form>
+			<div class="checked">
+				<div class="top">
+					<div class="item" onclick="doAct(this)">停业3天</div>
+					<div class="item marginLeft" onclick="doAct(this)">停业30天</div>
+					<div class="item marginLeft" onclick="doAct(this)">停业半年</div>
+				</div>
+				<div class="bottom">
+					<div class="item" onclick="doAct(this)">停业1年</div>
+					<div class="item marginLeft" onclick="doAct(this)">解除停业</div>
+					<div class="item marginLeft" onclick="doAct(this)">永久停业</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+	   	<script src="js/shopStop.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body,.mui-content{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+
+.bigBox{
+	padding: 20px 15px;
+}
+.bigBox .item{
+	margin-bottom: 10px;
+	height: 120px;
+	border-radius: 4px;
+	display: flex;
+	padding: 25px 20px;
+	color: #333;
+}
+.bigBox .item .left{
+	width: 16%;
+}
+.bigBox .item .picBox{
+	width: 36px;
+	height: 36px;
+	border-radius: 18px;
+	background: #fff;
+}
+.bigBox .item .picBox img{
+	width: 32px;
+	height: 32px;
+	position: relative;
+	top: 2px;
+	left: 5%;
+}
+.bigBox .item .text{
+	width: 84%;
+}
+.bigBox .item .text span{
+	position: relative;
+	
+}
+.bigBox .item .text p{
+	color: #333;
+	margin-bottom: 0;
+	margin-top: 25px;
+	font-size: 20px;
+}

@@ -1,0 +1,140 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+header .help{
+	position: relative;
+	right: -83%;
+	color: #fff !important;
+}
+header{
+	padding-top:30px;
+	height: 186px;
+	background-image:url('../../../../images/hongdou/bg.png');
+	background-repeat: no-repeat;
+	background-size:contain;
+} 
+.mui-row{
+	padding-left:10px;
+}
+.mui-icon,.mui-title{
+	color: #ffffff;
+}
+.mui-icon{
+	position: relative;
+	top:4px;
+	z-index: 999;
+}
+
+.mui-bar{
+	background-color: #fff;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+.mui-bar a{
+	color: #000;
+}
+.mui-col-sm-6{
+	height: 80px !important;
+	padding-right: 15px !important;
+	padding-left: 15px !important;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+/*底部*/
+.mui-bar-tab{
+	padding: 0 0px;
+	line-height: 50px;
+}
+nav .mui-pull-left{
+	text-align: center;
+	width: 50%;
+	position: relative;
+}
+nav .mui-pull-left span{
+	color: #e74444;
+}
+nav .mui-pull-right{
+	text-align: center;
+	background-color: #fc6018;
+	width: 50%;
+}
+nav .mui-pull-right span{
+	color: #ffffff;
+	
+}
+nav .line{
+	display: inline-block;
+	width: 1px;
+	height: 23px;
+	background: #E5E5E5;
+	position: absolute;
+	top: 12px;
+	right: 0;
+}
+/*内容*/
+.warehouse{
+	height: 170px;
+	background: linear-gradient(90deg,#fd94b7,#f5588d);
+	padding: 15px;
+	color: #fff;
+}
+.warehouse .top{
+	font-size: 15px;
+}
+.warehouse .middle{
+	text-align: center;
+	line-height: 110px;
+	font-size: 30px;
+	font-weight: bold;
+}
+/*text*/
+.text{
+	height: 160px;
+	background: #fff;
+	/*text-align: center;*/
+	padding-bottom: 20px;
+}
+.text .mui-row .mui-col-sm-6,.text .mui-row .mui-col-xs-6{
+	padding: 7% 0;
+}
+/*.text .mui-row .mui-col-sm-6 span,.text .mui-row .mui-col-xs-6 span{
+	font-weight: bold;
+}*/
+/*.text .mui-row .mui-col-sm-6 p,.text .mui-row .mui-col-xs-6 p{
+	color: #666;
+	margin-top: 4px;
+}*/
+
+.mui-col-sm-6 img{
+	width: 26px;
+	position: relative;
+	top:10px;
+}
+
+.num{
+	font-size: 20px;
+	color: #fa7921;
+	font-weight: bold;
+	float: right;
+	position: relative;
+	top:10px;
+	right:10px;
+}
+span.caption{
+	font-size: 14px;
+	color: #737373;
+}
+
+.detail{
+	text-align: right;
+	padding-right:20px;
+	padding-top:20px;
+	
+}
+.detail img{
+	width: 60px;
+}

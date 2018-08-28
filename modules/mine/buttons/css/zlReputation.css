@@ -1,0 +1,75 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+header span{
+	position: relative;
+	top: 12px;
+	right: -75%;
+	font-size: 15px;
+}
+.mui-bar{
+	background-color: #fff;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+.mui-bar{
+	background: linear-gradient(90deg,#1da9df,#2670e6);
+}
+.mui-bar h1{
+	color: #fff;
+}
+.mui-bar a{
+	color: #fff;
+}
+.mui-bar span{
+	color: #fff;
+}
+/*show*/
+.show{
+	height: 175px;
+	background: linear-gradient(90deg,#1da9df,#2670e6);
+	
+	text-align: center;
+}
+.top{
+	height: 100%;
+	
+	margin:40px;
+	margin-top:0px;
+	padding-top:30px;
+	background-image: url('../../../../images/dash.png');
+	background-size:cover
+}
+.show p{
+	padding-top: 50px;
+	color: #fff;
+	font-size: 30px;
+	font-weight: bold;
+}
+.show .bottom{
+	/*display: flex;*/
+	padding-top: 20px;
+	color: #fff;
+	font-size: 15px;
+}
+.show .bottom .text{
+	display: inline-block;
+	padding-top: 5px;
+}
+.show .bottom .left{
+	width: 50%;
+}
+.show .bottom .right{
+	width: 50%;
+}
+
+.ad img{
+	width: 100%;
+	height: 100px;
+}
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>物流详情</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" type="text/css" href="../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/logistics_detail.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <span class="mui-title">物流详情</span>
+				</div>
+			</header>
+			<!--内容-->
+			<div v-show="isloading" id='lottie' style="margin: 50% auto; width: 80px;"></div>
+			<div class="mui-content" v-show="!isloading">
+				<div class="logistics_detail">
+					<img class="items" :src="progress_info.logo"/>
+					<div class="logistics_info">
+						<p>
+							<img class="car" src="../../images/market/logistics-car.png"/>
+							{{progress_info.name}}
+						</p>
+						<p>
+							物流单号：
+							<span>{{progress_info.number}}</span>
+						</p>
+						<p>
+							服务电话：
+							<span>{{progress_info.phone}}</span>
+						</p>
+					</div>
+				</div>
+				<!--<div class="courier">
+					<img src="../../images/market/courier.png"/>
+					<div class="courier_info">
+						<span>派送员</span>
+						<span>王二</span>
+					</div>
+				</div>-->
+				<div class="logistics_progress">
+					<div class="address">
+						收货地址：{{progress_info.address}}
+					</div>
+					<div class="progress" :class="{progress_active:i == 0}" v-for="(e,i) in progress_info.detail">
+						<span class="time">{{e.date}}<br />
+							<span>{{e.time}}</span>
+						</span>
+						<span class="circle"><span></span></span>
+						<div class="progress_info">
+							<span>{{e.remark}}</span><br />
+							<span class="progress_status">{{e.desc}}</span>
+							<!--(<span>18888888888</span>)-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/lottie.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/logistics_detail.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

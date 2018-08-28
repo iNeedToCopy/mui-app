@@ -1,0 +1,153 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body,html{overflow: hidden;overflow-y: auto;}
+header{
+	padding-top:30px;
+	height: 246px;
+	color: #fff;
+	background-image: url('../../../../images/xinzhi/bg.png') !important;
+	background-size: contain;
+}
+.mui-row{
+	padding-left:10px;
+}
+.mui-icon,.mui-title{
+	color: #ffffff;
+}
+.mui-icon{
+	position: relative;
+	top:4px;
+	z-index: 999;
+}
+header .help{
+	
+	position: relative;
+	right: -85%;
+	
+}
+/*.mui-bar{
+	background: linear-gradient(90deg,#fa7a21,#e55a34);
+}
+.mui-bar h1{
+	color: #fff;
+}
+.mui-bar a{
+	color: #fff;
+}
+.mui-bar span{
+	color: #fff;
+}
+
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}*/
+/*show*/
+
+.show p{
+	color: #fff;
+	text-align: center;
+}
+.show .once{
+	padding-top: 30px;
+	color: #fbcdb1;
+}
+.show .score1{
+	font-size: 24px;
+	font-weight: bold;
+}
+.show .score2{
+	font-size: 15px;
+}
+.show .score2 img{
+	position: relative;
+	top: 1px;
+	width: 7px;
+	height: 12px;
+}
+/*total*/
+.total{
+	height: 70px;
+	padding: 15px 0;
+}
+.total>div{
+	width:50%;
+}
+.total span{
+	font-size: 15px;
+	color: #ffe8d9;
+}
+.total .score{
+	font-size: 16px;
+	color: #fff;
+}
+.total .floatLeft{
+	text-align: center;
+	width: 50%;
+	position: relative;
+}
+.total .floatRigft{
+	text-align: center;
+	width: 50%;
+}
+.total .line{
+	display: inline-block;
+	width: 1px;
+	height: 45px;
+	background: #ffbc8b;
+	position: absolute;
+	top: -5px;
+	right: 0;
+}
+
+.add{
+	text-align: center;
+	height: 44px;
+	line-height: 44px;
+	background: #fff;
+	color: #FA7921;
+	font-size: 15px;
+}
+/*便民服务*/
+.service .text{
+	height: 44px;
+	line-height: 47px;
+	color: #666;
+	font-size: 13px;
+	padding-left: 15px;
+}
+.service .icon{
+	height: 90px;
+	background: #fff;
+	display: flex;
+	padding: 24px 0;
+}
+.service .icon .iconBox{
+	width: 25%;
+	text-align: center;
+	font-size: 14px;
+	color: #333;
+}
+.service .icon .iconBox img{
+	width: 23px;
+	height: 23px;
+}
+.service .icon .iconBox  span{
+	display: inline-block;
+}
+ul li{
+	font-size: 15px;
+}
+.mui-table-view:before{
+	content: none;
+}
+.mui-table-view:after{
+	content: none;
+}
+
+/*bottom*/
+.bottom img{
+	height: 100px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>扫描二维码</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/barcode.css"/>
+	</head>
+	<style>
+	 		#bcid { 
+                width: 100%; 
+                position: absolute; 
+                top: 10px; 
+                bottom: 0; 
+                text-align: center; 
+            } 
+            .tip { 
+                color: #FFFFFF; 
+                font-weight: bold; 
+                text-shadow: 0px -1px #103E5C; 
+            } 
+	</style>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <a class="mui-pull-right" onclick="scanPicture()">相册</a>
+			</div>
+		</header>
+		<div class="mui-content">
+			<div id="bcid">
+	            <div style="height:40%"></div>
+	            <p class="tip">...载入中...</p>
+        	</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+	   	<script src="js/barcode.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

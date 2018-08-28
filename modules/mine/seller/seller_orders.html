@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商家管理</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+		<link rel="stylesheet" href="css/seller_orders.css"/>
+	</head>
+	<body>
+		<div id = "container">
+			<header id="head" class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+					
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">订单列表</h1>
+				</div>
+			</header>
+		
+			<div class="mui-content" style="background-color: #FFFFFF;padding-left:10px;padding-right:10px;">
+				<div class="title mui-text-center">
+			    	<div :class="{'current':show_type==0,'default':show_type!=0}" @tap="set_typetype(0)">
+			    		<span class="">急需处理</span>
+			    	</div>
+			    	<div :class="{'current':show_type==1,'default':show_type!=1}" @tap="set_typetype(1)">
+			    		<span>正在进行</span>
+			    	</div>
+			    	<div :class="{'current':show_type==2,'default':show_type!=2}" @tap="set_typetype(2)">
+			    		<span class="">全部订单</span>
+			    	</div>
+			    	<div :class="{'current':show_type==3,'default':show_type!=3}" @tap="set_typetype(3)">
+			    		<span>支付订单</span>
+			    	</div>
+			    </div>
+			    
+				<vue-loadmore ref = "pullup" @append="append" :object="url">
+					<ul class="mui-table-view" v-if="show_type !=3">
+				        <li class="item mui-table-view-cell" v-for="order in orders">
+				            <a class="mui-navigate-right" @tap="gotoDetail(order.orderid)">
+								<p>{{order.shopname}}&nbsp;&nbsp;&nbsp;<span :style="'color:'+order.statusdesccolor">{{order.statusdesc}}</span></p>
+								
+								<div id class="pic">
+									<img :src="order.header"/>
+									<div class="text">
+										<span class="top">{{order.goodsname}}</span><br />
+										<span class="middle">{{order.servicetype}}<span><br />
+										<span class="bottom">实付款&nbsp;{{order.money}}<span>
+									</div>
+								</div>
+				            </a>
+				       </li> 
+				    </ul>
+				    <div id="payOrder" v-else>
+				    	<ul >
+					    	<li class="item mui-table-view-cell" v-for="order in orders">
+					    		<img :src="order.logo"/>
+								<div class="text">
+									<span>{{order.username}}</span>
+									<p>{{order.create_time}}</p>
+									<span class="right">{{order.money}}</span>
+								</div>
+					    	</li>
+					    </ul>
+				    </div>
+				    
+				</vue-loadmore>
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/components/Loadmore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/seller_orders.js"></script>
+	</body>
+</html>

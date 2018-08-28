@@ -1,0 +1,105 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+html,body{
+	background: #fff;
+	width: 100%;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+/*内容*/
+.show{
+	height: 100px;
+	background: linear-gradient(90deg,#fd94b7,#f5588d);
+	padding: 10px 15px;
+	color: #fff;
+}
+header{
+	background: linear-gradient(90deg,#fd94b7,#f5588d);
+	
+}
+.show .today{
+	font-size: 12px;
+	position: relative;
+	left: 70%;
+}
+.show .center{
+	font-size: 18px;
+	text-align: center;
+}
+.show .center p{
+	margin: 10px 0 0;
+	font-size: 18px;
+	font-weight: bold;
+	color: #fff;
+}
+/*trade*/
+.trade{
+	padding-top: 70px;
+	background: #fff;
+	text-align: center;
+}
+input[type=text]{
+	width: 25%;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	height: 30px;
+	position: relative;
+	top: 2px;
+}
+.mui-input-group input{
+	border: 1px solid #ccc;
+}
+.mui-input-group:before{
+	content: none;
+}
+.mui-input-group:after{
+	content: none;
+}
+.trade span{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border: 1px solid #ccc;
+}
+.trade span img{
+	width: 15px;
+}
+.trade span .addPic{
+	position: relative;
+	top: 6px;
+}
+.trade .reduce{
+	border-right: 0;
+	position: relative;
+	left: 5px;
+}
+.trade .add{
+	border-left: 0;
+	position: relative;
+	left: -5px;
+}
+.trade .score{
+	padding: 25px;
+	margin-bottom: 0;
+	color: #333;
+}
+.trade button{
+	width: 28%;
+	height: 44px;
+	background: #fa7921;
+	color: #fff;
+	border: 0;
+	font-size: 16px;
+}

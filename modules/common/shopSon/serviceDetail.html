@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>服务人员详细资料</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/serviceDetail.css"/>
+	    <style type="text/css">
+	    	/*.blur{
+    
+    -webkit-filter: blur(3px); 
+       -moz-filter: blur(2px);
+        -ms-filter: blur(2px);    
+            filter: blur(2px);
+	    	}*/
+	    </style>
+	</head>
+	<body>
+		<header id="header" class="mui-bar "><!--mui-bar-transparent-->
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		</header>
+		
+		<div class="mui-content" id="container">
+			<nav class="mui-bar mui-bar-tab color">
+		      	<h1 class="mui-title" @tap="call(phone)">立即预约</h1>
+			</nav> 
+			<!--轮播图片-->
+			<!--<div id="slider" class="mui-slider">
+				<div class="mui-slider-group">
+					<div class="mui-slider-item">
+						<a href="#">
+							
+						</a> 
+					</div>
+				</div>
+			</div>-->
+			<!--<div class="blur" style="background-image: url('http://img.zhonglaiwang.com/images/2018/01/09/5a5472dd0827b558789996.jpeg');width: 100%;height: 140px;background-size: cover;">
+			</div>-->
+			<div class="blur" :style="{backgroundImage: 'url('+avatar+')'}" style="width: 100%;height: 140px;background-size: cover;">
+			</div>
+			<!--<img :src="background" style="width: 100%;">-->
+			<div >
+				<div id="personalMsg" class="personalMsg">
+					<div>
+						<div class="photo">
+							<img :src="avatar">
+						</div>
+						<span>{{name}}</span>
+						<p>{{job}}&emsp;从业经验{{year}}年</p>
+						<p><vue-five-star :star="score" :readonly="true"></vue-five-star></p>
+					</div>
+				</div>
+				<!--个人简介-->
+				<div id="introduce" class="introduce">
+					<div class="title">
+						<p>个人简介</p>
+					</div>
+					<div class="text">
+						<p>{{intro}}</p>
+					</div>
+				</div>
+				<!--评价-->
+				<div class="evaluate">
+					<div class="title">评价</div>
+			        <div class="evaluatePic">
+			        	<div class="item" v-for="c in comment">
+			        		<div class="mui-row">
+								<div class="mui-col-sm-2 mui-col-xs-2">
+									<img :src="c.logo"/>
+								</div>
+								<div class="mui-col-sm-10 mui-col-xs-10">
+									<span class="username">{{c.username}}</span><br />
+									<img src="../../../images/ic_star_l.png"/>
+									<span class="date floatRigft">{{c.create_time}}</span>
+									<div class="clear"></div>
+									<p>{{c.text}}</p>
+									<img v-for="i in c.smallimg" :src="i.url" style="width:40px;height:40px"/>
+								</div>	 
+							</div>
+			        	</div>
+			        </div>
+				</div>
+			</div>
+			
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/components/FiveStar.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/app.js"></script>
+		
+	   	<script src="js/serviceDetail.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

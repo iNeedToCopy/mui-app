@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>实名认证</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/realAuth.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">实名认证</h1>
+			</div>
+			</header>
+			<nav class="mui-bar mui-bar-tab color" @tap="save()">
+			      <h1 class="mui-title" >提交</h1>
+			</nav> 
+			<div class="mui-content">
+				<div class="explain">
+					请提供有效、完整、清晰的证件图片，证件有效期大于两个月，手持证件的人，必须与证件人物一致, 请依从上到下顺序拍照。
+				</div>
+				<div class="photo">
+					<div class="box idZ" @tap="take_image(1)">
+						<img :src="front.thumb"/>
+					</div>
+					<div class="box idF marginTop10" @tap="take_image(2)">
+						<img :src="behind.thumb"/>
+					</div>
+					<div class="box idSC marginTop10" @tap="take_image(3)">
+						<img :src="hand.thumb"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+		<!--<script src="../../../js/common.js"></script>-->
+	   	<script src="js/realAuth.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>添加收款卡</title>
+		<link href="../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/addCard.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav">
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">添加银行卡</h1>
+				</div>
+			</header>
+			<div class="mui-content">
+				<form class="mui-input-group">
+					<div class="box">
+				    	<input type="text" class="mui-input-clear username" v-model="username" placeholder="户名请与证件姓名一致">
+				    </div>
+				    <div class="box">
+				    	<input type="tel" class="mui-input-clear banknumber" v-model="banknumber" maxlength = "20" placeholder="卡号">
+				    </div>
+				    <ul class="mui-table-view selectBank">
+					    <li class="mui-table-view-cell">
+					        <a href="#popover" class="mui-navigate-right">
+					        	<input type="text" class="selected" placeholder="选择银行"/>
+					        </a>
+					    </li>
+					</ul>	  
+			    	<input type="text" maxlength = "30" class="mui-input-clear address" v-model="address" placeholder="开户网点">
+				</form>
+				<div class="idCode marginTop10">
+					<form class="mui-input-group">
+		   				<input type="tel" maxlength="6" class="mui-input-clear smscode" v-model="smscode" placeholder="请输入验证码">
+					</form>
+					<span></span>
+					<div class="getIdCode">
+						<span class="sms">
+							<vue-sms-code-sender @send_code="send_code()">ddd
+							</vue-sms-code-sender>
+						</span>
+						<!--<button type="button">获取验证码</button>-->
+						
+					</div>
+				</div>
+				<div class="btnBox">
+					<button type="button" @tap="add()">确定</button>
+				</div>
+			</div>
+			<div id="popover" class="mui-popover">
+				<ul class="mui-table-view mui-table-view-radio mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<li class="mui-table-view-cell" v-for="item in item">
+							<a class="mui-navigate-right" :id="item.id">{{item.name}}</a>
+						</li>
+					</div>
+				</ul>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/app.js"></script>
+		<script src="../../js/aes.js"></script>
+		<script src="../../js/pad-zeropadding-min.js"></script>
+		<script src="../../js/components/SmsCodeSender.js" type="text/javascript" charset="utf-8"></script>
+		
+	   	<script src="js/addCard.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

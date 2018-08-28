@@ -1,0 +1,38 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.mui-content{
+	background: #f5f5f9;
+}
+.mui-bar-nav{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+nav .mui-title{
+	color: #fff;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+.explain{
+	padding: 15px;
+	font-size: 13px;
+}
+.photo{
+	background: #fff;
+	padding: 10px 5%;
+}
+.photo .box {
+	width: 100%;
+}
+.photo .box img{
+	width: 100%;
+	height: 214px;
+}

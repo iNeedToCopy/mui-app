@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>附近优惠更多</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+		<link rel="stylesheet" href="css/near.css"/>
+	</head> 
+	<body>
+		<header class="mui-bar mui-bar-nav" > 
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <img src="../../../images/fjyh.png"/>
+			</div>
+		</header>
+		<div id="container" class="mui-conten">
+			<vue-filter ref = "filter" @category_changed="category_changed" 
+						@distance_changed="distance_changed" 
+						@sort_changed="sort_changed" 
+						@filter_changed="filter_changed">
+				<vue-loadmore ref = "pullup" @append = "append" :object="'/shop/search?classid='+classid+'&distance='+distance+'&sort='+sort+filter">
+		        		<ul class="mui-table-view marginTop10">
+			            <li v-if="items.length != 0" class="mui-table-view-cell" v-for="item in items" @tap="goto_shop(item.id)">
+			        		<a class="mui-navigate-right">
+			                	<div class="left"> 
+			                		<img :src="item.logo"/>
+			                	</div>
+			                	<div class="right">
+			                		<p class="hideText10" style="font-weight: bold;font-size: 15px;">{{item.name}}</p>
+			                		<span class="satisfy" style="color: #FA7921;font-weight: bold;">满意度{{item.all_score}}&emsp;&emsp;<span class="per" style="font-weight: normal;">人均{{item.per_price}}</span></span><br />
+			                		<span class="distance">{{item.classname}}&emsp;{{item.area_name}}&emsp;{{item.distance}}<br /></span>
+			                		<span v-if="item.hongbao_desc.length>0" class="free"><img src="../../../images/ic_sj.png"/>&nbsp;{{item.hongbao_desc}}<br /></span>
+			                		<span v-if="item.cash_desc.length>0" class="voucher"><img src="../../../images/ic_juan.png"/>&nbsp;{{item.cash_desc}}<br /></span>
+			                		<span v-if="item.discount_price_desc.length>0" class="reduce"><img src="../../../images/ic_jian.png"/>&nbsp;{{item.discount_price_desc}}</span>
+			                	</div>
+				            </a>
+			            </li>
+			            <div v-else class="picBox">
+							<img src="../../../images/noData.png"/><br />
+							<span>暂时没有数据</span>
+						</div>
+			        </ul>
+			        <div style="height: 50px;"></div>
+			   </vue-loadmore>
+			</vue-filter>	
+		</div>	  
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+		<script src="../../../js/components/Loadmore.min.js"></script>
+		<script src="../../../js/components/Filter.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/app.js"></script>
+
+		<script src="js/nearsearch.js"></script>
+	</body>
+</html>

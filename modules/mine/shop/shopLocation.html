@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>门店地址</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+		<link href="../../../css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../../../css/mui.poppicker.css" rel="stylesheet" />
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/shopLocation.css"/>
+		<style type="text/css">
+			.mui-poppicker.mui-active{
+				z-index: 30001;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav" >
+				<div class="mui-row">
+				    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				    <h1 class="mui-title">门店地址</h1>
+				    <span class="finish" @tap="save()">完成</span>
+				</div>
+			</header>
+			
+			<div class="mui-content" >
+				<div class="shopLocation">
+			        <form class="mui-input-group">
+					    <div class="mui-input-row">
+					        <label>省/市/县</label>
+					    	<input type="text" class="mui-input-clear" :value="short_addr"  readonly="readonly" @tap="select_short_addr()">
+					    </div>
+					    <div class="mui-input-row">
+					        <label>详细地址</label>
+					    	<input type="text" class="mui-input-clear"  v-model="addr" placeholder="必填">
+					    </div>
+					</form>
+				</div>
+			</div>
+			<!--<div class="sign">
+				请在地图上标出门店地址，方便顾客找到你.
+				
+			</div>-->
+				<p style="padding:0px;padding-top:10px;text-align: center;">{{lng}},{{lat}}</p>
+				<!--<div id="map" style="position: relative;"> 
+				<span>	地图加载中...</span>-->
+			<!--</div>-->
+			</div>
+		</div>
+		
+		
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/area.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="../../../js/mui.picker.min.js"></script>
+		<script src="../../../js/mui.poppicker.js"></script>
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/shopLocation.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

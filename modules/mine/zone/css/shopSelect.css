@@ -1,0 +1,100 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body,.mui-content{
+	background: #f5f5f9;
+}
+.mui-bar{
+	background-color: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+/*搜索框*/
+.mui-input-group:before{
+	content: none;
+}
+.mui-input-group:after{
+	content: none;
+}
+.mui-input-group .mui-input-row:after{
+	content: none;
+}
+input[type=text]{
+	height: 44px;
+	font-size: 15px;
+}
+.mui-input-group .mui-input-row{
+	height: 44px;
+}
+.mui-input-row .mui-input-clear~.mui-icon-clear{
+	top: 13px;
+}
+::-webkit-input-placeholder{
+	font-size: 15px;
+}
+.mui-input-row{
+	position: relative;
+}
+.mui-input-row .searchIcon{
+	width: 10%;
+	height: 100%;
+	float: left;
+}
+.searchIcon img{
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 14px;
+	left: 5%;
+}
+.mui-input-row .mui-input-clear{
+	width: 90%;
+	float: left;
+}
+
+
+
+#show li{
+	display: flex;
+	padding: 15px;
+	background: #fff;
+	height: 100px;
+	position: relative;
+}
+#show li:after{
+	position: absolute;
+	left: 12px;
+	right: 0;
+	bottom: 0;
+	height: 1px;
+	content: '';
+	background-color: #e5e5e5;
+}
+#show li img{
+	width: 20%;
+	height: 72px;
+}
+#show li .text{
+	margin-left: 20px;
+	width: 80%;
+}
+#show li .text p{
+	margin-bottom: 0;
+	margin-top: 30px;
+}
+#show li .text img{
+	width: 18px;
+	height: 18px;
+	position: relative;
+	top: -44px;
+	left: 90%;
+}

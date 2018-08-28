@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>兑换商品详情</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/exchangeDetail.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">兑换商品详情</h1>
+			</div>
+		</header>
+		 <div id="container">
+		 	<nav class="mui-bar mui-bar-tab color" >
+			      <h1 class="mui-title" @tap="goto_exchange(baseinfo,slides[0].url)">兑换</h1>
+			</nav>
+		 
+			<div class="mui-scroll-wrapper">
+			    <div class="mui-scroll">
+			    	<div class="mui-content">
+						<div class="picBox" v-if="slides.length>0">
+							<div id="slider" class="mui-slider" >
+							  <div class="mui-slider-group mui-slider-loop">
+							    <div class="mui-slider-item mui-slider-item-duplicate">
+							      <a href="#">
+							        <img :src="slides[slides.length-1].url">
+							      </a>
+							    </div>
+							    <div class="mui-slider-item" v-for="s in slides">
+							      <a href="#">
+							        <img :src="s.url">
+							      </a>
+							    </div>
+							    <div class="mui-slider-item mui-slider-item-duplicate">
+							      <a href="#">
+							        <img :src="slides[0].url">
+							      </a>
+							    </div>
+							  </div>
+							  <div class="mui-slider-indicator">
+							    <div v-for="(s,idx) in slides" class="mui-indicator" :class="{'mui-active':idx==0}"></div>
+			
+							  </div>
+							</div>
+						</div>
+						<div class="goods">
+							<div class="text">
+								<div>
+									<p class="top">{{baseinfo.name}}</p>
+									<p class='border_bottom'>
+										<span style="margin: 0;">{{no_silver ? baseinfo.integral+'积分' : baseinfo.silver+'银豆'}}</span>{{no_silver ? '+' + baseinfo.letter + '信值' : ''}}
+										<span class="bottom">兑换条件：{{no_silver ? '>信用' + baseinfo.credit : '银会员以上'}}</span><br />
+									</p>
+									<div class="info mui-clearfix">
+										<span style="font-size: 14px;color: #333;margin: 0;">兑换数量<e style='font-size: 14px;color: #999;'>(库存：{{baseinfo.stock}})</e></span>
+										<div class="trade">
+											<div class="mui-numbox" data-numbox-step='1' data-numbox-min='1' :data-numbox-max='baseinfo.single_buy_count'>
+											    <button @tap="update_amount()"class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+											    <input class="mui-input-numbox" type="number" readonly="readonly"  />
+											    <button @tap="update_amount()"class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="explain marginTop10">
+							<p style="color: #333;border-bottom: 1px solid #E5E5E5; padding-bottom: 10px;">商品说明</p>
+							<!--<div v-html="intro" style="font-size: 13px;color: #999999;margin-bottom: 80px;">{{intro}}</div>-->
+							<div>
+								<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted" style="margin-bottom: 10px;">
+								    <div class="mui-scroll" style="width: 100%;">
+								        <span :class="{'my-control':true,'my-active':show_type == 0}" @tap="set_viewtype(0)">
+											文字说明
+								        </span>
+								        <span :class="{'my-control':true,'my-active':show_type == 1}" @tap="set_viewtype(1)">
+								       		图片说明
+								        </span>
+								        <span :class="{'my-control':true,'my-active':show_type == 2}" @tap="set_viewtype(2)">
+								       		视频说明
+								        </span>
+								    </div>
+								</div>
+								<div v-show="show_type == 0" v-html="intro" style="font-size: 13px;color: #999999;margin-bottom: 80px;">
+									{{intro}}
+								</div>
+								<div v-show="show_type == 1">
+									<img :src="baseinfo.longimg" alt="" style="width: 100%;"/>
+								</div>
+								<div v-show="show_type == 2">
+									<span style="color:#BBBBBB">暂无视频说明</span>
+								</div>
+							</div>
+						</div>
+			    	</div>
+				</div>
+			</div>
+
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+
+
+		<script src="../../../js/app.js" type="text/javascript" charset="utf-8"></script>
+	   	<script src="js/exchangeDetail.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

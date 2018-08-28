@@ -1,0 +1,201 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body,.mui-content{
+	background: #f5f5f9;
+}
+.mui-bar{
+	background: #fff;
+}
+.mui-bar a{
+	color: #000;
+}
+/*消除阴影*/
+.mui-bar-nav{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom: 1px solid #e5e5e5;
+}
+/*goods*/
+.goodsBox{
+	padding: 20px 15px 0 15px;
+	background: #fff;
+}
+.goodsBox .goods{
+	display: flex;
+	padding-bottom: 5px;
+}
+.goodsBox .goods img{
+	width: 70px;
+	height: 60px;
+}
+.goodsBox .goods p{
+	margin-bottom: 0;
+}
+.goodsBox .goods p img{
+	width: 14px;
+	height: 14px;
+	position: relative;
+	top: 2px;
+}
+.goodsBox .goods .text{
+ 	width: 80%;
+ 	margin-left: 10px;
+ 	position: relative;
+ 	top: -3px;
+}
+.goodsBox .goods span{
+	display: inline-block;
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+.goodsBox .goods .middle{
+	color: #333;
+	font-size: 13px;
+}
+.goodsBox .goods .bottom{
+	font-size: 12px;
+	color: #ccc;
+}
+.goodsBox .goods .bottom .true{
+	color: #f63837;
+	font-weight: bold;
+}
+.goodsBox .goods .bottom .fake{
+	text-decoration: line-through;
+}
+/*price*/
+.price ul li{
+	height: 50px;
+	line-height: 50px;
+	background: #fff;
+	padding: 0 15px;
+	position: relative;
+	color: #666;
+	font-size: 15px;
+}
+.price ul li:after{
+	position: absolute;
+	left: 12px;
+	right: 0;
+	bottom: 0;
+	content: '';
+	height: 1px;
+	background-color: #e5e5e5;
+}
+.price ul .first{
+	display: flex;
+}
+.price ul .first .number{
+	display: flex;
+	position: relative;
+	left: 44%;
+}
+.price ul .first .number .text{
+	font-size: 12px;
+	color: #f23836;
+}
+input[type=text]{
+	width: 30px;
+	height: 22px;
+	padding: 0;
+	text-align: center;
+	color: #000;
+}
+.mui-input-group:before{
+	content: none;
+}
+.mui-input-group:after{
+	content: none;
+}
+.price .reduce{
+	width: 22px;
+	height: 22px;
+	border: 1px solid #dcdcdc;
+	position: relative;
+	top: 13px;
+}
+.price .add{
+	width: 22px;
+	height: 22px;
+	border: 1px solid #dcdcdc;
+	position: relative;
+	top: 13px;
+}
+.price .reduce img{
+	width: 16px;
+	position: relative;
+	top: -19px;
+	left: 10%;
+	color: #000;
+}
+.price .add img{
+	width: 16px;
+	position: relative;
+	top: -12px;
+	left: 10%;
+}
+.price ul li .right{
+	display: inline-block;
+	width: 90%;
+	text-align: right;
+	color: #333;
+}
+.price ul .middle .right{
+	width: 81%;
+}
+.price ul .last{
+	font-size: 18px;
+	color: #333;
+}
+.price ul .last:after{
+	content: none;
+}
+.price ul .last .right{
+	width: 88%;
+	color: #f53736;
+}
+/*service*/
+.mui-table-view .mui-table-view-cell{
+	font-size: 15px;
+}
+.mui-table-view .mui-table-view-cell .door{
+	color: #666;
+	position: relative;
+	left: 58%;
+}
+.mui-table-view:before{
+	content: none;
+}
+.mui-table-view:after{
+	left: 12px;
+	background-color: #e5e5e5;
+}
+/*loaction*/
+.mui-table-view .mui-table-view-cell .right{
+	position: relative;
+	top: -44px;
+	left: 60%;
+}
+.mui-table-view .mui-table-view-cell p{
+	margin-bottom: 0;
+	margin-top: 5px;
+}
+.mui-table-view .mui-table-view-cell .location{
+	height: 70px;
+}
+.btnBox{
+	margin-top: 20px;
+	display: flex;
+	padding: 0 10%;
+}
+button{
+	width: 100%;
+	height: 44px;
+	color: #fff;
+	border: 1px solid #fa7921;
+	border-radius: 0;
+	background: #fa7921;
+	font-size: 16px;
+}

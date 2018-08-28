@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>发送邀请</title>
+		<link href="../../../css/mui.min.css" rel="stylesheet"/>
+	    <!--自己的样式-->
+	    <link rel="stylesheet" type="text/css" href="../../common/css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/sendInvitation.css"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<div class="mui-row">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">发送邀请</h1>
+			</div>
+		</header>
+		<div id="container" class="mui-content">
+			<form class="mui-input-group">
+			    <div class="mui-input-row">
+			    	<input type="tel" maxlength="11" class="mui-input-clear" v-model="user" placeholder="输入被邀请人手机号或ID">
+			    </div>
+			</form>
+			<div class="btnBox">
+				<button type="button" @tap="send()">发送邀请</button>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/vue.min.js"></script>
+		<script src="../../../js/app.js"></script>
+	   	<script src="js/sendInvitation.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

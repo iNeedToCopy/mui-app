@@ -1,0 +1,18 @@
+.smscodesender{
+        background: #fff;
+        width: 32%;
+        font-size: 15px;
+        color: #209ae3;
+        text-align: center;
+        line-height: 50px;
+        position: relative;
+    }
+    .smscodesender span{
+        display: inline-block;
+        width: 1px;
+        height: 25px;
+        background: #E5E5E5;
+        position: absolute;
+        top: 12px;
+        left: 0;
+    }
